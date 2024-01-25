@@ -1,0 +1,17 @@
+.calculator {
+  width: min(98%, 600px);
+  label {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      width: 80px;
+    }
+    input,
+    select {
+      display: block;
+      height: 30px;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+  }
+}

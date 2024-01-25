@@ -1,0 +1,141 @@
+pre {
+  code {
+    --scrollBar-w: 2px;
+    --scrollBar-bg: var(--primary-300);
+    padding-bottom: var(--unit-2);
+    max-height: min(60dvh, 400px);
+    &::-webkit-scrollbar {
+      width: var(--scrollBar-w);
+      height: var(--scrollBar-w);
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--white);
+    }
+    &::-webkit-scrollbar-thumb {
+      width: var(--scrollBar-w);
+      height: var(--scrollBar-w);
+      border-radius: calc(var(--scrollBar-w) / 2);
+      background: var(--scrollBar-bg);
+    }
+    &:hover {
+      --scrollBar-bg: var(--primary-600);
+    }
+  }
+}
+code {
+  padding: 0 var(--unit-1);
+}
+pre,
+code {
+  background: var(--code-bg);
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.8rem;
+}
+pre[class*="language-"] {
+  padding-top: var(--unit-4);
+}
+pre.language-output {
+  background: var(--gray-0);
+  border: 1px solid var(--code-bg);
+}
+.copy-btn {
+  cursor: pointer;
+  --m: 4px;
+  --w: 20px;
+  transition: opacity var(--time), transform var(--time);
+  opacity: 0.3;
+  top: var(--m);
+  right: var(--m);
+  width: var(--w);
+  height: var(--w);
+  svg {
+    stroke: var(--code-copy);
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+  &:active {
+    opacity: 0.3;
+  }
+  &::before {
+    transition: inherit;
+    content: "copied!";
+    position: absolute;
+    display: block;
+    width: max-content;
+    height: var(--w);
+    opacity: 0;
+    transform: scale(0);
+  }
+  &.active::before {
+    opacity: 1;
+    transform: scale(1) translateX(-110%);
+  }
+}
+
+.demo-frame {
+  border-radius: 5px;
+  border: 1px solid var(--primary-300);
+  iframe {
+    max-height: 100dvh;
+    border: none;
+    &.active {
+      position: fixed !important;
+      z-index: index($z-index, model);
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+.full-page {
+  text-decoration: none;
+  width: max-content;
+  transition: opacity var(--time);
+  opacity: 0.6;
+  &.active {
+    position: fixed !important;
+    z-index: calc(index($z-index, model) + 1);
+    right: 0.5rem;
+    top: 0;
+    text-shadow: 0 0 5px var(--main-bg);
+  }
+  &::before,
+  &::after {
+    content: "";
+    background-color: var(--primary);
+    position: absolute;
+    transition: width calc(var(--time) / 2);
+    height: 1px;
+    bottom: 0;
+    width: 0;
+  }
+  &::before {
+    left: 0;
+    transition-delay: calc(var(--time) / 2);
+  }
+  &::after {
+    right: 0;
+    transform-origin: right bottom;
+    transform: rotate(45deg);
+    transition-delay: 0s;
+  }
+  &:focus,
+  &:hover {
+    opacity: 1;
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+      transition-delay: 0s;
+    }
+    &::after {
+      width: 10px;
+      transition-delay: calc(var(--time) / 2);
+    }
+  }
+}

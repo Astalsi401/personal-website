@@ -1,0 +1,37 @@
+.portfolio {
+  transition: transform var(--time);
+  &:hover,
+  &:focus {
+    transform: scale(var(--scale));
+    .tag {
+      opacity: 1;
+      filter: blur(0);
+    }
+    .page-view {
+      background-position: 50% 100%;
+    }
+  }
+}
+.page-logo {
+  background-size: contain;
+  background-position: 50% 50%;
+}
+.page-view {
+  transition: background-position calc(var(--time) * 15);
+  background-size: cover;
+  background-position: 50% 0;
+}
+.portfolio-thumb {
+  background-repeat: no-repeat;
+  .tags {
+    padding: var(--unit-1);
+    inset: 0;
+  }
+  .tag {
+    transition: opacity var(--time), filter var(--time);
+    transition-delay: calc(0.1s * var(--i));
+    background: var(--primary);
+    color: var(--white);
+    opacity: 0.3;
+  }
+}

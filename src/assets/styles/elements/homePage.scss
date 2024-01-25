@@ -1,0 +1,8 @@
+.home-page-icon {
+  width: min(80px, 100%);
+  transition: transform var(--time);
+  &:hover,
+  &:focus {
+    transform: scale(var(--scale));
+  }
+}
