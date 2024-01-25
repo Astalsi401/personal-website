@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import index from "../assets/json/index.json";
 
 export const toggleActive = (stateActive) => (stateActive ? active : "");
