@@ -2,17 +2,17 @@
   "index": [
     {
       "category": "Home",
-      "href": "",
+      "href": "/",
       "pages": [
-        { "page": "Stata", "href": "/stata/index.html", "icon": "/assets/images/stata.png" },
-        { "page": "R", "href": "/R/r_index.html", "icon": "/assets/images/R.png" },
-        { "page": "Notes", "href": "/notes/notes_index.html", "icon": "/assets/images/notes.png" },
-        { "page": "Portfolio", "href": "/portfolio/portfolio_index.html", "icon": "/assets/images/portfolio.svg" }
+        { "page": "Stata", "href": "/stata", "icon": "/assets/images/stata.png" },
+        { "page": "R", "href": "/R", "icon": "/assets/images/R.png" },
+        { "page": "Notes", "href": "/notes", "icon": "/assets/images/notes.png" },
+        { "page": "Portfolio", "href": "/portfolio", "icon": "/assets/images/portfolio.svg" }
       ]
     },
     {
       "category": "Notes",
-      "href": "/notes/notes_index.html",
+      "href": "/notes",
       "pages": [
         {
           "page": "cmder筆記",
@@ -29,13 +29,7 @@
         { "page": "php筆記", "href": "/notes/php/php.html" },
         { "page": "Python筆記", "href": "/notes/python/python.html" },
         { "page": "JavaScript筆記", "href": "/notes/JavaScript/JavaScript.html" },
-        { "page": "Html & Css", "href": "/notes/html-css/html&css.html" }
-      ]
-    },
-    {
-      "category": "Forza Horizon 4",
-      "href": "/notes/notes_index.html",
-      "pages": [
+        { "page": "Html & Css", "href": "/notes/html-css/html&css.html" },
         { "page": "車輛升級", "href": "/notes/fh4/upgrade.html" },
         { "page": "基礎調教", "href": "/notes/fh4/basic_tune.html" },
         { "page": "調教分享", "href": "/notes/fh4/tune_list.html" }
@@ -43,7 +37,7 @@
     },
     {
       "category": "Stata",
-      "href": "/stata/index.html",
+      "href": "/stata",
       "pages": [
         { "page": "資料輸入與表格呈現", "href": "/stata/001-input_tab.html" },
         { "page": "匯入與匯出", "href": "/stata/002-import_export.html" },
@@ -66,7 +60,7 @@
     },
     {
       "category": "R",
-      "href": "/R/r_index.html",
+      "href": "/R",
       "pages": [
         { "page": "基礎操作與資料輸入", "href": "/R/001-data_input.html" },
         { "page": "資料匯入與匯出", "href": "/R/002-import_export.html" },
@@ -76,7 +70,7 @@
     },
     {
       "category": "Portfolio",
-      "href": "/portfolio/portfolio_index.html",
+      "href": "/portfolio",
       "pages": [
         { "page": "2023 Healthcare EXPO Taiwan Floor Map", "href": "/portfolio/javascript-floormap/javascript-floormap.html", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react"] },
         { "page": "StackOverflow Panel Resize", "href": "/portfolio/stackOverflow-pane-resize/stackOverflow-pane-resize.html", "thumbnail": "js", "tags": ["css", "html", "js", "stackOverflow"] },
