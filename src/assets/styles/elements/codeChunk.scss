@@ -3,7 +3,7 @@ pre {
     --scrollBar-w: 2px;
     --scrollBar-bg: var(--primary-300);
     padding-bottom: var(--unit-2);
-    max-height: min(60dvh, 400px);
+    max-height: 200dvh;
     &::-webkit-scrollbar {
       width: var(--scrollBar-w);
       height: var(--scrollBar-w);
@@ -31,14 +31,20 @@ code {
 }
 code[class*="language-"],
 pre[class*="language-"] {
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 pre[class*="language-"] {
   padding-top: var(--unit-4);
 }
 pre.language-output {
-  background: var(--gray-0);
   border: 1px solid var(--code-bg);
+}
+pre,
+code {
+  &.language-output {
+    background: var(--gray-0);
+  }
 }
 .copy-btn {
   cursor: pointer;

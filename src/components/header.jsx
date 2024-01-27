@@ -3,12 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import { toggleActive } from "./functions";
 
 const sidebarAnchor = "sidebarAnchor";
+const sidebar = "sidebar";
 
 function Header() {
+  const index = useLoaderData();
   const [sidebarActive, setSidebarActive] = useState(false);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
-  const handleFocusIn = ({ target }) => setSidebarActive(wrapperRef.current.contains(target) ? true : false);
+  const handleFocusIn = ({ target }) => setSidebarActive((prev) => (wrapperRef.current.contains(target) ? true : btnRef.current.contains(target) ? prev : false));
   const handleClick = (e) => {
     e.preventDefault();
     setSidebarActive((prev) => !prev);
@@ -18,11 +20,11 @@ function Header() {
     if (data.window && data.window === "iframe") setSidebarActive(false);
   };
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOut);
+    document.addEventListener("pointerdown", handleClickOut);
     document.addEventListener("focusin", handleFocusIn);
     window.addEventListener("message", handleClickFrame);
     return () => {
-      document.removeEventListener("mousedown", handleClickOut);
+      document.removeEventListener("pointerdown", handleClickOut);
       document.removeEventListener("focusin", handleFocusIn);
       window.removeEventListener("message", handleClickFrame);
     };
@@ -32,37 +34,40 @@ function Header() {
       <Accessibility />
       <header id="header" className="position-fixed w-100">
         <nav id="navbar" className="position-relative">
-          <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${toggleActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
-            <span />
-          </a>
           <Link to={import.meta.env.BASE_URL} className="home d-block position-absolute">
             <svg viewBox="0 0 500 500">
               <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
             </svg>
           </Link>
+          <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${toggleActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
+            <span />
+          </a>
         </nav>
         <ProgressBar />
-        <Sidebar sidebarActive={sidebarActive} wrapperRef={wrapperRef} />
+        <Sidebar index={index} sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} wrapperRef={wrapperRef} />
       </header>
     </>
   );
 }
 
-function Sidebar({ sidebarActive, wrapperRef }) {
-  const index = useLoaderData();
+function Sidebar({ index, sidebarActive, setSidebarActive, wrapperRef }) {
   const [childrenActive, setChildrenActive] = useState(false);
   const click = () => setChildrenActive((prev) => !prev);
+  const handleLinkClick = () => {
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+    setSidebarActive(false);
+  };
   return (
-    <aside id="sidebar" className={`position-absolute ${toggleActive(sidebarActive)}`} ref={wrapperRef}>
+    <aside id={sidebar} className={`position-absolute ${toggleActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
-        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchor} className="text-decoration-none">
+        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchor} className="text-decoration-none" onClick={handleLinkClick}>
           {index.category}
         </Link>
       </h1>
       <ul className="menu py-3">
         {index.pages.map((p, i) => (
           <li key={i} className={`${p.section ? "has-children" : ""}`} onClick={click}>
-            <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${p.href === location.pathname ? "current" : ""}`}>
+            <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${p.href === location.pathname ? "current" : ""}`} onClick={handleLinkClick}>
               <span>{p.page}</span>
             </Link>
             {p.href == location.pathname && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}

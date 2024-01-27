@@ -1,7 +1,11 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Root({ category }) {
   const index = useLoaderData();
+  useEffect(() => {
+    document.title = index.category;
+  }, [index.category]);
   return (
     <div className="container-sm py-5">
       <h1 className="my-5 py-5 text-center text-xxx-large">{category}</h1>
@@ -16,8 +20,3 @@ export default function Root({ category }) {
     </div>
   );
 }
-
-export const loader = async () => {
-  const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/index.json`).then((res) => res.json());
-  return data.index.find((d) => d.href === "/");
-};

@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getPages } from "./components/functions";
+import "./assets/styles/main.scss";
+import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { getPages, getCategories, getSections } from "./components/functions";
 import Header from "./components/header";
 import IndexPage from "./routes/indexPage";
-import Root, { loader as getCategories } from "./routes/root";
+import PostPage from "./routes/postPage";
 import ErrorPage from "./routes/error";
-import "./assets/styles/main.min.css";
-import { Outlet } from "react-router-dom";
+import Root from "./routes/root";
 
 const router = createBrowserRouter([
   {
@@ -30,11 +30,25 @@ const router = createBrowserRouter([
       {
         path: "/personal-website/:href",
         loader: getPages,
-        element: (
-          <>
-            <IndexPage />
-          </>
-        ),
+        element: <IndexPage />,
+      },
+    ],
+  },
+  {
+    path: "/personal-website/:href/:page",
+    loader: getPages,
+    element: (
+      <>
+        <Header />
+        <Outlet />
+      </>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/personal-website/:href/:page",
+        loader: getSections,
+        element: <PostPage />,
       },
     ],
   },
