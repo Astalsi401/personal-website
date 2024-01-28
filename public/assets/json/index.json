@@ -14,58 +14,54 @@
       "category": "Notes",
       "href": "/notes",
       "pages": [
-        {
-          "page": "cmder筆記",
-          "href": "/notes/cmder/setting.html",
-          "section": [
-            { "title": "安裝", "href": "/notes/cmder/setting.html#install" },
-            { "title": "基礎設定", "href": "/notes/cmder/setting.html#settings" },
-            { "title": "Cmder & Git", "href": "/notes/cmder/setting.html#cmder_git" },
-            { "title": "Cmder & Sublime Text 3", "href": "/notes/cmder/setting.html#cmder_sublime" },
-            { "title": "Cmder快捷鍵", "href": "/notes/cmder/setting.html#cmder_hotkey" }
-          ]
-        },
-        { "page": "mysql筆記", "href": "/notes/mysql/mysql.html" },
-        { "page": "php筆記", "href": "/notes/php/php.html" },
-        { "page": "Python筆記", "href": "/notes/python/python.html" },
-        { "page": "JavaScript筆記", "href": "/notes/JavaScript/JavaScript.html" },
-        { "page": "Html & Css", "href": "/notes/html-css/html&css.html" },
-        { "page": "車輛升級", "href": "/notes/fh4/upgrade.html" },
-        { "page": "基礎調教", "href": "/notes/fh4/basic_tune.html" },
-        { "page": "調教分享", "href": "/notes/fh4/tune_list.html" }
+        { "page": "cmder筆記", "href": "/cmder_setting" },
+        { "page": "mysql筆記", "href": "/mysql" },
+        { "page": "php筆記", "href": "/php" },
+        { "page": "Python筆記", "href": "/python" },
+        { "page": "JavaScript筆記", "href": "/JavaScript" },
+        { "page": "Html & Css", "href": "/html&css" }
+      ]
+    },
+    {
+      "category": "Games",
+      "href": "/games",
+      "pages": [
+        { "page": "車輛升級", "href": "/fh4_upgrade" },
+        { "page": "基礎調教", "href": "/fh4_basic_tune" },
+        { "page": "調教分享", "href": "/fh4_tune_list" }
       ]
     },
     {
       "category": "Stata",
       "href": "/stata",
       "pages": [
-        { "page": "資料輸入與表格呈現", "href": "/stata/001-input_tab" },
-        { "page": "匯入與匯出", "href": "/stata/002-import_export" },
-        { "page": "檢視資料", "href": "/stata/003-data_des" },
-        { "page": "整理資料檔", "href": "/stata/004-data_sort" },
-        { "page": "迴圈", "href": "/stata/005-stata_loop" },
-        { "page": "繪圖", "href": "/stata/006-graph" },
-        { "page": "z-score", "href": "/stata/007-zscore" },
-        { "page": "t test", "href": "/stata/008-ttest" },
-        { "page": "Anova Test", "href": "/stata/009-Anova_Test" },
-        { "page": "非參數顯著性檢定", "href": "/stata/010-nonparametric_statistics" },
-        { "page": "中位數檢驗（Median Test）", "href": "/stata/011-median_test" },
-        { "page": "相關係數", "href": "/stata/012-correlation" },
-        { "page": "迴歸分析", "href": "/stata/013-regression" },
-        { "page": "因素分析", "href": "/stata/014-factor_analysis" },
-        { "page": "邏輯分析（Logistic Analysis）", "href": "/stata/015-logisitic_analysis" },
-        { "page": "Sublime Text 3 & Stata", "href": "/stata/other_01-st3" },
-        { "page": "Html & Stata", "href": "/stata/other_02-html" }
+        { "page": "資料輸入與表格呈現", "href": "/001-input_tab" },
+        { "page": "匯入與匯出", "href": "/002-import_export" },
+        { "page": "檢視資料", "href": "/003-data_des" },
+        { "page": "整理資料檔", "href": "/004-data_sort" },
+        { "page": "迴圈", "href": "/005-stata_loop" },
+        { "page": "繪圖", "href": "/006-graph" },
+        { "page": "z-score", "href": "/007-zscore" },
+        { "page": "t test", "href": "/008-ttest" },
+        { "page": "Anova Test", "href": "/009-Anova_Test" },
+        { "page": "非參數顯著性檢定", "href": "/010-nonparametric_statistics" },
+        { "page": "中位數檢驗（Median Test）", "href": "/011-median_test" },
+        { "page": "相關係數", "href": "/012-correlation" },
+        { "page": "迴歸分析", "href": "/013-regression" },
+        { "page": "因素分析", "href": "/014-factor_analysis" },
+        { "page": "邏輯分析（Logistic Analysis）", "href": "/015-logisitic_analysis" },
+        { "page": "Sublime Text 3 & Stata", "href": "/other_01-st3" },
+        { "page": "Html & Stata", "href": "/other_02-html" }
       ]
     },
     {
       "category": "R",
       "href": "/R",
       "pages": [
-        { "page": "基礎操作與資料輸入", "href": "/R/001-data_input.html" },
-        { "page": "資料匯入與匯出", "href": "/R/002-import_export.html" },
-        { "page": "網絡分析（一）", "href": "/R/003-social_network_1.html" },
-        { "page": "網絡分析（二）", "href": "/R/004-social_network_2.html" }
+        { "page": "基礎操作與資料輸入", "href": "/001-data_input" },
+        { "page": "資料匯入與匯出", "href": "/002-import_export" },
+        { "page": "網絡分析（一）", "href": "/003-social_network_1" },
+        { "page": "網絡分析（二）", "href": "/004-social_network_2" }
       ]
     },
     {

@@ -6,7 +6,6 @@ const sidebarAnchor = "sidebarAnchor";
 const sidebar = "sidebar";
 
 function Header() {
-  const index = useLoaderData();
   const [sidebarActive, setSidebarActive] = useState(false);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
@@ -44,13 +43,14 @@ function Header() {
           </a>
         </nav>
         <ProgressBar />
-        <Sidebar index={index} sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} wrapperRef={wrapperRef} />
+        <Sidebar sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} wrapperRef={wrapperRef} />
       </header>
     </>
   );
 }
 
-function Sidebar({ index, sidebarActive, setSidebarActive, wrapperRef }) {
+function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
+  const index = useLoaderData();
   const [childrenActive, setChildrenActive] = useState(false);
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => {
@@ -65,14 +65,16 @@ function Sidebar({ index, sidebarActive, setSidebarActive, wrapperRef }) {
         </Link>
       </h1>
       <ul className="menu py-3">
-        {index.pages.map((p, i) => (
-          <li key={i} className={`${p.section ? "has-children" : ""}`} onClick={click}>
-            <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${p.href === location.pathname ? "current" : ""}`} onClick={handleLinkClick}>
-              <span>{p.page}</span>
-            </Link>
-            {p.href == location.pathname && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
-          </li>
-        ))}
+        {index.pages.map((p, i) => {
+          return (
+            <li key={i} className={`${p.section ? "has-children" : ""}`} onClick={click}>
+              <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${p.href === location.pathname ? "current" : ""}`} onClick={handleLinkClick}>
+                <span>{p.page}</span>
+              </Link>
+              {p.href == location.pathname && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
+            </li>
+          );
+        })}
       </ul>
       <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
         <a className="social-link d-block" href="https://github.com/Astalsi401" target="_blank" title="My GitHub">

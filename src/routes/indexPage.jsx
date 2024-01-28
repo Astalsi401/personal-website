@@ -21,7 +21,7 @@ const Normal = ({ index }) => {
       <ul className="mx-auto my-3 text-center w-lg-50 w-100">
         {index.pages.map((page) => (
           <li key={page.page} className="my-2">
-            <Link to={`${import.meta.env.BASE_URL}${page.href}`} className="p-2 position-relative text-decoration-none">
+            <Link to={`${import.meta.env.BASE_URL}${index.href}${page.href}`} className="p-2 position-relative text-decoration-none">
               {page.page}
             </Link>
           </li>
@@ -40,7 +40,7 @@ const Portfolio = ({ index }) => {
     <div className="row">
       {index.pages.map((page) => (
         <div className="col-sm-6 col-md-4 col-lg-3 p-2" key={page.page}>
-          <Link to={`${import.meta.env.BASE_URL}${page.href}`} target="_blank" className="d-block bg-white shadow-sm w-100 h-100 text-center text-decoration-none portfolio">
+          <Link to={`${import.meta.env.BASE_URL}${index.href}${page.href}`} target="_blank" className="d-block bg-white shadow-sm w-100 h-100 text-center text-decoration-none portfolio">
             <div className={`portfolio-thumb w-100 ratio-16by9 position-relative overflow-hidden ${logo[page.thumbnail] ? "page-logo" : "page-view"}`} style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${logo[page.thumbnail] ? logo[page.thumbnail] : page.thumbnail})` }}>
               <div className="tags position-absolute d-flex align-items-end">
                 {page.tags.map((tag, i) => (

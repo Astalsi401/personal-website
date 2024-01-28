@@ -10,7 +10,7 @@ export const getPages = async ({ params: { href } }) => {
 export const getSections = async ({ params: { href, page } }) => {
   const data = await getIndex();
   const sections = await import(`../pages/${href}/${page}/page.jsx`);
-  const title = data.find((d) => d.href === `/${href}`).pages.find((d) => d.href === `/${href}/${page}`).page;
+  const title = data.find((d) => d.href === `/${href}`).pages.find((d) => d.href === `/${page}`).page;
   return [title, sections.default];
 };
 
