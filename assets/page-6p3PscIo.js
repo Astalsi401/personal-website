@@ -1,4 +1,4 @@
-import{j as e}from"./index-xh2kQ6lE.js";import{C as a}from"./codeChunk-7ohDiSGw.js";import{Z as d}from"./zoomImage-g407rk4L.js";const l=[{title:"常態分配曲線",content:e.jsxs(e.Fragment,{children:[e.jsx(a,{code:`twoway (function y=normalden(x) , range(-4 4)        ///
+import{j as e}from"./index-LtAfG_2p.js";import{C as a}from"./codeChunk-8Pie1Zmn.js";import{Z as d}from"./zoomImage-8qZONL8f.js";const l=[{title:"常態分配曲線",content:e.jsxs(e.Fragment,{children:[e.jsx(a,{code:`twoway (function y=normalden(x) , range(-4 4)        ///
         droplines(-2 -1 0 1 2)),                       ///
         title("常態分配曲線")                         ///
         plotregion(margin(zero))                       ///
