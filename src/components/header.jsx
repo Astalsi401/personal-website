@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { toggleActive } from "./functions";
 
@@ -52,6 +52,7 @@ function Header() {
 function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
   const index = useLoaderData();
   const [childrenActive, setChildrenActive] = useState(false);
+  const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => {
     setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
@@ -66,12 +67,13 @@ function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
       </h1>
       <ul className="menu py-3">
         {index.pages.map((p, i) => {
+          const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
           return (
             <li key={i} className={`${p.section ? "has-children" : ""}`} onClick={click}>
-              <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${p.href === location.pathname ? "current" : ""}`} onClick={handleLinkClick}>
+              <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
-              {p.href == location.pathname && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
+              {isCurrent && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
             </li>
           );
         })}
@@ -82,6 +84,20 @@ function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
         </a>
       </div>
     </aside>
+  );
+}
+
+function SidebarChild({ sections, childrenActive }) {
+  return (
+    <ul className={`children ${toggleActive(childrenActive)}`}>
+      {sections.map((s) => (
+        <li key={s.title}>
+          <a className="ps-4 text-decoration-none" href={s.href}>
+            <span>{s.title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
 
