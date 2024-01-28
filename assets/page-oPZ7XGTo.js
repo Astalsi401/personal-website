@@ -1,4 +1,4 @@
-import{j as s}from"./index-LtAfG_2p.js";import{C as d}from"./codeChunk-8Pie1Zmn.js";const a=[{title:"",content:s.jsxs(s.Fragment,{children:[s.jsx("p",{children:"輸入資料"}),s.jsx(d,{code:`clear
+import{j as s}from"./index-9YwG6PoJ.js";import{C as d}from"./codeChunk-FylI4pgQ.js";const a=[{title:"",content:s.jsxs(s.Fragment,{children:[s.jsx("p",{children:"輸入資料"}),s.jsx(d,{code:`clear
 input str9 name iq /*str9: 空出9個字元的長度*/
 "Gene"    125
 "Steve"    92

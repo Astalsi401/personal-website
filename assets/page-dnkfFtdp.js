@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as a}from"./codeChunk-8Pie1Zmn.js";const d=[{title:"",content:e.jsx("p",{children:"大多數剛匯入的資料並不適合直接分析，為了讓資料更符合符合我們的需求，需要對資料進行整理，以下介紹幾個整理資料經常用到的指令。"})},{title:"整理資料常用指令",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"載入資料"}),e.jsx(a,{code:`cd "C:/Users/misti/Documents/Stata/unify/data"
+import{j as e}from"./index-9YwG6PoJ.js";import{C as a}from"./codeChunk-FylI4pgQ.js";const d=[{title:"",content:e.jsx("p",{children:"大多數剛匯入的資料並不適合直接分析，為了讓資料更符合符合我們的需求，需要對資料進行整理，以下介紹幾個整理資料經常用到的指令。"})},{title:"整理資料常用指令",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"載入資料"}),e.jsx(a,{code:`cd "C:/Users/misti/Documents/Stata/unify/data"
 ls
 use 2012_063Q1xia.dta, clear
 cd ..`,lang:"stata"}),e.jsx(a,{code:`. cd "C:/Users/misti/Documents/Stata/unify/data"

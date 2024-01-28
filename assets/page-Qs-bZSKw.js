@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as a}from"./codeChunk-8Pie1Zmn.js";import{Z as t}from"./zoomImage-8qZONL8f.js";const n=[{title:"Odds Ratio",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"在logistic analysis分析中，應變項必須是0或者1（有/無、是/否），自變項可以使用類別變項，也可以使用連續變項。所得到的結果更可以轉換成為機率（Odds Ratio）的概念解讀。"}),e.jsxs("div",{className:"my-2",children:[e.jsx("div",{className:"text-bold text-large",children:"範例："}),e.jsx(a,{code:`cd data
+import{j as e}from"./index-9YwG6PoJ.js";import{C as a}from"./codeChunk-FylI4pgQ.js";import{Z as t}from"./zoomImage--z7_8Jrf.js";const n=[{title:"Odds Ratio",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"在logistic analysis分析中，應變項必須是0或者1（有/無、是/否），自變項可以使用類別變項，也可以使用連續變項。所得到的結果更可以轉換成為機率（Odds Ratio）的概念解讀。"}),e.jsxs("div",{className:"my-2",children:[e.jsx("div",{className:"text-bold text-large",children:"範例："}),e.jsx(a,{code:`cd data
 use "tracking.dta", clear
 cd ..
 ta college atrack`,lang:"stata"}),e.jsx(a,{code:`. cd data

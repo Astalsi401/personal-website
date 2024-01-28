@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as s}from"./codeChunk-8Pie1Zmn.js";const d=[{title:".csv",content:e.jsxs(e.Fragment,{children:[e.jsx(s,{code:`setwd("D:/Documents/R/site/data")
+import{j as e}from"./index-9YwG6PoJ.js";import{C as s}from"./codeChunk-FylI4pgQ.js";const d=[{title:".csv",content:e.jsxs(e.Fragment,{children:[e.jsx(s,{code:`setwd("D:/Documents/R/site/data")
 list.files()`,lang:"r"}),e.jsx(s,{code:`## [1] "data.fauxhigh.csv"   "edges.fauxhigh.csv"  "export01.csv"       
 ## [4] "export02.csv"        "export03.rdata"      "export04_ids.rds"   
 ## [7] "export05.dta"        "matrix.fauxhigh.csv"`,lang:"output"}),e.jsx(s,{code:`# 將匯入的文件命名為fauxhs

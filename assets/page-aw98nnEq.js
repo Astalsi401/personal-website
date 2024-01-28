@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as o}from"./codeChunk-8Pie1Zmn.js";const s=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"測試不同教育程度（大學 vs. 高中或以下）是否會影響生理健康狀況"}),e.jsx(o,{code:`
+import{j as e}from"./index-9YwG6PoJ.js";import{C as o}from"./codeChunk-FylI4pgQ.js";const s=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"測試不同教育程度（大學 vs. 高中或以下）是否會影響生理健康狀況"}),e.jsx(o,{code:`
 clear
 use "C:/Users/misti/Documents/Stata/社會一/社會統計/統計2-02/GSS2010.dta"
 set more off

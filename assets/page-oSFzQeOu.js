@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as l}from"./codeChunk-8Pie1Zmn.js";import{Z as r}from"./zoomImage-8qZONL8f.js";const t=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"輸入資料"}),e.jsx(l,{code:`clear
+import{j as e}from"./index-9YwG6PoJ.js";import{C as l}from"./codeChunk-FylI4pgQ.js";import{Z as r}from"./zoomImage--z7_8Jrf.js";const t=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"輸入資料"}),e.jsx(l,{code:`clear
 quietly input str14 state ur 
 cap drop ur0  /*如果有ur0的話就拋棄，沒有則不做動作*/
 recode ur (2.0/3.9=1 "2.0-3.9") (4.0/5.9=2 "4.0-5.9") /// 

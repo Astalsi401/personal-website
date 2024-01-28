@@ -1,4 +1,4 @@
-import{j as e}from"./index-LtAfG_2p.js";import{C as a}from"./codeChunk-8Pie1Zmn.js";const r=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"在量化分析的過程中，從一開始清理資料、統計分析，到最後輸出結果都少不了大量重複性高的步驟，若能學會利用迴圈處理將使效率大幅提升。"}),e.jsx("p",{children:"以下將做簡單的示範，首先匯入資料，並觀察資料的信息："}),e.jsx(a,{code:`use "tscs071 v5.dta", clear
+import{j as e}from"./index-9YwG6PoJ.js";import{C as a}from"./codeChunk-FylI4pgQ.js";const r=[{title:"",content:e.jsxs(e.Fragment,{children:[e.jsx("p",{children:"在量化分析的過程中，從一開始清理資料、統計分析，到最後輸出結果都少不了大量重複性高的步驟，若能學會利用迴圈處理將使效率大幅提升。"}),e.jsx("p",{children:"以下將做簡單的示範，首先匯入資料，並觀察資料的信息："}),e.jsx(a,{code:`use "tscs071 v5.dta", clear
 numlabel _all, add
 ta e2_1`,lang:"stata"}),e.jsx(a,{code:`       因為努力不夠 |      Freq.     Percent        Cum.
 --------------------+-----------------------------------
