@@ -1,5 +1,5 @@
-import CodeChunk from "../../../components/codeChunk";
-import ZoomImage from "../../../components/zoomImage";
+import { CodeChunk } from "../../../components/codeChunk";
+import { ZoomImage } from "../../../components/zoomImage";
 
 const shortCutTable = [
   { shortCut: "Ctrl+T", des: "新頁面" },

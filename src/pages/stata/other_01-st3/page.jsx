@@ -1,4 +1,4 @@
-import ZoomImage from "../../../components/zoomImage";
+import { ZoomImage } from "../../../components/zoomImage";
 
 const sections = [
   {

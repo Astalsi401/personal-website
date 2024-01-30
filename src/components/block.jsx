@@ -1,4 +1,4 @@
-export default function Block({ className, title, titleClass, id, content }) {
+export function Block({ className, title, titleClass, id, content }) {
   return (
     <section className={`my-4 ${className ? className : ""}`}>
       {title ? (

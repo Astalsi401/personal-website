@@ -5,7 +5,7 @@ import { toggleActive } from "./functions";
 const sidebarAnchor = "sidebarAnchor";
 const sidebar = "sidebar";
 
-function Header() {
+export function Header() {
   const [sidebarActive, setSidebarActive] = useState(false);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
@@ -68,9 +68,10 @@ function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
       <ul className="menu py-3">
         {index.pages.map((p, i) => {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
+          const isMyPage = /^http/.test(p.href);
           return (
             <li key={i} className={`${p.section ? "has-children" : ""}`} onClick={click}>
-              <Link to={/^http?:/.test(p.href) ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
+              <Link to={isMyPage ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} target={isMyPage ? "_blank" : "_self"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
               {isCurrent && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
@@ -117,7 +118,7 @@ function Accessibility() {
   );
 }
 
-const ProgressBar = () => {
+function ProgressBar() {
   const [percent, setPercent] = useState(0);
   const handleScroll = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -133,6 +134,4 @@ const ProgressBar = () => {
     };
   }, []);
   return <div className="progress w-100 position-relative" style={{ "--percent": percent }} />;
-};
-
-export default Header;
+}

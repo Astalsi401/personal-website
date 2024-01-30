@@ -1,0 +1,47 @@
+import { CodeChunk } from "../../../components/codeChunk";
+import { DemoFrame } from "../../../components/demoFrame";
+
+const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/btn-effect-collections`;
+const sections = [
+  {
+    title: "Hover arrows",
+    content: (
+      <>
+        <p>
+          有趣的<code>box-shadoe</code>用法
+        </p>
+        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.scss`} lang="scss" />
+      </>
+    ),
+  },
+  {
+    title: "btn1",
+    content: (
+      <>
+        <p>
+          <code>transition-delay</code>的應用
+        </p>
+        <DemoFrame src={`${demoPath}/frame2.html`} />
+        <CodeChunk path={`${demoPath}/frame2/btn1.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame2/btn1.scss`} lang="scss" />
+      </>
+    ),
+  },
+  {
+    title: "btn2",
+    content: (
+      <>
+        <p>
+          <code>rotate</code>的應用
+        </p>
+        <DemoFrame src={`${demoPath}/frame3.html`} />
+        <CodeChunk path={`${demoPath}/frame3/btn2.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame3/btn2.scss`} lang="scss" />
+      </>
+    ),
+  },
+];
+
+export default sections;

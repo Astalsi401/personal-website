@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@import "./frame1/css-btn-arrow.scss";
+@import "./frame2/btn1.scss";
+@import "./frame3/btn2.scss";

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { toggleActive } from "./functions";
 
-export default function ZoomImage({ id, className, src, alt }) {
+export function ZoomImage({ id, className, src, alt }) {
   const [active, setActive] = useState(false);
   const ref = useRef(null);
   const zoom = ({ target }) =>

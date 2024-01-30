@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { toggleActive } from "./functions";
 
-export default function DemoFrame({ src }) {
+export function DemoFrame({ src }) {
   const iframeRef = useRef(null);
   const [height, setHeight] = useState(0);
   const [fullPage, setFullPage] = useState(false);
