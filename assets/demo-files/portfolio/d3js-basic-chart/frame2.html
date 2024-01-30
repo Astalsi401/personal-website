@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- d3.js graph -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="./graph/style/graph.min.css">
+    <script defer src="../../../js/frame.js"></script>
+</head>
+<body></body>
+<script>
+    (async () => {
+        const code = await fetch('./graph/html/graph-bar1.html').then(res => res.text())
+        document.body.innerHTML = code
+        await import('./graph/js/非主管員工薪資-bar.js')
+    })()
+</script>
+</html>

@@ -1,0 +1,13 @@
+.scroll-on-hover {
+  margin-inline: auto;
+  width: min(90%, 800px);
+  aspect-ratio: 16/9;
+  transition: background-position 10s;
+  background-image: url("./HealthcareB2B-page1.png");
+  background-size: 100%;
+  background-position: 50% 0;
+  box-shadow: 0 0 5px 0 rgb(0, 0, 0, 0.3);
+}
+.scroll-on-hover:hover {
+  background-position: 50% 100%;
+}
