@@ -50,5 +50,3 @@ function resizer(e) {
   }
 }
 gutters.forEach((gutter) => gutter.addEventListener("pointerdown", resizer));
-
-document.querySelector(".dragElem").addEventListener("drag", (e) => console.log(e));
