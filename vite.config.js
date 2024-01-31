@@ -32,5 +32,5 @@ export default defineConfig({
     rewriteSlashToIndexHtml(),
   ],
   base: "/personal-website",
-  appType: "spa",
+  appType: "mpa",
 });
