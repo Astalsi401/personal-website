@@ -74,7 +74,10 @@
         { "page": "php筆記", "href": "/php" },
         { "page": "Python筆記", "href": "/python" },
         { "page": "JavaScript筆記", "href": "/JavaScript" },
-        { "page": "Html & Css", "href": "/html&css" }
+        { "page": "Html & Css", "href": "/html&css" },
+        { "page": "Vite筆記", "href": "/vite-basic" },
+        { "page": "Vscode(自用)", "href": "/vscode" },
+        { "page": "Welly", "href": "/welly" }
       ]
     },
     {
