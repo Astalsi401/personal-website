@@ -39,7 +39,7 @@ const sections = [
           建立<code>.env</code>並新增以下內容
           <CodeChunk code={"BASE_URL=."} />
           在components中可用以下方式使用<code>BASE_URL</code>修正圖片連結在local的預覽問題(圖片放置於public)
-          <CodeChunk code={"<img src={`${import.meta.env.BASE_URL}${image-path}`} />"} lang="js" />
+          <CodeChunk code={"<img src={`${import.meta.env.BASE_URL}${image-path}`} />"} lang="jsx" />
         </div>
         <div>將專案推送至github</div>
         <div>
