@@ -42,7 +42,7 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
-        { "page": "2023 Healthcare EXPO Taiwan Floor Map", "href": "https://astalsi401.github.io/portfolio/javascript-floormap/javascript-floormap.html", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react"] },
+        { "page": "2023 Healthcare EXPO Taiwan Floor Map", "href": "https://astalsi401.github.io/floormap/2023/boothes", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react", "react-dom", "redux"] },
         { "page": "StackOverflow Panel Resize", "href": "/pane-resize", "thumbnail": "js", "tags": ["css", "html", "js", "stackOverflow"] },
         { "page": "StackOverflow Span Arc", "href": "/span-arc", "thumbnail": "/assets/images/span-arc.png", "tags": ["css", "html", "stackOverflow"] },
         { "page": "臺灣醫療科技展專題(首頁+文章頁)", "href": "https://expo.taiwan-healthcare.org/zh/news/0s0xfq88o2cu9gb1", "thumbnail": "/assets/images/expoNews.png", "tags": ["html", "css", "javascript", "js", "bootstrap"] },
