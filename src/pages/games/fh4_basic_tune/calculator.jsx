@@ -5,24 +5,22 @@ export default function Calculator() {
   const [status, setStatus] = useState({ ratio: "", max: "", min: "", type: 0 });
   const tuneformula = ({ target: { name, value } }) => setStatus((prev) => ({ ...prev, [name]: value }));
   let front,
-    rear,
     category,
     ratio = Number(status.ratio),
     max = Number(status.max),
     min = Number(status.min),
-    type = Number(status.type);
+    type = Number(status.type),
+    diff = max - min,
+    rear = diff * (1 - ratio) + (max <= 65 ? min : 0);
   if (max > 65) {
     category = "彈簧";
-    front = (max - min) * ratio;
-    rear = (max - min) * (1 - ratio);
+    front = diff * ratio;
   } else if (max < 21) {
     category = "阻尼";
-    front = (max - min) * ratio + min;
-    rear = (max - min) * (1 - ratio) + min;
+    front = diff * ratio + min;
   } else {
     category = "防傾桿";
-    front = (max - min) * (ratio + type) + min;
-    rear = (max - min) * (1 - ratio) + min;
+    front = diff * (ratio + type) + min;
   }
   return (
     <form className="my-3 mx-auto calculator">
