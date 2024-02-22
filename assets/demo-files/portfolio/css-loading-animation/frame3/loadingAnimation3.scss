@@ -1,0 +1,54 @@
+.loading3 {
+  --size: 50px;
+  position: relative;
+  translate: 0 var(--size);
+  .line {
+    --n: 24;
+    --w: calc(var(--size) * 0.04);
+    --h: calc(var(--size) * 0.3);
+    --t: 10s;
+    position: absolute;
+    transform-origin: center calc(-1 * var(--size));
+    transform: rotate(calc(360deg / var(--n) * var(--i)));
+    width: var(--w);
+    height: var(--h);
+    &::before {
+      content: "";
+      display: block;
+      background-color: rgb(255, 153, 0);
+      box-shadow: 0 0 2px rgb(255, 153, 0, 0.5), 0 0 4px rgb(255, 153, 0, 0.5), 0 0 6px rgb(255, 153, 0, 0.5), 0 0 8px rgb(255, 153, 0, 0.5), 0 0 10px rgb(255, 153, 0, 0.5), 0 0 50px rgb(255, 153, 0, 0.5);
+      width: var(--w);
+      height: var(--h);
+      animation: loading3-rotate 10s linear infinite;
+      animation-delay: calc(calc(var(--t) * 0.3 / var(--n) * var(--i)));
+    }
+  }
+}
+
+@keyframes loading3-rotate {
+  0% {
+    rotate: 0;
+  }
+  10% {
+    rotate: 90deg;
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    filter: hue-rotate(calc(360deg / var(--n) * var(--i)));
+  }
+  60% {
+    opacity: 1;
+    rotate: 90deg;
+  }
+  70% {
+    rotate: 90deg;
+    opacity: 0;
+  }
+  90% {
+    rotate: 0deg;
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+}
