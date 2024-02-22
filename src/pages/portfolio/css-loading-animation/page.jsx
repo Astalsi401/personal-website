@@ -23,5 +23,15 @@ const sections = [
       </>
     ),
   },
+  {
+    title: "loading3",
+    content: (
+      <>
+        <DemoFrame src={`${demoPath}/frame3.html`} />
+        <CodeChunk path={`${demoPath}/frame3/loadingAnimation3.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame3/loadingAnimation3.scss`} lang="scss" />
+      </>
+    ),
+  },
 ];
 export default sections;

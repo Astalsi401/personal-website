@@ -2,6 +2,20 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+body:has(.loading2-1, .loading2-2) {
+  display: flex;
+  justify-content: space-around;
+}
+body:has(.loading3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #213547;
+  height: 100vh;
+  min-height: 500px;
+  padding: 0;
+  margin: 0;
+}
 
 .loading1 {
   --rotate: 1;
@@ -70,11 +84,6 @@ body {
     color: var(--text);
   }
 }
-body {
-  display: flex;
-  justify-content: space-around;
-}
-
 .loading2-1,
 .loading2-2 {
   --bg: rgb(55, 67, 121);
@@ -127,5 +136,59 @@ body {
   }
   100% {
     transform: translateX(100%);
+  }
+}
+.loading3 {
+  --size: 50px;
+  position: relative;
+  translate: 0 var(--size);
+}
+.loading3 .line {
+  --n: 24;
+  --w: calc(var(--size) * 0.04);
+  --h: calc(var(--size) * 0.3);
+  --t: 10s;
+  position: absolute;
+  transform-origin: center calc(-1 * var(--size));
+  transform: rotate(calc(360deg / var(--n) * var(--i)));
+  width: var(--w);
+  height: var(--h);
+}
+.loading3 .line::before {
+  content: "";
+  display: block;
+  background-color: rgb(255, 153, 0);
+  box-shadow: 0 0 2px rgba(255, 153, 0, 0.5), 0 0 4px rgba(255, 153, 0, 0.5), 0 0 6px rgba(255, 153, 0, 0.5), 0 0 8px rgba(255, 153, 0, 0.5), 0 0 10px rgba(255, 153, 0, 0.5), 0 0 50px rgba(255, 153, 0, 0.5);
+  width: var(--w);
+  height: var(--h);
+  animation: loading3-rotate 10s linear infinite;
+  animation-delay: calc(var(--t) * 0.3 / var(--n) * var(--i));
+}
+
+@keyframes loading3-rotate {
+  0% {
+    rotate: 0;
+  }
+  10% {
+    rotate: 90deg;
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    filter: hue-rotate(calc(360deg / var(--n) * var(--i)));
+  }
+  60% {
+    opacity: 1;
+    rotate: 90deg;
+  }
+  70% {
+    rotate: 90deg;
+    opacity: 0;
+  }
+  90% {
+    rotate: 0deg;
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
   }
 }/*# sourceMappingURL=loadingAnimation.css.map */
