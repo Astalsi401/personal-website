@@ -42,6 +42,16 @@ const sections = [
       </>
     ),
   },
+  {
+    title: "growing arrow",
+    content: (
+      <>
+        <DemoFrame src={`${demoPath}/frame4.html`} />
+        <CodeChunk path={`${demoPath}/frame4/growing-arrow.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame4/growing-arrow.scss`} lang="scss" />
+      </>
+    ),
+  },
 ];
 
 export default sections;
