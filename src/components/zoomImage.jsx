@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { toggleActive } from "./functions";
+import { isActive } from "./functions";
 
 export function ZoomImage({ id, className, src, alt }) {
   const [active, setActive] = useState(false);
@@ -22,7 +22,7 @@ export function ZoomImage({ id, className, src, alt }) {
   let translate = elem ? `${(window.innerWidth / 2 - elem.x) / scale - elem.width / 2}px, ${(window.innerHeight / 2 - elem.y) / scale - elem.height / 2}px` : "0,0";
   let imgSty = { transform: active ? `scale(${scale}) translate(${translate})` : "scale(1) translate(0)" };
   return (
-    <div id={id && id} className={`${className ? className : ""} img-block ${toggleActive(active)}`}>
+    <div id={id && id} className={`${className ? className : ""} img-block ${isActive(active)}`}>
       <img ref={ref} className="w-100 position-relative" loading="lazy" src={src} alt={alt && alt} style={imgSty} onClick={zoom} />
     </div>
   );

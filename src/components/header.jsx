@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "../assets/store";
-import { toggleActive } from "./functions";
+import { isActive } from "./functions";
 
 const sidebarAnchor = "sidebarAnchor";
 const sidebar = "sidebar";
@@ -40,7 +40,7 @@ export function Header() {
               <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
             </svg>
           </Link>
-          <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${toggleActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
+          <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${isActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
             <span />
           </a>
           <DarkMode />
@@ -62,7 +62,7 @@ function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
     setSidebarActive(false);
   };
   return (
-    <aside id={sidebar} className={`position-absolute ${toggleActive(sidebarActive)}`} ref={wrapperRef}>
+    <aside id={sidebar} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
         <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchor} className="text-decoration-none" onClick={handleLinkClick}>
           {index.category}
@@ -91,7 +91,7 @@ function Sidebar({ sidebarActive, setSidebarActive, wrapperRef }) {
 
 function SidebarChild({ sections, childrenActive }) {
   return (
-    <ul className={`children ${toggleActive(childrenActive)}`}>
+    <ul className={`children ${isActive(childrenActive)}`}>
       {sections.map((s) => (
         <li key={s.title}>
           <a className="ps-4 text-decoration-none" href={s.href}>

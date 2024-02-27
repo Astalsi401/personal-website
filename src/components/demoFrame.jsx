@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { toggleActive } from "./functions";
+import { isActive } from "./functions";
 
 export function DemoFrame({ src }) {
   const iframeRef = useRef(null);
@@ -22,10 +22,10 @@ export function DemoFrame({ src }) {
   }, []);
   return (
     <div className="demo-frame my-2 p-2 pt-0">
-      <a href="#" className={`full-page mb-1 ps-1 pe-3 d-block position-relative float-end text-small text-primary ${toggleActive(fullPage)}`} onClick={handleClick}>
+      <a href="#" className={`full-page mb-1 ps-1 pe-3 d-block position-relative float-end text-small text-primary ${isActive(fullPage)}`} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
-      <iframe className={`w-100 ${toggleActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
+      <iframe className={`w-100 ${isActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
     </div>
   );
 }
