@@ -57,7 +57,7 @@ code {
   width: var(--w);
   height: var(--w);
   svg {
-    stroke: var(--code-copy);
+    stroke: var(--code-text);
   }
   &:hover,
   &:focus {
@@ -86,6 +86,7 @@ code {
   border-radius: 5px;
   border: 1px solid var(--primary-300);
   iframe {
+    background-color: var(--code-text);
     max-height: 100dvh;
     min-height: 200px;
     border: none;

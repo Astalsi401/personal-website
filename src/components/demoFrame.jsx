@@ -25,7 +25,7 @@ export function DemoFrame({ src }) {
       <a href="#" className={`full-page mb-1 ps-1 pe-3 d-block position-relative float-end text-small text-primary ${toggleActive(fullPage)}`} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
-      <iframe className={`w-100 bg-main-bg ${toggleActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
+      <iframe className={`w-100 ${toggleActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
     </div>
   );
 }

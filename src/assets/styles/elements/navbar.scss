@@ -1,20 +1,29 @@
 #navbar {
-  --bg: var(--main-bg);
-  --elem-active: var(--secondary);
-  --elem: var(--primary);
   z-index: index($z-index, navbar);
   top: 0;
-  background: var(--bg);
+  background: var(--main-bg);
   box-shadow: 0 0 5px var(--main-shadow);
   height: var(--nav-h);
 }
 .hamberger,
-.home {
+.home,
+.dark-mode {
+  --bg: var(--main-bg);
+  --elem-active: var(--secondary);
+  --elem: var(--primary);
   cursor: pointer;
   width: var(--nav-h);
   height: var(--nav-h);
   background: var(--bg);
   top: 0;
+  &:hover {
+    --bg: var(--primary);
+    --elem: var(--main-bg);
+    color: var(--elem);
+  }
+}
+.dark-mode {
+  left: var(--nav-h);
 }
 .hamberger {
   left: 0;
@@ -38,17 +47,17 @@
       top: 10px;
     }
   }
-  &:hover,
-  &:focus {
-    background: var(--elem);
-    span {
-      &,
-      &::before,
-      &::after {
-        background: var(--bg);
-      }
-    }
-  }
+  //   &:hover,
+  //   &:focus {
+  //     background: var(--elem);
+  //     span {
+  //       &,
+  //       &::before,
+  //       &::after {
+  //         background: var(--bg);
+  //       }
+  //     }
+  //   }
   &.active {
     background: var(--bg);
     span {
@@ -65,30 +74,13 @@
         transform: rotate(-45deg);
       }
     }
-    &:hover,
-    &:focus {
-      background: var(--elem-active);
-      span {
-        &::before,
-        &::after {
-          background: var(--bg);
-        }
-      }
-    }
   }
 }
 .home {
   right: 0;
   svg {
-    background-color: var(--main-bg);
+    background-color: var(--bg);
     fill: var(--elem);
-  }
-  &:hover,
-  &:focus {
-    svg {
-      background-color: var(--elem);
-      fill: var(--main-bg);
-    }
   }
 }
 .accessibility {
@@ -101,7 +93,6 @@
     transition: var(--time);
     &:focus {
       padding: var(--unit-2);
-      background: var(--main-bg);
       opacity: 1;
     }
     &:not(:focus) {

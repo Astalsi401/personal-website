@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./assets/store";
 import { getPages, getCategories, getSections } from "./components/functions";
 import { Header } from "./components/header";
 import IndexPage from "./routes/indexPage";
@@ -12,7 +14,12 @@ import "./assets/styles/main.scss";
 const router = createBrowserRouter([
   {
     path: "/personal-website/",
-    element: <Root category="Home" />,
+    element: (
+      <>
+        <Header />
+        <Root category="Home" />
+      </>
+    ),
     errorElement: <ErrorPage />,
     loader: getCategories,
   },
@@ -56,6 +63,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

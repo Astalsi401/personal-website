@@ -60,10 +60,9 @@
 .social-link {
   --w: 30px;
   transition: scale var(--time);
-  img {
-    width: var(--w);
-    height: var(--w);
-  }
+  width: var(--w);
+  height: var(--w);
+  background-color: var(--main-text);
   &:hover {
     scale: 1.1;
   }

@@ -1,14 +1,4 @@
 :root {
-  @each $colors in ($theme-colors, $theme-decoration-colors) {
-    @each $color, $color-value in $colors {
-      --#{$color}: #{$color-value};
-    }
-  }
-  @each $color, $color-value in $theme-colors-rgb {
-    @each $a, $a-value in $alpha {
-      --#{$color}-#{$a}: rgba(#{join(($color-value), (), comma)}, #{$a-value});
-    }
-  }
   @each $u, $u-value in $units {
     --unit-#{$u}: #{$u-value};
   }
@@ -16,6 +6,35 @@
   --time: 0.4s;
   --scale: 1.05;
   scroll-behavior: smooth;
+}
+
+@each $color-scheme in (light, dark) {
+  @media (prefers-color-scheme: $color-scheme) {
+    :root {
+      @each $colors in (map-get($theme-colors, $color-scheme), map-get($theme-decoration-colors, $color-scheme)) {
+        @each $color, $color-value in $colors {
+          --#{$color}: #{$color-value};
+        }
+      }
+      @each $color, $color-value in map-get($theme-colors-rgb, $color-scheme) {
+        @each $a, $a-value in $alpha {
+          --#{$color}-#{$a}: rgba(#{join(($color-value), (), comma)}, #{$a-value});
+        }
+      }
+    }
+  }
+  [data-theme="#{$color-scheme}"] {
+    @each $colors in (map-get($theme-colors, $color-scheme), map-get($theme-decoration-colors, $color-scheme)) {
+      @each $color, $color-value in $colors {
+        --#{$color}: #{$color-value};
+      }
+    }
+    @each $color, $color-value in map-get($theme-colors-rgb, $color-scheme) {
+      @each $a, $a-value in $alpha {
+        --#{$color}-#{$a}: rgba(#{join(($color-value), (), comma)}, #{$a-value});
+      }
+    }
+  }
 }
 *,
 ::before,
@@ -46,6 +65,10 @@
 html {
   font-size: 16px;
 }
+body {
+  background-color: var(--white);
+  color: var(--black);
+}
 @each $i, $size in (1: xxx-large, 2: xx-large, 3: x-large, 4: large, 5: medium, 6: small) {
   h#{$i} {
     font-size: map-get($text-size, $size);
@@ -56,6 +79,9 @@ kbd,
 pre,
 samp {
   font-size: map-get($text-size, small);
+}
+:not(pre) > code {
+  color: var(--code-text);
 }
 kbd {
   display: inline-block;
@@ -83,5 +109,14 @@ table {
   td {
     padding: var(--unit-2);
     border: 1px solid var(--black-80);
+  }
+}
+a {
+  color: var(--link);
+  &:hover {
+    color: var(--link);
+  }
+  &:visited {
+    color: var(--link-visited);
   }
 }

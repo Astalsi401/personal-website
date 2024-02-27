@@ -9,7 +9,7 @@ import "prismjs/components/prism-r.min";
 import "prismjs/components/prism-ini.min";
 import "prismjs/components/prism-shell-session.min";
 import "prismjs/components/prism-yaml.min";
-import "prismjs/themes/prism.min.css";
+import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { toggleActive } from "./functions";
 

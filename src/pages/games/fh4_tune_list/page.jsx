@@ -56,7 +56,7 @@ function TuneList() {
         className="py-2 bg-white tuneSearch"
         content={
           <div className="row">
-            <input type="search" className="d-block col-md-6 mx-auto p-2" placeholder="請輸入關鍵字" onChange={search} />
+            <input type="search" className="bg-main-bg text-main-text d-block col-md-6 mx-auto p-2" placeholder="請輸入關鍵字" onChange={search} />
           </div>
         }
       />
