@@ -6,8 +6,10 @@ const counterSlice = createSlice({
     isDark: false,
   },
   reducers: {
-    toggleDarkMode: (state, { payload: { isDark } }) => {
-      state.isDark = isDark;
+    updateStore: (state, { payload }) => {
+      Object.keys(payload).forEach((key) => {
+        state[key] = payload[key];
+      });
     },
   },
 });
@@ -17,4 +19,4 @@ const store = configureStore({
 });
 
 export default store;
-export const { toggleDarkMode } = counterSlice.actions;
+export const { updateStore } = counterSlice.actions;

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleDarkMode } from "../assets/store";
+import { updateStore } from "../assets/store";
 import { isActive } from "./functions";
 
 const sidebarAnchor = "sidebarAnchor";
@@ -143,11 +143,11 @@ function DarkMode() {
   const handleClick = (e) => {
     e.preventDefault();
     document.body.setAttribute("data-theme", !isDark ? "dark" : "light");
-    dispatch(toggleDarkMode({ isDark: !isDark }));
+    dispatch(updateStore({ isDark: !isDark }));
   };
   useEffect(() => {
     const userIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    dispatch(toggleDarkMode({ isDark: userIsDark }));
+    dispatch(updateStore({ isDark: userIsDark }));
     document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
   }, []);
   return (
