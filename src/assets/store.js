@@ -4,6 +4,9 @@ const counterSlice = createSlice({
   name: "state",
   initialState: {
     isDark: false,
+    sidebarActive: false,
+    sidebarID: "sidebar",
+    sidebarAnchorID: "sidebarAnchor",
   },
   reducers: {
     updateStore: (state, { payload }) => {

@@ -69,7 +69,17 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
-        { "page": "cmder筆記", "href": "/cmder_setting" },
+        {
+          "page": "cmder筆記",
+          "href": "/cmder_setting",
+          "section": [
+            { "title": "安裝", "href": "#安裝" },
+            { "title": "基礎設定", "href": "#基礎設定" },
+            { "title": "Cmder & Git", "href": "#Cmder & Git" },
+            { "title": "Cmder & Sublime Text 3", "href": "#Cmder & Sublime Text 3" },
+            { "title": "Cmder快捷鍵", "href": "#Cmder快捷鍵" }
+          ]
+        },
         { "page": "mysql筆記", "href": "/mysql" },
         { "page": "php筆記", "href": "/php" },
         { "page": "Python筆記", "href": "/python" },
