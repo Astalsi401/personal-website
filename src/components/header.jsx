@@ -142,13 +142,17 @@ function DarkMode() {
   const isDark = useSelector((state) => state.isDark);
   const handleClick = (e) => {
     e.preventDefault();
+    localStorage.setItem("isDark", !isDark);
     document.body.setAttribute("data-theme", !isDark ? "dark" : "light");
     dispatch(updateStore({ isDark: !isDark }));
   };
   useEffect(() => {
-    const userIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    dispatch(updateStore({ isDark: userIsDark }));
+    let localIsDark = localStorage.getItem("isDark");
+    let userIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (localIsDark !== null) userIsDark = localIsDark === "true";
+    localStorage.setItem("isDark", userIsDark);
     document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
+    dispatch(updateStore({ isDark: userIsDark }));
   }, []);
   return (
     <a href="#" className="dark-mode d-flex justify-content-center align-items-center position-absolute" onClick={handleClick}>
