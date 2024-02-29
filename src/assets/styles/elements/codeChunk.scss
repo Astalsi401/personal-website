@@ -60,7 +60,7 @@ code {
     stroke: var(--code-text);
   }
   &:hover,
-  &:focus {
+  &:focus-visible {
     opacity: 1;
   }
   &:active {

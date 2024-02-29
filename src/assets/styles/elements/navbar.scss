@@ -16,7 +16,8 @@
   height: var(--nav-h);
   background: var(--bg);
   top: 0;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --bg: var(--primary);
     --elem: var(--main-bg);
     color: var(--elem);
@@ -47,17 +48,6 @@
       top: 10px;
     }
   }
-  //   &:hover,
-  //   &:focus {
-  //     background: var(--elem);
-  //     span {
-  //       &,
-  //       &::before,
-  //       &::after {
-  //         background: var(--bg);
-  //       }
-  //     }
-  //   }
   &.active {
     background: var(--bg);
     span {
@@ -91,7 +81,7 @@
   z-index: index($z-index, model);
   a {
     transition: var(--time);
-    &:focus {
+    &:focus-visible {
       padding: var(--unit-2);
       opacity: 1;
     }

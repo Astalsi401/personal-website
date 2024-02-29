@@ -45,7 +45,7 @@
         --current-w: 6px;
       }
       &:hover,
-      &:focus {
+      &:focus-visible {
         --current-w: 100%;
         --current-px: 0;
         color: var(--main-bg);
@@ -63,7 +63,8 @@
   width: var(--w);
   height: var(--w);
   background-color: var(--main-text);
-  &:hover {
+  &:hover,
+  &:focus-visible {
     scale: 1.1;
   }
 }

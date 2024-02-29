@@ -2,7 +2,7 @@
   width: min(80px, 100%);
   transition: transform var(--time);
   &:hover,
-  &:focus {
+  &:focus-visible {
     transform: scale(var(--scale));
   }
 }

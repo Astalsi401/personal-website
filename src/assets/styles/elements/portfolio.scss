@@ -1,7 +1,7 @@
 .portfolio {
   transition: transform var(--time);
   &:hover,
-  &:focus {
+  &:focus-visible {
     transform: scale(var(--scale));
     .tag {
       opacity: 1;
