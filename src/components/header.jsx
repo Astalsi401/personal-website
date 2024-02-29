@@ -147,9 +147,7 @@ function DarkMode() {
     dispatch(updateStore({ isDark: !isDark }));
   };
   useEffect(() => {
-    let localIsDark = localStorage.getItem("isDark");
-    let userIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (localIsDark !== null) userIsDark = localIsDark === "true";
+    const userIsDark = localStorage.getItem("isDark") ? localStorage.getItem("isDark") === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
     localStorage.setItem("isDark", userIsDark);
     document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
     dispatch(updateStore({ isDark: userIsDark }));
