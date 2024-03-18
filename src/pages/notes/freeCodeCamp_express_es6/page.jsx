@@ -34,7 +34,7 @@ const sections = [
     title: "__dirname",
     content: (
       <>
-        <code>__dirname</code> to <code>import.meta.url</code>
+        <code>__dirname</code> to <code>import.meta.dirname</code>
       </>
     ),
   },
