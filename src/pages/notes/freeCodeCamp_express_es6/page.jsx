@@ -34,6 +34,7 @@ const sections = [
     title: "__dirname",
     content: (
       <>
+        Node 20.11 or higher
         <code>__dirname</code> to <code>import.meta.dirname</code>
       </>
     ),
