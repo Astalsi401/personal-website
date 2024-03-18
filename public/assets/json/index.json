@@ -87,6 +87,7 @@
         { "page": "Html & Css", "href": "/html&css" },
         { "page": "Vite筆記", "href": "/vite-basic" },
         { "page": "Vscode(自用)", "href": "/vscode" },
+        { "page": "Use ES6 in freeCodeCamp Express Courses", "href": "/freeCodeCamp_express_es6" },
         { "page": "Welly", "href": "/welly" }
       ]
     },
