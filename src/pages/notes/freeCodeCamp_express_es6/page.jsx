@@ -39,5 +39,18 @@ const sections = [
       </>
     ),
   },
+  {
+    title: "ES6 Repos",
+    content: (
+      <>
+        <a href="https://github.com/Astalsi401/fcc-learn-node-with-express-es6" target="_blank" rel="noopener noreferrer">
+          Basic Node and Express
+        </a>
+        <a href="https://github.com/Astalsi401/fcc-mongo-mongoose-challenges-es6" target="_blank" rel="noopener noreferrer">
+          MongoDB and Mongoose
+        </a>
+      </>
+    ),
+  },
 ];
 export default sections;
