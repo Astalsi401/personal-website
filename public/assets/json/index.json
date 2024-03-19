@@ -69,6 +69,7 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        { "page": "nodejs", "href": "/nodejs" },
         {
           "page": "cmder筆記",
           "href": "/cmder_setting",
