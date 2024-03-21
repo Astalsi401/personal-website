@@ -15,7 +15,10 @@ export function Header() {
     e.preventDefault();
     dispatch(updateStore({ sidebarActive: !sidebarActive }));
   };
-  const handleClickOut = ({ target }) => dispatch(updateStore({ sidebarActive: wrapperRef.current && !wrapperRef.current.contains(target) && !btnRef.current.contains(target) ? false : sidebarActive }));
+  const handleClickOut = ({ target }) => {
+    if (wrapperRef.current.contains(target) || btnRef.current.contains(target)) return;
+    dispatch(updateStore({ sidebarActive: false }));
+  };
   const handleClickFrame = ({ data }) => {
     if (data.window && data.window === "iframe") dispatch(updateStore({ sidebarActive: false }));
   };
