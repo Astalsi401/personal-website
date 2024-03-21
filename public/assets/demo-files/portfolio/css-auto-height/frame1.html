@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./css-auto-height.min.css">
+    <script defer src="../../../js/frame.js"></script>
+</head>
+<body></body>
+<script>
+    (async () => {
+        const code = await fetch('./frame1/css-auto-height.html').then(res => res.text())
+        document.body.innerHTML = code
+    })()
+</script>
+</html>

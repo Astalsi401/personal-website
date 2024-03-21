@@ -1,0 +1,15 @@
+.grid {
+  background-color: navy;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s;
+}
+.grid:hover {
+  grid-template-rows: 1fr;
+}
+.grid > div {
+  overflow: hidden;
+}/*# sourceMappingURL=css-auto-height.css.map */
