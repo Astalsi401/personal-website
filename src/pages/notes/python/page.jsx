@@ -42,10 +42,13 @@ const sections = [
     title: "pip",
     content: (
       <>
-        儲存已安裝的libraries清單為reqs.txt
-        <CodeChunk code={"pip freeze > reqs.txt"} />
-        重新安裝儲存於reqs.txt的libraries
-        <CodeChunk code={"pip install -r reqs.txt"} />
+        儲存已安裝的libraries清單為requirements.txt
+        <CodeChunk code={"pip freeze > requirements.txt"} />
+        儲存當前專案中的libraries清單為requirements.txt
+        <CodeChunk code={"pip install pipreqs"} />
+        <CodeChunk code={"pipreqs ."} />
+        重新安裝儲存於requirements.txt的libraries
+        <CodeChunk code={"pip install -r requirements.txt"} />
       </>
     ),
   },
