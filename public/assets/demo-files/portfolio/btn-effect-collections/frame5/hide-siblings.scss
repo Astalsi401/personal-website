@@ -1,0 +1,15 @@
+.hide-siblings {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  & > div {
+    cursor: pointer;
+    flex-grow: 1;
+    height: 50px;
+    background-color: navy;
+    transition: opacity 0.3s;
+  }
+  &:has(:hover) > div:not(:hover) {
+    opacity: 0.2;
+  }
+}

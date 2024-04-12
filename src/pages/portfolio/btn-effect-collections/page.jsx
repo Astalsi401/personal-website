@@ -52,6 +52,16 @@ const sections = [
       </>
     ),
   },
+  {
+    title: "hide siblings",
+    content: (
+      <>
+        <DemoFrame src={`${demoPath}/frame5.html`} />
+        <CodeChunk path={`${demoPath}/frame5/hide-siblings.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame5/hide-siblings.scss`} lang="scss" />
+      </>
+    ),
+  },
 ];
 
 export default sections;
