@@ -5,7 +5,7 @@ import { updateStore } from "../assets/store";
 import { isActive } from "./functions";
 import { Sidebar } from "./sidebar";
 
-export function Header() {
+export default function Header() {
   const dispatch = useDispatch();
   const sidebarActive = useSelector((state) => state.sidebarActive);
   const wrapperRef = useRef(null);
