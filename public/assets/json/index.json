@@ -42,7 +42,7 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
-        { "page": "Progress Ring", "href": "/progress-ring", "thumbnail": "css", "tags": ["js", "css", "html"] },
+        { "page": "Progress Ring", "href": "/progress-ring", "thumbnail": "/assets/images/progress-ring.png", "tags": ["js", "css", "html"] },
         { "page": "Css Auto Height Transition", "href": "/css-auto-height", "thumbnail": "css", "tags": ["css", "html"] },
         { "page": "2023 Healthcare EXPO Taiwan Floor Map", "href": "https://astalsi401.github.io/floormap/2023/booths", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react", "react-dom", "redux"] },
         { "page": "StackOverflow Panel Resize", "href": "/pane-resize", "thumbnail": "js", "tags": ["css", "html", "js", "stackOverflow"] },
