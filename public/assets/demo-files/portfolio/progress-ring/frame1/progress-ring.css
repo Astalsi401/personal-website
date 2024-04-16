@@ -38,9 +38,10 @@
 
 #scroll-line {
   --scrollPercent: 0;
+  --deg: calc(var(--scrollPercent) * 360deg);
   width: 100%;
   z-index: 1;
-  background: conic-gradient(transparent 0deg, transparent calc(360deg * var(--scrollPercent)), var(--ring-bg) calc(360deg * var(--scrollPercent)), var(--ring-bg) 360deg);
+  background: conic-gradient(transparent 0deg, transparent var(--deg), var(--ring-bg) var(--deg), var(--ring-bg) 360deg);
 }
 
 #scroll-line::before {
