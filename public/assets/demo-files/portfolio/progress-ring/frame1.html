@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./frame1/progress-ring.css">
+    <script defer src="../../../js/frame.js"></script>
+</head>
+<body></body>
+<script>
+    (async () => {
+        const code = await fetch('./frame1/progress-ring.html').then(res => res.text())
+        document.body.innerHTML = code
+        await import('./frame1/progress-ring.js')
+    })()
+</script>
+</html>

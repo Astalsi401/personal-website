@@ -1,0 +1,62 @@
+.content-site {
+  height: 500vh;
+}
+
+#main_box {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 80px;
+}
+
+#body_box {
+  --bg: linear-gradient(0deg, #678fff 0%, #b0ffcb 100%);
+  --shadow: 0 0 4px #05003083;
+  --ring-bg: rgb(218, 218, 218);
+  --page-bg: rgb(255, 255, 255);
+  --len: 100px;
+  --diff: 15px;
+  width: var(--len);
+  height: var(--len);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#progress {
+  position: relative;
+  background: var(--bg);
+  background-clip: text;
+  font-weight: 800;
+  color: transparent;
+  z-index: 2;
+}
+
+#scroll-line {
+  --scrollPercent: 0;
+  width: 100%;
+  z-index: 1;
+  background: conic-gradient(transparent 0deg, transparent calc(360deg * var(--scrollPercent)), var(--ring-bg) calc(360deg * var(--scrollPercent)), var(--ring-bg) 360deg);
+}
+
+#scroll-line::before {
+  content: "";
+  display: block;
+  width: calc(100% - var(--diff));
+  background: var(--page-bg);
+  box-shadow: inset var(--shadow);
+}
+
+#scroll-line,
+#scroll-line::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}

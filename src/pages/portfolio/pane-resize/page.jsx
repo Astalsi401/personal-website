@@ -30,7 +30,7 @@ const sections = [
       <>
         <DemoFrame src={`${demoPath}/frame1.html`} />
         <CodeChunk path={`${demoPath}/pane-resize.html`} lang="html" />
-        <CodeChunk path={`${demoPath}/pane-resize.css`} lang="scss" />
+        <CodeChunk path={`${demoPath}/pane-resize.css`} lang="css" />
         <CodeChunk path={`${demoPath}/pane-resize.js`} lang="js" />
       </>
     ),
