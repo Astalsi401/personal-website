@@ -74,9 +74,8 @@ function Accessibility() {
 function ProgressBar() {
   const [percent, setPercent] = useState(0);
   const handleScroll = () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    setPercent(((winScroll / height) * 100).toFixed(2));
+    const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
+    setPercent(((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2));
   };
   useEffect(() => {
     window.addEventListener("load", handleScroll);
