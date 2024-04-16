@@ -11,8 +11,8 @@ const sections = [
           有趣的<code>box-shadoe</code>用法
         </p>
         <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.html`} lang="html" />
         <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.html`} lang="html" />
       </>
     ),
   },
@@ -24,8 +24,8 @@ const sections = [
           <code>transition-delay</code>的應用
         </p>
         <DemoFrame src={`${demoPath}/frame2.html`} />
-        <CodeChunk path={`${demoPath}/frame2/btn1.html`} lang="html" />
         <CodeChunk path={`${demoPath}/frame2/btn1.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame2/btn1.html`} lang="html" />
       </>
     ),
   },
@@ -37,8 +37,8 @@ const sections = [
           <code>rotate</code>的應用
         </p>
         <DemoFrame src={`${demoPath}/frame3.html`} />
-        <CodeChunk path={`${demoPath}/frame3/btn2.html`} lang="html" />
         <CodeChunk path={`${demoPath}/frame3/btn2.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame3/btn2.html`} lang="html" />
       </>
     ),
   },
@@ -47,8 +47,8 @@ const sections = [
     content: (
       <>
         <DemoFrame src={`${demoPath}/frame4.html`} />
-        <CodeChunk path={`${demoPath}/frame4/growing-arrow.html`} lang="html" />
         <CodeChunk path={`${demoPath}/frame4/growing-arrow.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame4/growing-arrow.html`} lang="html" />
       </>
     ),
   },
@@ -57,8 +57,8 @@ const sections = [
     content: (
       <>
         <DemoFrame src={`${demoPath}/frame5.html`} />
-        <CodeChunk path={`${demoPath}/frame5/hide-siblings.html`} lang="html" />
         <CodeChunk path={`${demoPath}/frame5/hide-siblings.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame5/hide-siblings.html`} lang="html" />
       </>
     ),
   },
