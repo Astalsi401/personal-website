@@ -1,9 +1,20 @@
-import { useEffect } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useEffect, Suspense } from "react";
+import { useLoaderData, useParams, useAsyncValue, Await } from "react-router-dom";
 import { Block } from "../components/block";
 
 export default function PostPage() {
-  const [title, sections] = useLoaderData();
+  const data = useLoaderData();
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Await resolve={data}>
+        <PostContnet />
+      </Await>
+    </Suspense>
+  );
+}
+
+function PostContnet() {
+  const [title, sections] = useAsyncValue();
   const { href, page } = useParams();
   useEffect(() => {
     document.title = title;
