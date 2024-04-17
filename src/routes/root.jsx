@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
 
 export default function Root({ category }) {
+  const dispatch = useDispatch();
   const index = useLoaderData();
   useEffect(() => {
     document.title = index.category;
