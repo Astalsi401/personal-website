@@ -18,7 +18,9 @@ const router = createBrowserRouter([
     element: (
       <>
         <Header />
-        <Root category="Home" />
+        <Loading>
+          <Root category="Home" />
+        </Loading>
       </>
     ),
     errorElement: <ErrorPage />,
