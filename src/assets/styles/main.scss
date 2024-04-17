@@ -11,6 +11,7 @@
 @import "./elements/tuneList.scss";
 @import "./elements/shape.scss";
 @import "./elements/portfolio.scss";
+@import "./elements/loading.scss";
 
 #header {
   z-index: index($z-index, navbar);

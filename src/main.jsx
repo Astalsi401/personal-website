@@ -9,6 +9,7 @@ import IndexPage from "./routes/indexPage";
 import PostPage from "./routes/postPage";
 import ErrorPage from "./routes/error";
 import Root from "./routes/root";
+import Loading from "./components/loading";
 import "./assets/styles/main.scss";
 
 const router = createBrowserRouter([
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
     element: (
       <>
         <Header />
-        <Outlet />
+        <Loading>
+          <Outlet />
+        </Loading>
       </>
     ),
     errorElement: <ErrorPage />,
@@ -47,7 +50,9 @@ const router = createBrowserRouter([
     element: (
       <>
         <Header />
-        <Outlet />
+        <Loading>
+          <Outlet />
+        </Loading>
       </>
     ),
     errorElement: <ErrorPage />,

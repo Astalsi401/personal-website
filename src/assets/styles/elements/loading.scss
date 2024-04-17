@@ -1,0 +1,58 @@
+.loading {
+  --size: 50px;
+  --loading-bg: rgb(255, 153, 0);
+  --loading-shadow: rgb(255, 153, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .line {
+    --n: 24;
+    --w: calc(var(--size) * 0.04);
+    --h: calc(var(--size) * 0.3);
+    --t: 5s;
+    position: absolute;
+    transform-origin: center calc(-1 * var(--size));
+    transform: rotate(calc(360deg / var(--n) * var(--i)));
+    width: var(--w);
+    height: var(--h);
+    &::before {
+      content: "";
+      display: block;
+      background-color: var(--loading-bg);
+      box-shadow: 0 0 2px var(--loading-shadow), 0 0 4px var(--loading-shadow), 0 0 6px var(--loading-shadow), 0 0 8px var(--loading-shadow), 0 0 10px var(--loading-shadow), 0 0 50px var(--loading-shadow);
+      width: var(--w);
+      height: var(--h);
+      animation: loading var(--t) linear infinite;
+      animation-delay: calc(calc(var(--t) * 0.3 / var(--n) * var(--i)));
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    rotate: 0;
+  }
+  10% {
+    rotate: 90deg;
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    filter: hue-rotate(calc(360deg / var(--n) * var(--i)));
+  }
+  60% {
+    opacity: 1;
+    rotate: 90deg;
+  }
+  70% {
+    rotate: 90deg;
+    opacity: 0;
+  }
+  90% {
+    rotate: 0deg;
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+}
