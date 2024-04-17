@@ -7,6 +7,9 @@
   --scale: 1.05;
   scroll-behavior: smooth;
 }
+:target {
+  scroll-margin-top: calc(var(--nav-h) + var(--unit-3));
+}
 
 @each $color-scheme in (light, dark) {
   @media (prefers-color-scheme: $color-scheme) {

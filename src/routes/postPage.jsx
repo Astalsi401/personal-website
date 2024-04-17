@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Block } from "../components/block";
+import { updateStore } from "../assets/store";
 
 export default function PostPage() {
+  const dispatch = useDispatch();
   const { title, sections } = useLoaderData();
   const { href, page } = useParams();
   useEffect(() => {
     document.title = title;
+    dispatch(updateStore({ currentSections: sections }));
   }, [title]);
   return (
     <main id="main-content" className="container-xl shadow-lg p-3">

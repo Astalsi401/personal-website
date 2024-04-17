@@ -59,12 +59,12 @@
 }
 .social-link {
   --w: 30px;
-  transition: scale var(--time);
+  transition: scale calc(var(--time) / 3);
   width: var(--w);
   height: var(--w);
   background-color: var(--main-text);
   &:hover,
   &:focus-visible {
-    scale: 1.1;
+    scale: 1.05;
   }
 }

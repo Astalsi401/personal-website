@@ -1,10 +1,13 @@
-import { Link, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateStore } from "../assets/store";
 
 export default function Root({ category }) {
   const index = useLoaderData();
   useEffect(() => {
     document.title = index.category;
+    dispatch(updateStore({ currentSections: [] }));
   }, [index.category]);
   return (
     <div className="container-sm py-5">

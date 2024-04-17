@@ -1,8 +1,8 @@
 - 縮減 container width，右側新增本頁段落，~~hl 當前段落~~
 - portfolio search and filter
 - tunelist copy code
-- new project: todolist
-- new project: bootstrap code creator
+- project: todolist
+- project: bootstrap code creator
 - add breadcrumbs
 - ~~dark mode~~
 - ~~DemoFrame 全螢幕~~

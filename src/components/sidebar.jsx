@@ -10,13 +10,11 @@ export function Sidebar({ wrapperRef }) {
   const sidebarID = useSelector((state) => state.sidebarID);
   const sidebarAnchorID = useSelector((state) => state.sidebarAnchorID);
   const sidebarActive = useSelector((state) => state.sidebarActive);
+  const currentSections = useSelector((state) => state.currentSections);
   const [childrenActive, setChildrenActive] = useState(false);
   const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
-  const handleLinkClick = () => {
-    setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
-    dispatch(updateStore({ sidebarActive: false }));
-  };
+  const handleLinkClick = () => dispatch(updateStore({ sidebarActive: false }));
   return (
     <aside id={sidebarID} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
@@ -29,11 +27,11 @@ export function Sidebar({ wrapperRef }) {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
           const isMyPage = /^http/.test(p.href);
           return (
-            <li key={i} className={`${isCurrent && p.section ? "has-children" : ""}`} onClick={click}>
+            <li key={i} className={`${isCurrent && currentSections.length > 0 ? "has-children" : ""}`} onClick={click}>
               <Link to={isMyPage ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} target={isMyPage ? "_blank" : "_self"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
-              {isCurrent && p.section && <SidebarChild sections={p.section} childrenActive={childrenActive} />}
+              {isCurrent && currentSections.length > 0 && <SidebarChild currentSections={currentSections} childrenActive={childrenActive} />}
             </li>
           );
         })}
@@ -45,12 +43,12 @@ export function Sidebar({ wrapperRef }) {
   );
 }
 
-function SidebarChild({ sections, childrenActive }) {
+function SidebarChild({ currentSections, childrenActive }) {
   return (
     <ul className={`children ${isActive(childrenActive)}`}>
-      {sections.map((s) => (
+      {currentSections.map((s) => (
         <li key={s.title}>
-          <a className="ps-4 text-decoration-none" href={s.href}>
+          <a className="ps-4 text-decoration-none" href={`#${s.title}`}>
             <span>{s.title}</span>
           </a>
         </li>

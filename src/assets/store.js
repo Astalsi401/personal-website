@@ -7,6 +7,7 @@ const counterSlice = createSlice({
     sidebarActive: false,
     sidebarID: "sidebar",
     sidebarAnchorID: "sidebarAnchor",
+    currentSections: [],
   },
   reducers: {
     updateStore: (state, { payload }) => {

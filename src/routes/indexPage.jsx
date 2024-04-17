@@ -1,11 +1,15 @@
-import { useLoaderData, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useLoaderData, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateStore } from "../assets/store";
 
 export default function IndexPage() {
+  const dispatch = useDispatch();
   const index = useLoaderData();
   const isPortfolio = index.category === "Portfolio";
   useEffect(() => {
     document.title = index.category;
+    dispatch(updateStore({ currentSections: [] }));
   }, [index.category]);
   return (
     <main id="main-content" className={`container${isPortfolio ? "-xl" : ""} shadow-lg p-3`}>
