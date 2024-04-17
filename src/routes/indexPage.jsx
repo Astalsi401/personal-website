@@ -9,7 +9,7 @@ export default function IndexPage() {
   const isPortfolio = index.category === "Portfolio";
   useEffect(() => {
     document.title = index.category;
-    dispatch(updateStore({ currentSections: [] }));
+    dispatch(updateStore({ currentPostTitles: [] }));
   }, [index.category]);
   return (
     <main id="main-content" className={`container${isPortfolio ? "-xl" : ""} shadow-lg p-3`}>

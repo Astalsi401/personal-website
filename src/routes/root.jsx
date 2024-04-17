@@ -8,7 +8,7 @@ export default function Root({ category }) {
   const index = useLoaderData();
   useEffect(() => {
     document.title = index.category;
-    dispatch(updateStore({ currentSections: [] }));
+    dispatch(updateStore({ currentPostTitles: [] }));
   }, [index.category]);
   return (
     <div className="container-sm py-5">

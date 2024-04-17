@@ -10,7 +10,7 @@ export function Sidebar({ wrapperRef }) {
   const sidebarID = useSelector((state) => state.sidebarID);
   const sidebarAnchorID = useSelector((state) => state.sidebarAnchorID);
   const sidebarActive = useSelector((state) => state.sidebarActive);
-  const currentSections = useSelector((state) => state.currentSections);
+  const currentPostTitles = useSelector((state) => state.currentPostTitles);
   const [childrenActive, setChildrenActive] = useState(false);
   const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
@@ -27,11 +27,11 @@ export function Sidebar({ wrapperRef }) {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
           const isMyPage = /^http/.test(p.href);
           return (
-            <li key={i} className={`${isCurrent && currentSections.length > 0 ? "has-children" : ""}`} onClick={click}>
+            <li key={i} className={`${isCurrent && currentPostTitles.length > 0 ? "has-children" : ""}`} onClick={click}>
               <Link to={isMyPage ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} target={isMyPage ? "_blank" : "_self"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
-              {isCurrent && currentSections.length > 0 && <SidebarChild currentSections={currentSections} childrenActive={childrenActive} />}
+              {isCurrent && currentPostTitles.length > 0 && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
             </li>
           );
         })}
@@ -43,13 +43,13 @@ export function Sidebar({ wrapperRef }) {
   );
 }
 
-function SidebarChild({ currentSections, childrenActive }) {
+function SidebarChild({ currentPostTitles, childrenActive }) {
   return (
     <ul className={`children ${isActive(childrenActive)}`}>
-      {currentSections.map((s) => (
-        <li key={s.title}>
-          <a className="ps-4 text-decoration-none" href={`#${s.title}`}>
-            <span>{s.title}</span>
+      {currentPostTitles.map((title) => (
+        <li key={title}>
+          <a className="ps-4 text-decoration-none" href={`#${title}`}>
+            <span>{title}</span>
           </a>
         </li>
       ))}

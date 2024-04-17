@@ -10,7 +10,7 @@ export default function PostPage() {
   const { href, page } = useParams();
   useEffect(() => {
     document.title = title;
-    dispatch(updateStore({ currentSections: sections }));
+    dispatch(updateStore({ currentPostTitles: sections.map((s) => s.title).filter((s) => s.length > 0) }));
   }, [title]);
   return (
     <main id="main-content" className="container-xl shadow-lg p-3">
