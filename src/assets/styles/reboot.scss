@@ -9,7 +9,7 @@
   scroll-behavior: smooth;
 }
 :target {
-  scroll-margin-top: calc(var(--nav-h) + var(--unit-3));
+  scroll-margin-top: calc(var(--nav-h) + var(--unit-3)); // --unit-3 section title margin-top
 }
 
 @each $color-scheme in (light, dark) {

@@ -20,6 +20,14 @@
   padding-top: var(--nav-h) !important;
   transition: translate var(--time);
 }
-#root:has(#header > #sidebar.active) #main-content {
-  translate: var(--sidebar-w) 0;
+#root {
+  overflow-x: hidden;
+  &:has(#header > #sidebar.active) {
+    :target {
+      scroll-margin-left: calc(var(--sidebar-w) + var(--unit-3)); // --unit-3 = #main-content padding-left
+    }
+    #main-content {
+      translate: var(--sidebar-w) 0;
+    }
+  }
 }
