@@ -250,12 +250,12 @@ const sections = [
             <li>束角：</li>
           </h4>
           <p>影響轉向能力，束角越大，轉向角度越大，直線時越不穩定。下圖為前+後-。拉力賽容許更大的前束角。調整束角時建議以0.1為單位慢慢調整。</p>
-          <ZoomImage className="my-2 mx-auto image-normal" src={`${import.meta.env.BASE_URL}/assets/images/toe.png`} />
+          <ZoomImage className="my-2 mx-auto image-normal img-invert" src={`${import.meta.env.BASE_URL}/assets/images/toe.png`} />
           <h4>
             <li>前後傾角（4°~6°）：</li>
           </h4>
           <p>越高，直線時外傾角越穩定，但過彎時將增加負外傾角。在某些情況下，調到太高有可能使車輛重心過度自行回正，導致難以預測的移動。</p>
-          <ZoomImage className="my-2 mx-auto image-normal" src={`${import.meta.env.BASE_URL}/assets/images/caster.png`} />
+          <ZoomImage className="my-2 mx-auto image-normal img-invert" src={`${import.meta.env.BASE_URL}/assets/images/caster.png`} />
         </ol>
       </>
     ),

@@ -30,7 +30,7 @@ const sections = [
           </li>
           <li>
             非參數顯著性檢驗採用的是卡方分配（Chi Square distribution）
-            <ZoomImage className="mx-auto w-sm-75" src={`${import.meta.env.BASE_URL}/assets/images/chi-square01.png`} />
+            <ZoomImage className="mx-auto w-sm-75 img-invert" src={`${import.meta.env.BASE_URL}/assets/images/chi-square01.png`} />
             <ol type="i">
               <li>是右偏的分配。</li>
               <li>
@@ -112,11 +112,7 @@ const sections = [
               </li>
               <li>
                 公式為：
-                <img
-                  src="data:image/png;base64,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"
-                  widyh="111"
-                  heigh="48"
-                />
+                <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/chi-square.svg`} />
               </li>
             </ul>
           </li>

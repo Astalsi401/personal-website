@@ -42,9 +42,7 @@ const sections = [
                   </li>
                   <li>
                     加速度的公式：
-                    <center>
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAsCAYAAABxNQYsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASGSURBVHhe7ZpZKH1fFMeJB1KUiJIoklIypjwgw4tQygtlKDJkeECkpEh5MJUUTyQyZ4gHIsOTMTMllCEKmcdM319r/7bfX3/3uo7f717nOudTu85a95zT6X7PWWvttbcOZESDLIaIkMUQEbIYIkIWQ0TIYghgdnYWMTExiIyMRF5eHjY2NvgvwMHBAfLz89lvLS0t3CsMWQyBxMfHQ0dHhwnzf5qbm+Hr64uXlxfuEYYshkDoDycx+vr6uOc/AgMDsba2xi3haIUYX33T1MHi4iITo7y8nHt+09vbi5ycHG59DVGLMTw8DE9PT6SkpHAPUFRUBBcXF25pnru7O+jp6SE5OZl7gPv7e/j5+eH6+pp7vobov4zCwkJ4eXlxC9jb24OdnR23gPX1dYyMjODp6Yl71I+9vT38/f25BZSUlKCzs5NbX0f0YvT398PIyOhPqLq6ukJ6ejo7rq6uRk1NDba3txEeHs7e0I/o7u5GfX39h2N0dJSfrZzQ0FBYW1uz4/39fURERLDjv0X0YqyurrIYvbu7y2x6Cw8PD3F6egpbW1s8PDwwf3Z2NioqKtixMqKjo+Hj4/PhKCgo4GcrJzc3F7q6uri9vWXV1dsS9xV6LhJfCKIX4+bmhokxPz/PKhVKlERjYyMCAgLYMdHV1YWgoCBuqZeGhgb2TLW1tQrFoyRPlVVcXByOjo64VzWiF4PQ19dHR0cHKisruQeoqqpi4eKVgYEBODg4cEu9zMzMMDGcnJzY16EId3d3HB8fc+tzaIUYJiYmiI2NxfPzM/eAvZXBwcHc+p1bnJ2duaVeKG9RmFI01yBOTk7g5ubGrc+jFWJkZGS8S86Tk5Pw8PDgFlBXV8daEZqC2iHKoK84KyuLW59HK8RQhre395/EHhYWxvKKGKB5UVtbG6vyhKDVYuzs7LDqikrS1tZW7v1+qLKjZxKKVovx01ApBlUEY2NjODs7w8rKCqvxZdSDUjGociktLUVmZiY2NzdRVlYGAwODD7uSg4ODLFaqGkJLPqmgVAyKe4mJidwCi4FWVlbcUkxUVBSrcFSNubk5foXMWxSK0d7eDlNTU1xcXHAPWD+IVrk0AfWhqPH3E8bbuZEqFIrh6uqK1NRUboHd1MLCgrUBNEFxcTGb4f6EQSt/n+WdGMvLy+wmlLRfoRBFPmpffwT19M3MzFSOiYkJfoViaIJ3fn7+I4aQNY53YgwNDbE/nrqlxNLSEhISEmBpacn6MAsLC8yvCBJyampK5bi8vORXyLzlnRi0y8Hc3Jw14agxR91RWl2zsbFhFdXj4yM/U+ZfozBn0FdBCzev7QUqbZuamgQlIxnhKBRD5nuQvBgUdik0iwFJi0FhNykpia3MiQHJikFVHS3TGhoasqVcKkO/G8mKMT09zTYgUNU4Pj6udPlUk0g6TGmyq/AZJCvGa6eB9j2JBcmKQRNaR0dHbokDyYoREhKCtLQ0bokDSYpBXWhjY2P09PSIau1ckmJsbW2xfEFbM2lTg1iQbJii3et/u4X/XyNZMcSILIaIkMUQDcAv9rmZv2mSWwcAAAAASUVORK5CYII=" width="99" heigh="44" id="12" />
-                    </center>
+                    <img className="img-invert d-block my-2 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/acc.svg`} alt="" />
                   </li>
                   <li>
                     以及常見之兩變量x與y之間的函數關係一般可以用下列數學關係表示：

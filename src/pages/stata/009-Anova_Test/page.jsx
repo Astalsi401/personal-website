@@ -70,23 +70,23 @@ const sections = [
           <ol type="i">
             <li>A和B因子均無效應：</li>
             <p>顯示無論有沒有使用到A因子，心率⼀直停留在60bps(Beats per minutes) </p>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova01.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova01.png`} />
             <li>只有A因子有效應：</li>
             <p>顯示在無論有沒有使用到B因子的情況下，若使用到A因子，則心率會從60bps增加到80bps。</p>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova02.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova02.png`} />
             <li>只有B因子有效應：</li>
             <p>顯示在無論有沒有使用到A因子的情況下，若沒有使用到B因子，則心率會一直停留在60bps，但若使用了B因子時，則⼼率增加到70bps。</p>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova03.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova03.png`} />
             <li>A因子和B因子之間不存在交互作用：</li>
             <p>當沒使用到A因子時，若沒使用B因子，則心跳停留在60bps，而一旦使用到B因子時，則心率增加到70bps。換言之，在沒使用到A因子的狀況下，使用B因子，則心跳會增加10bps。</p>
             <p>當沒使用到A因子時，若沒使用B因子，則⼼跳停留在80bps，而一旦使用到B因子時，則心率增加到90bps。換言之，即是使用了A因子，使用B因子與否的效應也僅是10bps。和前面沒使用A因⼦時一樣。</p>
             <p>因此，A與B之間沒有交互影響。</p>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova04.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova04.png`} />
             <li>A因子和B因子之間存在交互作用，但主要效應僅在B因子上：</li>
             <p>這裡心率增加的15bps是A與B交互作用的效應。另外，我們也可以說A因子是沒有效應的，但⼀旦增加了B因⼦後，我們不但看到了B因子的效應，也看到了A和B合起來的效應。</p>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova05.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova05.png`} />
             <li>A和B都存在著主效應，並且交互作用的效應也存在。</li>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova06.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/twoway-anova06.png`} />
           </ol>
         </ol>
         <div className="my-2">

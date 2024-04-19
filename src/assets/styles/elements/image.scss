@@ -34,3 +34,7 @@
     }
   }
 }
+:where(img, svg).img-invert,
+.img-block.img-invert :where(img, svg) {
+  filter: invert(var(--invert));
+}

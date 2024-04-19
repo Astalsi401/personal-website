@@ -61,6 +61,10 @@ $theme-colors-rgb: (
     secondary: 211 59 59,
   ),
 );
+$theme-invert: (
+  light: 0,
+  dark: 1,
+);
 $alpha: (
   0: 0,
   80: 0.08,
