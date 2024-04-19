@@ -18,4 +18,8 @@
 }
 #main-content {
   padding-top: var(--nav-h) !important;
+  transition: translate var(--time);
+}
+#root:has(#header > #sidebar.active) #main-content {
+  translate: var(--sidebar-w) 0;
 }

@@ -2,7 +2,7 @@
   z-index: index($z-index, sidebar);
   top: 0;
   margin-top: var(--nav-h);
-  width: min(400px, 100%);
+  width: min(var(--sidebar-w), 100%);
   height: calc(100dvh - var(--nav-h));
   background: var(--main-bg);
   transform: translateX(-100%);
