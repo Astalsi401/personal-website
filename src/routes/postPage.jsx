@@ -13,7 +13,7 @@ export default function PostPage() {
     dispatch(updateStore({ currentPostTitles: sections.map((s) => s.title).filter((s) => s.length > 0) }));
   }, [title]);
   return (
-    <main id="main-content" className="container-xl shadow-lg p-3">
+    <main id="main-content" className="container shadow-lg p-3">
       <h1 className="my-5 text-center">{title}</h1>
       {sections.map((section) => (
         <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title} content={section.content} />
