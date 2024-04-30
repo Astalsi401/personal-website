@@ -18,7 +18,7 @@ export function Sidebar({ wrapperRef }) {
   return (
     <aside id={sidebarID} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
-        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none">
+        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none" onClick={handleLinkClick}>
           {index.category}
         </Link>
       </h1>
