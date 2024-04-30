@@ -3,7 +3,7 @@
 }
 .img-block {
   img {
-    z-index: calc(index($z-index, sidebar));
+    z-index: calc(index($z-index, content));
     transform-origin: 0 0;
     transition: transform var(--time);
     transition-timing-function: ease-in-out;
