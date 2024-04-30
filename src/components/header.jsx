@@ -10,7 +10,10 @@ export default function Header() {
   const sidebarActive = useSelector((state) => state.sidebarActive);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
-  const handleFocusIn = ({ target }) => dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) ? true : btnRef.current.contains(target) ? sidebarActive : false }));
+
+  const handleFocusIn = ({ target }) => {
+    if (!btnRef.current.contains(target)) dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) }));
+  };
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(updateStore({ sidebarActive: !sidebarActive }));
@@ -42,10 +45,10 @@ export default function Header() {
               <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
             </svg>
           </Link>
+          <DarkMode />
           <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${isActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
             <span />
           </a>
-          <DarkMode />
         </nav>
         <ProgressBar />
         <Sidebar wrapperRef={wrapperRef} />

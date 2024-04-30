@@ -4,6 +4,7 @@
 @import "./styles.scss";
 @import "./header.scss";
 @import "./elements/homePage.scss";
+@import "./elements/postPage.scss";
 @import "./elements/index.scss";
 @import "./elements/codeChunk.scss";
 @import "./elements/image.scss";
@@ -21,7 +22,6 @@
   transition: translate var(--time);
 }
 #root {
-  overflow-x: hidden;
   &:has(#header > #sidebar.active) {
     :target {
       scroll-margin-left: calc(var(--sidebar-w) + var(--unit-3)); // --unit-3 = #main-content padding-left

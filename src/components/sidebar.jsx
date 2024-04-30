@@ -18,7 +18,7 @@ export function Sidebar({ wrapperRef }) {
   return (
     <aside id={sidebarID} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
-        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none" onClick={handleLinkClick}>
+        <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none">
           {index.category}
         </Link>
       </h1>
@@ -46,7 +46,7 @@ export function Sidebar({ wrapperRef }) {
 function SidebarChild({ currentPostTitles, childrenActive }) {
   return (
     <ul className={`children ${isActive(childrenActive)}`}>
-      {currentPostTitles.map((title) => (
+      {currentPostTitles.map(({ title }) => (
         <li key={title}>
           <a className="ps-4 text-decoration-none" href={`#${title}`}>
             <span>{title}</span>

@@ -1,0 +1,25 @@
+#main-content {
+  --aside-w: 200px;
+  & > .d-sm-grid {
+    grid-template-columns: calc(100% - var(--aside-w)) var(--aside-w);
+  }
+}
+.aside-content {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--unit-3));
+  align-self: start;
+  border-left: 1px solid var(--gray-300);
+  & > a {
+    line-height: 30px;
+    text-decoration: none;
+    color: var(--primary-300);
+    &.active {
+      color: var(--primary);
+    }
+  }
+}
+@media (max-width: map-get($screen-size, "md")) {
+  #main-content {
+    --aside-w: 0;
+  }
+}
