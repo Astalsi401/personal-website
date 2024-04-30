@@ -20,7 +20,9 @@ export default function PostPage() {
       <div className="d-sm-grid">
         <div className="post-content p-3">
           {sections.map((section) => (
-            <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title} content={section.content} />
+            <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title}>
+              {section.content}
+            </Block>
           ))}
         </div>
         {currentPostTitles.length > 0 && <AsideContent currentPostTitles={currentPostTitles} />}

@@ -52,37 +52,32 @@ function TuneList() {
   }, []);
   return (
     <>
-      <Block
-        className="py-2 bg-white tuneSearch"
-        content={
-          <div className="row">
-            <input type="search" className="bg-main-bg text-main-text d-block col-md-6 mx-auto p-2" placeholder="請輸入關鍵字" onChange={search} />
-          </div>
-        }
-      />
-      <Block
-        content={
-          <div className="row overflow-auto py-4">
-            <table className="mx-auto text-center text-small">
-              <thead>
-                <tr>
-                  {keys.map((d) => (
-                    <th key={d.key} className="pointer" onClick={() => sort(d.key)} style={{ minWidth: "80px" }}>
-                      {d.type}
-                      <span className={`trangle ${status.asc && "asc"} ${status.ascCol === d.key && "active"}`}></span>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {status.res.map((d) => (
-                  <TuneListRow key={d.shareCode} data={d} />
+      <Block className="py-2 bg-white tuneSearch">
+        <div className="row">
+          <input type="search" className="bg-main-bg text-main-text d-block col-md-6 mx-auto p-2" placeholder="請輸入關鍵字" onChange={search} />
+        </div>
+      </Block>
+      <Block>
+        <div className="row overflow-auto py-4">
+          <table className="mx-auto text-center text-small">
+            <thead>
+              <tr>
+                {keys.map((d) => (
+                  <th key={d.key} className="pointer" onClick={() => sort(d.key)} style={{ minWidth: "80px" }}>
+                    {d.type}
+                    <span className={`trangle ${status.asc && "asc"} ${status.ascCol === d.key && "active"}`}></span>
+                  </th>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        }
-      />
+              </tr>
+            </thead>
+            <tbody>
+              {status.res.map((d) => (
+                <TuneListRow key={d.shareCode} data={d} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Block>
     </>
   );
 }

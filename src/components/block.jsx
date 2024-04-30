@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
 
-export function Block({ className, title, titleClass, id, content }) {
+export function Block({ className, title, titleClass, id, children }) {
   const dispatch = useDispatch();
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
   const ref = useRef(null);
@@ -31,7 +31,7 @@ export function Block({ className, title, titleClass, id, content }) {
           {title}
         </h3>
       )}
-      {content}
+      {children}
     </section>
   );
 }
