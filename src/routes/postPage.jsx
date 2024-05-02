@@ -15,7 +15,7 @@ export default function PostPage() {
     if (scrollY + innerHeight >= document.body.scrollHeight && currentPostTitles.length !== 0) dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ title: s.title, active: i === currentPostTitles.length - 1 })) }));
   };
   useEffect(() => {
-    dispatch(updateStore({ currentPostTitles: sections.map((s) => ({ title: s.title, active: false })) }));
+    dispatch(updateStore({ currentPostTitles: sections.map((s) => ({ title: s.title, active: false })).filter((s) => s.title.length > 0) }));
     document.title = title;
     document.addEventListener("scroll", handleScrollEnd);
     return () => document.removeEventListener("scroll", handleScrollEnd);
