@@ -10,11 +10,7 @@ const counterSlice = createSlice({
     currentPostTitles: [],
   },
   reducers: {
-    updateStore: (state, { payload }) => {
-      Object.keys(payload).forEach((key) => {
-        state[key] = payload[key];
-      });
-    },
+    updateStore: (state, { payload }) => Object.keys(payload).forEach((key) => (state[key] = payload[key])),
   },
 });
 const store = configureStore({

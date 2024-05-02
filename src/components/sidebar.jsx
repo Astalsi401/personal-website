@@ -15,14 +15,6 @@ export function Sidebar({ wrapperRef }) {
   const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => dispatch(updateStore({ sidebarActive: false }));
-  const handleScrollEnd = () => {
-    const { scrollY, innerHeight } = window;
-    if (scrollY + innerHeight >= document.body.scrollHeight) dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ title: s.title, active: i === currentPostTitles.length - 1 })) }));
-  };
-  useEffect(() => {
-    document.addEventListener("scroll", handleScrollEnd);
-    return () => document.removeEventListener("scroll", handleScrollEnd);
-  }, []);
   return (
     <aside id={sidebarID} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
