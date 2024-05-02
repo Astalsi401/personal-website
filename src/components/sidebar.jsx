@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
@@ -26,12 +26,13 @@ export function Sidebar({ wrapperRef }) {
         {index.pages.map((p, i) => {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
           const isMyPage = /^http/.test(p.href);
+          const showChildren = isCurrent && currentPostTitles.length > 0;
           return (
-            <li key={i} className={`${isCurrent && currentPostTitles.length > 0 ? "has-children" : ""}`} onClick={click}>
+            <li key={i} className={`${showChildren ? "has-children" : ""}`} onClick={click}>
               <Link to={isMyPage ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} target={isMyPage ? "_blank" : "_self"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
-              {isCurrent && currentPostTitles.length > 0 && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
+              {showChildren && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
             </li>
           );
         })}
