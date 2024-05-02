@@ -10,15 +10,9 @@ export default function PostPage() {
   const { title, sections } = useLoaderData();
   const { href, page } = useParams();
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
-  const handleScrollEnd = () => {
-    const { scrollY, innerHeight } = window;
-    if (scrollY + innerHeight >= document.body.scrollHeight && currentPostTitles.length !== 0) dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ title: s.title, active: i === currentPostTitles.length - 1 })) }));
-  };
   useEffect(() => {
-    dispatch(updateStore({ currentPostTitles: sections.map((s) => ({ title: s.title, active: false })).filter((s) => s.title.length > 0) }));
     document.title = title;
-    document.addEventListener("scroll", handleScrollEnd);
-    return () => document.removeEventListener("scroll", handleScrollEnd);
+    dispatch(updateStore({ currentPostTitles: sections.map((s) => ({ title: s.title, active: false })).filter((s) => s.title.length > 0) }));
   }, [title]);
   return (
     <main id="main-content" className="container-xl shadow-lg" style={currentPostTitles.length === 0 ? { "--aside-w": 0 } : {}}>
