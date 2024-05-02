@@ -19,7 +19,7 @@ export default function PostPage() {
       <h1 className="my-5 text-center">{title}</h1>
       <div className="d-sm-grid">
         <div className="post-content p-3">
-          {sections.map((section) => (
+          {sections.map((section, i) => (
             <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title}>
               {section.content}
             </Block>
