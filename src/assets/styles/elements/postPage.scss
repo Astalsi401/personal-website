@@ -1,6 +1,6 @@
 #main-content {
   --aside-w: 200px;
-  & > .d-sm-grid {
+  & > .d-md-grid {
     grid-template-columns: calc(100% - var(--aside-w)) var(--aside-w);
   }
 }

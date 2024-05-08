@@ -3,6 +3,7 @@
 - project: todolist
 - project: bootstrap code creator
 - add breadcrumbs
+- exercise routine(with mongo db)
 - ~~縮減 container width，右側新增本頁段落，hl 當前段落~~
 - ~~dark mode~~
 - ~~DemoFrame 全螢幕~~
@@ -10,3 +11,5 @@
 - ~~圖片點擊放大後禁止頁面滾動(dialog)~~
 - ~~Sidebar 中 hl 當前頁面所在目錄~~
 - ~~避免點擊 iframe 時無法關閉 parent 的 side menu~~
+
+- [another slider](https://stackoverflow.com/questions/76126119/how-to-reduce-gap-between-items-in-a-flex/76126925#comment134268353_76126925)

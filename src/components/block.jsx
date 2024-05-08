@@ -13,7 +13,7 @@ export function Block({ className, title, titleClass, id, children }) {
       if (entry.isIntersecting) dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ title: s.title, active: s.title === title })) }));
     });
   };
-  const handleResize = () => setHeight(window.innerHeight - navHeight);
+  const handleResize = () => setHeight(window.innerHeight - navHeight - window.innerHeight * 0.3);
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);
