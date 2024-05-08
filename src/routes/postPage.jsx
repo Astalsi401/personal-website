@@ -17,7 +17,7 @@ export default function PostPage() {
   return (
     <main id="main-content" className="container-xl shadow-lg" style={currentPostTitles.length === 0 ? { "--aside-w": 0 } : {}}>
       <h1 className="my-5 text-center">{title}</h1>
-      <div className="d-sm-grid">
+      <div className="d-md-grid">
         <div className="post-content p-3">
           {sections.map((section, i) => (
             <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title}>
