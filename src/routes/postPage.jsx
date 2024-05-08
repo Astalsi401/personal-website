@@ -32,7 +32,6 @@ export default function PostPage() {
 }
 
 function AsideContent({ currentPostTitles }) {
-  const dispatch = useDispatch();
   return (
     <div className="aside-content d-sm-block d-none px-3 text-small">
       <a href="#" className="d-block text-primary text-bold">
