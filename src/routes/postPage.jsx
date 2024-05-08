@@ -33,14 +33,13 @@ export default function PostPage() {
 
 function AsideContent({ currentPostTitles }) {
   const dispatch = useDispatch();
-  const handleAnchorClick = (title) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ title: s.title, active: s.title === title })) }));
   return (
     <div className="aside-content d-sm-block d-none px-3 text-small">
       <a href="#" className="d-block text-primary text-bold">
         On this page
       </a>
       {currentPostTitles.map(({ title, active }) => (
-        <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`} onClick={() => handleAnchorClick(title)}>
+        <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`}>
           {title}
         </a>
       ))}
