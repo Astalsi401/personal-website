@@ -1,0 +1,12 @@
+:root {
+  @each $u, $u-value in $units {
+    --unit-#{$u}: #{$u-value};
+  }
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

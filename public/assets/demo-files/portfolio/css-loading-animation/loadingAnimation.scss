@@ -6,9 +6,8 @@ body {
     justify-content: space-around;
   }
   &:has(.loading3) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
     background-color: #213547;
     height: 100vh;
     min-height: 500px;

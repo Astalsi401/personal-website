@@ -1,4 +1,4 @@
-@import "./basic.scss";
+@import "./_basic.scss";
 /* color */
 @each $elem, $elem-value in $elements {
   @each $color, $color-value in map-get($theme-colors, light) {

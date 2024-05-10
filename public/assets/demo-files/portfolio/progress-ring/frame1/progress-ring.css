@@ -22,9 +22,8 @@
   box-shadow: var(--shadow);
   border-radius: 50%;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
 }
 
 #progress {

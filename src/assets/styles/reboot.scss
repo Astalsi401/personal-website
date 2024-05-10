@@ -1,7 +1,4 @@
 :root {
-  @each $u, $u-value in $units {
-    --unit-#{$u}: #{$u-value};
-  }
   --nav-h: 40px;
   --sidebar-w: 400px;
   --time: 0.4s;
@@ -45,10 +42,7 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
   font-family: Microsoft JhengHei, sans-serif;
-  margin: 0;
-  padding: 0;
   transition: background var(--time);
   line-height: 1.5em;
   &::-webkit-scrollbar {
@@ -65,8 +59,7 @@
       background: rgb(var(--blue));
     }
   }
-  /* firefox */
-  scrollbar-width: thin;
+  scrollbar-width: thin; /* firefox */
 }
 html {
   font-size: 16px;
