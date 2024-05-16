@@ -13,6 +13,10 @@
   @each $flex-wrap in (wrap, nowrap) {
     @include builder(flex-wrap, $flex-wrap, flex, $class-e: -#{$flex-wrap}, $screen: $screen);
   }
+  @each $u, $u-value in $units {
+    @include builder(gap, $u-value, g, $class-e: -#{$u}, $screen: $screen);
+  }
+  /* end of flex */
   @each $mp, $mp-value in $margin_padding {
     @each $side, $side-values in $element-sides {
       $props: ();
@@ -24,7 +28,6 @@
       }
     }
   }
-  /* end of flex */
   /* block length */
   @each $wh, $wh-value in $block-wh {
     @each $length, $length-value in $block-length {
