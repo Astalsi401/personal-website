@@ -43,6 +43,7 @@
       "icon": "/assets/images/portfolio.svg",
       "pages": [
         { "page": "Gradient Generator", "href": "https://astalsi401.github.io/gradient-creator/", "thumbnail": "js", "tags": ["react", "js", "javascript", "scss", "html"] },
+        { "page": "Donut wheel arrow", "href": "/donut-wheel-arrow", "thumbnail": "css", "tags": ["css", "html"] },
         { "page": "Css clip-path Image Slider", "href": "/css-clip-path-image-slider", "thumbnail": "/assets/images/css-clip-path-image-slider.png", "tags": ["js", "css", "html"] },
         { "page": "Progress Ring", "href": "/progress-ring", "thumbnail": "/assets/images/progress-ring.png", "tags": ["js", "css", "html"] },
         { "page": "Css Auto Height Transition", "href": "/css-auto-height", "thumbnail": "css", "tags": ["css", "html"] },

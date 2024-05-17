@@ -1,0 +1,27 @@
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  --w: 350px;
+  width: var(--w);
+  height: var(--w);
+  position: relative;
+}
+.arrow {
+  --m: 5px;
+  top: 50%;
+  left: 50%;
+  opacity: 0.3;
+  background-color: navy;
+  width: 55%;
+  height: 48%;
+  position: absolute;
+  translate: -50% -100%;
+  transform: rotate(calc(360deg / 6 * var(--i))) translate(calc(37%), calc(-25%));
+  transform-origin: 50% 100%;
+  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 25% 50%);
+  transition: all 3s;
+}
