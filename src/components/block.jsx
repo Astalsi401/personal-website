@@ -6,15 +6,16 @@ export const Block = ({ className, title, titleClass, id, children }) => {
   const dispatch = useDispatch();
   const ref = useRef(null);
   const navHeight = 40;
-  const handleScroll = () => {
+  const handleCurrentSection = () => {
     if (!ref.current) return;
     const { currentPostTitles } = store.getState();
     const { top, height } = ref.current.getBoundingClientRect();
-    top - navHeight - height <= 0 && dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ title: s.title, active: s.title === title })) }));
+    const disToBottom = document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight);
+    top - navHeight - height <= 0 && dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ ...s, active: disToBottom === 0 ? i === currentPostTitles.length - 1 : s.title === title })) }));
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleCurrentSection);
+    return () => window.removeEventListener("scroll", handleCurrentSection);
   }, []);
   return (
     <section className={`my-4 ${className ? className : ""}`}>

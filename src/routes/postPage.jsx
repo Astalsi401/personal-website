@@ -31,17 +31,21 @@ const PostPage = () => {
   );
 };
 
-const AsideContent = ({ currentPostTitles }) => (
-  <div className="aside-content d-sm-block d-none px-3 text-small">
-    <a href="#" className="d-block text-primary text-bold">
-      On this page
-    </a>
-    {currentPostTitles.map(({ title, active }) => (
-      <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`}>
-        {title}
+const AsideContent = ({ currentPostTitles }) => {
+  const dispatch = useDispatch();
+  const handleCurrentSection = (title) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
+  return (
+    <div className="aside-content d-sm-block d-none px-3 text-small">
+      <a href="#" className="d-block text-primary text-bold">
+        On this page
       </a>
-    ))}
-  </div>
-);
+      {currentPostTitles.map(({ title, active }) => (
+        <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`} onClick={() => handleCurrentSection(title)}>
+          {title}
+        </a>
+      ))}
+    </div>
+  );
+};
 
 export default PostPage;
