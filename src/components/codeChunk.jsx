@@ -13,7 +13,7 @@ import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { isActive } from "./functions";
 
-export function CodeChunk({ code, lang, path }) {
+export const CodeChunk = ({ code, lang, path }) => {
   const [codeTxt, setCodeTxt] = useState(code);
   const [active, setActive] = useState(false);
   const [fileName, setFileName] = useState(null);
@@ -24,16 +24,13 @@ export function CodeChunk({ code, lang, path }) {
     setTimeout(() => setActive(false), 2000);
   };
   const fetchCode = async () => {
-    const data = await fetch(path).then((res) => res.text());
     setFileName(path.split("/").pop());
-    setCodeTxt(data);
+    setCodeTxt(await fetch(path).then((res) => res.text()));
   };
   useEffect(() => {
-    if (path) fetchCode();
+    path && fetchCode();
   }, [path]);
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [codeTxt]);
+  useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
     <pre className="my-2 p-2 pt-4 position-relative">
       {fileName && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
@@ -46,4 +43,4 @@ export function CodeChunk({ code, lang, path }) {
       <code children={codeTxt} className={`lang-${lang} d-block overflow-auto`} />
     </pre>
   );
-}
+};

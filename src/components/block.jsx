@@ -1,29 +1,21 @@
-import { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import store, { updateStore } from "../assets/store";
 
-export function Block({ className, title, titleClass, id, children }) {
+export const Block = ({ className, title, titleClass, id, children }) => {
   const dispatch = useDispatch();
-  const currentPostTitles = useSelector((state) => state.currentPostTitles);
   const ref = useRef(null);
-  const [height, setHeight] = useState(0);
-  const navHeight = 60;
-  const callback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ title: s.title, active: s.title === title })) }));
-    });
+  const navHeight = 40;
+  const handleScroll = () => {
+    if (!ref.current) return;
+    const { currentPostTitles } = store.getState();
+    const { top, height } = ref.current.getBoundingClientRect();
+    top - navHeight - height <= 0 && dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ title: s.title, active: s.title === title })) }));
   };
-  const handleResize = () => setHeight(window.innerHeight - navHeight - window.innerHeight * 0.3);
   useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver(callback, { threshold: 0, rootMargin: `-${navHeight}px 0px -${height}px` });
-    ref.current && currentPostTitles.length > 0 && observer.observe(ref.current);
-    return () => ref.current && currentPostTitles.length > 0 && observer.disconnect(ref.current);
-  }, [ref.current, currentPostTitles.length, height]);
   return (
     <section className={`my-4 ${className ? className : ""}`}>
       {title && (
@@ -34,4 +26,4 @@ export function Block({ className, title, titleClass, id, children }) {
       {children}
     </section>
   );
-}
+};

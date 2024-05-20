@@ -5,15 +5,12 @@ import { updateStore } from "../assets/store";
 import { isActive } from "./functions";
 import { Sidebar } from "./sidebar";
 
-export default function Header() {
+const Header = () => {
   const dispatch = useDispatch();
   const sidebarActive = useSelector((state) => state.sidebarActive);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
-
-  const handleFocusIn = ({ target }) => {
-    if (!btnRef.current.contains(target)) dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) }));
-  };
+  const handleFocusIn = ({ target }) => !btnRef.current.contains(target) && dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) }));
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(updateStore({ sidebarActive: !sidebarActive }));
@@ -22,9 +19,7 @@ export default function Header() {
     if (wrapperRef.current.contains(target) || btnRef.current.contains(target)) return;
     dispatch(updateStore({ sidebarActive: false }));
   };
-  const handleClickFrame = ({ data }) => {
-    if (data.window && data.window === "iframe") dispatch(updateStore({ sidebarActive: false }));
-  };
+  const handleClickFrame = ({ data }) => data.window && data.window === "iframe" && dispatch(updateStore({ sidebarActive: false }));
   useEffect(() => {
     document.addEventListener("pointerdown", handleClickOut);
     document.addEventListener("focusin", handleFocusIn);
@@ -55,9 +50,9 @@ export default function Header() {
       </header>
     </>
   );
-}
+};
 
-function Accessibility() {
+const Accessibility = () => {
   const sidebarAnchorID = useSelector((state) => state.sidebarAnchorID);
   const access = [
     { href: "#main-content", text: "Skip to main content" },
@@ -72,9 +67,9 @@ function Accessibility() {
       ))}
     </div>
   );
-}
+};
 
-function ProgressBar() {
+const ProgressBar = () => {
   const [percent, setPercent] = useState(0);
   const handleScroll = () => {
     const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
@@ -89,9 +84,9 @@ function ProgressBar() {
     };
   }, []);
   return <div className="progress w-100 position-relative" style={{ "--percent": percent }} />;
-}
+};
 
-function DarkMode() {
+const DarkMode = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.isDark);
   const handleClick = (e) => {
@@ -113,4 +108,6 @@ function DarkMode() {
       </svg>
     </a>
   );
-}
+};
+
+export default Header;

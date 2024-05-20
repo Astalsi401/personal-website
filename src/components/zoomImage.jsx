@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { isActive } from "./functions";
 
-export function ZoomImage({ id, className, src, alt }) {
+export const ZoomImage = ({ id, className, src, alt }) => {
   const [active, setActive] = useState(false);
   const ref = useRef(null);
   const zoom = ({ target }) =>
@@ -17,13 +17,13 @@ export function ZoomImage({ id, className, src, alt }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  let elem = ref.current && ref.current.getBoundingClientRect();
-  let scale = elem ? Math.min(window.innerWidth / elem.width, window.innerHeight / elem.height) : 1;
-  let translate = elem ? `${(window.innerWidth / 2 - elem.x) / scale - elem.width / 2}px, ${(window.innerHeight / 2 - elem.y) / scale - elem.height / 2}px` : "0,0";
-  let imgSty = { transform: active ? `scale(${scale}) translate(${translate})` : "scale(1) translate(0)" };
+  const elem = ref.current && ref.current.getBoundingClientRect();
+  const scale = elem ? Math.min(window.innerWidth / elem.width, window.innerHeight / elem.height) : 1;
+  const translate = elem ? `${(window.innerWidth / 2 - elem.x) / scale - elem.width / 2}px, ${(window.innerHeight / 2 - elem.y) / scale - elem.height / 2}px` : "0,0";
+  const imgSty = { transform: active ? `scale(${scale}) translate(${translate})` : "scale(1) translate(0)" };
   return (
     <div id={id && id} className={`${className ? className : ""} img-block ${isActive(active)}`}>
       <img ref={ref} className="w-100 position-relative" loading="lazy" src={src} alt={alt && alt} style={imgSty} onClick={zoom} />
     </div>
   );
-}
+};

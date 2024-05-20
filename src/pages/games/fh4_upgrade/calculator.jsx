@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Label } from "../../../components/label";
 
-export default function Calculator() {
+const Calculator = () => {
   const [status, setStatus] = useState({ bh: "", bw: "", ah: "", aw: "" });
   const whp = ({ target: { name, value } }) => setStatus((prev) => ({ ...prev, [name]: value }));
   let before = (Number(status.bw) / Number(status.bh)).toFixed(2),
@@ -33,15 +33,15 @@ export default function Calculator() {
       ))}
     </form>
   );
-}
+};
 
-function InputLabel({ name, status, whp }) {
-  return (
-    <>
-      {/b\w$/.test(name) && <div className="col-2 p-1 d-flex align-items-center text-bold">{/\ww$/.test(name) ? "重量" : "馬力"}</div>}
-      <div key={name} className="col-5 p-1 d-flex align-items-center">
-        <Label name={name} type="number" placeholder={/\ww$/.test(name) ? "kg" : "hp"} value={status[name]} fuc={whp} />
-      </div>
-    </>
-  );
-}
+const InputLabel = ({ name, status, whp }) => (
+  <>
+    {/b\w$/.test(name) && <div className="col-2 p-1 d-flex align-items-center text-bold">{/\ww$/.test(name) ? "重量" : "馬力"}</div>}
+    <div key={name} className="col-5 p-1 d-flex align-items-center">
+      <Label name={name} type="number" placeholder={/\ww$/.test(name) ? "kg" : "hp"} value={status[name]} fuc={whp} />
+    </div>
+  </>
+);
+
+export default Calculator;

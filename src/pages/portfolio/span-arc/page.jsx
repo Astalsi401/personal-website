@@ -20,8 +20,8 @@ const sections = [
     content: (
       <>
         <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/arc.css`} lang="css" />
-        <CodeChunk path={`${demoPath}/arc.html`} lang="html" />
+        <CodeChunk path={`${demoPath}/frame1/arc.css`} lang="css" />
+        <CodeChunk path={`${demoPath}/frame1/arc.html`} lang="html" />
       </>
     ),
   },

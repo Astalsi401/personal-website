@@ -5,7 +5,7 @@ import { Block } from "../components/block";
 import { updateStore } from "../assets/store";
 import { isActive } from "../components/functions";
 
-export default function PostPage() {
+const PostPage = () => {
   const dispatch = useDispatch();
   const { title, sections } = useLoaderData();
   const { href, page } = useParams();
@@ -29,19 +29,19 @@ export default function PostPage() {
       </div>
     </main>
   );
-}
+};
 
-function AsideContent({ currentPostTitles }) {
-  return (
-    <div className="aside-content d-sm-block d-none px-3 text-small">
-      <a href="#" className="d-block text-primary text-bold">
-        On this page
+const AsideContent = ({ currentPostTitles }) => (
+  <div className="aside-content d-sm-block d-none px-3 text-small">
+    <a href="#" className="d-block text-primary text-bold">
+      On this page
+    </a>
+    {currentPostTitles.map(({ title, active }) => (
+      <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`}>
+        {title}
       </a>
-      {currentPostTitles.map(({ title, active }) => (
-        <a key={`aside-${title}`} href={`#${title}`} className={`d-block ${isActive(active)}`}>
-          {title}
-        </a>
-      ))}
-    </div>
-  );
-}
+    ))}
+  </div>
+);
+
+export default PostPage;

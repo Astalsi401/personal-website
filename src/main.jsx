@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <Loading>
-          <Root category="Home" />
+          <Root />
         </Loading>
       </>
     ),

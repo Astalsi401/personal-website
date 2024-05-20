@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
 import { isActive } from "./functions";
 
-export function Sidebar({ wrapperRef }) {
+export const Sidebar = ({ wrapperRef }) => {
   const dispatch = useDispatch();
   const index = useLoaderData();
   const sidebarID = useSelector((state) => state.sidebarID);
@@ -42,18 +42,16 @@ export function Sidebar({ wrapperRef }) {
       </div>
     </aside>
   );
-}
+};
 
-function SidebarChild({ currentPostTitles, childrenActive }) {
-  return (
-    <ul className={`children ${isActive(childrenActive)}`}>
-      {currentPostTitles.map(({ title }) => (
-        <li key={title}>
-          <a className="ps-4 text-decoration-none" href={`#${title}`}>
-            <span>{title}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-}
+const SidebarChild = ({ currentPostTitles, childrenActive }) => (
+  <ul className={`children ${isActive(childrenActive)}`}>
+    {currentPostTitles.map(({ title }) => (
+      <li key={title}>
+        <a className="ps-4 text-decoration-none" href={`#${title}`}>
+          <span>{title}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+);

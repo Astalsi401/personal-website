@@ -1,49 +1,7 @@
 import { ZoomImage } from "../../../components/zoomImage";
-
 import Calculator from "./calculator";
+import data from "./data.json";
 
-const data = {
-  videos: [
-    {
-      creator: "HokiHoshi",
-      channel: "https://www.youtube.com/c/HokiHoshi",
-      links: [
-        {
-          title: "Forza Horizon 4 Tuning Guide",
-          href: "https://youtu.be/WM7_3NGGUoQ",
-        },
-        {
-          title: "Gear Tuning",
-          href: "https://youtu.be/D6qthLir2iI",
-        },
-        {
-          title: "Drift Guide",
-          href: "https://youtu.be/BfZHOWwR5Gw",
-        },
-        {
-          title: "Drift Gearing",
-          href: "https://youtu.be/rAuvIlPi2KE",
-        },
-      ],
-    },
-    {
-      creator: "Johnson Racing",
-      channel: "https://www.youtube.com/channel/UCGK33hhvffYv5hUNqB0wVnQ",
-      links: [
-        {
-          title: "https://youtu.be/W4s1VP1nUoM",
-          href: "HOW TO TUNE in Forza Horizon 4 | OP Car Tutorial (Upgrades & Tuning)",
-        },
-      ],
-    },
-  ],
-  summarize: [
-    { title: "轉向不足", list: ["降低差速器百分比", "增加後輪出力（AWD）", "調低前防傾桿", "增加前空力", "調軟前彈簧", "增加前阻尼壓縮硬度", "降低前阻尼回彈硬度"] },
-    { title: "轉向過度", list: ["增加差速器百分比", "將中央差速器調向50%（AWD）", "調低後防傾桿", "增加後空力", "降低後阻尼回彈硬度", "增加後束角"] },
-    { title: "穩定度過低", list: ["確認車身高度是否過低", "調整空力", "調整阻尼回彈硬度百分比", "條軟前彈簧", "減少束角"] },
-    { title: "過彎抓地力不足", list: ["確認輪胎溫度、降低胎壓", "降低差速器百分比", "將中央差速器調向50%（AWD）", "調整阻尼回彈硬度百分比", "將齒輪比調整為更重視極速（調低齒比）", "增加空力", "調軟彈簧", "檢查車輪定位"] },
-  ],
-};
 const sections = [
   {
     title: "",
@@ -53,16 +11,16 @@ const sections = [
         <br />
         影片清單：
         <ul>
-          {data.videos.map((creator) => (
-            <li key={creator.creator}>
-              <a href={creator.channel} target="_blank">
-                {creator.creator}
+          {data.videos.map(({ creator, channel, links }) => (
+            <li key={creator}>
+              <a href={channel} target="_blank">
+                {creator}
               </a>
               <ul>
-                {creator.links.map((link) => (
-                  <li key={link.title}>
-                    <a href={link.href} target="_blank">
-                      {link.title}
+                {links.map(({ title, href }) => (
+                  <li key={title}>
+                    <a href={href} target="_blank">
+                      {title}
                     </a>
                   </li>
                 ))}

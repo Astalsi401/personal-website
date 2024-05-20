@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ZoomImage } from "../../../components/zoomImage";
 import { Block } from "../../../components/block";
 
-function TuneListRow({ data }) {
+const TuneListRow = ({ data }) => {
   const [active, setActive] = useState(false);
   const showImg = (e) => {
     if (["IMG", "DIV"].includes(e.target.tagName)) return;
@@ -21,10 +21,10 @@ function TuneListRow({ data }) {
       <td>{data.shareCode}</td>
     </tr>
   );
-}
+};
 
-function TuneList() {
-  const [status, setStatus] = useState({ isload: false, tuneList: [], search: "", res: [], asc: false, ascCol: "" });
+const TuneList = () => {
+  const [{ tuneList, asc, ascCol }, setStatus] = useState({ isload: false, tuneList: [], search: "", asc: false, ascCol: "" });
   const keys = [
     { key: "tunner", type: "調教者" },
     { key: "tuneName", type: "調教名稱" },
@@ -33,19 +33,28 @@ function TuneList() {
     { key: "preferance", type: "特性" },
     { key: "shareCode", type: "分享代碼" },
   ];
-  const search = (e) => {
-    let re = e.target.value
+  const search = ({ target: { value } }) => {
+    const re = value
       .split(" ")
       .map((d) => `(?=.*${d.replace(/^\s|\s$/g, "")})`)
       .filter((d) => d !== "(?=.*)")
       .join("");
-    setStatus((prev) => ({ ...prev, search: e.target.value, res: status.tuneList.filter((d) => [d.tunner, d.tuneName, d.score, d.carType, d.preferance, d.shareCode.replace(/\s/g, "")].join("|").match(new RegExp(re, "gi"))) }));
+    setStatus((prev) => ({
+      ...prev,
+      search: value,
+      tuneList: tuneList.map((d) => ({
+        ...d,
+        active: Object.keys(d)
+          .map((key) => (key === "shareCode" ? d[key].replace(/\s/g, "") : d[key]))
+          .join("|")
+          .match(new RegExp(re, "gi")),
+      })),
+    }));
   };
-  const sort = (type) => setStatus((prev) => ({ ...prev, res: prev.res.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
+  const sort = (type) => setStatus((prev) => ({ ...prev, tuneList: prev.tuneList.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
   const fetchTable = async () => {
-    const res = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`);
-    const data = await res.json();
-    setStatus((prev) => ({ ...prev, tuneList: data, res: data }));
+    const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`).then((res) => res.json());
+    setStatus((prev) => ({ ...prev, isload: true, tuneList: data.map((d) => ({ ...d, active: true })) }));
   };
   useEffect(() => {
     fetchTable();
@@ -62,25 +71,21 @@ function TuneList() {
           <table className="mx-auto text-center text-small">
             <thead>
               <tr>
-                {keys.map((d) => (
-                  <th key={d.key} className="pointer" onClick={() => sort(d.key)} style={{ minWidth: "80px" }}>
-                    {d.type}
-                    <span className={`trangle ${status.asc && "asc"} ${status.ascCol === d.key && "active"}`}></span>
+                {keys.map(({ key, type }) => (
+                  <th key={key} className="pointer" onClick={() => sort(key)} style={{ minWidth: "80px" }}>
+                    {type}
+                    <span className={`trangle ${asc && "asc"} ${ascCol === key && "active"}`}></span>
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody>
-              {status.res.map((d) => (
-                <TuneListRow key={d.shareCode} data={d} />
-              ))}
-            </tbody>
+            <tbody>{tuneList.map((d) => d?.active && <TuneListRow key={d.shareCode} data={d} />)}</tbody>
           </table>
         </div>
       </Block>
     </>
   );
-}
+};
 
 const sections = [
   {

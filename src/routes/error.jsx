@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 
-export default function ErrorPage() {
+const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
   return (
@@ -10,4 +10,6 @@ export default function ErrorPage() {
       <Link to={import.meta.env.BASE_URL}>Back to Home Page</Link>
     </div>
   );
-}
+};
+
+export default ErrorPage;

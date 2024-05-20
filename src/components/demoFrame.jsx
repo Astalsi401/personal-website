@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { isActive } from "./functions";
 
-export function DemoFrame({ src }) {
+export const DemoFrame = ({ src }) => {
   const iframeRef = useRef(null);
   const [height, setHeight] = useState(0);
   const [fullPage, setFullPage] = useState(false);
-  const handleMessage = ({ data, source }) => {
-    if (source === iframeRef.current.contentWindow && data.height) setHeight(data.height);
-  };
+  const handleMessage = ({ data, source }) => source === iframeRef.current.contentWindow && data.height && setHeight(data.height);
   const handleClick = (e) => {
     e.preventDefault();
     setFullPage((prev) => {
@@ -28,4 +26,4 @@ export function DemoFrame({ src }) {
       <iframe className={`w-100 ${isActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
     </div>
   );
-}
+};

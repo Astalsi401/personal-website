@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Label } from "../../../components/label";
 
-export default function Calculator() {
+const Calculator = () => {
   const [status, setStatus] = useState({ ratio: "", max: "", min: "", type: 0 });
   const tuneformula = ({ target: { name, value } }) => setStatus((prev) => ({ ...prev, [name]: value }));
   let front,
@@ -54,4 +54,6 @@ export default function Calculator() {
       </fieldset>
     </form>
   );
-}
+};
+
+export default Calculator;
