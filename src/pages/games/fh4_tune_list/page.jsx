@@ -55,7 +55,7 @@ const TuneList = () => {
   const sort = (type) => setStatus((prev) => ({ ...prev, tuneList: prev.tuneList.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
   const fetchTable = async () => {
     const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`).then((res) => res.json());
-    setStatus((prev) => ({ ...prev, isload: false, tuneList: data.map((d) => ({ ...d, active: true })) }));
+    setStatus((prev) => ({ ...prev, isload: true, tuneList: data.map((d) => ({ ...d, active: true })) }));
   };
   useEffect(() => {
     fetchTable();
