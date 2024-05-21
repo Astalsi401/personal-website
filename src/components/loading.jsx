@@ -5,7 +5,7 @@ const Loading = ({ children }) => {
   return state === "loading" ? <LoadingAnimation /> : children;
 };
 
-const LoadingAnimation = () => (
+export const LoadingAnimation = () => (
   <div className="loading">
     {Array.from({ length: 24 }).map((_, i) => (
       <div key={`loading-line-${i}`} className="line" style={{ "--i": i }} />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ZoomImage } from "../../../components/zoomImage";
 import { Block } from "../../../components/block";
+import { LoadingAnimation } from "../../../components/loading";
 
 const TuneListRow = ({ data }) => {
   const [active, setActive] = useState(false);
@@ -24,7 +25,7 @@ const TuneListRow = ({ data }) => {
 };
 
 const TuneList = () => {
-  const [{ tuneList, asc, ascCol }, setStatus] = useState({ isload: false, tuneList: [], search: "", asc: false, ascCol: "" });
+  const [{ isload, tuneList, asc, ascCol }, setStatus] = useState({ isload: false, tuneList: [], search: "", asc: false, ascCol: "" });
   const keys = [
     { key: "tunner", type: "調教者" },
     { key: "tuneName", type: "調教名稱" },
@@ -54,7 +55,7 @@ const TuneList = () => {
   const sort = (type) => setStatus((prev) => ({ ...prev, tuneList: prev.tuneList.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
   const fetchTable = async () => {
     const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`).then((res) => res.json());
-    setStatus((prev) => ({ ...prev, isload: true, tuneList: data.map((d) => ({ ...d, active: true })) }));
+    setStatus((prev) => ({ ...prev, isload: false, tuneList: data.map((d) => ({ ...d, active: true })) }));
   };
   useEffect(() => {
     fetchTable();
@@ -67,20 +68,26 @@ const TuneList = () => {
         </div>
       </Block>
       <Block>
-        <div className="row overflow-auto py-4">
-          <table className="mx-auto text-center text-small">
-            <thead>
-              <tr>
-                {keys.map(({ key, type }) => (
-                  <th key={key} className="pointer" onClick={() => sort(key)} style={{ minWidth: "80px" }}>
-                    {type}
-                    <span className={`trangle ${asc && "asc"} ${ascCol === key && "active"}`}></span>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>{tuneList.map((d) => d?.active && <TuneListRow key={d.shareCode} data={d} />)}</tbody>
-          </table>
+        <div className={`row overflow-auto py-4`}>
+          {isload ? (
+            <table className="mx-auto text-center text-small">
+              <thead>
+                <tr>
+                  {keys.map(({ key, type }) => (
+                    <th key={key} className="pointer" onClick={() => sort(key)} style={{ minWidth: "80px" }}>
+                      {type}
+                      <span className={`trangle ${asc && "asc"} ${ascCol === key && "active"}`}></span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>{tuneList.map((d) => d?.active && <TuneListRow key={d.shareCode} data={d} />)}</tbody>
+            </table>
+          ) : (
+            <div>
+              <LoadingAnimation />
+            </div>
+          )}
         </div>
       </Block>
     </>

@@ -81,6 +81,12 @@ $flex-position: (
     stretch: stretch,
   ),
 );
+$flex-direction: (row, column, row-reverse, column-reverse);
+$grid-position: (
+  place-content: (
+    center: center,
+  ),
+);
 $position: (absolute, fixed, static, sticky, relative);
 $float: (
   start: left,

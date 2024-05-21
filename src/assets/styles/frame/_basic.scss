@@ -13,10 +13,21 @@
   @each $flex-wrap in (wrap, nowrap) {
     @include builder(flex-wrap, $flex-wrap, flex, $class-e: -#{$flex-wrap}, $screen: $screen);
   }
+  @include builder(flex-grow, 1, flex-grow, $screen: $screen);
+  @each $flex-dir in $flex-direction {
+    @include builder(flex-direction, $flex-dir, flex, $class-e: -#{$flex-dir}, $screen: $screen);
+  }
   @each $u, $u-value in $units {
     @include builder(gap, $u-value, g, $class-e: -#{$u}, $screen: $screen);
   }
   /* end of flex */
+  /* grid */
+  @each $grid-pos, $grid-pos-values in $grid-position {
+    @each $pos, $pos-val in $grid-pos-values {
+      @include builder($grid-pos, $pos-val, $grid-pos, $class-e: -#{$pos}, $screen: $screen);
+    }
+  }
+  /* end of grid */
   @each $mp, $mp-value in $margin_padding {
     @each $side, $side-values in $element-sides {
       $props: ();

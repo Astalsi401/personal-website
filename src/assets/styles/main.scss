@@ -19,6 +19,7 @@
 #main-content {
   padding-top: var(--nav-h) !important;
   transition: translate var(--time);
+  min-height: 100dvh;
 }
 #root {
   &:has(#header > #sidebar.active) {
