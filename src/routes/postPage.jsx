@@ -12,7 +12,7 @@ const PostPage = () => {
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
   useEffect(() => {
     document.title = title;
-    dispatch(updateStore({ currentPostTitles: sections.map((s) => ({ title: s.title, active: false })).filter((s) => s.title.length > 0) }));
+    dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   return (
     <main id="main-content" className="container-xl shadow-lg" style={currentPostTitles.length === 0 ? { "--aside-w": 0 } : {}}>

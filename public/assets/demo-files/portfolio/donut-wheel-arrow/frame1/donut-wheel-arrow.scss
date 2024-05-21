@@ -31,9 +31,10 @@ body {
   background-color: hsl(calc(60deg * var(--i)) 30% 60%);
   height: 54%;
   aspect-ratio: 1;
-  --m: 2px;
-  --_d: (1 - 2 * cos(30deg)) / sin(30deg);
-  --tan30: 50% * tan(30deg);
-  clip-path: polygon(0 0, calc(100% - var(--tan30)) 0, 100% 50%, calc(100% - var(--tan30)) 100%, 0 100%, calc(var(--tan30)) 50%);
-  transform: rotate(calc(60deg * var(--i))) translate(calc(50% * cos(30deg) + var(--m)), calc(25% * (var(--_d) - 1) - var(--m) * 2));
+  --m: 4px;
+  --sin30: sin(30deg);
+  --tan30-half: 50% * tan(30deg);
+  --d: (1 - 2 * cos(30deg)) / var(--sin30);
+  clip-path: polygon(0 0, calc(100% - var(--tan30-half)) 0, 100% 50%, calc(100% - var(--tan30-half)) 100%, 0 100%, calc(var(--tan30-half)) 50%);
+  transform: rotate(calc(60deg * var(--i))) translate(calc(50% * cos(30deg) + var(--m) * var(--sin30)), calc(25% * (var(--d) - 1) - var(--m)));
 }
