@@ -1,7 +1,6 @@
 import { CodeChunk } from "../../../components/codeChunk";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/python-ga4-api`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "定義下載日期區間",
     content: <CodeChunk path={`${demoPath}/py/ga4Api_date.py`} lang="py" />,
@@ -27,4 +26,4 @@ const sections = [
     content: <CodeChunk path={`${demoPath}/py/ga4Api_main.py`} lang="py" />,
   },
 ];
-export default sections;
+export default Sections;

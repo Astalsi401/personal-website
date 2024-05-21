@@ -1,9 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/css-clip-path-image-slider`;
-
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "Image slider with diagonal lines separator",
     content: (
@@ -28,4 +26,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

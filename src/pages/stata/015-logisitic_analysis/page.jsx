@@ -1,7 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "Odds Ratio",
     content: (
@@ -143,4 +143,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

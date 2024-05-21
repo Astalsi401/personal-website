@@ -1,8 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/d3js-basic-chart`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "生醫非主管員工薪資",
     content: (
@@ -26,4 +25,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

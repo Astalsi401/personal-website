@@ -16,6 +16,11 @@
   @include builder(text-decoration, $dec, text-decoration, $class-e: -$dec);
 }
 /* end of text decoration */
+/* text style */
+@each $sty in $text-style {
+  @include builder(font-style, $sty, text-style, $class-e: -$sty);
+}
+/* end of text style */
 /* text align */
 @each $align in $text-align {
   @include builder(text-align, $align, text, $class-e: -$align);

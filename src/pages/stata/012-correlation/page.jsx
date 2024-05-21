@@ -1,7 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "相關係數的公式推導",
     content: (
@@ -131,4 +131,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

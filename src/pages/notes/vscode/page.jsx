@@ -196,4 +196,4 @@ const sections = shortcuts.map(({ title, shortcut }) => ({
     </ul>
   ),
 }));
-export default sections;
+export default Sections;

@@ -94,11 +94,11 @@ const TuneList = () => {
   );
 };
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: <TuneList />,
   },
 ];
 
-export default sections;
+export default Sections;

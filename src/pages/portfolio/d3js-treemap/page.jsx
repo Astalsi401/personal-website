@@ -1,8 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/d3js-treemap`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: (
@@ -16,4 +15,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

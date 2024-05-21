@@ -1,8 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/notes/welly`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "1. JavaScript: 字串反轉",
     content: <CodeChunk path={`${demoPath}/question/01.js`} lang="js" />,
@@ -50,4 +49,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

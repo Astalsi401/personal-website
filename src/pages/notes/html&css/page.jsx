@@ -20,7 +20,7 @@ const data = {
   ],
 };
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "css",
     content: (
@@ -43,4 +43,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

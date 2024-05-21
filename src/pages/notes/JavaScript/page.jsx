@@ -1,6 +1,6 @@
 import { CodeChunk } from "../../../components/codeChunk";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "fetch獲取儲存於github的檔案",
     content: (
@@ -15,4 +15,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

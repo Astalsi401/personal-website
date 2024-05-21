@@ -1,7 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     id: "工作目錄",
     title: "工作目錄",
@@ -211,4 +211,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

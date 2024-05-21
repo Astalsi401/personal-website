@@ -1,8 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/leaflet-snq-map`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "SNQ認證地圖",
     content: (
@@ -15,4 +14,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

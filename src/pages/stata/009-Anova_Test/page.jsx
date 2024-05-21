@@ -1,7 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "單因子變異數分析（One-way Anova）",
     content: (
@@ -103,4 +103,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

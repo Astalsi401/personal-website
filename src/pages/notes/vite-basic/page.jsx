@@ -1,7 +1,6 @@
 import { CodeChunk } from "../../../components/codeChunk";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/notes/vite-basic`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "Start",
     content: (
@@ -57,4 +56,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

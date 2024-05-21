@@ -13,7 +13,7 @@ const shortCutTable = [
   { shortCut: "Win+Alt+P", des: "開啟設定視窗" },
 ];
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "安裝",
     content: (
@@ -153,4 +153,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

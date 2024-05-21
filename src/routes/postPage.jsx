@@ -7,20 +7,22 @@ import { isActive } from "../components/functions";
 
 const PostPage = () => {
   const dispatch = useDispatch();
-  const { title, sections } = useLoaderData();
+  const { title, Sections } = useLoaderData();
   const { href, page } = useParams();
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
+  const hasTitles = currentPostTitles.length !== 0;
+  const sections = Sections(`${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
   useEffect(() => {
     document.title = title;
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   return (
-    <main id="main-content" className="container-xl shadow-lg" style={currentPostTitles.length === 0 ? { "--aside-w": 0 } : {}}>
+    <main id="main-content" className="container-xl shadow-lg" style={hasTitles ? {} : { "--aside-w": 0 }}>
       <h1 className="my-5 text-center">{title}</h1>
-      <div className="d-md-grid">
+      <div className={hasTitles ? `d-md-grid` : ""}>
         <div className="post-content p-3">
           {sections.map((section, i) => (
-            <Block key={`${href}-${page}-${section.title}`} id={section.title} title={section.title}>
+            <Block key={`${href}-${page}-${i}-${section.title}`} id={section.title} title={section.title}>
               {section.content}
             </Block>
           ))}
@@ -35,7 +37,7 @@ const AsideContent = ({ currentPostTitles }) => {
   const dispatch = useDispatch();
   const handleCurrentSection = (title) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
   return (
-    <div className="aside-content d-sm-block d-none px-3 text-small">
+    <div className="aside-content d-none d-md-block px-3 text-small">
       <a href="#" className="d-block text-primary text-bold">
         On this page
       </a>

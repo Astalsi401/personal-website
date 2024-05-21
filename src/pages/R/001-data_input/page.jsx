@@ -1,6 +1,6 @@
 import { CodeChunk } from "../../../components/codeChunk";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: (
@@ -142,4 +142,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

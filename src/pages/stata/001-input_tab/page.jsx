@@ -1,6 +1,6 @@
 import { CodeChunk } from "../../../components/codeChunk";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     id: "常用符號",
     title: "常用符號",
@@ -144,4 +144,4 @@ const sections = [
     ),
   },
 ];
-export default sections;
+export default Sections;

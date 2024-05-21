@@ -1,18 +1,15 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/portfolio/pane-resize`;
-function OPLink({ href }) {
-  return (
-    <>
-      <br />
-      <a href={href} target="_blank">
-        {href}
-      </a>
-    </>
-  );
-}
-const sections = [
+const OPLink = ({ href }) => (
+  <>
+    <br />
+    <a href={href} target="_blank">
+      {href}
+    </a>
+  </>
+);
+const Sections = (demoPath) => [
   {
     title: "How to add a panel, in Javascript, that resize vertically inside another panel?",
     content: (
@@ -37,4 +34,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

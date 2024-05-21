@@ -2,7 +2,7 @@ import { ZoomImage } from "../../../components/zoomImage";
 import Calculator from "./calculator";
 import data from "./data.json";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: (
@@ -377,4 +377,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

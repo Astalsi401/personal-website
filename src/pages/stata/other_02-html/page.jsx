@@ -1,8 +1,7 @@
 import { CodeChunk } from "../../../components/codeChunk";
 import { DemoFrame } from "../../../components/demoFrame";
 
-const demoPath = `${import.meta.env.BASE_URL}/assets/demo-files/stata/other_02-html`;
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: <p>本頁將介紹兩種能將Stata執行結果加上文字說明輸出為html檔的方法。</p>,
@@ -56,4 +55,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;

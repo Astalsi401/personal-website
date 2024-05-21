@@ -1,6 +1,6 @@
 import Calculator from "./calculator";
 
-const sections = [
+const Sections = (demoPath) => [
   {
     title: "",
     content: (
@@ -166,4 +166,4 @@ const sections = [
   },
 ];
 
-export default sections;
+export default Sections;
