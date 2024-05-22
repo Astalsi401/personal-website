@@ -24,6 +24,16 @@ const Sections = (demoPath) => [
       </>
     ),
   },
+  {
+    title: "Another solution using trigonometric functions",
+    content: (
+      <>
+        <DemoFrame src={`${demoPath}/frame2.html`} />
+        <CodeChunk path={`${demoPath}/frame2/arc.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame2/arc.html`} lang="html" />
+      </>
+    ),
+  },
 ];
 
 export default Sections;
