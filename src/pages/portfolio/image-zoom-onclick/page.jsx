@@ -3,7 +3,7 @@ import { DemoFrame } from "../../../components/demoFrame";
 
 const Sections = (demoPath) => [
   {
-    title: "",
+    title: "原版",
     content: (
       <>
         <DemoFrame src={`${demoPath}/frame1.html`} />
