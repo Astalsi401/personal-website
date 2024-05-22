@@ -2,18 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <!-- Single Page Apps for GitHub Pages -->
     <title>Shuofang's Personal Website</title>
     <script type="text/javascript">
-        // Single Page Apps for GitHub Pages
         const pathSegmentsToKeep = 1;
         const l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
+        const host = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '')
+        const path = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/')
+        const page = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~')
+        const search = (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '')
+        l.replace(`${host}${path}/?/${page}${search}${l.hash}`);
     </script>
 </head>
 <body>
