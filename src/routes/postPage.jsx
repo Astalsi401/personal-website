@@ -38,7 +38,7 @@ const AsideContent = ({ currentPostTitles }) => {
   const handleCurrentSection = (title) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
   return (
     <div className="aside-content d-none d-md-block px-3 text-small">
-      <a href="#" className="d-block text-primary text-bold">
+      <a href="#main-content" className="d-block text-primary text-bold">
         On this page
       </a>
       {currentPostTitles.map(({ title, active }) => (
