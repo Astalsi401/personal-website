@@ -61,10 +61,10 @@
 /* end of overflow */
 /* border */
 @for $i from 0 through 5 {
-  @include builder(border-width, #{$i}px, border-#{$i}, $imp: false);
+  @include builder(border-width, #{$i}px, border-#{$i}, $imp: true);
 }
 @each $bd-sty in $border-style {
-  @include builder(border-style, $bd-sty, border-#{$bd-sty}, $imp: false);
+  @include builder(border-style, $bd-sty, border-#{$bd-sty}, $imp: true);
 }
 /* end of border */
 /* shadow */

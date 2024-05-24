@@ -7,6 +7,8 @@ const counterSlice = createSlice({
     sidebarActive: false,
     sidebarID: "sidebar",
     sidebarAnchorID: "sidebarAnchor",
+    searchBarActive: false,
+    searchString: "",
     currentPostTitles: [],
   },
   reducers: {

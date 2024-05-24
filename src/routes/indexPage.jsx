@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
+import { Tags } from "../components/searchbar";
+import { isMyPage } from "../components/functions";
 
-const IndexPage = () => {
+export const IndexPage = () => {
   const dispatch = useDispatch();
   const index = useLoaderData();
   const isPortfolio = index.category === "Portfolio";
@@ -42,18 +44,12 @@ const Portfolio = ({ index }) => {
   return (
     <div className="row">
       {index.pages.map(({ page, href, thumbnail, tags }) => {
-        const isMyPage = /^http/.test(href);
+        const myPage = isMyPage(href);
         return (
           <div className="col-sm-6 col-md-4 col-lg-3 p-2" key={page}>
-            <Link to={isMyPage ? href : `${import.meta.env.BASE_URL}${index.href}${href}`} target={isMyPage ? "_blank" : "_self"} className="d-block bg-white shadow-sm w-100 h-100 text-center text-decoration-none portfolio">
+            <Link to={myPage ? `${import.meta.env.BASE_URL}${index.href}${href}` : href} target={myPage ? "_self" : "_blank"} className="d-block bg-white shadow-sm w-100 h-100 text-center text-decoration-none portfolio">
               <div className={`portfolio-thumb w-100 ratio-16by9 position-relative overflow-hidden ${logo[thumbnail] ? "page-logo" : "page-view"}`} style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${logo[thumbnail] ? logo[thumbnail] : thumbnail})` }}>
-                <div className="tags position-absolute d-flex flex-wrap align-items-end">
-                  {tags.map((tag, i) => (
-                    <div key={tag} className="tag text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i }}>
-                      {tag}
-                    </div>
-                  ))}
-                </div>
+                <Tags className="position-absolute" tags={tags} />
               </div>
               <div className="py-2">{page}</div>
             </Link>
@@ -63,5 +59,3 @@ const Portfolio = ({ index }) => {
     </div>
   );
 };
-
-export default IndexPage;

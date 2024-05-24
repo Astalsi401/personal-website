@@ -1,6 +1,6 @@
 import { useNavigation } from "react-router-dom";
 
-const Loading = ({ children }) => {
+export const Loading = ({ children }) => {
   const { state } = useNavigation();
   return state === "loading" ? <LoadingAnimation /> : children;
 };
@@ -12,4 +12,3 @@ export const LoadingAnimation = () => (
     ))}
   </div>
 );
-export default Loading;

@@ -1,0 +1,22 @@
+.search-bar {
+  top: calc(var(--nav-h) * 2);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: calc(index($z-index, model) + 1);
+  display: none;
+  &.active {
+    display: block;
+  }
+  input {
+    outline: 0;
+  }
+}
+.search-icon {
+  cursor: pointer;
+}
+.search-results {
+  max-height: calc(100vh - var(--nav-h) * 6);
+  & > div {
+    cursor: pointer;
+  }
+}

@@ -4,12 +4,12 @@ import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./assets/store";
 import { getPages, getCategories, getSections } from "./components/functions";
-import Header from "./components/header";
-import IndexPage from "./routes/indexPage";
-import PostPage from "./routes/postPage";
-import ErrorPage from "./routes/error";
-import Root from "./routes/root";
-import Loading from "./components/loading";
+import { Header } from "./components/header";
+import { IndexPage } from "./routes/indexPage";
+import { PostPage } from "./routes/postPage";
+import { ErrorPage } from "./routes/error";
+import { Root } from "./routes/root";
+import { Loading } from "./components/loading";
 import "./assets/styles/main.scss";
 
 const router = createBrowserRouter([

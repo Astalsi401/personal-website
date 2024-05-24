@@ -1,20 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
+import store, { updateStore } from "../assets/store";
 import { isActive } from "./functions";
 import { Sidebar } from "./sidebar";
+import { SearchBar, SearchIcon } from "./searchbar";
 
-const Header = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   const sidebarActive = useSelector((state) => state.sidebarActive);
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
   const handleFocusIn = ({ target }) => !btnRef.current.contains(target) && dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) }));
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(updateStore({ sidebarActive: !sidebarActive }));
-  };
   const handleClickOut = ({ target }) => {
     if (wrapperRef.current.contains(target) || btnRef.current.contains(target)) return;
     dispatch(updateStore({ sidebarActive: false }));
@@ -35,17 +32,13 @@ const Header = () => {
       <Accessibility />
       <header id="header" className="position-fixed w-100">
         <nav id="navbar" className="position-relative">
-          <Link to={import.meta.env.BASE_URL} className="home d-block position-absolute">
-            <svg viewBox="0 0 500 500">
-              <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
-            </svg>
-          </Link>
+          <Home />
           <DarkMode />
-          <a href="#" className={`hamberger d-flex justify-content-center align-items-center position-absolute ${isActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
-            <span />
-          </a>
+          <SearchBtn />
+          <Hamburger sidebarActive={sidebarActive} btnRef={btnRef} />
         </nav>
         <ProgressBar />
+        <SearchBar />
         <Sidebar wrapperRef={wrapperRef} />
       </header>
     </>
@@ -86,6 +79,14 @@ const ProgressBar = () => {
   return <div className="progress w-100 position-relative" style={{ "--percent": percent }} />;
 };
 
+const Home = () => (
+  <Link to={import.meta.env.BASE_URL} className="home d-block position-absolute">
+    <svg viewBox="0 0 500 500">
+      <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
+    </svg>
+  </Link>
+);
+
 const DarkMode = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.isDark);
@@ -110,4 +111,49 @@ const DarkMode = () => {
   );
 };
 
-export default Header;
+const Hamburger = ({ sidebarActive, btnRef }) => {
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(updateStore({ sidebarActive: !sidebarActive }));
+  };
+  return (
+    <a href="#" className={`hamburger d-flex justify-content-center align-items-center position-absolute ${isActive(sidebarActive)}`} onClick={handleClick} ref={btnRef}>
+      <span />
+    </a>
+  );
+};
+
+const SearchBtn = () => {
+  const dispatch = useDispatch();
+  const handleClick = () => dispatch(updateStore({ searchBarActive: true }));
+  const handleKeydown = (e) => {
+    switch (e.key) {
+      case "Escape":
+        dispatch(updateStore({ searchBarActive: false, searchString: "" }));
+        break;
+      default:
+        if (store.getState().searchBarActive) return;
+        if (e.ctrlKey && e.key === "k") {
+          e.preventDefault();
+          handleClick();
+        }
+        break;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, []);
+  return (
+    <div className="search-btn p-1 position-absolute d-flex align-items-center" onClick={handleClick}>
+      <div className="search-btn-container p-1 d-flex align-items-center w-100 rounded-1 bg-white shadow-1">
+        <SearchIcon width="15" height="15" />
+        <div className="flex-grow-1 text-center">
+          <kbd className="my-0 text-x-small">Ctrl</kbd>
+          <kbd className="my-0 text-x-small">K</kbd>
+        </div>
+      </div>
+    </div>
+  );
+};

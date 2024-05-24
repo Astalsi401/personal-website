@@ -5,7 +5,7 @@ import { Block } from "../components/block";
 import { updateStore } from "../assets/store";
 import { isActive } from "../components/functions";
 
-const PostPage = () => {
+export const PostPage = () => {
   const dispatch = useDispatch();
   const { title, Sections } = useLoaderData();
   const { href, page } = useParams();
@@ -17,10 +17,10 @@ const PostPage = () => {
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   return (
-    <main id="main-content" className="container-xl shadow-lg" style={hasTitles ? {} : { "--aside-w": 0 }}>
+    <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : { "--aside-w": 0 }}>
       <h1 className="my-5 text-center">{title}</h1>
       <div className={hasTitles ? `d-md-grid` : ""}>
-        <div className="post-content p-3">
+        <div className="post-content p-3 pb-5">
           {sections.map((section, i) => (
             <Block key={`${href}-${page}-${i}-${section.title}`} id={section.title} title={section.title}>
               {section.content}
@@ -49,5 +49,3 @@ const AsideContent = ({ currentPostTitles }) => {
     </div>
   );
 };
-
-export default PostPage;

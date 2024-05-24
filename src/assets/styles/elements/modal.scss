@@ -1,0 +1,14 @@
+.modal-bg {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: var(--white);
+  opacity: 0.8;
+}
+.active ~ .modal-bg {
+  display: block;
+  z-index: index($z-index, model);
+}

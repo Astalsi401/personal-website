@@ -24,14 +24,11 @@
 .portfolio-thumb {
   background-repeat: no-repeat;
   .tags {
-    padding: var(--unit-1);
     inset: auto 0 0;
   }
   .tag {
     transition: opacity var(--time), filter var(--time);
     transition-delay: calc(0.1s * var(--i));
-    background: var(--primary);
-    color: var(--white);
     opacity: 0.3;
   }
 }

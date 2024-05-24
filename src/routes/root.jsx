@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
 
-const Root = () => {
+export const Root = () => {
   const dispatch = useDispatch();
   const { category, pages } = useLoaderData();
   useEffect(() => {
@@ -24,5 +24,3 @@ const Root = () => {
     </div>
   );
 };
-
-export default Root;

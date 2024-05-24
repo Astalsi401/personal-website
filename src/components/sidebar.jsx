@@ -16,7 +16,7 @@ export const Sidebar = ({ wrapperRef }) => {
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => dispatch(updateStore({ sidebarActive: false }));
   return (
-    <aside id={sidebarID} className={`position-absolute ${isActive(sidebarActive)}`} ref={wrapperRef}>
+    <aside id={sidebarID} className={`position-fixed ${isActive(sidebarActive)}`} ref={wrapperRef}>
       <h1 className="pt-5 pb-3 text-center">
         <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none" onClick={handleLinkClick}>
           {index.category}
