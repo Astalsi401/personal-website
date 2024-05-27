@@ -23,10 +23,10 @@
 }
 .portfolio-thumb {
   background-repeat: no-repeat;
-  .tags {
+  .page-tags {
     inset: auto 0 0;
   }
-  .tag {
+  .page-tag {
     transition: opacity var(--time), filter var(--time);
     transition-delay: calc(0.1s * var(--i));
     opacity: 0.3;

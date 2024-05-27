@@ -76,9 +76,9 @@ const SingleResult = ({ page, href, tags }) => {
 };
 
 export const Tags = ({ className, tags }) => (
-  <div className={`tags d-flex flex-wrap align-items-end ${className ? className : ""}`}>
+  <div className={`page-tags d-flex flex-wrap align-items-end ${className ? className : ""}`}>
     {tags.map((tag, i) => (
-      <div key={tag} className="tag text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i }}>
+      <div key={tag} className="page-tag text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i }}>
         {tag}
       </div>
     ))}
