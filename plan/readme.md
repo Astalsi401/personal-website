@@ -1,9 +1,11 @@
-- portfolio search and filter
+- search and filter spinner
+- image blur lazy loading
 - tunelist copy code
+- add breadcrumbs
 - project: todolist
 - project: bootstrap code creator
-- add breadcrumbs
-- exercise routine(with mongo db)
+- project: exercise routine(with mongo db)
+- ~~portfolio search and filter~~
 - ~~縮減 container width，右側新增本頁段落，hl 當前段落~~
 - ~~dark mode~~
 - ~~DemoFrame 全螢幕~~
