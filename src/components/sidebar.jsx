@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateStore } from "../assets/store";
-import { isActive } from "./functions";
+import { isActive, titleToHash } from "./functions";
 
 export const Sidebar = ({ wrapperRef }) => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const SidebarChild = ({ currentPostTitles, childrenActive }) => (
   <ul className={`children ${isActive(childrenActive)}`}>
     {currentPostTitles.map(({ title }) => (
       <li key={title}>
-        <a className="ps-4 text-decoration-none" href={`#${title}`}>
+        <a className="ps-4 text-decoration-none" href={`#${titleToHash(title)}`}>
           <span>{title}</span>
         </a>
       </li>

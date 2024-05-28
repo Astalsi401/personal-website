@@ -1,5 +1,6 @@
 export const isActive = (stateActive) => (stateActive ? "active" : "");
 export const isMyPage = (url) => !/^http/.test(url);
+export const titleToHash = (title) => title.replace(" ", "_");
 export const getCategories = async () => {
   const { index, root, href } = await getIndex();
   return { category: root, href: href, pages: index.map((d) => ({ page: d.category, href: d.href, icon: d.icon })) };

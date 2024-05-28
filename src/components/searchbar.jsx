@@ -67,8 +67,9 @@ const SearchResults = ({ searchString }) => {
 
 const SingleResult = ({ page, href, tags }) => {
   const dispatch = useDispatch();
+  const handleClick = () => dispatch(updateStore({ searchBarActive: false, searchString: "" }));
   return (
-    <Link className="d-block my-2 p-2 bg-main-bg text-decoration-none" to={href} target={isMyPage(href) ? "_self" : "_blank"} onClick={() => dispatch(updateStore({ searchBarActive: false, searchString: "" }))}>
+    <Link className="d-block my-2 p-2 bg-main-bg text-decoration-none" to={href} target={isMyPage(href) ? "_self" : "_blank"} onClick={handleClick}>
       <div className="page-title">{page}</div>
       {tags && <Tags tags={tags} />}
     </Link>
