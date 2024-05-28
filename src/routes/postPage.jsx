@@ -11,24 +11,18 @@ export const PostPage = () => {
   const { href, page } = useParams();
   const { hash } = useLocation();
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
-  const observer = new ResizeObserver(() => {
-    const elem = hash.length > 0 && document.querySelector(decodeURI(hash));
-    elem && window.scrollTo({ behavior: "smooth", top: elem.offsetTop - 56 }); // 56 = header height + section title margin top
-  });
   const hasTitles = currentPostTitles.length !== 0;
   const sections = Sections(`${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
-  const unobserve = () => observer.unobserve(document.body);
+  const handleScroll = () => {
+    const elem = hash.length > 0 && document.querySelector(decodeURI(hash));
+    elem && window.scrollTo({ top: elem.offsetTop - 56 }); // 56 = header height + section title margin top
+  };
   useEffect(() => {
     document.title = title;
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   useEffect(() => {
-    window.addEventListener("resize", unobserve);
-    observer.observe(document.body);
-    return () => {
-      window.removeEventListener("resize", unobserve);
-      unobserve();
-    };
+    setTimeout(handleScroll, 500);
   }, []);
   return (
     <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : { "--aside-w": 0 }}>
