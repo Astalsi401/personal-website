@@ -13,16 +13,25 @@ export const PostPage = () => {
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
   const hasTitles = currentPostTitles.length !== 0;
   const sections = Sections(`${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
-  const handleScroll = () => {
+  const scrollToHash = () => {
     const elem = hash.length > 0 && document.querySelector(decodeURI(hash));
     elem && window.scrollTo({ top: elem.offsetTop - 56 }); // 56 = header height + section title margin top
   };
+  const pageLoadObserver = new ResizeObserver(scrollToHash);
+  const pageLoadUnObserver = () => pageLoadObserver.unobserve(document.body);
   useEffect(() => {
     document.title = title;
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   useEffect(() => {
-    setTimeout(handleScroll, 500);
+    const timer = setTimeout(pageLoadUnObserver, 500);
+    pageLoadObserver.observe(document.body);
+    window.addEventListener("resize", pageLoadUnObserver);
+    return () => {
+      clearTimeout(timer);
+      pageLoadUnObserver();
+      window.removeEventListener("resize", pageLoadUnObserver);
+    };
   }, []);
   return (
     <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : { "--aside-w": 0 }}>

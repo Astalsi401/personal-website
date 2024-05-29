@@ -34,6 +34,7 @@ const TuneList = () => {
     { key: "preferance", type: "特性" },
     { key: "shareCode", type: "分享代碼" },
   ];
+  const abortItem = new AbortController();
   const search = ({ target: { value } }) => {
     const re = value
       .split(" ")
@@ -54,11 +55,12 @@ const TuneList = () => {
   };
   const sort = (type) => setStatus((prev) => ({ ...prev, tuneList: prev.tuneList.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
   const fetchTable = async () => {
-    const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`).then((res) => res.json());
+    const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`, { signal: abortItem.signal }).then((res) => res.json());
     setStatus((prev) => ({ ...prev, isload: true, tuneList: data.map((d) => ({ ...d, active: true })) }));
   };
   useEffect(() => {
     fetchTable();
+    return () => abortItem.abort();
   }, []);
   return (
     <>

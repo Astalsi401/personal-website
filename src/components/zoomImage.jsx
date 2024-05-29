@@ -5,10 +5,9 @@ export const ZoomImage = ({ id, className, src, alt }) => {
   const [active, setActive] = useState(false);
   const ref = useRef(null);
   const zoom = () =>
-    ref?.current &&
     setActive((prev) => {
       const newState = !prev;
-      const overflow = document.querySelector(".overflow-auto");
+      const overflow = document.querySelector(".overflow-auto"); // 檢查圖片是否在overflow的元素內
       if (overflow && overflow.contains(ref.current)) ref.current.style.position = newState ? "absolute" : "relative";
       document.body.style.overflowY = newState ? "hidden" : "auto";
       return newState;

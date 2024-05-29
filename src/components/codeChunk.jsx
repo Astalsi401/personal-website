@@ -14,21 +14,19 @@ import { useState, useEffect } from "react";
 import { isActive } from "./functions";
 
 export const CodeChunk = ({ code, lang, path }) => {
-  const [codeTxt, setCodeTxt] = useState(code);
   const [active, setActive] = useState(false);
-  const [fileName, setFileName] = useState(null);
+  const [{ code: codeTxt, fileName }, setCodeInfo] = useState({ code, fileName: "" });
+  const abortItem = new AbortController();
   const copy = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText(codeTxt);
     setActive(true);
     setTimeout(() => setActive(false), 2000);
   };
-  const fetchCode = async () => {
-    setFileName(path.split("/").pop());
-    setCodeTxt(await fetch(path).then((res) => res.text()));
-  };
+  const fetchCode = async () => setCodeInfo({ code: await fetch(path, { signal: abortItem.signal }).then((res) => res.text()), fileName: path.split("/").pop() });
   useEffect(() => {
     path && fetchCode();
+    return () => abortItem.abort();
   }, [path]);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
