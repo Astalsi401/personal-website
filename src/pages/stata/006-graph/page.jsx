@@ -118,7 +118,10 @@ const Sections = (demoPath) => [
                 <br />
               </li>
               <li>
-                <code>ytitle("", placement(nw))</code>：移動標題位置，<code>nw</code>代表左上角(north, west)，詳細位置看<a href="https://www.stata.com/manuals/g-3added_text_options.pdf#g-3added_text_optionsOptions">Options for adding text to twoway graphs</a>
+                <code>ytitle("", placement(nw))</code>：移動標題位置，<code>nw</code>代表左上角(north, west)，詳細位置看
+                <a href="https://www.stata.com/manuals/g-3added_text_options.pdf#g-3added_text_optionsOptions" target="_blank">
+                  Options for adding text to twoway graphs
+                </a>
               </li>
             </ul>
           </li>
