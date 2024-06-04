@@ -9,6 +9,7 @@ import "prismjs/components/prism-r.min";
 import "prismjs/components/prism-ini.min";
 import "prismjs/components/prism-shell-session.min";
 import "prismjs/components/prism-yaml.min";
+import "prismjs/components/prism-bash.min";
 import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { isActive } from "./functions";
