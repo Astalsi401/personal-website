@@ -17,16 +17,24 @@ import { isActive } from "./functions";
 export const CodeChunk = ({ code, lang, path }) => {
   const [active, setActive] = useState(false);
   const [{ code: codeTxt, fileName }, setCodeInfo] = useState({ code, fileName: "" });
-  const abortItem = new AbortController();
+
   const copy = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText(codeTxt);
     setActive(true);
     setTimeout(() => setActive(false), 2000);
   };
-  const fetchCode = async () => setCodeInfo({ code: await fetch(path, { signal: abortItem.signal }).then((res) => res.text()), fileName: path.split("/").pop() });
+  const fetchCode = async ({ signal }) => {
+    try {
+      setCodeInfo({ code: await fetch(path, { signal }).then((res) => res.text()), fileName: path.split("/").pop() });
+    } catch ({ name }) {
+      name === "AbortError" && setCodeInfo({ code: "Request Aborted!", fileName: path.split("/").pop() });
+    }
+  };
   useEffect(() => {
-    path && fetchCode();
+    const abortItem = new AbortController();
+    path && fetchCode(abortItem);
+    return () => abortItem.abort();
   }, []);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (

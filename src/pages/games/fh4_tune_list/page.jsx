@@ -34,7 +34,7 @@ const TuneList = () => {
     { key: "preferance", type: "特性" },
     { key: "shareCode", type: "分享代碼" },
   ];
-  const abortItem = new AbortController();
+
   const search = ({ target: { value } }) => {
     const re = value
       .split(" ")
@@ -54,16 +54,17 @@ const TuneList = () => {
     }));
   };
   const sort = (type) => setStatus((prev) => ({ ...prev, tuneList: prev.tuneList.sort((a, b) => (a[type] < b[type] ? (prev.asc ? 1 : -1) : a[type] > b[type] ? (prev.asc ? -1 : 1) : 0)), asc: !prev.asc, ascCol: type }));
-  const fetchTable = async () => {
+  const fetchTable = async ({ signal }) => {
     try {
-      const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`, { signal: abortItem.signal }).then((res) => res.json());
+      const data = await fetch(`${import.meta.env.BASE_URL}/assets/json/tuneList.json`, { signal }).then((res) => res.json());
       setStatus((prev) => ({ ...prev, isload: true, tuneList: data.map((d) => ({ ...d, active: true })) }));
-    } catch (err) {
-      err.name === "AbortError" ? setStatus((prev) => ({ ...prev, isload: true })) : console.error(e);
+    } catch ({ name }) {
+      name === "AbortError" && setStatus((prev) => ({ ...prev, isload: true }));
     }
   };
   useEffect(() => {
-    fetchTable();
+    const abortItem = new AbortController();
+    fetchTable(abortItem);
     return () => abortItem.abort();
   }, []);
   return (
