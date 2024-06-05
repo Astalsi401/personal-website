@@ -27,8 +27,7 @@ export const CodeChunk = ({ code, lang, path }) => {
   const fetchCode = async () => setCodeInfo({ code: await fetch(path, { signal: abortItem.signal }).then((res) => res.text()), fileName: path.split("/").pop() });
   useEffect(() => {
     path && fetchCode();
-    // return () => abortItem.abort();
-  }, [path]);
+  }, []);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
     <pre className="my-2 p-2 pt-4 position-relative">

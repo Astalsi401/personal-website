@@ -60,7 +60,6 @@ const TuneList = () => {
   };
   useEffect(() => {
     fetchTable();
-    return () => abortItem.abort();
   }, []);
   return (
     <>
