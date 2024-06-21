@@ -42,6 +42,7 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
+        { "page": "StackOverflow create a triangle on the top of a square", "href": "/css-triangle-on-top-of-square", "thumbnail": "/assets/images/css-triangle-on-top-of-square.png", "tags": ["css"] },
         { "page": "Gradient Generator", "href": "https://astalsi401.github.io/gradient-creator/", "thumbnail": "js", "tags": ["react", "js", "javascript", "scss", "html"] },
         { "page": "Donut wheel arrow", "href": "/donut-wheel-arrow", "thumbnail": "/assets/images/donut-wheel-arrow.png", "tags": ["css", "html"] },
         { "page": "Css clip-path Image Slider", "href": "/css-clip-path-image-slider", "thumbnail": "/assets/images/css-clip-path-image-slider.png", "tags": ["js", "css", "html"] },
