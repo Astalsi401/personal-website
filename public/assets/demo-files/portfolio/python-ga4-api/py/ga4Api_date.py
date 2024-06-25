@@ -1,6 +1,6 @@
 from datetime import datetime as dt, timedelta as td, date
 
-dateFmt = '%Y-%m-%d'
+date_fmt = '%Y-%m-%d'
 
 
 class DateRange:
@@ -8,8 +8,8 @@ class DateRange:
         def __init__(self, start: date, end: date) -> None:
             self.start = start
             self.end = end
-            self.start_s = self.start.strftime(dateFmt)
-            self.end_s = self.end.strftime(dateFmt)
+            self.start_s = self.start.strftime(date_fmt)
+            self.end_s = self.end.strftime(date_fmt)
             self.days = (self.end - self.start).days + 1
 
         def dates(self) -> list:
