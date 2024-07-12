@@ -25,3 +25,7 @@ dist-ssr
 
 # enviornment
 *.env
+
+# developing
+**/css-pie-donut-chart/*
+**/css-waterdrop-animation/*
