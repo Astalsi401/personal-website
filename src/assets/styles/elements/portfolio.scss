@@ -3,8 +3,8 @@
   &:hover,
   &:focus-visible {
     transform: scale(var(--scale));
-    .tag {
-      opacity: 1;
+    .page-tag {
+      opacity: 0.6;
       filter: blur(0);
     }
     .page-view {
