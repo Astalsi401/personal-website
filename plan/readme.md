@@ -5,6 +5,7 @@
 - project: todolist
 - project: bootstrap code creator
 - project: exercise routine(with mongo db)
+- ~~project: gradient creator~~
 - ~~portfolio search and filter~~
 - ~~縮減 container width，右側新增本頁段落，hl 當前段落~~
 - ~~dark mode~~
