@@ -84,6 +84,18 @@ const Sections = (demoPath) => [
           scss to css：
           <CodeChunk code="sass --watch main.scss main.css" lang="bash" />
         </li>
+        <li>
+          列出執行中的程式：
+          <CodeChunk code={`tasklist`} lang="bash" />
+        </li>
+        <li>
+          列出執行中程式的PID與路徑：
+          <CodeChunk code={`wmic process get ProcessID,ExecutablePath`} lang="bash" />
+        </li>
+        <li>
+          根據PID找出執行中程式的路徑：
+          <CodeChunk code={`wmic process where "ProcessID=6712" get ProcessID,ExecutablePath`} lang="bash" />
+        </li>
       </ul>
     ),
   },
