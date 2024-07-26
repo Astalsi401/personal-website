@@ -5,10 +5,7 @@ import { Provider } from "react-redux";
 import store from "@store";
 import { getPages, getCategories, getSections } from "@functions";
 import { Header, Loading } from "@components";
-import { IndexPage } from "@routes/indexPage";
-import { PostPage } from "@routes/postPage";
-import { ErrorPage } from "@routes/error";
-import { Root } from "@routes/root";
+import { IndexPage, PostPage, ErrorPage, Root } from "@routes";
 import "@styles/main.scss";
 
 const router = createBrowserRouter([

@@ -12,7 +12,7 @@ export default defineConfig({
       "@styles": path.resolve(__dirname, "./src/assets/styles"),
       "@components": path.resolve(__dirname, "./src/components/components"),
       "@functions": path.resolve(__dirname, "./src/components/functions"),
-      "@routes": path.resolve(__dirname, "./src/routes"),
+      "@routes": path.resolve(__dirname, "./src/routes/routes"),
     },
   },
   plugins: [
