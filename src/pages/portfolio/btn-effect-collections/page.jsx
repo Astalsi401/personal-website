@@ -1,5 +1,4 @@
-import { CodeChunk } from "../../../components/codeChunk";
-import { DemoFrame } from "../../../components/demoFrame";
+import { CodeChunk, DemoFrame } from "@components";
 
 const Sections = (demoPath) => [
   {

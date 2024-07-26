@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { ZoomImage } from "../../../components/zoomImage";
-import { Block } from "../../../components/block";
-import { LoadingAnimation } from "../../../components/loading";
+import { Block, ZoomImage, LoadingAnimation } from "@components";
 
 const TuneListRow = ({ data }) => {
   const [active, setActive] = useState(false);

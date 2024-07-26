@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Block } from "../components/block";
-import { updateStore } from "../assets/store";
-import { isActive, titleToHash } from "../components/functions";
+import { updateStore } from "@store";
+import { Block } from "@components";
+import { isActive, titleToHash } from "@functions";
 
 export const PostPage = () => {
   const dispatch = useDispatch();

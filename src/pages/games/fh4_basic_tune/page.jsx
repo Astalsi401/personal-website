@@ -1,4 +1,4 @@
-import { ZoomImage } from "../../../components/zoomImage";
+import { ZoomImage } from "@components";
 import Calculator from "./calculator";
 import data from "./data.json";
 

@@ -2,7 +2,7 @@ import { CodeChunk, DemoFrame } from "@components";
 
 const Sections = (demoPath) => [
   {
-    title: "SNQ認證地圖",
+    title: "Nest Animate",
     content: (
       <>
         <DemoFrame src={`${demoPath}/frame1.html`} />

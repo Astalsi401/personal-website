@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { isActive } from "./functions";
+import { isActive } from "@functions";
 
 export const DemoFrame = ({ src }) => {
   const iframeRef = useRef(null);

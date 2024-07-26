@@ -12,7 +12,7 @@ import "prismjs/components/prism-yaml.min";
 import "prismjs/components/prism-bash.min";
 import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
-import { isActive } from "./functions";
+import { isActive } from "@functions";
 
 export const CodeChunk = ({ code, lang, path }) => {
   const [active, setActive] = useState(false);

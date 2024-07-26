@@ -1,5 +1,4 @@
-import { CodeChunk } from "../../../components/codeChunk";
-import { ZoomImage } from "../../../components/zoomImage";
+import { CodeChunk, ZoomImage } from "@components";
 
 const Sections = (demoPath) => [
   {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
-import { isActive, titleToHash } from "./functions";
+import { updateStore } from "@store";
+import { isActive, titleToHash } from "@functions";
 
 export const Sidebar = ({ wrapperRef }) => {
   const dispatch = useDispatch();

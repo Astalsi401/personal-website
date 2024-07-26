@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
-import { Tags } from "../components/searchbar";
-import { isMyPage } from "../components/functions";
+import { updateStore } from "@store";
+import { Tags } from "@components";
+import { isMyPage } from "@functions";
 
 export const IndexPage = () => {
   const dispatch = useDispatch();

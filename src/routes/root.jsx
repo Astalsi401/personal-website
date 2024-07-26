@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
+import { updateStore } from "@store";
 
 export const Root = () => {
   const dispatch = useDispatch();

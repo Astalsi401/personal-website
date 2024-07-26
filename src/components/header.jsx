@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import store, { updateStore } from "../assets/store";
-import { isActive } from "./functions";
-import { Sidebar } from "./sidebar";
-import { SearchBar, SearchIcon } from "./searchbar";
+import store, { updateStore } from "@store";
+import { isActive } from "@functions";
+import { Sidebar, SearchBar, SearchIcon } from "@components";
 
 export const Header = () => {
   const dispatch = useDispatch();

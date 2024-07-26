@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import store, { updateStore } from "../assets/store";
+import store, { updateStore } from "@store";
 
 export const Block = ({ className, title, titleClass, id, children }) => {
   const dispatch = useDispatch();

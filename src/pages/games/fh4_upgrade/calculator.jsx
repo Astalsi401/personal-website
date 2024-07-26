@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Label } from "../../../components/label";
+import { Label } from "@components";
 
 const Calculator = () => {
   const [status, setStatus] = useState({ bh: "", bw: "", ah: "", aw: "" });

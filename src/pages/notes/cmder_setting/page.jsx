@@ -1,4 +1,4 @@
-import { CodeChunk } from "../../../components/codeChunk";
+import { CodeChunk } from "@components";
 
 const shortCutTable = [
   { shortCut: "Ctrl+T", des: "新頁面" },

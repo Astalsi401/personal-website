@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { isActive } from "./functions";
+import { isActive } from "@functions";
 
 export const ZoomImage = ({ id, className, src, alt }) => {
   const [active, setActive] = useState(false);

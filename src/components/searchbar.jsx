@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateStore } from "../assets/store";
-import { getIndex, isMyPage } from "./functions";
 import { Link } from "react-router-dom";
+import { updateStore } from "@store";
+import { getIndex, isMyPage } from "@functions";
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
