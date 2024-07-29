@@ -7,6 +7,7 @@ class NestAnimate {
     this.canvas.style.cssText = `position:fixed;top:0;left:0;z-index:${this.setting.zIndex};opacity:${this.setting.opacity};`;
     this.ctx = this.canvas.getContext("2d");
     this.mouse = { x: null, y: null, max: 20000 };
+    this.dots = [];
     this.handleSize();
     window.addEventListener("resize", this.handleSize);
     window.addEventListener("mousemove", this.mouseMove);
@@ -17,6 +18,10 @@ class NestAnimate {
   handleSize = () => {
     this.width = this.canvas.width = window.innerWidth;
     this.height = this.canvas.height = window.innerHeight;
+    this.dots.forEach((dot) => {
+      dot.x = dot.x > this.width || dot.x < 0 ? Math.random() * this.width : dot.x;
+      dot.y = dot.y > this.height || dot.y < 0 ? Math.random() * this.height : dot.y;
+    });
   };
   animation = () => {
     this.ctx.clearRect(0, 0, this.width, this.height);
