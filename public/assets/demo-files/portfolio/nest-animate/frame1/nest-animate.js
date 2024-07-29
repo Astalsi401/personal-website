@@ -1,6 +1,6 @@
 class NestAnimate {
   constructor(target) {
-    this.setting = { zIndex: -1, opacity: 0.5, color: "0,0,0", count: 90 };
+    this.setting = { zIndex: -1, opacity: 0.5, color: "0,0,0", count: 90, density: 0.0003 };
     this.target = target;
     this.canvas = document.createElement("canvas");
     this.target.appendChild(this.canvas);
@@ -22,6 +22,8 @@ class NestAnimate {
       dot.x = dot.x > this.width || dot.x < 0 ? Math.random() * this.width : dot.x;
       dot.y = dot.y > this.height || dot.y < 0 ? Math.random() * this.height : dot.y;
     });
+    this.setting.count = parseInt(this.setting.density * this.width * this.height);
+    this.dots = Array.from({ length: this.setting.count }).reduce((acc, _, i) => [...acc, this.dots[i] ? this.dots[i] : this.defaultDot()], []);
   };
   animation = () => {
     this.ctx.clearRect(0, 0, this.width, this.height);
@@ -59,8 +61,9 @@ class NestAnimate {
     });
     window.requestAnimationFrame(this.animation);
   };
+  defaultDot = () => ({ x: Math.random() * this.width, y: Math.random() * this.height, xa: 2 * Math.random() - 1, ya: 2 * Math.random() - 1, xd: 0, yd: 0, max: 6000 });
   draw = () => {
-    this.dots = Array.from({ length: this.setting.count }).reduce((acc, _) => [...acc, { x: Math.random() * this.width, y: Math.random() * this.height, xa: 2 * Math.random() - 1, ya: 2 * Math.random() - 1, xd: 0, yd: 0, max: 6000 }], []);
+    this.dots = Array.from({ length: this.setting.count }).reduce((acc, _) => [...acc, this.defaultDot()], []);
     setTimeout(this.animation, 100);
   };
 }
