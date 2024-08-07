@@ -1,6 +1,6 @@
 class NestAnimate {
   constructor(target) {
-    this.setting = { zIndex: -1, opacity: 0.5, color: "0,0,0", count: 90, density: 0.0003 };
+    this.setting = { zIndex: -1, opacity: 0.5, color: "0,0,0", count: 90, density: 0.0002 };
     this.target = target;
     this.canvas = document.createElement("canvas");
     this.target.appendChild(this.canvas);
