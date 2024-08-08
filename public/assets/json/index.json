@@ -76,6 +76,7 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        { "page": "手機版網頁debug(Android)", "href": "/mobile-debug" },
         { "page": "git", "href": "/git" },
         { "page": "nodejs", "href": "/nodejs" },
         { "page": "cmder筆記", "href": "/cmder_setting" },
