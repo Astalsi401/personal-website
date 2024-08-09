@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "how to make an arc in span in css?",
     content: (

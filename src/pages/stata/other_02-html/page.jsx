@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "",
     content: <p>本頁將介紹兩種能將Stata執行結果加上文字說明輸出為html檔的方法。</p>,

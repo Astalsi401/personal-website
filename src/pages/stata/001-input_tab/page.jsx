@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     id: "常用符號",
     title: "常用符號",

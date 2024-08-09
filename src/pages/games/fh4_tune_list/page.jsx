@@ -99,7 +99,7 @@ const TuneList = () => {
   );
 };
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "",
     content: <TuneList />,

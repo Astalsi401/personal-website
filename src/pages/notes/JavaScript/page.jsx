@@ -1,6 +1,6 @@
 import { CodeChunk } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "fetch獲取儲存於github的檔案",
     content: (

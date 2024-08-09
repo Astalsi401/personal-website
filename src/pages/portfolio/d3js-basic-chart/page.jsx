@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "生醫非主管員工薪資",
     content: (

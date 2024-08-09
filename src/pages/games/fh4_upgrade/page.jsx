@@ -1,6 +1,6 @@
 import Calculator from "./calculator";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "",
     content: (

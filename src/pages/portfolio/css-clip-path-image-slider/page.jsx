@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "Image slider with diagonal lines separator",
     content: (

@@ -1,6 +1,6 @@
 import { CodeChunk, ZoomImage } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "安裝SDK Tools",
     content: (
@@ -18,7 +18,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             將下載的SDK Tools解壓至資料夾android-sdk，此處安裝於<code>D:\Tools\android-sdk</code>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/sdk-tools-install.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/sdk-tools-install.png`} />
           </li>
           <li>
             將SDK Tools、Java安裝目錄加入環境變數，變數名稱分別為
@@ -36,14 +36,14 @@ const Sections = (demoPath) => [
                 <CodeChunk code={`JAVA_HOME`} />
               </li>
             </ul>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/sdk-tools-env.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/sdk-tools-env.png`} />
             同時也加入PATH
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/sdk-tools-path.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/sdk-tools-path.png`} />
           </li>
           <li>
             檢查是否成功安裝
             <CodeChunk code={`adb --version`} lang="bash" />
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/sdk-tools-check.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/sdk-tools-check.png`} />
           </li>
         </ol>
       </>
@@ -62,25 +62,25 @@ const Sections = (demoPath) => [
           <li>將手機與電腦連線到同一wifi</li>
           <li>
             在開發人員選項開啟USB偵錯、無線偵錯
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/wireless-debug-developer.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-developer.png`} />
           </li>
           <li>
             點選無線偵錯，選擇<kbd>使用配對碼配對裝置</kbd>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/wireless-debug-info1.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-info1.png`} />
           </li>
           <li>
             回到terminal建立配對，注意此處port為一次性，配對完成後即失效
             <CodeChunk code={`adb pair [ip]:35793`} lang="bash" />
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/wireless-debug-pair-code.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-pair-code.png`} />
           </li>
           <li>
             使用這裡的ip與port建立連線
             <CodeChunk code={`adb connect [ip]:35269`} lang="bash" />
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/wireless-debug-info2.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-info2.png`} />
           </li>
           <li>
             開啟firefox，在搜尋列輸入<code>about:debugging</code>，可以看到已成功連線至手機
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/firefox-debug-page.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/firefox-debug-page.png`} />
           </li>
         </ol>
       </>

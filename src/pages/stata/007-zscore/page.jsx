@@ -1,14 +1,14 @@
 import { CodeChunk, DemoFrame } from "@components";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "常態分配曲線",
     content: (
       <>
         <CodeChunk code={`twoway (function y=normalden(x) , range(-4 4)        ///\n        droplines(-2 -1 0 1 2)),                       ///\n        title("常態分配曲線")                         ///\n        plotregion(margin(zero))                       ///\n        yscale(off) ylabel(, nogrid)                   ///\n        xlabel(-4 -3 -2 -1 0 1 2 3 4, format(%4.2f))       ///\n        xtitle("Standard deviations") \ngraph export "normal curve.png", replace`} lang="stata" />
         <CodeChunk code={`. twoway (function y=normalden(x) , range(-4 4)        ///\n>         droplines(-2 -1 0 1 2)),                       ///\n>         title("常態分配曲線")                         ///\n>         plotregion(margin(zero))                       ///\n>         yscale(off) ylabel(, nogrid)                   ///\n>         xlabel(-4 -3 -2 -1 0 1 2 3 4, format(%4.2f))       ///\n>         xtitle("Standard deviations") \n\n. graph export "normal curve.png", replace\n(file normal curve.png written in PNG format)`} lang="output" />
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/normal-curve.png`} />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/normal-curve.png`} />
         <div className="c-my-2">
           <p>
             <b>Kernel density estimation</b>
@@ -20,8 +20,8 @@ const Sections = (demoPath) => [
             lang="output"
           />
           <div className="row">
-            <ZoomImage className="col-md-6 px-md-1" src={`${import.meta.env.BASE_URL}/assets/images/tabplot01.png`} />
-            <ZoomImage className="col-md-6 px-md-1" src={`${import.meta.env.BASE_URL}/assets/images/kdnesity01.png`} />
+            <ZoomImage className="col-md-6 px-md-1" src={`${imagePath}/tabplot01.png`} />
+            <ZoomImage className="col-md-6 px-md-1" src={`${imagePath}/kdnesity01.png`} />
           </div>
         </div>
       </>

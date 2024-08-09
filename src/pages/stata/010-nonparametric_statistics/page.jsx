@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@components";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "",
     content: (
@@ -30,7 +30,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             非參數顯著性檢驗採用的是卡方分配（Chi Square distribution）
-            <ZoomImage className="mx-auto w-sm-75 img-invert" src={`${import.meta.env.BASE_URL}/assets/images/chi-square01.png`} />
+            <ZoomImage className="mx-auto w-sm-75 img-invert" src={`${imagePath}/chi-square01.png`} />
             <ol type="i">
               <li>是右偏的分配。</li>
               <li>
@@ -112,7 +112,7 @@ const Sections = (demoPath) => [
               </li>
               <li>
                 公式為：
-                <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/chi-square.svg`} />
+                <img className="img-invert d-block my-2" src={`${imagePath}/chi-square.svg`} />
               </li>
             </ul>
           </li>

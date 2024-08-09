@@ -1,6 +1,6 @@
 import { CodeChunk, ZoomImage } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "Git 基礎設定",
     content: (
@@ -54,12 +54,12 @@ const Sections = (demoPath) => [
         <li>
           列出pack包裏最大的5個文件(自行替換<code>.idx</code>檔名)
           <CodeChunk code="git verify-pack -v .git/objects/pack/pack-a2ac68d28ef70a111b4db707db5c7a6b77275871.idx | sort -k 3 -n | tail -5" lang="bash" />
-          <ZoomImage className="col-xs-8 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/cmder-git-clean1.png`} />
+          <ZoomImage className="col-xs-8 mx-auto" src={`${imagePath}/cmder-git-clean1.png`} />
         </li>
         <li>
           列出最大的文件名稱
           <CodeChunk code="git rev-list --objects --all | grep 4f1a0424c890e4d3fa9b33dfe0d021ac119eb2be" lang="bash" />
-          <ZoomImage className="col-xs-8 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/cmder-git-clean2.png`} />
+          <ZoomImage className="col-xs-8 mx-auto" src={`${imagePath}/cmder-git-clean2.png`} />
         </li>
         <li>
           刪除文件

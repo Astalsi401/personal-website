@@ -8,7 +8,7 @@ const OPLink = ({ href }) => (
     </a>
   </>
 );
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "How to add a panel, in Javascript, that resize vertically inside another panel?",
     content: (

@@ -37,7 +37,7 @@ const data = {
   ],
 };
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "pip",
     content: (

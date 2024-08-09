@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@components";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "網絡資料的格式",
     content: (
@@ -9,7 +9,7 @@ const Sections = (demoPath) => [
         <p>
           <b>無方向性（Undirected, Binary）</b>
         </p>
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_1.png`} />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_1.png`} />
         <table className="mx-auto">
           <caption>Adjacency List</caption>
           <thead>
@@ -158,7 +158,7 @@ const Sections = (demoPath) => [
         <p>
           <b>有方向性（Directed, Binary）</b>
         </p>
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_2.png`} />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_2.png`} />
         <table className="mx-auto">
           <caption>Matrices</caption>
           <tbody>
@@ -215,7 +215,7 @@ const Sections = (demoPath) => [
         <p>
           <b>無方向性，有強弱差異（Undirected, Valued）</b>
         </p>
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_3.png`} />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_3.png`} />
         <table className="mx-auto">
           <caption>Edgelist</caption>
           <tbody>
@@ -279,7 +279,7 @@ const Sections = (demoPath) => [
         <p>
           <b>有方向性，有強弱差異（Directed, Valued）</b>
         </p>
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_4.png`} />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_4.png`} />
         <table className="mx-auto">
           <caption>Edgelist</caption>
           <tbody>
@@ -335,7 +335,7 @@ const Sections = (demoPath) => [
         <ul>
           <li>
             相通性（Reachability）：
-            <ZoomImage className="w-lg-25 w-sm-50 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_5.png`} />
+            <ZoomImage className="w-lg-25 w-sm-50 mx-auto img-invert" src={`${imagePath}/r003_5.png`} />
             <p>
               X<sup>n</sup>=在n步之內，有多少條路徑可連回actors
               <br />
@@ -351,7 +351,7 @@ const Sections = (demoPath) => [
           <li>In-degree：從其他actors接收的連結</li>
           <li>
             Out-degree：發送給其他actors的連結
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/r003_6.png`} />
+            <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_6.png`} />
             <table className="mx-auto">
               <tbody>
                 <tr>
@@ -446,7 +446,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             度中心性（Degree Centrality）：能連結到的數量 / 總數-1
-            <img className="d-block mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/degree_centrality.svg`} alt="degree_centrality" />
+            <img className="d-block mx-auto img-invert" src={`${imagePath}/degree_centrality.svg`} alt="degree_centrality" />
             <p>
               <i>
                 A<sub>ij</sub>
@@ -456,7 +456,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             接近中心性（Closeness Centrality）：與其他actors的鄰近程度
-            <img className="d-block mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/closeness_centrality.svg`} alt="closeness_centrality" />
+            <img className="d-block mx-auto img-invert" src={`${imagePath}/closeness_centrality.svg`} alt="closeness_centrality" />
             <p>
               <i>
                 d<sub>ij</sub>
@@ -466,7 +466,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             界數中心性（Betweenness Centrality）：兩actors經過第三actor的最短路徑數
-            <img className="d-block mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/betweenness_centrality.svg`} alt="betweenness_centrality" />
+            <img className="d-block mx-auto img-invert" src={`${imagePath}/betweenness_centrality.svg`} alt="betweenness_centrality" />
             <p>
               <i>
                 G<sub>jk</sub>
@@ -482,7 +482,7 @@ const Sections = (demoPath) => [
           </li>
           <li>
             網絡密度（Density）：
-            <img className="d-block mx-auto img-invert" src={`${import.meta.env.BASE_URL}/assets/images/density.svg`} alt="density" />
+            <img className="d-block mx-auto img-invert" src={`${imagePath}/density.svg`} alt="density" />
             <p>
               實際存在的路徑數/最多可能路徑數
               <br />

@@ -12,7 +12,7 @@ const shortCutTable = [
   { shortCut: "Win+Alt+P", des: "開啟設定視窗" },
 ];
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "安裝",
     content: (

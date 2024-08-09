@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "專案架構",
     content: <CodeChunk path={`${demoPath}/py/readme.md`} lang="md" />,

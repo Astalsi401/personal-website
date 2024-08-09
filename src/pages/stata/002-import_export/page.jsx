@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@components";
 import { ZoomImage } from "../../../components/zoomImage";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     id: "工作目錄",
     title: "工作目錄",
@@ -120,7 +120,7 @@ const Sections = (demoPath) => [
       <>
         <p>在STATA中開啟圖表</p>
         <CodeChunk code={`graph use "1978auto.gph`} lang="stata" />
-        <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${import.meta.env.BASE_URL}/assets/images/1978auto_1.png`} alt="1978auto_1.png" />
+        <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/1978auto_1.png`} alt="1978auto_1.png" />
       </>
     ),
   },

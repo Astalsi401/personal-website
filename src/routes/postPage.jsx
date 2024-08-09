@@ -12,7 +12,7 @@ export const PostPage = () => {
   const { hash } = useLocation();
   const currentPostTitles = useSelector((state) => state.currentPostTitles);
   const hasTitles = currentPostTitles.length !== 0;
-  const sections = Sections(`${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
+  const sections = Sections(`${import.meta.env.BASE_URL}/assets/images`, `${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
   const scrollToHash = () => {
     const elem = hash.length > 0 && document.querySelector(decodeURI(hash));
     elem && window.scrollTo({ top: elem.offsetTop - 56 }); // 56 = header height + section title margin top

@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "1. JavaScript: 字串反轉",
     content: <CodeChunk path={`${demoPath}/question/01.js`} lang="js" />,

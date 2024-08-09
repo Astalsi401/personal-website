@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@components";
 
-const Sections = (demoPath) => [
+const Sections = (imagePath, demoPath) => [
   {
     title: "Mann Whitney U Test",
     content: (
@@ -18,8 +18,8 @@ const Sections = (demoPath) => [
             <li>先對樣本中的資訊進行排序</li>
             <li>
               在下列公式中找尋較小值的U
-              <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/Mann_Whitney_U_Test-1.svg`} />
-              <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/Mann_Whitney_U_Test-2.svg`} />
+              <img className="img-invert d-block my-2" src={`${imagePath}/Mann_Whitney_U_Test-1.svg`} />
+              <img className="img-invert d-block my-2" src={`${imagePath}/Mann_Whitney_U_Test-2.svg`} />
               <ul>
                 <li>
                   <i>
@@ -46,7 +46,7 @@ const Sections = (demoPath) => [
             </li>
             <li>
               取較小的U值，用於下列公式中，去取得Z值
-              <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/Mann_Whitney_U_Test-3.svg`} />
+              <img className="img-invert d-block my-2" src={`${imagePath}/Mann_Whitney_U_Test-3.svg`} />
             </li>
             <li>若Z值大於1.96，則意味著虛無假設遭到拒絕，反之，則保留虛無假設</li>
           </ol>
@@ -79,7 +79,7 @@ const Sections = (demoPath) => [
               <li>先對樣本中的資訊進行排序</li>
               <li>
                 在下列公式中找尋較小值的H
-                <img className="img-invert d-block my-2" src={`${import.meta.env.BASE_URL}/assets/images/Mann_Whitney_U_Test-4.svg`} />
+                <img className="img-invert d-block my-2" src={`${imagePath}/Mann_Whitney_U_Test-4.svg`} />
                 <ul>
                   <li>
                     <i>N</i>為個案總數
