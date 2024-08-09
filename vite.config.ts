@@ -5,6 +5,16 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/personal-website",
+  plugins: [
+    react(),
+    VitePluginRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: "G-F8SLV521P4",
+      },
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -15,14 +25,4 @@ export default defineConfig({
       "@routes": path.resolve(__dirname, "./src/routes/routes"),
     },
   },
-  plugins: [
-    react(),
-    VitePluginRadar({
-      // Google Analytics tag injection
-      analytics: {
-        id: "G-F8SLV521P4",
-      },
-    }),
-  ],
-  base: "/personal-website",
 });
