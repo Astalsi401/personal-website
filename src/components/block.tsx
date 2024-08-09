@@ -1,14 +1,21 @@
 import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import store, { updateStore } from "@store";
+import store, { updateStore, RootState, useAppDispatch } from "@store";
 
-export const Block = ({ className, title, titleClass, id, children }) => {
-  const dispatch = useDispatch();
-  const ref = useRef(null);
-  const navHeight = 40;
+type BlockProps = {
+  className?: string;
+  title?: string;
+  titleClass?: string;
+  id?: string;
+  children: React.ReactNode;
+};
+
+export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, children }) => {
+  const dispatch = useAppDispatch();
+  const ref = useRef<null | HTMLDivElement>(null);
+  const navHeight: number = 40;
   const handleCurrentSection = () => {
     if (!ref.current) return;
-    const { currentPostTitles } = store.getState();
+    const { currentPostTitles } = store.getState() as RootState;
     const { top, height } = ref.current.getBoundingClientRect();
     const disToBottom = document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight);
     top - navHeight - height <= 0 && dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ ...s, active: disToBottom === 0 ? i === currentPostTitles.length - 1 : s.title === title })) }));
