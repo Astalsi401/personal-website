@@ -14,32 +14,44 @@ import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { isActive } from "@functions";
 
-export const CodeChunk = ({ code, lang, path }) => {
-  const [active, setActive] = useState(false);
-  const [{ code: codeTxt, fileName }, setCodeInfo] = useState({ code, fileName: "" });
+type CodeChunkProps = {
+  code?: string;
+  lang?: string;
+  path?: string;
+};
 
-  const copy = (e) => {
+type CodeInfo = {
+  code: string | undefined;
+  fileName: string;
+};
+
+export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
+  const [active, setActive] = useState<boolean>(false);
+  const [{ code: codeTxt, fileName }, setCodeInfo] = useState<CodeInfo>({ code, fileName: "" });
+
+  const copy = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText(codeTxt);
+    navigator.clipboard.writeText(codeTxt || "");
     setActive(true);
     setTimeout(() => setActive(false), 2000);
   };
-  const fetchCode = async ({ signal }) => {
+  const fetchCode = async ({ signal }: AbortController) => {
+    if (!path) return;
     try {
-      setCodeInfo({ code: await fetch(path, { signal }).then((res) => res.text()), fileName: path.split("/").pop() });
-    } catch ({ name }) {
-      name === "AbortError" && setCodeInfo({ code: "Request Aborted!", fileName: path.split("/").pop() });
+      setCodeInfo({ code: await fetch(path, { signal }).then((res) => res.text()), fileName: path.split("/").pop() as string });
+    } catch ({ name }: any) {
+      name === "AbortError" && setCodeInfo({ code: "Request Aborted!", fileName: path.split("/").pop() as string });
     }
   };
   useEffect(() => {
     const abortItem = new AbortController();
-    path && fetchCode(abortItem);
+    fetchCode(abortItem);
     return () => abortItem.abort();
   }, []);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
     <pre className="my-2 p-2 pt-4 position-relative">
-      {fileName && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
+      {fileName.length > 0 && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
       <a href="#" className={`copy-btn d-block position-absolute text-code-text ${isActive(active)}`} onClick={copy}>
         <svg viewBox="0 0 10 10">
           <path fill="none" d="M4.5 1 L7.5 1 Q8.5 1,8.5 2 L8.5 6 Q8.5 7,7.5 7 L4.5 7 Q3.5 7,3.5 6 L3.5 2 Q3.5 1,4.5 1" />
