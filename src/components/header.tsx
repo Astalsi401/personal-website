@@ -1,21 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import store, { updateStore } from "@store";
+import store, { updateStore, useAppDispatch, useAppSelector } from "@store";
 import { isActive } from "@functions";
 import { Sidebar, SearchBar, SearchIcon } from "@components";
 
-export const Header = () => {
-  const dispatch = useDispatch();
-  const sidebarActive = useSelector((state) => state.sidebarActive);
-  const wrapperRef = useRef(null);
-  const btnRef = useRef(null);
-  const handleFocusIn = ({ target }) => !btnRef.current.contains(target) && dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target) }));
-  const handleClickOut = ({ target }) => {
-    if (wrapperRef.current.contains(target) || btnRef.current.contains(target)) return;
+export const Header: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const sidebarActive = useAppSelector((state) => state.sidebarActive);
+  const wrapperRef = useRef<HTMLElement>(null);
+  const btnRef = useRef<HTMLAnchorElement>(null);
+  const handleFocusIn = ({ target }: FocusEvent) => {
+    if (btnRef.current && target && btnRef.current.contains(target as HTMLElement)) return;
+    wrapperRef.current && dispatch(updateStore({ sidebarActive: wrapperRef.current.contains(target as HTMLElement) }));
+  };
+  const handleClickOut = ({ target }: MouseEvent) => {
+    if ((wrapperRef.current && wrapperRef.current.contains(target as HTMLElement)) || (btnRef.current && btnRef.current.contains(target as HTMLElement))) return;
     dispatch(updateStore({ sidebarActive: false }));
   };
-  const handleClickFrame = ({ data }) => data.window && data.window === "iframe" && dispatch(updateStore({ sidebarActive: false }));
+  const handleClickFrame = ({ data }: MessageEvent) => data.window && data.window === "iframe" && dispatch(updateStore({ sidebarActive: false }));
   useEffect(() => {
     document.addEventListener("pointerdown", handleClickOut);
     document.addEventListener("focusin", handleFocusIn);
@@ -44,8 +46,8 @@ export const Header = () => {
   );
 };
 
-const Accessibility = () => {
-  const sidebarAnchorID = useSelector((state) => state.sidebarAnchorID);
+const Accessibility: React.FC = () => {
+  const sidebarAnchorID = useAppSelector((state) => state.sidebarAnchorID);
   const access = [
     { href: "#main-content", text: "Skip to main content" },
     { href: `#${sidebarAnchorID}`, text: "Skip to sidebar" },
@@ -61,11 +63,11 @@ const Accessibility = () => {
   );
 };
 
-const ProgressBar = () => {
-  const [percent, setPercent] = useState(0);
+const ProgressBar: React.FC = () => {
+  const [percent, setPercent] = useState<number>(0);
   const handleScroll = () => {
     const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
-    setPercent(((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2));
+    setPercent(Number(((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2)));
   };
   useEffect(() => {
     window.addEventListener("load", handleScroll);
@@ -75,10 +77,10 @@ const ProgressBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  return <div className="progress w-100 position-relative" style={{ "--percent": percent }} />;
+  return <div className="progress w-100 position-relative" style={{ "--percent": percent } as React.CSSProperties} />;
 };
 
-const Home = () => (
+const Home: React.FC = () => (
   <Link to={import.meta.env.BASE_URL} className="home d-block position-absolute">
     <svg viewBox="0 0 500 500">
       <path d="M250 100 L450 230,350 230,350 400,150 400,150 230,50 230,250 100" />
@@ -86,18 +88,18 @@ const Home = () => (
   </Link>
 );
 
-const DarkMode = () => {
-  const dispatch = useDispatch();
-  const isDark = useSelector((state) => state.isDark);
-  const handleClick = (e) => {
+const DarkMode: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const isDark = useAppSelector((state) => state.isDark);
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    localStorage.setItem("isDark", !isDark);
+    localStorage.setItem("isDark", String(!isDark));
     document.body.setAttribute("data-theme", !isDark ? "dark" : "light");
     dispatch(updateStore({ isDark: !isDark }));
   };
   useEffect(() => {
     const userIsDark = localStorage.getItem("isDark") ? localStorage.getItem("isDark") === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-    localStorage.setItem("isDark", userIsDark);
+    localStorage.setItem("isDark", String(userIsDark));
     document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
     dispatch(updateStore({ isDark: userIsDark }));
   }, []);
@@ -110,9 +112,14 @@ const DarkMode = () => {
   );
 };
 
-const Hamburger = ({ sidebarActive, btnRef }) => {
-  const dispatch = useDispatch();
-  const handleClick = (e) => {
+type HamburgerProps = {
+  sidebarActive: boolean;
+  btnRef: React.RefObject<HTMLAnchorElement>;
+};
+
+const Hamburger: React.FC<HamburgerProps> = ({ sidebarActive, btnRef }) => {
+  const dispatch = useAppDispatch();
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     dispatch(updateStore({ sidebarActive: !sidebarActive }));
   };
@@ -123,10 +130,10 @@ const Hamburger = ({ sidebarActive, btnRef }) => {
   );
 };
 
-const SearchBtn = () => {
-  const dispatch = useDispatch();
+const SearchBtn: React.FC = () => {
+  const dispatch = useAppDispatch();
   const handleClick = () => dispatch(updateStore({ searchBarActive: true }));
-  const handleKeydown = (e) => {
+  const handleKeydown = (e: KeyboardEvent) => {
     switch (e.key) {
       case "Escape":
         dispatch(updateStore({ searchBarActive: false, searchString: "" }));

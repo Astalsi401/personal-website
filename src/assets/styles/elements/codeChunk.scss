@@ -87,7 +87,7 @@ code {
   border: 1px solid var(--primary-300);
   iframe {
     background-color: var(--code-text);
-    max-height: 100dvh;
+    max-height: 60dvh;
     min-height: 200px;
     border: none;
     &.active {

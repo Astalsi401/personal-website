@@ -7,7 +7,7 @@ export type PostSection = {
 type Post = {
   default: PostSection[];
 };
-type Page = { page: string; href: string; thumbnail?: string; tags?: string[] };
+export type Page = { page: string; href: string; thumbnail?: string; tags?: string[] };
 type IndexJson = {
   root: string;
   href: string;
@@ -18,7 +18,7 @@ type IndexJson = {
     pages: Page[];
   }[];
 };
-type Categories = {
+export type Categories = {
   category: string;
   href: string;
   pages: Page[];

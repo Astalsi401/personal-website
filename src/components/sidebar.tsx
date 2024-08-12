@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { updateStore } from "@store";
-import { isActive, titleToHash } from "@functions";
+import { updateStore, useAppDispatch, useAppSelector, CurrentPostTitleType } from "@store";
+import { Categories, isActive, titleToHash } from "@functions";
 
-export const Sidebar = ({ wrapperRef }) => {
-  const dispatch = useDispatch();
-  const index = useLoaderData();
-  const sidebarID = useSelector((state) => state.sidebarID);
-  const sidebarAnchorID = useSelector((state) => state.sidebarAnchorID);
-  const sidebarActive = useSelector((state) => state.sidebarActive);
-  const currentPostTitles = useSelector((state) => state.currentPostTitles);
+type SidebarProps = { wrapperRef: React.RefObject<HTMLElement> };
+
+export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
+  const dispatch = useAppDispatch();
+  const index = useLoaderData() as Categories;
+  const sidebarID = useAppSelector((state) => state.sidebarID);
+  const sidebarAnchorID = useAppSelector((state) => state.sidebarAnchorID);
+  const sidebarActive = useAppSelector((state) => state.sidebarActive);
+  const currentPostTitles = useAppSelector((state) => state.currentPostTitles);
   const [childrenActive, setChildrenActive] = useState(false);
   const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
@@ -44,7 +45,7 @@ export const Sidebar = ({ wrapperRef }) => {
   );
 };
 
-const SidebarChild = ({ currentPostTitles, childrenActive }) => (
+const SidebarChild: React.FC<{ currentPostTitles: CurrentPostTitleType[]; childrenActive: boolean }> = ({ currentPostTitles, childrenActive }) => (
   <ul className={`children ${isActive(childrenActive)}`}>
     {currentPostTitles.map(({ title }) => (
       <li key={title}>
