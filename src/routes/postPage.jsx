@@ -59,7 +59,7 @@ const AsideContent = ({ currentPostTitles }) => {
         On this page
       </a>
       {currentPostTitles.map(({ title, active }) => (
-        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={`ps-1 d-block ${isActive(active)}`} onClick={() => handleCurrentSection(title)}>
+        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={`my-2 ps-1 d-block ${isActive(active)}`} onClick={() => handleCurrentSection(title)}>
           {title}
         </a>
       ))}
