@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { isActive } from "@functions";
 
-export const DemoFrame = ({ src }) => {
-  const iframeRef = useRef(null);
-  const [height, setHeight] = useState(0);
-  const [fullPage, setFullPage] = useState(false);
-  const handleMessage = ({ data, source }) => source === iframeRef.current.contentWindow && data.height && setHeight(data.height);
-  const handleClick = (e) => {
+export const DemoFrame: React.FC<{ src: string }> = ({ src }) => {
+  const iframeRef = useRef<null | HTMLIFrameElement>(null);
+  const [height, setHeight] = useState<number>(0);
+  const [fullPage, setFullPage] = useState<boolean>(false);
+  const handleMessage = ({ data, source }: MessageEvent) => source === iframeRef.current?.contentWindow && data.height && setHeight(data.height);
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setFullPage((prev) => {
       let newState = !prev;
