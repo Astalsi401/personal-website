@@ -1,14 +1,21 @@
 import { useState, useRef, useEffect } from "react";
 import { isActive } from "@functions";
 
-export const ZoomImage = ({ id, className, src, alt }) => {
-  const [active, setActive] = useState(false);
-  const ref = useRef(null);
+type ZoomImageProps = {
+  id?: string;
+  className?: string;
+  src: string;
+  alt?: string;
+};
+
+export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt }) => {
+  const [active, setActive] = useState<boolean>(false);
+  const ref = useRef<null | HTMLImageElement>(null);
   const zoom = () =>
     setActive((prev) => {
       const newState = !prev;
       const overflow = document.querySelector(".overflow-auto"); // 檢查圖片是否在overflow的元素內
-      if (overflow && overflow.contains(ref.current)) ref.current.style.position = newState ? "absolute" : "relative";
+      if (ref.current && overflow && overflow.contains(ref.current)) ref.current.style.position = newState ? "absolute" : "relative";
       document.body.style.overflowY = newState ? "hidden" : "auto";
       return newState;
     });
