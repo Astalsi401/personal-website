@@ -20,7 +20,7 @@ export const DemoFrame: React.FC<{ src: string }> = ({ src }) => {
   }, []);
   return (
     <div className="demo-frame my-2 p-2 pt-0">
-      <a href="#" className={`full-page mb-1 ps-1 pe-4 d-block position-relative float-end text-small text-primary ${isActive(fullPage)}`} onClick={handleClick}>
+      <a href="#" className={`full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary ${isActive(fullPage)}`} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
       <iframe className={`w-100 ${isActive(fullPage)}`} style={{ height: height }} src={src} ref={iframeRef} />
