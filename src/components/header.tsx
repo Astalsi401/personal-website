@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import store, { updateStore, useAppDispatch, useAppSelector } from "@store";
 import { isActive } from "@functions";
 import { Sidebar, SearchBar, SearchIcon } from "@components";
+import type { HamburgerProps } from "@types";
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -112,11 +113,6 @@ const DarkMode: React.FC = () => {
   );
 };
 
-type HamburgerProps = {
-  sidebarActive: boolean;
-  btnRef: React.RefObject<HTMLAnchorElement>;
-};
-
 const Hamburger: React.FC<HamburgerProps> = ({ sidebarActive, btnRef }) => {
   const dispatch = useAppDispatch();
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -154,7 +150,7 @@ const SearchBtn: React.FC = () => {
   return (
     <div className="search-btn p-1 position-absolute d-flex align-items-center" onClick={handleClick}>
       <div className="search-btn-container p-1 d-flex align-items-center w-100 rounded-1 bg-white shadow-1">
-        <SearchIcon width="15" height="15" />
+        <SearchIcon width={15} height={15} />
         <div className="flex-grow-1 text-center">
           <kbd className="my-0 text-x-small">Ctrl</kbd>
           <kbd className="my-0 text-x-small">K</kbd>

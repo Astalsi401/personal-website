@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector } from "@store";
-import { getIndex, isMyPage, Page } from "@functions";
+import { getIndex, isMyPage } from "@functions";
+import type { Page } from "@types";
 
 export const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();

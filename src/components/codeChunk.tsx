@@ -13,17 +13,7 @@ import "prismjs/components/prism-bash.min";
 import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { isActive } from "@functions";
-
-type CodeChunkProps = {
-  code?: string;
-  lang?: string;
-  path?: string;
-};
-
-type CodeInfo = {
-  code: string | undefined;
-  fileName: string;
-};
+import type { CodeChunkProps, CodeInfo } from "@types";
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [active, setActive] = useState<boolean>(false);

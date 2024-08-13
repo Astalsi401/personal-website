@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { updateStore, useAppDispatch } from "@store";
-import { Categories } from "@functions";
+import type { Categories } from "@types";
 
 export const Root: React.FC = () => {
   const dispatch = useAppDispatch();

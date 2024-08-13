@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Label } from "@components";
 
-const Calculator = () => {
+const Calculator: React.FC = () => {
   const [status, setStatus] = useState({ ratio: "", max: "", min: "", type: 0 });
-  const tuneformula = ({ target: { name, value } }) => setStatus((prev) => ({ ...prev, [name]: value }));
+  const tuneformula = ({ target: { name, value } }: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setStatus((prev) => ({ ...prev, [name]: value }));
   let front,
     category,
     ratio = Number(status.ratio),
@@ -26,12 +26,12 @@ const Calculator = () => {
     <form className="my-3 mx-auto calculator">
       <fieldset className="border-0">
         <Label label="重量比" name="ratio" type="number" step="0.01" placeholder="0~1間的小數" value={status.ratio} fuc={tuneformula} />
-        {status.ratio > 1 || status.ratio < 0 ? <div className="text-warn">請輸入0~1間的小數</div> : null}
+        {ratio > 1 || ratio < 0 ? <div className="text-warn">請輸入0~1間的小數</div> : null}
         <Label label="最大值" name="max" type="number" value={status.max} fuc={tuneformula} />
         <Label label="最小值" name="min" type="number" value={status.min} fuc={tuneformula} />
         <label className="my-2 w-100">
           <div>驅動方式：</div>
-          <select name="type" value={status.type} onChange={tuneformula}>
+          <select className="p-1 shadow-1 border-0" name="type" value={status.type} onChange={tuneformula}>
             <option value={0}>前置四驅</option>
             <option value={0.02}>中置四驅</option>
             <option value={0.06}>後驅</option>

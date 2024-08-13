@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block } from "@components";
-import { isActive, PostSection, titleToHash } from "@functions";
+import { isActive, titleToHash } from "@functions";
+import type { PostSection } from "@types";
 
 export const PostPage: React.FC = () => {
   const dispatch = useAppDispatch();

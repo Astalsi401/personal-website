@@ -1,24 +1,5 @@
 import type { Params } from "react-router-dom";
-
-export type PostSection = {
-  title: string;
-  content: JSX.Element;
-};
-type Post = {
-  default: (imagePath: string, demoPath: string) => PostSection[];
-};
-export type Page = { page: string; href: string; thumbnail?: string; tags?: string[]; icon?: string };
-export type Categories = {
-  category: string;
-  href: string;
-  icon?: string;
-  pages: Page[];
-};
-type IndexJson = {
-  root: string;
-  href: string;
-  index: Categories[];
-};
+import type { IndexJson, Post, Categories } from "@types";
 
 export const isActive: (stateActive: boolean) => string = (stateActive: boolean) => (stateActive ? "active" : "");
 export const isMyPage: (url: string) => boolean = (url: string) => !/^http/.test(url);

@@ -1,12 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { isActive } from "@functions";
-
-type ZoomImageProps = {
-  id?: string;
-  className?: string;
-  src: string;
-  alt?: string;
-};
+import type { ZoomImageProps } from "@types";
 
 export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt }) => {
   const [active, setActive] = useState<boolean>(false);
