@@ -104,11 +104,11 @@ code {
   text-decoration: none;
   width: max-content;
   transition: opacity var(--time);
-  opacity: 0.6;
+  backdrop-filter: blur(4px);
   &.active {
     position: fixed !important;
     z-index: calc(index($z-index, model) + 1);
-    right: 0.5rem;
+    right: 0;
     top: 0;
     text-shadow: 0 0 5px var(--main-bg);
   }
@@ -127,18 +127,14 @@ code {
     transition-delay: calc(var(--time) / 2);
   }
   &::after {
-    right: 0;
+    right: 10px;
     transform-origin: right bottom;
     transform: rotate(45deg);
     transition-delay: 0s;
   }
-  &:focus,
-  &:hover {
-    opacity: 1;
-  }
   &:hover {
     &::before {
-      width: 100%;
+      width: calc(100% - 10px);
       transition-delay: 0s;
     }
     &::after {
