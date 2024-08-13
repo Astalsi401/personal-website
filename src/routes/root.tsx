@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateStore } from "@store";
+import { updateStore, useAppDispatch } from "@store";
+import { Categories } from "@functions";
 
-export const Root = () => {
-  const dispatch = useDispatch();
-  const { category, pages } = useLoaderData();
+export const Root: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { category, pages } = useLoaderData() as Categories;
   useEffect(() => {
     document.title = category;
     dispatch(updateStore({ currentPostTitles: [] }));
@@ -16,7 +16,7 @@ export const Root = () => {
       <div className="my-5 py-5 px-sm-5 d-flex flex-wrap justify-content-center">
         {pages.map(({ page, icon, href }) => (
           <Link key={page} to={`${import.meta.env.BASE_URL}${href}`} className="home-page-icon m-2 p-1 d-block text-decoration-none">
-            {icon.endsWith(".svg") ? <div className="w-100 mx-auto bg-black" style={{ aspectRatio: 1, mask: `url(${import.meta.env.BASE_URL}${icon})`, maskSize: "cover" }}></div> : <img src={`${import.meta.env.BASE_URL}${icon}`} alt={`icon-${page}`} className="d-block w-100 mx-auto" />}
+            {icon && icon.endsWith(".svg") ? <div className="w-100 mx-auto bg-black" style={{ aspectRatio: 1, mask: `url(${import.meta.env.BASE_URL}${icon})`, maskSize: "cover" }}></div> : <img src={`${import.meta.env.BASE_URL}${icon}`} alt={`icon-${page}`} className="d-block w-100 mx-auto" />}
             <span className="d-block text-center">{page}</span>
           </Link>
         ))}

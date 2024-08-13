@@ -5,23 +5,19 @@ export type PostSection = {
   content: JSX.Element;
 };
 type Post = {
-  default: PostSection[];
+  default: (imagePath: string, demoPath: string) => PostSection[];
 };
-export type Page = { page: string; href: string; thumbnail?: string; tags?: string[] };
-type IndexJson = {
-  root: string;
-  href: string;
-  index: {
-    category: string;
-    href: string;
-    icon: string;
-    pages: Page[];
-  }[];
-};
+export type Page = { page: string; href: string; thumbnail?: string; tags?: string[]; icon?: string };
 export type Categories = {
   category: string;
   href: string;
+  icon?: string;
   pages: Page[];
+};
+type IndexJson = {
+  root: string;
+  href: string;
+  index: Categories[];
 };
 
 export const isActive: (stateActive: boolean) => string = (stateActive: boolean) => (stateActive ? "active" : "");

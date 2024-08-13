@@ -1,26 +1,25 @@
 import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { updateStore } from "@store";
+import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block } from "@components";
-import { isActive, titleToHash } from "@functions";
+import { isActive, PostSection, titleToHash } from "@functions";
 
-export const PostPage = () => {
-  const dispatch = useDispatch();
-  const { title, Sections } = useLoaderData();
+export const PostPage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { title, Sections } = useLoaderData() as { title: string | undefined; Sections: (imagePath: string, demoPath: string) => PostSection[] };
   const { href, page } = useParams();
   const { hash } = useLocation();
-  const currentPostTitles = useSelector((state) => state.currentPostTitles);
+  const currentPostTitles = useAppSelector((state) => state.currentPostTitles);
   const hasTitles = currentPostTitles.length !== 0;
   const sections = Sections(`${import.meta.env.BASE_URL}/assets/images`, `${import.meta.env.BASE_URL}/assets/demo-files/${href}/${page}`);
   const scrollToHash = () => {
-    const elem = hash.length > 0 && document.querySelector(decodeURI(hash));
+    const elem = hash.length > 0 && (document.querySelector(decodeURI(hash)) as HTMLElement | null | false);
     elem && window.scrollTo({ top: elem.offsetTop - 56 }); // 56 = header height + section title margin top
   };
   const pageLoadObserver = new ResizeObserver(scrollToHash);
   const pageLoadUnObserver = () => pageLoadObserver.unobserve(document.body);
   useEffect(() => {
-    document.title = title;
+    title && (document.title = title);
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   useEffect(() => {
@@ -34,7 +33,7 @@ export const PostPage = () => {
     };
   }, []);
   return (
-    <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : { "--aside-w": 0 }}>
+    <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : ({ "--aside-w": 0 } as React.CSSProperties)}>
       <h1 className="my-5 text-center">{title}</h1>
       <div className={hasTitles ? `d-md-grid` : ""}>
         <div className="post-content p-3 pb-5">
@@ -50,9 +49,9 @@ export const PostPage = () => {
   );
 };
 
-const AsideContent = ({ currentPostTitles }) => {
-  const dispatch = useDispatch();
-  const handleCurrentSection = (title) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
+const AsideContent: React.FC<{ currentPostTitles: CurrentPostTitleType[] }> = ({ currentPostTitles }) => {
+  const dispatch = useAppDispatch();
+  const handleCurrentSection = (title: string) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
   return (
     <div className="aside-content d-none d-md-block px-2 text-small">
       <a href="#main-content" className="d-block text-primary text-bold">

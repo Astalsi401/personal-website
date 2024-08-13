@@ -1,7 +1,7 @@
 import { Link, useRouteError } from "react-router-dom";
 
-export const ErrorPage = () => {
-  const error = useRouteError();
+export const ErrorPage: React.FC = () => {
+  const error = useRouteError() as Error;
   console.error(error);
   return (
     <div id="error-page text-center">
