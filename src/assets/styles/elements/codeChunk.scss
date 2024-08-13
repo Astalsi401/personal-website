@@ -105,6 +105,7 @@ code {
   width: max-content;
   transition: opacity var(--time);
   backdrop-filter: blur(4px);
+  --pe: 10px;
   &.active {
     position: fixed !important;
     z-index: calc(index($z-index, model) + 1);
@@ -127,14 +128,14 @@ code {
     transition-delay: calc(var(--time) / 2);
   }
   &::after {
-    right: 10px;
+    right: var(--pe);
     transform-origin: right bottom;
     transform: rotate(45deg);
     transition-delay: 0s;
   }
   &:hover {
     &::before {
-      width: calc(100% - 10px);
+      width: calc(100% - var(--pe));
       transition-delay: 0s;
     }
     &::after {
