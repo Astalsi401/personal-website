@@ -81,7 +81,6 @@ code {
     transform: scale(1) translateX(-110%);
   }
 }
-
 .demo-frame {
   border-radius: 5px;
   border: 1px solid var(--primary-300);
@@ -97,6 +96,7 @@ code {
       left: 0;
       width: 100% !important;
       height: 100% !important;
+      max-height: 100dvh;
     }
   }
 }
