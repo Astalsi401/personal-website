@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Label } from "@components";
 
-const Calculator: React.FC = () => {
+export const Calculator: React.FC = () => {
   const [status, setStatus] = useState({ ratio: "", max: "", min: "", type: 0 });
   const tuneformula = ({ target: { name, value } }: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setStatus((prev) => ({ ...prev, [name]: value }));
   let front,
@@ -55,5 +55,3 @@ const Calculator: React.FC = () => {
     </form>
   );
 };
-
-export default Calculator;

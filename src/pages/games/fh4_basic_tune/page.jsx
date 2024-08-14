@@ -1,5 +1,5 @@
 import { ZoomImage } from "@components";
-import Calculator from "./calculator";
+import { Calculator } from "./calculator";
 import data from "./data.json";
 
 const Sections = (imagePath, demoPath) => [

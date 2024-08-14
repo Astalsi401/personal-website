@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Label } from "@components";
 
-const Calculator = () => {
+export const Calculator = () => {
   const [status, setStatus] = useState({ bh: "", bw: "", ah: "", aw: "" });
   const whp = ({ target: { name, value } }) => setStatus((prev) => ({ ...prev, [name]: value }));
   let before = (Number(status.bw) / Number(status.bh)).toFixed(2),
@@ -43,5 +43,3 @@ const InputLabel = ({ name, status, whp }) => (
     </div>
   </>
 );
-
-export default Calculator;
