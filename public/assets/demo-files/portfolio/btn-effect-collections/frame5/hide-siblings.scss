@@ -1,3 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .hide-siblings {
   width: 100%;
   display: flex;

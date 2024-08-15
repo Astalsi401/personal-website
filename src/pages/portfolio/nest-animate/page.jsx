@@ -10,8 +10,8 @@ const Sections = (imagePath, demoPath) => [
           canvas-nest.js
         </a>
         修改
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/frame1/nest-animate.js`} lang="js" />
+        <DemoFrame src={`${demoPath}/frame1`} />
+        <CodeChunk path={`${demoPath}/frame1/index.js`} lang="js" />
       </>
     ),
   },

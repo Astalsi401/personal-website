@@ -2,32 +2,32 @@ import { CodeChunk, DemoFrame } from "@components";
 
 const Sections = (imagePath, demoPath) => [
   {
-    title: "loading1",
+    title: "shape transform ",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/frame1/loadingAnimation1.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame1/loadingAnimation1.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame1/shape-transform.html`} cssHref={`${demoPath}/frame1/shape-transform.min.css`} />
+        <CodeChunk path={`${demoPath}/frame1/shape-transform.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame1/shape-transform.html`} lang="html" />
       </>
     ),
   },
   {
-    title: "loading2",
+    title: "gradient bolrder",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame2.html`} />
-        <CodeChunk path={`${demoPath}/frame2/loadingAnimation2.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame2/loadingAnimation2.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame2/gradient-bolrder.html`} cssHref={`${demoPath}/frame2/gradient-bolrder.min.css`} />
+        <CodeChunk path={`${demoPath}/frame2/gradient-bolrder.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame2/gradient-bolrder.html`} lang="html" />
       </>
     ),
   },
   {
-    title: "loading3",
+    title: "neon circle",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame3.html`} />
-        <CodeChunk path={`${demoPath}/frame3/loadingAnimation3.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame3/loadingAnimation3.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame3/neon-circle.html`} cssHref={`${demoPath}/frame3/neon-circle.min.css`} />
+        <CodeChunk path={`${demoPath}/frame3/neon-circle.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame3/neon-circle.html`} lang="html" />
       </>
     ),
   },

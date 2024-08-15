@@ -5,11 +5,10 @@ const Sections = (imagePath, demoPath) => [
     title: "",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/graph/js/heatmap.js`} lang="js" />
-        <CodeChunk path={`${demoPath}/graph/css/graph.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/graph/css/heatmap.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/graph/html/heatmap.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame1/heatmap.html`} cssHref={`${demoPath}/frame1/heatmap.min.css`} js={["https://d3js.org/d3.v7.min.js", `${demoPath}/frame1/heatmap.js`]} />
+        <CodeChunk path={`${demoPath}/frame1/heatmap.js`} lang="js" />
+        <CodeChunk path={`${demoPath}/frame1/heatmap.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame1/heatmap.html`} lang="html" />
       </>
     ),
   },

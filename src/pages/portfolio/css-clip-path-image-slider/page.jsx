@@ -17,7 +17,7 @@ const Sections = (imagePath, demoPath) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <DemoFrame html={`${demoPath}/frame1/css-clip-path-image-slider.html`} cssHref={`${demoPath}/frame1/css-clip-path-image-slider.min.css`} js={[`${demoPath}/frame1/css-clip-path-image-slider.js`]} />
         <CodeChunk path={`${demoPath}/frame1/css-clip-path-image-slider.js`} lang="js" />
         <CodeChunk path={`${demoPath}/frame1/css-clip-path-image-slider.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame1/css-clip-path-image-slider.html`} lang="html" />

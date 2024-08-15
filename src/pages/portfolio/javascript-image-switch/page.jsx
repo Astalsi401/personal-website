@@ -5,10 +5,10 @@ const Sections = (imagePath, demoPath) => [
     title: "1.",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/frame1/image-switch.js`} lang="js" />
-        <CodeChunk path={`${demoPath}/frame1/image-switch.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame1/image-switch.html`} lang="html" />
+        <DemoFrame src={`${demoPath}/frame1`} />
+        <CodeChunk path={`${demoPath}/frame1/index.js`} lang="js" />
+        <CodeChunk path={`${demoPath}/frame1/index.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame1/index.html`} lang="html" />
       </>
     ),
   },
@@ -16,10 +16,10 @@ const Sections = (imagePath, demoPath) => [
     title: "2.",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame2.html`} />
-        <CodeChunk path={`${demoPath}/frame2/image-switch2.js`} lang="js" />
-        <CodeChunk path={`${demoPath}/frame2/image-switch2.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame2/image-switch2.html`} lang="html" />
+        <DemoFrame src={`${demoPath}/frame2`} />
+        <CodeChunk path={`${demoPath}/frame2/index.js`} lang="js" />
+        <CodeChunk path={`${demoPath}/frame2/index.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame2/index.html`} lang="html" />
       </>
     ),
   },

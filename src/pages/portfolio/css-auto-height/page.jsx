@@ -14,8 +14,8 @@ const Sections = (imagePath, demoPath) => [
         <div className="my-2">
           <code>height: auto;</code>無法使用transition製作動畫效果，然而可以將<code>grid-template-rows</code>修改為<code>0fr</code>、<code>1fr</code>來達成auto hight transition
         </div>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/css-auto-height.scss`} lang="scss" />
+        <DemoFrame html={`${demoPath}/frame1/css-auto-height.html`} cssHref={`${demoPath}/frame1/css-auto-height.min.css`} />
+        <CodeChunk path={`${demoPath}/frame1/css-auto-height.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame1/css-auto-height.html`} lang="html" />
       </>
     ),

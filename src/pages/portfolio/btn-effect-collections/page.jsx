@@ -8,35 +8,35 @@ const Sections = (imagePath, demoPath) => [
         <p>
           有趣的<code>box-shadoe</code>用法
         </p>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame1/css-btn-arrow.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame1/hover-arrows.html`} cssHref={`${demoPath}/frame1/hover-arrows.min.css`} />
+        <CodeChunk path={`${demoPath}/frame1/hover-arrows.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame1/hover-arrows.html`} lang="html" />
       </>
     ),
   },
   {
-    title: "btn1",
+    title: "flexible button",
     content: (
       <>
         <p>
           <code>transition-delay</code>的應用
         </p>
-        <DemoFrame src={`${demoPath}/frame2.html`} />
-        <CodeChunk path={`${demoPath}/frame2/btn1.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame2/btn1.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame2/flexible-button.html`} cssHref={`${demoPath}/frame2/flexible-button.min.css`} />
+        <CodeChunk path={`${demoPath}/frame2/flexible-button.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame2/flexible-button.html`} lang="html" />
       </>
     ),
   },
   {
-    title: "btn2",
+    title: "neon btn",
     content: (
       <>
         <p>
           <code>rotate</code>的應用
         </p>
-        <DemoFrame src={`${demoPath}/frame3.html`} />
-        <CodeChunk path={`${demoPath}/frame3/btn2.scss`} lang="scss" />
-        <CodeChunk path={`${demoPath}/frame3/btn2.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame3/neon-btn.html`} cssHref={`${demoPath}/frame3/neon-btn.min.css`} />
+        <CodeChunk path={`${demoPath}/frame3/neon-btn.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame3/neon-btn.html`} lang="html" />
       </>
     ),
   },
@@ -44,7 +44,7 @@ const Sections = (imagePath, demoPath) => [
     title: "growing arrow",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame4.html`} />
+        <DemoFrame html={`${demoPath}/frame4/growing-arrow.html`} cssHref={`${demoPath}/frame4/growing-arrow.min.css`} />
         <CodeChunk path={`${demoPath}/frame4/growing-arrow.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame4/growing-arrow.html`} lang="html" />
       </>
@@ -54,7 +54,7 @@ const Sections = (imagePath, demoPath) => [
     title: "hide siblings",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame5.html`} />
+        <DemoFrame html={`${demoPath}/frame5/hide-siblings.html`} cssHref={`${demoPath}/frame5/hide-siblings.min.css`} />
         <CodeChunk path={`${demoPath}/frame5/hide-siblings.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame5/hide-siblings.html`} lang="html" />
       </>

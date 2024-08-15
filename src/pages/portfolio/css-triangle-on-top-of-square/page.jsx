@@ -16,7 +16,7 @@ const Sections = (imagePath, demoPath) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <DemoFrame html={`${demoPath}/frame1/triangle-on-top-of-square.html`} cssHref={`${demoPath}/frame1/triangle-on-top-of-square.css`} />
         <CodeChunk path={`${demoPath}/frame1/triangle-on-top-of-square.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/triangle-on-top-of-square.html`} lang="html" />
       </>
