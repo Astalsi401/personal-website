@@ -7,16 +7,12 @@ const padding = {
 };
 
 let i = 0;
-const graph = d3.select("#graph");
-const svg = graph.append("svg").attr("height", h);
-const legend = graph.append("svg").attr("id", "legend").attr("height", 300).append("g").attr("id", "legend-items");
 const legend_elem = {
   width: 15,
   height: 15,
   margin: { x: 60, y: 40 },
   col: 3,
 };
-const tooltip = graph.append("div").attr("id", "tooltip");
 
 function calcPos(i) {
   return { x: (i % legend_elem.col) * (legend_elem.width + legend_elem.margin.x), y: Math.floor(i / legend_elem.col) * (legend_elem.height + legend_elem.margin.y) };
@@ -25,6 +21,10 @@ function calcPos(i) {
 fetch("https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-game-sales-data.json")
   .then((res) => res.json())
   .then((data) => {
+    const graph = d3.select("#graph");
+    const svg = graph.append("svg").attr("height", h);
+    const legend = graph.append("svg").attr("id", "legend").attr("height", 300).append("g").attr("id", "legend-items");
+    const tooltip = graph.append("div").attr("id", "tooltip");
     const treemap = d3.treemap().padding(1);
     const root = d3
       .hierarchy(data)

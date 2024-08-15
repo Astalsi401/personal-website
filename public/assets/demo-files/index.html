@@ -12,6 +12,7 @@
                     const script = document.createElement('script');
                     script.src = lib;
                     script.defer = true;
+                    script.async = true;
                     document.head.appendChild(script);
                 })
             } catch (error) {
