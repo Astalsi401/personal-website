@@ -5,9 +5,9 @@ const Sections = (imagePath, demoPath) => [
     title: "",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <DemoFrame html={`${demoPath}/frame1/hover-effect.html`} cssHref={`${demoPath}/frame1/hover-effect.min.css`} js={[`${demoPath}/frame1/hover-effect.js`]} lib="jquery" />
         <CodeChunk path={`${demoPath}/frame1/hover-effect.js`} lang="js" />
-        <CodeChunk path={`${demoPath}/frame1/hover-effect.css`} lang="css" />
+        <CodeChunk path={`${demoPath}/frame1/hover-effect.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame1/hover-effect.html`} lang="html" />
       </>
     ),

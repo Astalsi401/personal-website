@@ -24,10 +24,10 @@ const Sections = (imagePath, demoPath) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
-        <CodeChunk path={`${demoPath}/pane-resize.js`} lang="js" />
-        <CodeChunk path={`${demoPath}/pane-resize.css`} lang="css" />
-        <CodeChunk path={`${demoPath}/pane-resize.html`} lang="html" />
+        <DemoFrame html={`${demoPath}/frame1/pane-resize.html`} cssHref={`${demoPath}/frame1/pane-resize.css`} js={[`${demoPath}/frame1/pane-resize.js`]} />
+        <CodeChunk path={`${demoPath}/frame1/pane-resize.js`} lang="js" />
+        <CodeChunk path={`${demoPath}/frame1/pane-resize.css`} lang="css" />
+        <CodeChunk path={`${demoPath}/frame1/pane-resize.html`} lang="html" />
       </>
     ),
   },

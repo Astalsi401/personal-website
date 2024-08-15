@@ -4,7 +4,7 @@ let area = {
   south: [],
   east: [],
 };
-fetch("./frame1/snq-map.json")
+fetch(`https://astalsi401.github.io/personal-website/assets/demo-files/portfolio/leaflet-snq-map/frame1/snq-map.json`)
   .then((res) => res.json())
   .then((data) => {
     data.forEach((a) => {

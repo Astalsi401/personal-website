@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { isActive } from "@functions";
 
-type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[] };
+type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3" | "jquery" | undefined };
 
-export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js }) => {
+export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, lib }) => {
   const iframeRef = useRef<null | HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(0);
   const [fullPage, setFullPage] = useState<boolean>(false);
@@ -27,7 +27,7 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js }) 
       <a href="#" className={`full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary ${isActive(fullPage)}`} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
-      <iframe className={`w-100 ${isActive(fullPage)}`} style={{ height: height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index.html`} ref={iframeRef} />
+      <iframe className={`w-100 ${isActive(fullPage)}`} style={{ height: height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index-${lib ? lib : ""}.html`} ref={iframeRef} />
     </div>
   );
 };

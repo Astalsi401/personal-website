@@ -5,7 +5,7 @@ const Sections = (imagePath, demoPath) => [
     title: "",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <DemoFrame html={`${demoPath}/frame1/image-scroll-onhover.html`} cssHref={`${demoPath}/frame1/image-scroll-onhover.css`} />
         <CodeChunk path={`${demoPath}/frame1/image-scroll-onhover.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/image-scroll-onhover.html`} lang="html" />
       </>

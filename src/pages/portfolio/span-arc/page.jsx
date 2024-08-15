@@ -17,7 +17,7 @@ const Sections = (imagePath, demoPath) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame1.html`} />
+        <DemoFrame html={`${demoPath}/frame1/arc.html`} cssHref={`${demoPath}/frame1/arc.css`} />
         <CodeChunk path={`${demoPath}/frame1/arc.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/arc.html`} lang="html" />
       </>
@@ -27,7 +27,7 @@ const Sections = (imagePath, demoPath) => [
     title: "Another solution using trigonometric functions",
     content: (
       <>
-        <DemoFrame src={`${demoPath}/frame2.html`} />
+        <DemoFrame html={`${demoPath}/frame2/arc.html`} cssHref={`${demoPath}/frame2/arc.min.css`} />
         <CodeChunk path={`${demoPath}/frame2/arc.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame2/arc.html`} lang="html" />
       </>
