@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector, CurrentPostTitleType } from "@store";
-import { isActive, titleToHash } from "@functions";
+import { isActive, isMyPage, titleToHash } from "@functions";
 import { Categories, SidebarProps } from "@types";
 
 export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
@@ -25,11 +25,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
       <ul className="menu py-3">
         {index.pages.map((p, i) => {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
-          const isMyPage = /^http/.test(p.href);
+          const relativePath = isMyPage(p.href);
           const showChildren = isCurrent && currentPostTitles.length > 0;
           return (
             <li key={i} className={`${showChildren ? "has-children" : ""}`} onClick={click}>
-              <Link to={isMyPage ? p.href : `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}`} target={isMyPage ? "_blank" : "_self"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
+              <Link to={relativePath ? `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}` : p.href} target={relativePath ? "_self" : "_blank"} className={`px-3 text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
               {showChildren && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
