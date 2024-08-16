@@ -2,7 +2,7 @@
 
 這裡是我借助 github 上傳網頁所建立的個人網站，包含
 
-- 筆記([stata](https://astalsi401.github.io/personal-website/stata)、[R](https://astalsi401.github.io/personal-website/stata)、[其他](https://astalsi401.github.io/personal-website/stata))
+- 筆記([stata](https://astalsi401.github.io/personal-website/stata)、[R](https://astalsi401.github.io/personal-website/R)、[其他](https://astalsi401.github.io/personal-website/notes))
 - [作品集](https://astalsi401.github.io/personal-website/portfolio)
 - [遊戲攻略](https://astalsi401.github.io/personal-website/games)
 
