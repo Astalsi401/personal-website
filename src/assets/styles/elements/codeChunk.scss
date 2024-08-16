@@ -88,7 +88,6 @@ code {
     background-color: var(--code-text);
     max-height: 60dvh;
     min-height: 200px;
-    border: none;
     &.active {
       position: fixed !important;
       z-index: index($z-index, model);
