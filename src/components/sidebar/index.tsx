@@ -20,11 +20,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
       <div className="py-5 d-flex justify-content-center align-items-center">
         <a className="social-link d-block" href="https://github.com/Astalsi401" target="_blank" title="My GitHub" style={{ mask: `url(${import.meta.env.BASE_URL}/assets/images/github-mark.svg)`, maskSize: "cover" }}></a>
       </div>
-      <h1 className="px-2">
+      <h2 className="px-2">
         <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none" onClick={handleLinkClick}>
           {index.category}
         </Link>
-      </h1>
+      </h2>
       <ul className="menu py-3">
         {index.pages.map((p, i) => {
           const isCurrent = page ? p.href === `/${page}` : p.href === `/${href}`;
@@ -32,7 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
           const showChildren = isCurrent && currentPostTitles.length > 0;
           return (
             <li key={i} className={`${showChildren ? "has-children" : ""}`} onClick={click}>
-              <Link to={relativePath ? `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}` : p.href} target={relativePath ? "_self" : "_blank"} className={`px-3 py-2 d-block text-decoration-none text-large text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
+              <Link to={relativePath ? `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}` : p.href} target={relativePath ? "_self" : "_blank"} className={`px-3 py-2 d-block text-decoration-none text-bold ${isCurrent ? "current" : ""}`} onClick={handleLinkClick}>
                 <span>{p.page}</span>
               </Link>
               {showChildren && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
@@ -48,7 +48,7 @@ const SidebarChild: React.FC<{ currentPostTitles: CurrentPostTitleType[]; childr
   <ul className={`children ${isActive(childrenActive)}`}>
     {currentPostTitles.map(({ title }) => (
       <li key={title}>
-        <a className="ps-4 text-decoration-none" href={`#${titleToHash(title)}`}>
+        <a className="ps-4 py-2 d-block text-decoration-none" href={`#${titleToHash(title)}`}>
           <span>{title}</span>
         </a>
       </li>
