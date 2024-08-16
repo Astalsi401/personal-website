@@ -11,7 +11,8 @@
 ## 使用技術
 
 - 打包工具: vite
-- 頁面與組件: react, react-dom-router
+- 頁面與組件: react, react-dom-router, typescript
+- 狀態管理: redux
 
 ## 網頁連結
 
