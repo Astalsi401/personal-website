@@ -27,8 +27,6 @@
     position: relative;
     a {
       position: relative;
-      display: block;
-      padding: var(--unit-2) var(--unit-1);
       transition: color var(--time);
       &::before {
         content: "";
