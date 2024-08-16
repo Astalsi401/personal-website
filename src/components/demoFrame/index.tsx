@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { isActive } from "@functions";
-
-type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3" | "jquery" | undefined };
+import type { DemoFrameProps } from "@types";
 
 export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, lib }) => {
   const iframeRef = useRef<null | HTMLIFrameElement>(null);
