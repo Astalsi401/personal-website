@@ -2,7 +2,7 @@ import { CodeChunk, DemoFrame } from "@components";
 
 const Sections = (imagePath, demoPath) => [
   {
-    title: "1.",
+    title: "fade in/out",
     content: (
       <>
         <DemoFrame html={`${demoPath}/frame1/index.html`} cssHref={`${demoPath}/frame1/index.min.css`} js={[`${demoPath}/frame1/index.js`]} />
@@ -13,7 +13,7 @@ const Sections = (imagePath, demoPath) => [
     ),
   },
   {
-    title: "2.",
+    title: "blocks",
     content: (
       <>
         <DemoFrame html={`${demoPath}/frame2/index.html`} cssHref={`${demoPath}/frame2/index.min.css`} js={[`${demoPath}/frame2/index.js`]} />
