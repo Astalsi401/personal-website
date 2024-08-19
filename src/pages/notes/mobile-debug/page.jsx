@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@components";
+import { title } from "process";
 
 const Sections = (imagePath, demoPath) => [
   {
@@ -74,7 +75,7 @@ const Sections = (imagePath, demoPath) => [
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-pair-code.png`} />
           </li>
           <li>
-            使用這裡的ip與port建立連線
+            使用這裡的ip與port建立連線(第二次連線時直接從此處開始)
             <CodeChunk code={`adb connect [ip]:35269`} lang="bash" />
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-info2.png`} />
           </li>
@@ -83,6 +84,17 @@ const Sections = (imagePath, demoPath) => [
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/firefox-debug-page.png`} />
           </li>
         </ol>
+      </>
+    ),
+  },
+  {
+    title: "其他",
+    content: (
+      <>
+        <ul>
+          <li>刪除現有連線</li>
+          <CodeChunk code={`adb disconnect`} lang="bash" />
+        </ul>
       </>
     ),
   },
