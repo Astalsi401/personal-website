@@ -3,7 +3,7 @@ pre {
     --scrollBar-w: 2px;
     --scrollBar-bg: var(--primary-300);
     padding-bottom: var(--unit-2);
-    max-height: 200dvh;
+    max-height: 600px;
     &::-webkit-scrollbar {
       width: var(--scrollBar-w);
       height: var(--scrollBar-w);
