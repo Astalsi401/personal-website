@@ -72,6 +72,14 @@ const Sections = (imagePath, demoPath) => [
       </ol>
     ),
   },
+  {
+    title: "更新.gitignore",
+    content: (
+      <div>
+        <CodeChunk code={`git rm -r --cached .\ngit add .\ngit commit -m "update: .gitignore"`} lang="bash" />
+      </div>
+    ),
+  },
 ];
 
 export default Sections;
