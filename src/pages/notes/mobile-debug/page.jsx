@@ -1,5 +1,4 @@
 import { CodeChunk, ZoomImage } from "@components";
-import { title } from "process";
 
 const Sections = (imagePath, demoPath) => [
   {
@@ -63,11 +62,11 @@ const Sections = (imagePath, demoPath) => [
           <li>將手機與電腦連線到同一wifi</li>
           <li>
             在開發人員選項開啟USB偵錯、無線偵錯
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-developer.png`} />
+            <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-developer.png`} />
           </li>
           <li>
             點選無線偵錯，選擇<kbd>使用配對碼配對裝置</kbd>
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-info1.png`} />
+            <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-info1.png`} />
           </li>
           <li>
             回到terminal建立配對，注意此處port為一次性，配對完成後即失效
@@ -77,11 +76,11 @@ const Sections = (imagePath, demoPath) => [
           <li>
             使用這裡的ip與port建立連線(第二次連線時直接從此處開始)
             <CodeChunk code={`adb connect [ip]:35269`} lang="bash" />
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/wireless-debug-info2.png`} />
+            <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-info2.png`} />
           </li>
           <li>
             開啟firefox，在搜尋列輸入<code>about:debugging</code>，可以看到已成功連線至手機
-            <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/firefox-debug-page.png`} />
+            <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/firefox-debug-page.png`} />
           </li>
         </ol>
       </>
