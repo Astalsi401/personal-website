@@ -2,8 +2,8 @@ export type PostSection = {
   title: string;
   content: JSX.Element;
 };
-export type SectionsProps = (imagePath: string, demoPath: string) => PostSection[];
-export type Post = { default: (imagePath: string, demoPath: string) => PostSection[] };
+export type SectionsProps = (props: { imagePath: string; demoPath: string }) => PostSection[];
+export type Post = { default: SectionsProps };
 export type Page = { page: string; href: string; thumbnail?: string; tags?: string[]; icon?: string };
 export type Categories = {
   category: string;
@@ -28,7 +28,7 @@ export type CodeChunkProps = {
   lang?: string;
   path?: string;
 };
-export type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3" | "jquery" | "leaflet" | undefined };
+export type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3js" | "jquery" | "leaflet" | undefined };
 export type CodeInfo = {
   code: string | undefined;
   fileName: string;

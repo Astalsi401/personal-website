@@ -60,7 +60,7 @@
         { "page": "D3.js Basic Chart", "href": "/d3js-basic-chart", "thumbnail": "/assets/images/d3js-basic-chart.png", "tags": ["d3js", "javascript", "js", "svg"] },
         { "page": "Leaflet SNQ Map", "href": "/leaflet-snq-map", "thumbnail": "/assets/images/snqMap.png", "tags": ["leaflet", "javascript", "js"] },
         { "page": "2023臺灣醫療科技展參展辦法頁", "href": "https://expo.taiwan-healthcare.org/zh/exhibit.php", "thumbnail": "/assets/images/expoPage1.png", "tags": ["html", "css", "javascript", "js"] },
-        { "page": "2022臺灣醫療科技展 醫師聊健康活動頁", "href": "https://expo.taiwan-healthcare.org/visit-website/lecture", "thumbnail": "/assets/images/visitPage1.png", "tags": ["html", "css", "javascript", "js"] },
+        { "page": "2022臺灣醫療科技展 醫師聊健康活動頁", "href": "/expo-visit-page-2022", "thumbnail": "/assets/images/visitPage1.png", "tags": ["html", "css", "javascript", "js"] },
         { "page": "Healthcare B2B 申請進駐頁面", "href": "https://www.taiwan-healthcare.org/zh/b2b-intro", "thumbnail": "/assets/images/HealthcareB2B-page1.png", "tags": ["html", "css", "javascript", "js"] },
         { "page": "Python GA4 API 串接", "href": "/python-ga4-api", "thumbnail": "/assets/images/GA4_Logo.png", "tags": ["python", "ga4", "google analytics"] },
         { "page": "Loading Animation", "href": "/css-loading-animation", "thumbnail": "/assets/images/css-loading1.png", "tags": ["css", "html"] },

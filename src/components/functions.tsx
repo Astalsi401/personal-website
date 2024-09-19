@@ -13,4 +13,4 @@ export const getPages = async ({ params: { href } }: { params: Params }) => {
   const { index } = await getIndex();
   return index.find((d) => d.href === `/${href}`);
 };
-export const getSections = async ({ params: { href, page } }: { params: Params }) => await Promise.all([getIndex(), import(`../pages/${href}/${page}/page.jsx`) as Promise<Post>]).then(([{ index }, { default: Sections }]) => ({ title: index.find((d) => d.href === `/${href}`)?.pages?.find((d) => d.href === `/${page}`)?.page, Sections }));
+export const getSections = async ({ params: { href, page } }: { params: Params }) => await Promise.all([getIndex(), import(`../pages/${href}/${page}/page.tsx`) as Promise<Post>]).then(([{ index }, { default: Sections }]) => ({ title: index.find((d) => d.href === `/${href}`)?.pages?.find((d) => d.href === `/${page}`)?.page, Sections }));
