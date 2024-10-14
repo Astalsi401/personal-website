@@ -44,7 +44,7 @@ const Sections: SectionsProps = () => [
     title: "Connect",
     content: (
       <>
-        <CodeChunk code={"mongosh mongodb://192.168.1.50:27017"} lang="bash" />
+        <CodeChunk code={"mongosh mongodb://127.0.0.1:27017"} lang="bash" />
       </>
     ),
   },
@@ -105,7 +105,18 @@ const Sections: SectionsProps = () => [
           </li>
         </ul>
         範例:
-        <CodeChunk code="mongorestore -d mydb --drop ./backup/mydb" lang="bash" />
+        <CodeChunk code="mongorestore -h 127.0.0.1:27017 -d mydb --drop ./backup/mydb" lang="bash" />
+      </>
+    ),
+  },
+  {
+    title: "刪除",
+    content: (
+      <>
+        刪除database
+        <CodeChunk code={`use mydb\ndb.dropDatabase()`} lang="bash" />
+        刪除collection
+        <CodeChunk code={`db.collection.drop()`} lang="bash" />
       </>
     ),
   },
