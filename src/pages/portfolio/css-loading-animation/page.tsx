@@ -32,5 +32,15 @@ const Sections: SectionsProps = ({ demoPath }) => [
       </>
     ),
   },
+  {
+    title: "gradient border 2",
+    content: (
+      <>
+        <DemoFrame html={`${demoPath}/frame4/gradient-border2.html`} cssHref={`${demoPath}/frame4/gradient-border2.min.css`} />
+        <CodeChunk path={`${demoPath}/frame4/gradient-border2.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame4/gradient-border2.html`} lang="html" />
+      </>
+    ),
+  },
 ];
 export default Sections;

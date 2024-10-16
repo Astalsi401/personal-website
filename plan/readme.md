@@ -2,6 +2,7 @@
 - image blur lazy loading
 - tunelist copy code
 - add breadcrumbs
+- 同頁圖片 slide 切換
 - project: todolist
 - project: bootstrap code creator
 - project: exercise routine(with mongo db)
