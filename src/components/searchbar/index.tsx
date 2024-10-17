@@ -27,7 +27,7 @@ export const SearchBar: React.FC = () => {
         </div>
         <SearchResults searchString={searchString} />
       </div>
-      <div className="modal-bg" onClick={() => dispatch(updateStore({ searchBarActive: false, searchString: "" }))}></div>
+      {searchBarActive && <div className="modal-bg" onClick={() => dispatch(updateStore({ searchBarActive: false, searchString: "" }))}></div>}
     </>
   );
 };

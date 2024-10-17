@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
-import { Block } from "@components";
+import { Block, ImageGallary } from "@components";
 import { isActive, titleToHash } from "@functions";
 import type { SectionsProps } from "@types";
 
@@ -34,19 +34,22 @@ export const PostPage: React.FC = () => {
     };
   }, []);
   return (
-    <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : ({ "--aside-w": 0 } as React.CSSProperties)}>
-      <h1 className="my-5 text-center">{title}</h1>
-      <div className={hasTitles ? `d-md-grid` : ""}>
-        <div className="post-content p-3 pb-5">
-          {sections.map(({ title, content }, i) => (
-            <Block key={`${href}-${page}-${i}-${title}`} id={titleToHash(title)} title={title}>
-              {content}
-            </Block>
-          ))}
+    <>
+      <main id="main-content" className="container-xl shadow-lg pb-5" style={hasTitles ? {} : ({ "--aside-w": 0 } as React.CSSProperties)}>
+        <h1 className="my-5 text-center">{title}</h1>
+        <div className={hasTitles ? `d-md-grid` : ""}>
+          <div className="post-content p-3 pb-5">
+            {sections.map(({ title, content }, i) => (
+              <Block key={`${href}-${page}-${i}-${title}`} id={titleToHash(title)} title={title}>
+                {content}
+              </Block>
+            ))}
+          </div>
+          {currentPostTitles.length > 0 && <AsideContent currentPostTitles={currentPostTitles} />}
         </div>
-        {currentPostTitles.length > 0 && <AsideContent currentPostTitles={currentPostTitles} />}
-      </div>
-    </main>
+      </main>
+      {<ImageGallary />}
+    </>
   );
 };
 

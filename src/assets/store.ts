@@ -13,6 +13,8 @@ type State = {
   sidebarAnchorID: string;
   searchBarActive: boolean;
   searchString: string;
+  imgGalaryActive: boolean;
+  imgGalarySrc: string;
   currentPostTitles: CurrentPostTitleType[];
 };
 
@@ -25,6 +27,8 @@ const counterSlice = createSlice({
     sidebarAnchorID: "sidebarAnchor",
     searchBarActive: false,
     searchString: "",
+    imgGalaryActive: false,
+    imgGalarySrc: "",
     currentPostTitles: [],
   } as State,
   reducers: {
@@ -42,5 +46,6 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 export const useAppSelector = useSelector.withTypes<RootState>();
+export const imgGallaryHeight = 150;
 
 export default store;

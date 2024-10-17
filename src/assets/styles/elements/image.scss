@@ -14,12 +14,41 @@
     img {
       object-fit: contain;
       z-index: calc(index($z-index, model) + 1);
-    }
-    & ~ .modal-bg {
-      cursor: zoom-out;
+      &:not(.active) {
+        opacity: 0;
+      }
     }
   }
 }
+.img-galary {
+  gap: 10px;
+  div {
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 150px;
+    aspect-ratio: 16 / 9;
+  }
+}
+.img-galary-show {
+  position: fixed;
+  z-index: index($z-index, model);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh - var(--img-galary-height));
+  animation: img-galary-show-delay var(--time) linear forwards;
+}
+
+@keyframes img-galary-show-delay {
+  0%,
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 :where(img, svg).img-invert,
 .img-block.img-invert :where(img, svg) {
   filter: invert(var(--invert));

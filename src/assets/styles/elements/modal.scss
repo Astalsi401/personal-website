@@ -1,14 +1,17 @@
-.modal-bg {
+.modal-bg,
+.img-galary {
+  --img-galary-height: 0px;
   position: fixed;
-  display: none;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100dvh;
-  background: var(--white);
-  opacity: 0.8;
-}
-.active ~ .modal-bg {
-  display: block;
   z-index: index($z-index, model);
+  left: 0;
+  width: 100vw;
+  background: var(--white-600);
+}
+.modal-bg {
+  top: 0;
+  height: calc(100dvh - var(--img-galary-height));
+}
+.img-galary {
+  top: calc(100dvh - var(--img-galary-height));
+  height: var(--img-galary-height);
 }

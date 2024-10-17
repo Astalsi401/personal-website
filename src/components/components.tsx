@@ -7,5 +7,6 @@ import { Loading, LoadingAnimation } from "./loading";
 import { SearchBar, SearchIcon, Tags } from "./searchbar";
 import { Sidebar } from "./sidebar";
 import { ZoomImage } from "./zoomImage";
+import { ImageGallary } from "./imageGallary";
 
-export { Block, CodeChunk, DemoFrame, Header, Label, Loading, LoadingAnimation, SearchBar, SearchIcon, Tags, Sidebar, ZoomImage };
+export { Block, CodeChunk, DemoFrame, Header, Label, Loading, LoadingAnimation, SearchBar, SearchIcon, Tags, Sidebar, ZoomImage, ImageGallary };
