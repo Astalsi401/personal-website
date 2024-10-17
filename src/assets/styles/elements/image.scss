@@ -30,6 +30,7 @@
   }
 }
 .img-galary-show {
+  pointer-events: none;
   position: fixed;
   z-index: index($z-index, model);
   top: 0;
