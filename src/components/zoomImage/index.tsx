@@ -21,7 +21,6 @@ export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt })
       const overflow = document.querySelector(".overflow-auto"); // 檢查圖片是否在overflow的元素內
       if (ref.current && overflow && overflow.contains(ref.current)) ref.current.style.position = newState ? "absolute" : "relative";
       document.body.style.overflowY = newState ? "hidden" : "auto";
-      console.log("click");
       return newState;
     });
   };
