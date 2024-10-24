@@ -19,6 +19,10 @@ const data = {
         { val: "50% 50%", des: "" },
       ],
     },
+    {
+      prop: "background-attachment",
+      values: [{ val: "fixed", des: "" }],
+    },
   ],
 };
 

@@ -1,11 +1,10 @@
 - search and filter spinner
 - image blur lazy loading
 - tunelist copy code
-- add breadcrumbs
-- 同頁圖片 slide 切換
 - project: todolist
 - project: bootstrap code creator
 - project: exercise routine(with mongo db)
+- ~~同頁圖片 slide 切換~~
 - ~~project: gradient creator~~
 - ~~portfolio search and filter~~
 - ~~縮減 container width，右側新增本頁段落，hl 當前段落~~

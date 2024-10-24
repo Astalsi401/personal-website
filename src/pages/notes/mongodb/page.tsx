@@ -37,6 +37,8 @@ const Sections: SectionsProps = () => [
         <CodeChunk code="sudo systemctl status mongod" lang="bash" />
         開機自動啟動
         <CodeChunk code="sudo systemctl enable mongod" lang="bash" />
+        預設配置文件路徑
+        <CodeChunk code="/etc/mongod.conf" lang="text" />
       </>
     ),
   },
