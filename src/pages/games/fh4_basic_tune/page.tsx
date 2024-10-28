@@ -368,7 +368,7 @@ const Sections: SectionsProps = ({ imagePath }) => [
           <br />
           輸入大於65將計算彈簧
           <br />
-          輸入小於21將計算阻尼
+          輸入小於等於20將計算阻尼
           <br />
           其他數值將計算防傾桿
         </p>
