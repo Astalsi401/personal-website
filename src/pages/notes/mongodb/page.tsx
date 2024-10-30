@@ -80,8 +80,10 @@ const Sections: SectionsProps = () => [
             <code>-q</code>：query，備份的過濾條件
           </li>
         </ul>
-        範例:
+        範例：
         <CodeChunk code="mongodump -h 127.0.0.1:27017 -d mydb -o ./backup" lang="bash" />
+        <code>--authenticationDatabase admin</code>：身分驗證，添加用於驗證密碼的<code>admin</code>資料庫
+        <CodeChunk code="mongodump -u {user} -p {password} --authenticationDatabase admin -h 127.0.0.1:27017 -d mydb -o ./backup" lang="bash" />
       </>
     ),
   },
@@ -106,7 +108,7 @@ const Sections: SectionsProps = () => [
             <code>-c</code>：collection
           </li>
         </ul>
-        範例:
+        範例：
         <CodeChunk code="mongorestore -h 127.0.0.1:27017 -d mydb --drop ./backup/mydb" lang="bash" />
       </>
     ),
