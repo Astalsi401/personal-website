@@ -49,7 +49,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
               <code>Settings&gt;Actions&gt;General&gt;Workflow permissions</code>，勾選<code>Read and write permissions</code>
             </li>
             <li>
-              <code>Settings&gt;Pages&gt;Build and deployment&gt;Branch</code>，選取<code>gh-pages</code>
+              <code>Settings&gt;Pages&gt;Build and deployment&gt;Branch</code>，選取<code>Github Actions</code>
             </li>
           </ul>
         </div>
