@@ -26,7 +26,7 @@ const Sections: SectionsProps = () => [
           <li>
             下載
             <a href="https://github.com/nezhar/wordpress-docker-compose?tab=readme-ov-file#installation" target="_blank">
-              wordpress images
+              wordpress image
             </a>
             ，解壓縮並重新命名資料夾，資料夾名稱會作為container名稱
           </li>
