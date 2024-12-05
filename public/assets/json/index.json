@@ -76,6 +76,8 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        { "page": "docker", "href": "/docker" },
+        { "page": "npm", "href": "/npm" },
         { "page": "mongodb", "href": "/mongodb" },
         { "page": "手機版網頁debug(Android)", "href": "/mobile-debug" },
         { "page": "git", "href": "/git" },
