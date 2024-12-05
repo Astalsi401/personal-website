@@ -11,7 +11,7 @@ export const Root: React.FC = () => {
     dispatch(updateStore({ currentPostTitles: [] }));
   }, [category]);
   return (
-    <div className="container-sm py-5">
+    <div id="main-content" className="container-sm py-5">
       <h1 className="my-5 py-5 text-center text-xxx-large">{category}</h1>
       <div className="my-5 py-5 px-sm-5 d-flex flex-wrap justify-content-center">
         {pages.map(({ page, icon, href }) => (
