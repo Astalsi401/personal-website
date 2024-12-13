@@ -25,7 +25,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
         </div>
         <div>
           修改<code>vite.config.js</code>中的<code>base</code>為github專案名稱
-          <CodeChunk path={`${demoPath}/vite.config.js`} lang="js" />
+          <CodeChunk path={`${demoPath}/vite.config.example.js`} lang="js" />
         </div>
         <div>
           在<code>package.json</code>中新增<code>homepage</code>
@@ -52,6 +52,25 @@ const Sections: SectionsProps = ({ demoPath }) => [
               <code>Settings&gt;Pages&gt;Build and deployment&gt;Branch</code>，選取<code>Github Actions</code>
             </li>
           </ul>
+        </div>
+      </>
+    ),
+  },
+  {
+    title: "typescript path alias",
+    content: (
+      <>
+        <div>
+          安裝<code>path</code>、<code>@types/node</code>
+          <CodeChunk code={"npm i -D path @types/node"} />
+        </div>
+        <div>
+          新增以下內容至<code>tsconfig.json</code>
+          <CodeChunk path={`${demoPath}/tsconfig.example.json`} lang="json" />
+        </div>
+        <div>
+          將<code>vite.config.ts</code>修改如下
+          <CodeChunk path={`${demoPath}/vite.config.alias.example.ts`} lang="ts" />
         </div>
       </>
     ),
