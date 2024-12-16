@@ -155,8 +155,8 @@ const Sections: SectionsProps = () => [
       <>
         <ul>
           <li>
-            根據同一個欄位的多個條件篩選資料，<code>array</code>可從其他<code>collections</code>抓取
-            <CodeChunk code={`await model.find({ _id: { '$in': [ObjectId(1), ObjectId(2)] } })`} />
+            根據同一個欄位(<code>_id</code>)的多個條件篩選資料，<code>array</code>可從其他<code>collections</code>抓取
+            <CodeChunk code={`await model.find({ _id: { '$in': [ObjectId(1), ObjectId(2)] } })`} lang="js" />
           </li>
         </ul>
       </>
