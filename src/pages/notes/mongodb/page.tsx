@@ -51,6 +51,31 @@ const Sections: SectionsProps = () => [
     ),
   },
   {
+    title: "啟用SCRAM身分驗證",
+    content: (
+      <>
+        <ol>
+          <li>
+            連線到db
+            <CodeChunk code={"mongosh mongodb://127.0.0.1:27017"} lang="bash" />
+          </li>
+          <li>
+            切換到admin資料庫
+            <CodeChunk code={"use admin"} lang="mongodb" />
+          </li>
+          <li>
+            添加admin user
+            <CodeChunk code={`db.createUser({ user: "admin", pwd: passwordPrompt(), roles: [{ role: "userAdminAnyDatabase", db: "admin"}, { role: "readWriteAnyDatabase", db: "admin"}] })`} lang="mongodb" />
+          </li>
+          <li>
+            關閉連線
+            <CodeChunk code={"db.adminCommand({ shutdown: 1 })"} lang="mongodb" />
+          </li>
+        </ol>
+      </>
+    ),
+  },
+  {
     title: "備份 (mongodump)",
     content: (
       <>
@@ -81,9 +106,9 @@ const Sections: SectionsProps = () => [
           </li>
         </ul>
         範例：
-        <CodeChunk code="mongodump -h 127.0.0.1:27017 -d mydb -o ./backup" lang="bash" />
+        <CodeChunk code={"mongodump -h 127.0.0.1:27017 -d mydb -o ./backup"} lang="bash" />
         <code>--authenticationDatabase admin</code>：身分驗證，添加用於驗證密碼的<code>admin</code>資料庫
-        <CodeChunk code="mongodump -u {user} -p {password} --authenticationDatabase admin -h 127.0.0.1:27017 -d mydb -o ./backup" lang="bash" />
+        <CodeChunk code={"mongodump -u {user} -p {password} --authenticationDatabase admin -h 127.0.0.1:27017 -d mydb -o ./backup"} lang="bash" />
       </>
     ),
   },
@@ -118,9 +143,22 @@ const Sections: SectionsProps = () => [
     content: (
       <>
         刪除database
-        <CodeChunk code={`use mydb\ndb.dropDatabase()`} lang="bash" />
+        <CodeChunk code={`use mydb\ndb.dropDatabase()`} lang="mongodb" />
         刪除collection
-        <CodeChunk code={`db.collection.drop()`} lang="bash" />
+        <CodeChunk code={`db.collection.drop()`} lang="mongodb" />
+      </>
+    ),
+  },
+  {
+    title: "查詢(Express)",
+    content: (
+      <>
+        <ul>
+          <li>
+            根據同一個欄位的多個條件篩選資料，<code>array</code>可從其他<code>collections</code>抓取
+            <CodeChunk code={`await model.find({ _id: { '$in': [ObjectId(1), ObjectId(2)] } })`} />
+          </li>
+        </ul>
       </>
     ),
   },
