@@ -76,6 +76,7 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        { "page": "Golang", "href": "/go" },
         { "page": "docker", "href": "/docker" },
         { "page": "npm", "href": "/npm" },
         { "page": "mongodb", "href": "/mongodb" },
