@@ -1,0 +1,21 @@
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    container_name: my-repo-client
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    ports:
+      - 4000:4000
+  server:
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    container_name: my-repo-server
+    volumes:
+      - ./server:/server
+      - /server/node_modules
+    ports:
+      - 4001:4001

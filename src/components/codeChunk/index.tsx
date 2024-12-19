@@ -15,6 +15,7 @@ import "prismjs/components/prism-mongodb.min";
 import "prismjs/components/prism-go.min";
 import "prismjs/components/prism-go-module.min";
 import "prismjs/components/prism-json.min";
+import "prismjs/components/prism-docker.min";
 import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { isActive } from "@functions";

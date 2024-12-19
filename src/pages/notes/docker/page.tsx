@@ -104,8 +104,8 @@ const Sections: SectionsProps = ({ demoPath }) => [
             <CodeChunk code={`mkdir wordpress-local-test && cd wordpress-local-test`} lang="bash" />
           </li>
           <li>
-            將以下檔案複製到<code>wordpress-local-test</code>
-            <CodeChunk path={`${demoPath}/docker-compose.yml`} lang="yml" />
+            將以下檔案複製到<code>wordpress-local-test/docker-compose.yml</code>
+            <CodeChunk path={`${demoPath}/docker-compose.wordpress.example.yml`} lang="yml" />
           </li>
           <li>
             運行docker
@@ -139,6 +139,54 @@ const Sections: SectionsProps = ({ demoPath }) => [
           <li>
             添加以下設定至<code>.htaccess</code>
             <CodeChunk code={`php_value upload_max_filesize 256M\nphp_value post_max_size 256M`} />
+          </li>
+        </ol>
+      </>
+    ),
+  },
+  {
+    title: "docker vite & express",
+    content: (
+      <>
+        <ol>
+          <li>
+            建立專案資料夾<code>./my-repo</code>
+            <CodeChunk code={`mkdir my-repo && cd my-repo`} lang="bash" />
+          </li>
+          <li>
+            在<code>./my-repo/client</code>建立vite前端，依據需要選擇專案類型，此處以react+ts為例
+            <CodeChunk code={`npm create-vite@latest`} lang="bash" />
+            修改<code>vite.config.ts</code>
+            <CodeChunk path={`${demoPath}/vite.config.example.ts`} lang="ts" />
+          </li>
+          <li>
+            在<code>./my-repo/server</code>建立express後端，後端儲存於<code>./my-repo/server</code>
+            <CodeChunk code={`mkdir server && cd server && npm init -y`} lang="bash" />
+            修改<code>package.json</code>的<code>scripts</code>、<code>type</code>、<code>dependencies</code>、<code>devDependencies</code>
+            <CodeChunk path={`${demoPath}/package.example.json`} lang="json" />
+            安裝<code>package.json</code>中的packages
+            <CodeChunk code={`npm i`} lang="bash" />
+            建立<code>index.js</code>
+            <CodeChunk path={`${demoPath}/index.example.js`} lang="js" />
+          </li>
+          <li>
+            在<code>./my-repo/client</code>、<code>./my-repo/server</code>建立<code>Dockerfile</code>，自行修改<code>WORKDIR</code>為對應資料夾
+            <CodeChunk path={`${demoPath}/Dockerfile.example`} lang="docker" />
+          </li>
+          <li>
+            在<code>./my-repo/client</code>、<code>./my-repo/server</code>建立<code>.dockerignore</code>
+            <CodeChunk path={`${demoPath}/.dockerignore.example`} lang="docker" />
+          </li>
+          <li>
+            在<code>./my-repo</code>建立<code>docker-compose.yml</code>，如果路徑或ports不同記得修改
+            <CodeChunk path={`${demoPath}/docker-compose.vite.example.yml`} lang="yml" />
+          </li>
+          <li>
+            運行docker
+            <CodeChunk code={`docker-compose up`} lang="bash" />
+            如果出現以下錯誤
+            <CodeChunk code="sh: 1: vite: Permission denied" lang="bash" />在<code>./my-repo</code>中修改權限
+            <CodeChunk code={`sudo chown -R $(whoami)`} lang="bash" />
           </li>
         </ol>
       </>
