@@ -1,7 +1,7 @@
 import { CodeChunk } from "@components";
 import type { SectionsProps } from "@types";
 
-const Sections: SectionsProps = () => [
+const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "Install (Ubuntu)",
     content: (
@@ -47,6 +47,8 @@ const Sections: SectionsProps = () => [
     content: (
       <>
         <CodeChunk code={"mongosh mongodb://127.0.0.1:27017"} lang="bash" />
+        啟用身分驗證
+        <CodeChunk code={"mongosh mongodb://user:password@127.0.0.1:27017"} lang="bash" />
       </>
     ),
   },
@@ -150,7 +152,7 @@ const Sections: SectionsProps = () => [
     ),
   },
   {
-    title: "查詢(Express)",
+    title: "Express",
     content: (
       <>
         <ul>
@@ -159,6 +161,14 @@ const Sections: SectionsProps = () => [
             <CodeChunk code={`await model.find({ _id: { '$in': [ObjectId(1), ObjectId(2)] } })`} lang="js" />
           </li>
         </ul>
+      </>
+    ),
+  },
+  {
+    title: "pymongo",
+    content: (
+      <>
+        <CodeChunk path={`${demoPath}/pymongo.example.py`} lang="py" />
       </>
     ),
   },
