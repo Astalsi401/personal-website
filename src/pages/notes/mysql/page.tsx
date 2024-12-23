@@ -1,7 +1,7 @@
 import { CodeChunk } from "@components";
 import type { SectionsProps } from "@types";
 
-const Sections: SectionsProps = () => [
+const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "設定",
     content: (
@@ -10,7 +10,7 @@ const Sections: SectionsProps = () => [
           <li>安裝後，新增路徑至環境變數 &gt; 系統變數 &gt; PATH</li>
           <li>
             新增my.ini至安裝目錄，內容為
-            <CodeChunk path={`${import.meta.env.BASE_URL}/assets/demo-files/notes/mysql/my.ini`} lang="ini" />
+            <CodeChunk path={`${demoPath}/my.ini`} lang="ini" />
           </li>
           <li>
             初始化數據庫，執行後將輸出默認密碼

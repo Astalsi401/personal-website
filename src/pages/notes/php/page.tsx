@@ -1,7 +1,7 @@
 import { CodeChunk } from "@components";
 import type { SectionsProps } from "@types";
 
-const Sections: SectionsProps = () => [
+const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "參考文章",
     content: (
@@ -34,7 +34,7 @@ const Sections: SectionsProps = () => [
           </li>
           <li>
             php8以上，<code>httpd.conf</code>載入php的代碼須改為
-            <CodeChunk path={`${import.meta.env.BASE_URL}/assets/demo-files/notes/php/httpd.conf`} />
+            <CodeChunk path={`${demoPath}/httpd.conf`} />
           </li>
           <li>
             <a href="http://localhost/test.php" target="_blank">
