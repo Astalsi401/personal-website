@@ -51,7 +51,7 @@
         { "page": "Css clip-path Image Slider", "href": "/css-clip-path-image-slider", "thumbnail": "/assets/images/css-clip-path-image-slider.png", "tags": ["js", "css", "html"] },
         { "page": "Progress Ring", "href": "/progress-ring", "thumbnail": "/assets/images/progress-ring.png", "tags": ["js", "css", "html"] },
         { "page": "Css Auto Height Transition", "href": "/css-auto-height", "thumbnail": "css", "tags": ["css", "html"] },
-        { "page": "2023 Healthcare EXPO Taiwan Floor Map", "href": "https://astalsi401.github.io/floormap/2023/booths", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react", "react-dom", "redux"] },
+        { "page": "醫療科技展電子地圖", "href": "https://astalsi401.github.io/floormap/tai-nex/2024/booths", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react", "react-dom", "redux"] },
         { "page": "StackOverflow Panel Resize", "href": "/pane-resize", "thumbnail": "js", "tags": ["css", "html", "js", "stackOverflow"] },
         { "page": "StackOverflow Span Arc", "href": "/span-arc", "thumbnail": "/assets/images/span-arc.png", "tags": ["css", "html", "stackOverflow"] },
         { "page": "臺灣醫療科技展專題(首頁+文章頁)", "href": "https://expo.taiwan-healthcare.org/zh/news/0s0xfq88o2cu9gb1", "thumbnail": "/assets/images/expoNews.png", "tags": ["html", "css", "javascript", "js", "bootstrap"] },
