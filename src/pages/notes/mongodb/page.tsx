@@ -137,6 +137,8 @@ const Sections: SectionsProps = ({ demoPath }) => [
         </ul>
         範例：
         <CodeChunk code="mongorestore -h 127.0.0.1:27017 -d mydb --drop ./backup/mydb" lang="bash" />
+        身分驗證：
+        <CodeChunk code="mongorestore -u {user} -p {password} --authenticationDatabase admin -h 127.0.0.1:27017 -d mydb --drop ./backup/mydb" lang="bash" />
       </>
     ),
   },
