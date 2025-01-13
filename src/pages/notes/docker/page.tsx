@@ -1,5 +1,6 @@
 import { CodeChunk } from "@components";
 import type { SectionsProps } from "@types";
+import { Link } from "react-router-dom";
 
 const Sections: SectionsProps = ({ demoPath }) => [
   {
@@ -187,6 +188,42 @@ const Sections: SectionsProps = ({ demoPath }) => [
             如果出現以下錯誤
             <CodeChunk code="sh: 1: vite: Permission denied" lang="bash" />在<code>./my-repo</code>中修改權限
             <CodeChunk code={`sudo chown -R $(whoami)`} lang="bash" />
+          </li>
+        </ol>
+      </>
+    ),
+  },
+  {
+    title: "docker mongodb",
+    content: (
+      <>
+        參考
+        <a href="https://github.com/EvanFang-tw/docker-compose-mongodb" target="_blank">
+          github
+        </a>
+        <ol>
+          <li>
+            資料夾結構
+            <CodeChunk path={`${demoPath}/docker-mongo-dir-tree`} lang="text" />
+          </li>
+          <li>
+            啟動時自動新增使用者資料
+            <CodeChunk path={`${demoPath}/mongo-init.example.js`} lang="js" />
+          </li>
+          <li>
+            <code>docker-compose.yml</code>範例：
+            <CodeChunk path={`${demoPath}/docker-compose.mongodb.example.yml`} lang="yml" />
+          </li>
+          <li>
+            運行
+            <CodeChunk code={`docker-compose up -d`} lang="bash" />
+          </li>
+          <li>
+            連線至mongodb container
+            <CodeChunk code={`docker exec -it mongodb bash`} lang="bash" />
+          </li>
+          <li>
+            <Link to={`${import.meta.env.BASE_URL}/notes/mongodb`}>more about mongodb</Link>
           </li>
         </ol>
       </>

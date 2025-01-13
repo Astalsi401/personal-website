@@ -1,0 +1,8 @@
+tree
+.
+├── database
+│   ├── configdb
+│   ├── data
+│   └── mongo-init.js
+├── docker-compose.yml
+└── mongod.conf
