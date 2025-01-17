@@ -45,6 +45,32 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
   {
+    title: "將repo加入另一個repo",
+    content: (
+      <>
+        <ul>
+          <li>
+            <code>subtree</code>
+            <CodeChunk code="git subtree add <prefix> <repo> <rev>" lang="bash" />
+            <ul>
+              <li>
+                <code>prefix</code>：要加入的子目錄
+              </li>
+              <li>
+                <code>repo</code>：要加入的repo clone url
+              </li>
+              <li>
+                <code>rev</code>：要加入的revision
+              </li>
+            </ul>
+            example:
+            <CodeChunk code="git subtree add repo git@github.com:user/repo.git HEAD" lang="bash" />
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
     title: "清理.git",
     content: (
       <ol>
@@ -84,3 +110,4 @@ const Sections: SectionsProps = ({ imagePath }) => [
 ];
 
 export default Sections;
+1;
