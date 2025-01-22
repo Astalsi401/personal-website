@@ -10,7 +10,7 @@ import "@styles/main.scss";
 
 const router = createBrowserRouter([
   {
-    path: "/personal-website/",
+    path: `${import.meta.env.BASE_URL}/`,
     element: (
       <>
         <Header />
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     loader: getCategories,
   },
   {
-    path: "/personal-website/:href",
+    path: `${import.meta.env.BASE_URL}/:href`,
     loader: getCategories,
     element: (
       <>
@@ -36,14 +36,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/personal-website/:href",
+        path: `${import.meta.env.BASE_URL}/:href`,
         loader: getPages,
         element: <IndexPage />,
       },
     ],
   },
   {
-    path: "/personal-website/:href/:page",
+    path: `${import.meta.env.BASE_URL}/:href/:page`,
     loader: getPages,
     element: (
       <>
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/personal-website/:href/:page",
+        path: `${import.meta.env.BASE_URL}/:href/:page`,
         loader: getSections,
         element: <PostPage />,
       },
