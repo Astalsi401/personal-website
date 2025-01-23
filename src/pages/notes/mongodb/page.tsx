@@ -150,6 +150,8 @@ const Sections: SectionsProps = ({ demoPath }) => [
         <CodeChunk code={`use mydb\ndb.dropDatabase()`} lang="mongodb" />
         刪除collection
         <CodeChunk code={`db.collection.drop()`} lang="mongodb" />
+        刪除field
+        <CodeChunk code={`db.collection.updateMany({}, { $unset: { field: 1 } })`} lang="mongodb" />
       </>
     ),
   },
