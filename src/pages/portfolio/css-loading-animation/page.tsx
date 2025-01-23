@@ -42,5 +42,15 @@ const Sections: SectionsProps = ({ demoPath }) => [
       </>
     ),
   },
+  {
+    title: "loading bar",
+    content: (
+      <>
+        <DemoFrame html={`${demoPath}/frame5/loading-bar.html`} cssHref={`${demoPath}/frame5/loading-bar.min.css`} />
+        <CodeChunk path={`${demoPath}/frame5/loading-bar.scss`} lang="scss" />
+        <CodeChunk path={`${demoPath}/frame5/loading-bar.html`} lang="html" />
+      </>
+    ),
+  },
 ];
 export default Sections;
