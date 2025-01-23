@@ -7,14 +7,15 @@ body {
   display: grid;
   place-content: center;
   height: 100vh;
-  min-height: 500px;
+  min-height: 300px;
   padding: 0;
   margin: 0;
+  background-color: #213547;
 }
 
 .loading {
-  --bg: rgb(55, 67, 121);
-  --d: 1.5s;
+  --bg: white;
+  --d: 3.5s;
   --bw: 2px;
   position: relative;
   rotate: -45deg;

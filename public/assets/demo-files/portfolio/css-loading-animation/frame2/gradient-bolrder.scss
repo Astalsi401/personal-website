@@ -1,13 +1,14 @@
 body {
+  --bg: #213547;
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;
   justify-content: space-around;
+  background-color: var(--bg);
 }
 
 .gradient-bolrder-1,
 .gradient-bolrder-2 {
-  --bg: rgb(55, 67, 121);
   position: relative;
   width: 80px;
   aspect-ratio: 1;
@@ -17,7 +18,7 @@ body {
     position: absolute;
     inset: 0;
     rotate: calc(var(--i) * 90deg);
-    border-image: linear-gradient(90deg, white, var(--bg)) 1;
+    border-image: linear-gradient(90deg, var(--bg), white) 1;
     border-top: 4px solid var(--bg);
     transform: translateX(-100%);
     animation-duration: var(--duration);

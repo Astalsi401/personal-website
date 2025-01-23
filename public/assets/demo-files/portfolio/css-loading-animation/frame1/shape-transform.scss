@@ -1,3 +1,15 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  min-height: 300px;
+  padding: 0;
+  margin: 0;
+  background-color: #213547;
+}
+
 .shape-transform {
   --rotate: 1;
   --bg: rgb(55, 67, 121);
@@ -10,7 +22,7 @@
   justify-content: center;
   aspect-ratio: 1;
   background: var(--bg);
-  box-shadow: 0 0 5px var(--bg);
+  box-shadow: 0 0 5px var(--bg-alpha);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
