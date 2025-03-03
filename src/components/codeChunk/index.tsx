@@ -46,7 +46,7 @@ export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   }, []);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
-    <pre className="my-2 p-2 pt-4 position-relative">
+    <pre className="my-2 p-2 pt-4 position-relative text-small">
       {fileName.length > 0 && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
       <a href="#" className={`copy-btn d-block position-absolute text-code-text ${isActive(active)}`} onClick={copy}>
         <svg viewBox="0 0 10 10">
