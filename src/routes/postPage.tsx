@@ -24,13 +24,14 @@ export const PostPage: React.FC = () => {
     dispatch(updateStore({ currentPostTitles: sections.map((section) => ({ title: section.title, active: false })).filter((section) => section.title.length > 0) }));
   }, [title]);
   useEffect(() => {
+    const controller = new AbortController();
     const timer = setTimeout(pageLoadUnObserver, 500);
     pageLoadObserver.observe(document.body);
-    window.addEventListener("resize", pageLoadUnObserver);
+    window.addEventListener("resize", pageLoadUnObserver, { signal: controller.signal });
     return () => {
       clearTimeout(timer);
       pageLoadUnObserver();
-      window.removeEventListener("resize", pageLoadUnObserver);
+      controller.abort();
     };
   }, []);
   return (

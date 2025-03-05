@@ -32,8 +32,9 @@ export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt })
     dispatch(updateStore({ imgGalaryActive: active, imgGalarySrc: active ? src : "" }));
   }, [active]);
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const controller = new AbortController();
+    window.addEventListener("resize", handleResize, { signal: controller.signal });
+    return () => controller.abort();
   }, []);
   return (
     <>

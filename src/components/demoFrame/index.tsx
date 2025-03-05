@@ -17,9 +17,11 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, li
     });
   };
   useEffect(() => {
-    window.addEventListener("message", iFrameLoad);
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
+    const controller = new AbortController();
+    const signal = controller.signal;
+    window.addEventListener("message", iFrameLoad, { signal });
+    window.addEventListener("message", handleMessage, { signal });
+    return () => controller.abort();
   }, []);
   return (
     <div className="demo-frame my-2 p-2 pt-0">

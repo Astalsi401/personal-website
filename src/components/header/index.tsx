@@ -20,14 +20,12 @@ export const Header: React.FC = () => {
   };
   const handleClickFrame = ({ data }: MessageEvent) => data.window && data.window === "iframe" && dispatch(updateStore({ sidebarActive: false }));
   useEffect(() => {
-    document.addEventListener("pointerdown", handleClickOut);
-    document.addEventListener("focusin", handleFocusIn);
-    window.addEventListener("message", handleClickFrame);
-    return () => {
-      document.removeEventListener("pointerdown", handleClickOut);
-      document.removeEventListener("focusin", handleFocusIn);
-      window.removeEventListener("message", handleClickFrame);
-    };
+    const controller = new AbortController();
+    const signal = controller.signal;
+    document.addEventListener("pointerdown", handleClickOut, { signal });
+    document.addEventListener("focusin", handleFocusIn, { signal });
+    window.addEventListener("message", handleClickFrame, { signal });
+    return () => controller.abort();
   }, []);
   return (
     <>

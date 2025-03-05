@@ -14,8 +14,9 @@ export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, 
     top - navHeight - height <= 0 && dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s, i) => ({ ...s, active: disToBottom === 0 ? i === currentPostTitles.length - 1 : s.title === title })) }));
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleCurrentSection);
-    return () => window.removeEventListener("scroll", handleCurrentSection);
+    const controller = new AbortController();
+    window.addEventListener("scroll", handleCurrentSection, { signal: controller.signal });
+    return () => controller.abort();
   }, []);
   return (
     <section className={`my-4 ${className ? className : ""}`}>
