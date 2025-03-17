@@ -70,7 +70,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "docker wordpress 方法1",
+    title: "wordpress 方法1",
     content: (
       <>
         <ol>
@@ -96,7 +96,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "docker wordpress 方法2",
+    title: "wordpress 方法2",
     content: (
       <>
         <ol>
@@ -125,7 +125,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "docker wordpress 方法2-修改file upload size",
+    title: "wordpress 方法2-修改file upload size",
     content: (
       <>
         <ol>
@@ -146,7 +146,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "docker vite & express",
+    title: "vite & express",
     content: (
       <>
         <ol>
@@ -194,7 +194,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "docker mongodb",
+    title: "mongodb",
     content: (
       <>
         參考
@@ -226,6 +226,14 @@ const Sections: SectionsProps = ({ demoPath }) => [
             <Link to={`${import.meta.env.BASE_URL}/notes/mongodb`}>more about mongodb</Link>
           </li>
         </ol>
+      </>
+    ),
+  },
+  {
+    title: "mysql",
+    content: (
+      <>
+        <CodeChunk path={`${demoPath}/docker-compose.mysql.example.yml`} lang="yml" />
       </>
     ),
   },
