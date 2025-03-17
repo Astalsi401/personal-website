@@ -1,0 +1,33 @@
+package service
+
+import (
+	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/test/model"
+)
+
+var Service = new(service)
+
+type service struct{}
+
+func (s *service) CreateTest(test *model.Test) (err error) {
+	err = global.GVA_DB.Create(test).Error
+	return err
+}
+
+func (s *service) GetTestList(test request.PageInfo) (list []model.Test, total int64, err error) {
+	limit := test.PageSize
+	offset := test.PageSize * (test.Page - 1)
+	// 創建 db
+	db := global.GVA_DB.Model(&model.Test{})
+	var tests []model.Test
+	err = db.Count(&total).Error
+	if err != nil {
+		return
+	}
+	if limit != 0 {
+		db = db.Limit(limit).Offset(offset)
+	}
+	err = db.Find(&tests).Error
+	return tests, total, err
+}

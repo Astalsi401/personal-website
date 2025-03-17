@@ -1,0 +1,25 @@
+package router
+
+import (
+	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/test/api"
+	"github.com/gin-gonic/gin"
+)
+
+var (
+	Router  = new(router)
+	apiInfo = api.Api
+)
+
+type router struct{}
+
+func (r *router) Init(public *gin.RouterGroup, private *gin.RouterGroup) {
+	{
+		group := private.Group("test").Use(middleware.OperationRecord())
+		group.POST("createTest", apiInfo.CreateTest)
+	}
+	{
+		group := private.Group("test")
+		group.GET("getTestList", apiInfo.GetTestList)
+	}
+}

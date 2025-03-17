@@ -78,6 +78,7 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        { "page": "Gin-Vue-Admin", "href": "/gin-vue-admin" },
         { "page": "Golang", "href": "/go" },
         { "page": "docker", "href": "/docker" },
         { "page": "npm", "href": "/npm" },

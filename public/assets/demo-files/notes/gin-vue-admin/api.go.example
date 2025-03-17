@@ -1,0 +1,55 @@
+package api
+
+import (
+	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/test/model"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/test/service"
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
+)
+
+var (
+	Api         = new(api)
+	serviceInfo = service.Service
+)
+
+type api struct{}
+
+func (a *api) CreateTest(c *gin.Context) {
+	var test model.Test
+	err := c.ShouldBindJSON(&test)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	err = serviceInfo.CreateTest(&test)
+	if err != nil {
+		global.GVA_LOG.Error("創建失敗!", zap.Error(err))
+		response.FailWithMessage("創建失敗", c)
+		return
+	}
+	response.OkWithMessage("創建成功", c)
+}
+
+func (a *api) GetInfoList(c *gin.Context) {
+	var pageInfo request.PageInfo
+	err := c.ShouldBindQuery(&pageInfo)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	list, total, err := serviceInfo.GetTestList(pageInfo)
+	if err != nil {
+		global.GVA_LOG.Error("獲取失敗!", zap.Error(err))
+		response.FailWithMessage("獲取失敗", c)
+		return
+	}
+	response.OkWithDetailed(response.PageResult{
+		List:     list,
+		Total:    total,
+		Page:     pageInfo.Page,
+		PageSize: pageInfo.PageSize,
+	}, "獲取成功", c)
+}

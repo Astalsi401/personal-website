@@ -1,0 +1,25 @@
+package initialize
+
+import (
+	"context"
+	model "github.com/flipped-aurora/gin-vue-admin/server/model/system"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/plugin-tool/utils"
+)
+
+func Api(ctx context.Context) {
+	entities := []model.SysApi{
+		{
+			Path:        "/test/createTest",
+			Description: "新建測試資料",
+			ApiGroup:    "測試",
+			Method:      "POST",
+		},
+		{
+			Path:        "/test/getTestList",
+			Description: "獲取測試資料列表",
+			ApiGroup:    "測試",
+			Method:      "GET",
+		},
+	}
+	utils.RegisterApis(entities...)
+}

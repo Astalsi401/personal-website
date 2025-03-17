@@ -1,0 +1,18 @@
+package model
+
+import (
+	"github.com/flipped-aurora/gin-vue-admin/server/global"
+)
+
+// Test 測試資料結構
+type Test struct {
+	global.GVA_MODEL
+	Title   string `json:"title" form:"title" gorm:"column:title;comment:公告標題;"`
+	Content string `json:"content" form:"content" gorm:"column:content;comment:公告内容;type:text;"`
+	UserID  *int   `json:"userID" form:"userID" gorm:"column:user_id;comment:發布者;"`
+}
+
+// TableName 測試資料 Test 自定义表名 gva_test
+func (Test) TableName() string {
+	return "gva_test"
+}
