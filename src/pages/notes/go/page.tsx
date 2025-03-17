@@ -60,6 +60,33 @@ const Sections: SectionsProps = () => [
     ),
   },
   {
+    title: "儲存時自動打包 - air",
+    content: (
+      <>
+        air:{" "}
+        <a href="https://github.com/air-verse/air/blob/master/README-zh_tw.md" target="_blank" rel="noopener noreferrer">
+          https://github.com/air-verse/air/blob/master/README-zh_tw.md
+        </a>
+        <ul>
+          <li>
+            安裝:
+            <CodeChunk code="go install github.com/air-verse/air@latest" lang="bash" />
+          </li>
+          <li>
+            初始化:
+            <CodeChunk code="air init" lang="bash" />
+          </li>
+          <li>
+            運行:
+            <CodeChunk code="air -c .air.toml" lang="bash" />
+            或
+            <CodeChunk code="air" lang="bash" />
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
     title: "其他",
     content: (
       <>

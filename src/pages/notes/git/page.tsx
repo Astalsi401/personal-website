@@ -110,4 +110,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
 ];
 
 export default Sections;
-1;
