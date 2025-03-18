@@ -96,6 +96,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
         <br />
         此處啟用<code>annoucement</code>、<code>test</code>兩個 plugin
         <CodeChunk path={`${demoPath}/plugin_biz_v2.go.example`} lang="go" />
+        啟用後在後台 <code>超級管理員&gt;角色管理&gt;設置權限</code> 分配 menu & api 存取權
       </div>
     ),
   },
