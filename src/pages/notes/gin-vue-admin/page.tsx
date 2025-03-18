@@ -31,7 +31,7 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "插件結構詳解 - 後端",
+    title: "後端",
     content: (
       <div>
         建議依據以下順序進行開發
@@ -85,11 +85,11 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "插件結構詳解 - 前端",
+    title: "前端",
     content: <></>,
   },
   {
-    title: "插件結構詳解 - 插件啟用",
+    title: "插件啟用",
     content: (
       <div>
         於<code>gin-vue-admin/server/initialize/plugin_biz_v2.go</code>啟用插件
