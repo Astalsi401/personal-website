@@ -12,7 +12,7 @@ type Test struct {
 	UserID  *int   `json:"userID" form:"userID" gorm:"column:user_id;comment:發布者;"`
 }
 
-// TableName 測試資料 Test 自定义表名 gva_test
+// TableName 測試資料 Test 自定義表名 gva_test
 func (Test) TableName() string {
 	return "gva_test"
 }
