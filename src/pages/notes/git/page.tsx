@@ -47,7 +47,7 @@ const Sections: SectionsProps = ({ demoPath, imagePath }) => [
             <CodeChunk path={`${demoPath}/config.example`} />
           </li>
           <li>
-            使用新的 ssh key clone 非公開專案
+            使用新的 ssh key
             <CodeChunk code="git@github.com-work:username/repo.git" lang="bash" />
           </li>
         </ol>
