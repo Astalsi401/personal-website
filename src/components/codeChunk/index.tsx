@@ -4,6 +4,7 @@ import "prismjs/components/prism-scss.min";
 import "prismjs/components/prism-javascript.min";
 import "prismjs/components/prism-typescript.min";
 import "prismjs/components/prism-jsx.min";
+import "prismjs/components/prism-tsx.min";
 import "prismjs/components/prism-python.min";
 import "prismjs/components/prism-stata.min";
 import "prismjs/components/prism-r.min";
