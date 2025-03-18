@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@components";
 import type { SectionsProps } from "@types";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+const Sections: SectionsProps = ({ demoPath, imagePath }) => [
   {
     title: "Git 基礎設定",
     content: (
@@ -33,6 +33,24 @@ const Sections: SectionsProps = ({ imagePath }) => [
             <CodeChunk code="git remote -v" lang="bash" />
           </li>
         </ul>
+      </>
+    ),
+  },
+  {
+    title: "多帳號設定",
+    content: (
+      <>
+        <ol>
+          <li>創建新的ssh key</li>
+          <li>
+            前往 <code>C:\Users\user\.ssh\config</code>，添加新的設定
+            <CodeChunk path={`${demoPath}/config.example`} />
+          </li>
+          <li>
+            使用新的 ssh key clone 非公開專案
+            <CodeChunk code="git@github.com-work:username/repo.git" lang="bash" />
+          </li>
+        </ol>
       </>
     ),
   },
