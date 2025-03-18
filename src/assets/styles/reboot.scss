@@ -81,6 +81,7 @@ table {
 }
 a {
   color: var(--link);
+  text-decoration: underline dotted;
   &:hover {
     color: var(--link);
   }
