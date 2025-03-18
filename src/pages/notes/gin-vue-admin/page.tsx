@@ -10,18 +10,16 @@ const Sections: SectionsProps = ({ demoPath }) => [
           <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
             gin-vue-admin (gva)
           </a>
-          是一個基於gin與vue的全端框架，使用mysql資料庫，可以快速搭建後台管理系統。
+          是一個基於 gin 與 vue 的全端框架，使用 mysql 資料庫，可以快速搭建後台管理系統。
           <ul>
             <li>
-              安裝流程:{" "}
               <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
-                https://github.com/flipped-aurora/gin-vue-admin
+                安裝流程
               </a>
             </li>
             <li>
-              插件前後端結構:{" "}
               <a href="https://www.gin-vue-admin.com/guide/plugin/develop.html" target="_blank" rel="noopener noreferrer">
-                https://www.gin-vue-admin.com/guide/plugin/develop.html
+                插件前後端結構
               </a>
               <CodeChunk path={`${demoPath}/web.example`} lang="bash" />
             </li>
