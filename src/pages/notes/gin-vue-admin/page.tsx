@@ -1,30 +1,27 @@
-import { CodeChunk } from "@components";
+import { CodeChunk, ZoomImage } from "@components";
 import type { SectionsProps } from "@types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+const Sections: SectionsProps = ({ demoPath, imagePath }) => [
   {
     title: "Gin Vue Admin 介紹",
     content: (
       <>
-        <p>
-          <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
-            gin-vue-admin (gva)
-          </a>
-          是一個基於 gin 與 vue 的全端框架，使用 mysql 資料庫，可以快速搭建後台管理系統。
-          <ul>
-            <li>
-              <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
-                安裝流程
-              </a>
-            </li>
-            <li>
-              <a href="https://www.gin-vue-admin.com/guide/plugin/develop.html" target="_blank" rel="noopener noreferrer">
-                插件前後端結構
-              </a>
-              <CodeChunk path={`${demoPath}/web.example`} lang="bash" />
-            </li>
-          </ul>
-        </p>
+        <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
+          gin-vue-admin (gva)
+        </a>
+        是一個基於 gin 與 vue 的全端框架，使用 mysql 資料庫，可以快速搭建後台管理系統。
+        <ul>
+          <li>
+            <a href="https://github.com/flipped-aurora/gin-vue-admin" target="_blank" rel="noopener noreferrer">
+              安裝流程
+            </a>
+          </li>
+          <li>
+            <a href="https://www.gin-vue-admin.com/guide/plugin/develop.html" target="_blank" rel="noopener noreferrer">
+              插件前後端結構
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -83,10 +80,6 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
   {
-    title: "前端",
-    content: <></>,
-  },
-  {
     title: "插件啟用",
     content: (
       <>
@@ -95,6 +88,31 @@ const Sections: SectionsProps = ({ demoPath }) => [
         此處啟用 <code>annoucement</code> 、 <code>test</code> 兩個 plugin
         <CodeChunk path={`${demoPath}/plugin_biz_v2.go.example`} lang="go" />
         啟用後在後台 <code>超級管理員&gt;角色管理&gt;設置權限</code> 分配 menu & api 存取權
+      </>
+    ),
+  },
+  {
+    title: "前端",
+    content: (
+      <>
+        前端結構如下
+        <CodeChunk path={`${demoPath}/web.example`} lang="bash" />
+        此時前端對應頁面應如下圖
+        <ZoomImage src={`${imagePath}/gva-plugin-empty.png`} />
+        <ol>
+          <li>
+            <code>api/info.js</code>: 調用 api
+            <CodeChunk path={`${demoPath}/api.info.example.js`} lang="js" />
+          </li>
+          <li>
+            <code>view/info.vue</code>: 創建 vue + element plus 前端
+            <CodeChunk path={`${demoPath}/view.info.example.vue`} lang="html" />
+          </li>
+          <li>
+            完成!
+            <ZoomImage src={`${imagePath}/gva-plugin-finish.png`} />
+          </li>
+        </ol>
       </>
     ),
   },
