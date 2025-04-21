@@ -65,7 +65,7 @@ const Sections: SectionsProps = ({ demoPath, imagePath }) => [
           </li>
           <li>
             <code>initialize/router.go</code>: 調用 <code>router</code> 中定義的路由，初始化 router
-            <CodeChunk path={`${demoPath}/initialize.menu.go.example`} lang="go" />
+            <CodeChunk path={`${demoPath}/initialize.router.go.example`} lang="go" />
           </li>
           <li>
             <code>initialize/gorm.go</code>: 調用 <code>model</code> 中定義的資料格式，初始化資料庫
