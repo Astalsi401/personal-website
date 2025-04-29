@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { isActive } from "@functions";
+import { clsx, isActive } from "@functions";
 import type { DemoFrameProps } from "@types";
 
 export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, lib }) => {
@@ -11,7 +11,7 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, li
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setFullPage((prev) => {
-      let newState = !prev;
+      const newState = !prev;
       document.body.style.overflowY = newState ? "hidden" : "auto";
       return newState;
     });
@@ -25,10 +25,10 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, li
   }, []);
   return (
     <div className="demo-frame my-2 p-2 pt-0">
-      <a href="#" className={`full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary ${isActive(fullPage)}`} onClick={handleClick}>
+      <a href="#" className={clsx("full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary", isActive(fullPage))} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
-      <iframe className={`w-100 border-0 ${isActive(fullPage)}`} style={{ height: height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index-${lib ? lib : ""}.html`} ref={iframeRef} loading="lazy" />
+      <iframe className={clsx("w-100 border-0", isActive(fullPage))} style={{ height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index-${lib ? lib : ""}.html`} ref={iframeRef} loading="lazy" />
     </div>
   );
 };

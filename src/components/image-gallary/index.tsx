@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { imgGallaryHeight, useAppDispatch, useAppSelector, updateStore } from "@store";
+import { clsx } from "@functions";
 
 export const ImageGallary: React.FC = () => {
   const [imgs, setImgs] = useState<string[]>([]);
@@ -17,7 +18,7 @@ export const ImageGallary: React.FC = () => {
           <img className="d-block w-100 h-100 object-fit-contain" src={imgGalarySrc} alt="" />
         </div>
       )}
-      <div className={`img-galary d-flex flex-nowrap align-items-center overflow-auto ${imgGalaryActive ? "" : "d-none"}`} style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties}>
+      <div className={clsx("img-galary d-flex flex-nowrap align-items-center overflow-auto", !imgGalaryActive && "d-none")} style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties}>
         {imgs.map((src) => (
           <div key={src}>
             <img className="d-block w-100 h-100 object-fit-contain" key={src} src={src} loading="lazy" onClick={() => handleClick(src)} />

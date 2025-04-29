@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { isActive } from "@functions";
+import { clsx, isActive } from "@functions";
 import { imgGallaryHeight, updateStore, useAppDispatch, useAppSelector } from "@store";
 import type { ZoomImageProps } from "@types";
 
@@ -38,8 +38,8 @@ export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt })
   }, []);
   return (
     <>
-      <div id={id && id} className={`${className ? className : "my-2"} img-block ${isActive(active)}`} onClick={zoom}>
-        <img ref={ref} className={`w-100 position-relative ${isActive((imgGalarySrc.match(src) || []).length > 0)}`} loading="lazy" src={src} alt={alt && alt} style={imgSty} />
+      <div id={id && id} className={clsx(className ? className : "my-2", "img-block", isActive(active))} onClick={zoom}>
+        <img ref={ref} className={clsx("w-100 position-relative", isActive((imgGalarySrc.match(src) || []).length > 0))} loading="lazy" src={src} alt={alt && alt} style={imgSty} />
       </div>
       {active && <div className="modal-bg" style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties} onClick={zoom} />}
     </>

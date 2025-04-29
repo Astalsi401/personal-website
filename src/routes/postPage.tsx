@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block, ImageGallary } from "@components";
-import { isActive, titleToHash } from "@functions";
+import { clsx, isActive, titleToHash } from "@functions";
 import type { SectionsProps } from "@types";
 
 export const PostPage: React.FC = () => {
@@ -49,7 +49,7 @@ export const PostPage: React.FC = () => {
           {currentPostTitles.length > 0 && <AsideContent currentPostTitles={currentPostTitles} />}
         </div>
       </main>
-      {<ImageGallary />}
+      <ImageGallary />
     </>
   );
 };
@@ -63,7 +63,7 @@ const AsideContent: React.FC<{ currentPostTitles: CurrentPostTitleType[] }> = ({
         On this page
       </a>
       {currentPostTitles.map(({ title, active }) => (
-        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={`my-2 ps-1 d-block ${isActive(active)}`} onClick={() => handleCurrentSection(title)}>
+        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={clsx("my-2 ps-1 d-block", isActive(active))} onClick={() => handleCurrentSection(title)}>
           {title}
         </a>
       ))}

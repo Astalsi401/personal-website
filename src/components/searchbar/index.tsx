@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector } from "@store";
-import { getIndex, isMyPage } from "@functions";
+import { clsx, getIndex, isActive, isMyPage } from "@functions";
+import { Search } from "@icons";
 import type { Page } from "@types";
 
 export const SearchBar: React.FC = () => {
@@ -18,10 +19,10 @@ export const SearchBar: React.FC = () => {
   }, [searchBarActive, searchRef.current]);
   return (
     <>
-      <div className={`search-bar position-fixed col-md-6 col-10 p-3 pb-5 mx-auto bg-white rounded-1 shadow ${searchBarActive ? "active" : ""}`}>
+      <div className={clsx("search-bar position-fixed col-md-6 col-10 p-3 pb-5 mx-auto bg-white rounded-1 shadow", isActive(searchBarActive))}>
         <div className="w-100 w-lg-75 p-2 mx-auto d-flex align-items-center border-solid border-1 bd-primary rounded-1 bg-main-bg">
           <div className="d-flex align-items-center">
-            <SearchIcon width={20} height={20} />
+            <Search width={20} height={20} />
           </div>
           <input ref={searchRef} className="d-block flex-grow-1 w-100 ps-2 text-large bg-main-bg border-0 text-black" type="text" placeholder="Search" value={searchString} onChange={handleSearch} />
         </div>
@@ -31,11 +32,7 @@ export const SearchBar: React.FC = () => {
     </>
   );
 };
-export const SearchIcon: React.FC<{ width: number; height: number }> = ({ width, height }) => (
-  <svg className="search-icon" width={width} height={height} viewBox="0 0 20 20">
-    <path stroke="currentColor" fill="none" d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"></path>
-  </svg>
-);
+
 const SearchResults: React.FC<{ searchString: string }> = ({ searchString }) => {
   const [re, setRe] = useState<RegExp>(new RegExp("", "i"));
   const [inputTimer, setInputTimer] = useState<null | NodeJS.Timeout>(null);
@@ -77,7 +74,7 @@ const SingleResult: React.FC<Page> = ({ page, href, tags }) => {
 };
 
 export const Tags: React.FC<{ className?: string; tags: string[] }> = ({ className, tags }) => (
-  <div className={`page-tags d-flex flex-wrap align-items-end ${className ? className : ""}`}>
+  <div className={clsx("page-tags d-flex flex-wrap align-items-end", className)}>
     {tags.map((tag, i) => (
       <div key={tag} className="page-tag text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i } as React.CSSProperties}>
         {tag}

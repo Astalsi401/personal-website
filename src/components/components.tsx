@@ -1,12 +1,11 @@
 import { Block } from "./block";
-import { CodeChunk } from "./codeChunk";
-import { DemoFrame } from "./demoFrame";
+import { CodeChunk } from "./code-chunk";
+import { DemoFrame } from "./demo-frame";
 import { Header } from "./header";
 import { Label } from "./label";
-import { Loading, LoadingAnimation } from "./loading";
-import { SearchBar, SearchIcon, Tags } from "./searchbar";
+import { SearchBar, Tags } from "./searchbar";
 import { Sidebar } from "./sidebar";
-import { ZoomImage } from "./zoomImage";
-import { ImageGallary } from "./imageGallary";
+import { ZoomImage } from "./zoom-image";
+import { ImageGallary } from "./image-gallary";
 
-export { Block, CodeChunk, DemoFrame, Header, Label, Loading, LoadingAnimation, SearchBar, SearchIcon, Tags, Sidebar, ZoomImage, ImageGallary };
+export { Block, CodeChunk, DemoFrame, Header, Label, SearchBar, Tags, Sidebar, ZoomImage, ImageGallary };

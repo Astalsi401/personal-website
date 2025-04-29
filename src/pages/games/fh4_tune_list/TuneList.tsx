@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Block, ZoomImage, LoadingAnimation } from "@components";
+import { Block, ZoomImage } from "@components";
+import { LoadingAnimation } from "@ui/loading";
+import { clsx, isActive } from "@functions";
 
 type TuneData = {
   tunner: string;
@@ -74,7 +76,7 @@ export const TuneList: React.FC = () => {
         </div>
       </Block>
       <Block>
-        <div className={`row overflow-auto py-4`}>
+        <div className="row overflow-auto py-4">
           {isload ? (
             <table className="mx-auto text-center text-small">
               <thead>
@@ -82,7 +84,7 @@ export const TuneList: React.FC = () => {
                   {keys.map(({ key, type }) => (
                     <th key={key} className="pointer" onClick={() => sort(key)} style={{ minWidth: "80px" }}>
                       {type}
-                      <span className={`trangle ${asc && "asc"} ${ascCol === key && "active"}`}></span>
+                      <span className={clsx("trangle", asc && "asc", isActive(ascCol === key))}></span>
                     </th>
                   ))}
                 </tr>

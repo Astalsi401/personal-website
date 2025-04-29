@@ -4,7 +4,8 @@ import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "@store";
 import { getPages, getCategories, getSections } from "@functions";
-import { Header, Loading } from "@components";
+import { Header } from "@components";
+import { Loading } from "@ui/loading";
 import { IndexPage, PostPage, ErrorPage, Root } from "@routes";
 import "@styles/main.scss";
 

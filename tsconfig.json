@@ -32,6 +32,8 @@
       "@types": ["./src/assets/types"],
       "@styles": ["./src/assets/styles"],
       "@components": ["./src/components/components"],
+      "@icons": ["./src/components/icons"],
+      "@ui/*": ["./src/components/ui/*"],
       "@functions": ["./src/components/functions"],
       "@routes": ["./src/routes/routes"]
     }

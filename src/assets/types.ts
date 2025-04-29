@@ -31,6 +31,7 @@ export type CodeChunkProps = {
 export type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3js" | "jquery" | "leaflet" | undefined };
 export type CodeInfo = {
   code: string | undefined;
+  loading: boolean;
   fileName: string;
 };
 export type HamburgerProps = {

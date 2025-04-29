@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import store, { updateStore, RootState, useAppDispatch } from "@store";
 import type { BlockProps } from "@types";
+import { clsx } from "../functions";
 
 export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, children }) => {
   const dispatch = useAppDispatch();
@@ -19,9 +20,9 @@ export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, 
     return () => controller.abort();
   }, []);
   return (
-    <section className={`my-4 ${className ? className : ""}`}>
+    <section className={clsx("my-4", className)}>
       {title && (
-        <h3 ref={ref} id={id} className={`mt-3 ${titleClass ? titleClass : ""}`}>
+        <h3 ref={ref} id={id} className={clsx("mt-3", titleClass)}>
           {title}
         </h3>
       )}

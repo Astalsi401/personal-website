@@ -1,5 +1,5 @@
 .loading {
-  --size: 50px;
+  --default-size: 50;
   --loading-bg: rgb(255, 153, 0);
   --loading-shadow: rgb(255, 153, 0, 0.5);
   position: absolute;
@@ -8,14 +8,15 @@
   transform: translate(-50%, -50%);
   .line {
     --n: 24;
-    --w: calc(var(--size) * 0.04);
-    --h: calc(var(--size) * 0.3);
+    --w: calc(var(--size, var(--default-size)) * 1px * 0.04);
+    --h: calc(var(--size, var(--default-size)) * 1px * 0.3);
     --t: 5s;
     position: absolute;
-    transform-origin: center calc(-1 * var(--size));
+    transform-origin: center calc(-1px * var(--size, var(--default-size)));
     transform: rotate(calc(360deg / var(--n) * var(--i)));
     width: var(--w);
     height: var(--h);
+    translate: 0 calc(var(--size, var(--default-size)) * 1px);
     &::before {
       content: "";
       display: block;
