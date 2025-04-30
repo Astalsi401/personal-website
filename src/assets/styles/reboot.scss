@@ -51,12 +51,7 @@ samp {
   color: var(--code-text);
 }
 kbd {
-  display: inline-block;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px var(--main-shadow);
-  padding: 0px 4px;
-  margin: 2px;
-  background: var(--black-80);
+  box-shadow: 1px 1px 1px var(--main-text);
 }
 ul,
 ol {

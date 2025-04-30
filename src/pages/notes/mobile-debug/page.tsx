@@ -1,5 +1,6 @@
 import { CodeChunk, ZoomImage } from "@/components";
 import { InlineCode } from "@ui/inline-code";
+import { Kbd } from "@ui/kbd";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -67,7 +68,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-developer.png`} />
           </li>
           <li>
-            點選無線偵錯，選擇<kbd>使用配對碼配對裝置</kbd>
+            點選無線偵錯，選擇<Kbd>使用配對碼配對裝置</Kbd>
             <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-info1.png`} />
           </li>
           <li>

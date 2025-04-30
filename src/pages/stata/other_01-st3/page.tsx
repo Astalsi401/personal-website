@@ -1,5 +1,6 @@
 import { ZoomImage } from "@/components";
 import { InlineCode } from "@ui/inline-code";
+import { Kbd } from "@ui/kbd";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -16,7 +17,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             開啟Sublime，在Sublime中安裝Package Control
             <ol type="i">
               <li>
-                快捷鍵<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>
+                快捷鍵<Kbd>ctrl</Kbd>+<Kbd>shift</Kbd>+<Kbd>p</Kbd>
               </li>
               <li>
                 輸入<InlineCode>install package contorl</InlineCode>
@@ -28,13 +29,13 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             在Sublime中安裝Stata Editor
             <ol type="i">
               <li>
-                快捷鍵<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>
+                快捷鍵<Kbd>ctrl</Kbd>+<Kbd>shift</Kbd>+<Kbd>p</Kbd>
               </li>
               <li>
                 輸入<InlineCode>install package</InlineCode>，可能要稍微等待幾秒鐘，之後會跳出搜索框
               </li>
               <li>
-                輸入<InlineCode>stata editor</InlineCode>，按<kbd>enter</kbd>安裝
+                輸入<InlineCode>stata editor</InlineCode>，按<Kbd>enter</Kbd>安裝
               </li>
             </ol>
           </li>
@@ -72,7 +73,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <li>再次右鍵點選捷徑→以系統管理員身分執行→是，然後重新啟動電腦就完成了</li>
         </ol>
         <p>
-          之後開啟Sublime，<kbd>ctrl</kbd>+<kbd>n</kbd>建立新分頁，選擇View&gt;Syntax&gt;Stata，隨意輸入一段statacode後用<kbd>ctrl</kbd>+<kbd>d</kbd>即可傳送到stata執行。
+          之後開啟Sublime，<Kbd>ctrl</Kbd>+<Kbd>n</Kbd>建立新分頁，選擇View&gt;Syntax&gt;Stata，隨意輸入一段statacode後用<Kbd>ctrl</Kbd>+<Kbd>d</Kbd>即可傳送到stata執行。
         </p>
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/step9-1.png`} />
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/step9-2.png`} />
