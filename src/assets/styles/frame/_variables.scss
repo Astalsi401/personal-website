@@ -15,6 +15,7 @@ $elements: (
   text: color,
   bd: border,
   bg: background,
+  outline: outline,
 );
 $unit: 0.25rem;
 $units: (
@@ -178,3 +179,4 @@ $shadows: (
   lg: 3rem,
 );
 $object-fit: (contain, cover, fill, none);
+$cursors: (pointer, grab, move, zoom-in, zoom-out);

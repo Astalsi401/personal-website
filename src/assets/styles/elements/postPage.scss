@@ -5,18 +5,12 @@
   }
 }
 .aside-content {
-  position: sticky;
   top: calc(var(--nav-h) + var(--unit-3));
   align-self: start;
   border-left: 1px solid var(--gray-300);
   & > a {
     line-height: 1.2em;
-    text-decoration: none;
     transition: color var(--time);
-    color: var(--primary-300);
-    &.active {
-      color: var(--primary);
-    }
   }
 }
 @media (max-width: map-get($screen-size, "md")) {

@@ -7,7 +7,7 @@ export const Accessibility: React.FC = () => {
     { href: `#${sidebarAnchorID}`, text: "Skip to sidebar" },
   ];
   return (
-    <div className="accessibility position-fixed">
+    <div className="accessibility w-max position-fixed">
       {access.map((a) => (
         <a key={a.text} href={a.href}>
           {a.text}

@@ -81,10 +81,7 @@ code {
   }
 }
 .demo-frame {
-  border-radius: 5px;
-  border: 1px solid var(--primary-300);
   iframe {
-    background-color: var(--code-text);
     max-height: 60dvh;
     min-height: 200px;
     &.active {
@@ -99,11 +96,9 @@ code {
   }
 }
 .full-page {
-  text-decoration: none;
-  width: max-content;
+  --px: 10px;
   transition: opacity var(--time);
   backdrop-filter: blur(4px);
-  --px: 10px;
   &.active {
     position: fixed !important;
     z-index: calc(index($z-index, model) + 1);

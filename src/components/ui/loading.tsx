@@ -15,9 +15,9 @@ export const LoadingComponent: React.FC = () => {
 };
 
 export const LoadingAnimation: React.FC = () => (
-  <div className="loading">
+  <div className="loading position-absolute">
     {Array.from({ length: 24 }).map((_, i) => (
-      <div key={`loading-line-${i}`} className="line" style={{ "--i": i } as React.CSSProperties} />
+      <div key={`loading-line-${i}`} className="line position-absolute" style={{ "--i": i } as React.CSSProperties} />
     ))}
   </div>
 );

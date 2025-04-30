@@ -84,7 +84,7 @@ export const TuneList: React.FC = () => {
                   {keys.map(({ key, type }) => (
                     <th key={key} className="pointer" onClick={() => sort(key)} style={{ minWidth: "80px" }}>
                       {type}
-                      <span className={clsx("trangle", asc && "asc", isActive(ascCol === key))}></span>
+                      <span className={clsx("trangle position-relative", asc && "asc", isActive(ascCol === key))}></span>
                     </th>
                   ))}
                 </tr>

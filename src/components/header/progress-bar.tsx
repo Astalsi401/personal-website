@@ -7,12 +7,10 @@ export const ProgressBar: React.FC = () => {
     setPercent(Number(((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2)));
   };
   useEffect(() => {
-    window.addEventListener("load", handleScroll);
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("load", handleScroll);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const controller = new AbortController();
+    window.addEventListener("load", handleScroll, { signal: controller.signal });
+    window.addEventListener("scroll", handleScroll, { signal: controller.signal });
+    return () => controller.abort();
   }, []);
   return <div className="progress w-100 position-relative" style={{ "--percent": percent } as React.CSSProperties} />;
 };

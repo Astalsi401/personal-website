@@ -1,7 +1,6 @@
 .trangle {
   --t: 4px;
   margin-left: var(--t);
-  position: relative;
   opacity: 0.3;
   &::after {
     content: "";

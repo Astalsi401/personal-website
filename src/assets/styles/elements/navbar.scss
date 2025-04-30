@@ -1,7 +1,6 @@
 #navbar {
   z-index: index($z-index, navbar);
   top: 0;
-  background: var(--main-bg);
   box-shadow: 0 0 5px var(--main-shadow);
   height: var(--nav-h);
 }
@@ -71,9 +70,6 @@
   width: calc(var(--nav-h) * 2.5);
   height: var(--nav-h);
   right: var(--nav-h);
-  .search-btn-container {
-    color: var(--primary-600);
-  }
   &:hover {
     .search-btn-container {
       box-shadow: 0 0 1px var(--primary);
@@ -91,7 +87,6 @@
   top: calc(var(--nav-h) + var(--unit-2));
   left: 50%;
   transform: translateX(-50%);
-  width: max-content;
   z-index: index($z-index, model);
   a {
     transition: var(--time);

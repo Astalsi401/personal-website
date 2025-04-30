@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector } from "@store";
-import { clsx, getIndex, isActive, isMyPage } from "@functions";
+import { clsx, getIndex, isMyPage } from "@functions";
 import { Search } from "@icons";
 import type { Page } from "@/types";
 
@@ -19,12 +19,12 @@ export const SearchBar: React.FC = () => {
   }, [searchBarActive, searchRef.current]);
   return (
     <>
-      <div className={clsx("search-bar position-fixed col-md-6 col-10 p-3 pb-5 mx-auto bg-white rounded-1 shadow", isActive(searchBarActive))}>
+      <div className={clsx("search-bar position-fixed col-md-6 col-10 p-3 pb-5 mx-auto bg-white rounded-1 shadow", !searchBarActive && "d-none")}>
         <div className="w-100 w-lg-75 p-2 mx-auto d-flex align-items-center border-solid border-1 bd-primary rounded-1 bg-main-bg">
-          <div className="d-flex align-items-center">
+          <input ref={searchRef} className="d-block flex-grow-1 w-100 ps-2 text-large bg-main-bg border-0 text-black" type="text" placeholder="Search" value={searchString} onChange={handleSearch} />
+          <div className="d-flex align-items-center pointer">
             <Search width={20} height={20} />
           </div>
-          <input ref={searchRef} className="d-block flex-grow-1 w-100 ps-2 text-large bg-main-bg border-0 text-black" type="text" placeholder="Search" value={searchString} onChange={handleSearch} />
         </div>
         <SearchResults searchString={searchString} />
       </div>
@@ -67,16 +67,16 @@ const SingleResult: React.FC<Page> = ({ page, href, tags }) => {
   const handleClick = () => dispatch(updateStore({ searchBarActive: false, searchString: "" }));
   return (
     <Link className="d-block my-2 p-2 bg-main-bg text-decoration-none" to={href} target={isMyPage(href) ? "_self" : "_blank"} onClick={handleClick}>
-      <div className="page-title">{page}</div>
+      <div>{page}</div>
       {tags && <Tags tags={tags} />}
     </Link>
   );
 };
 
 export const Tags: React.FC<{ className?: string; tags: string[] }> = ({ className, tags }) => (
-  <div className={clsx("page-tags d-flex flex-wrap align-items-end", className)}>
+  <div className={clsx("page-tags p-1 d-flex flex-wrap align-items-end", className)}>
     {tags.map((tag, i) => (
-      <div key={tag} className="page-tag text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i } as React.CSSProperties}>
+      <div key={tag} className="page-tag bg-primary text-white text-small px-1 m-1 rounded-1 shadow-sm" style={{ "--i": i } as React.CSSProperties}>
         {tag}
       </div>
     ))}

@@ -1,11 +1,9 @@
 .modal-bg,
 .img-galary {
   --img-galary-height: 0px;
-  position: fixed;
   z-index: index($z-index, model);
   left: 0;
   width: 100vw;
-  background: var(--white-600);
 }
 .modal-bg {
   top: 0;

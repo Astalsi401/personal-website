@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block, ImageGallary } from "@/components";
-import { clsx, isActive, titleToHash } from "@functions";
+import { clsx, titleToHash } from "@functions";
 import type { SectionsProps } from "@/types";
 
 export const PostPage: React.FC = () => {
@@ -58,12 +58,12 @@ const AsideContent: React.FC<{ currentPostTitles: CurrentPostTitleType[] }> = ({
   const dispatch = useAppDispatch();
   const handleCurrentSection = (title: string) => dispatch(updateStore({ currentPostTitles: currentPostTitles.map((s) => ({ ...s, active: s.title === title })) }));
   return (
-    <div className="aside-content d-none d-md-block px-2 text-small">
-      <a href="#main-content" className="d-block text-primary text-bold">
+    <div className="aside-content position-sticky d-none d-md-block px-2 text-small">
+      <a href="#main-content" className="d-block text-primary text-bold text-decoration-none">
         On this page
       </a>
       {currentPostTitles.map(({ title, active }) => (
-        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={clsx("my-2 ps-1 d-block", isActive(active))} onClick={() => handleCurrentSection(title)}>
+        <a key={`aside-${title}`} href={`#${titleToHash(title)}`} className={clsx("my-2 ps-1 d-block text-decoration-none", active ? "text-primary" : "text-primary-300")} onClick={() => handleCurrentSection(title)}>
           {title}
         </a>
       ))}

@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
     <>
       <Accessibility />
       <header id="header" className="position-fixed w-100">
-        <nav id="navbar" className="position-relative">
+        <nav id="navbar" className="position-relative bg-main-bg">
           <HomePageLink />
           <DarkMode />
           <SearchBtn />

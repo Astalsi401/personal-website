@@ -4,7 +4,6 @@
   margin-top: var(--nav-h);
   width: min(var(--sidebar-w), 100%);
   height: calc(100dvh - var(--nav-h));
-  background: var(--main-bg);
   transform: translateX(-100%);
   transition: transform var(--time), box-shadow calc(var(--time) * 2);
   box-shadow: 0 0 0 var(--main-shadow);
@@ -60,7 +59,6 @@
   transition: scale calc(var(--time) / 3);
   width: var(--w);
   height: var(--w);
-  background-color: var(--main-text);
   &:hover,
   &:focus-visible {
     scale: 1.05;

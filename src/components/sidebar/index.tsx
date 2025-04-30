@@ -16,9 +16,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => dispatch(updateStore({ sidebarActive: false }));
   return (
-    <aside id={sidebarID} className={clsx("position-fixed", isActive(sidebarActive))} ref={wrapperRef}>
+    <aside id={sidebarID} className={clsx("position-fixed bg-main-bg", isActive(sidebarActive))} ref={wrapperRef}>
       <div className="py-5 d-flex justify-content-center align-items-center">
-        <a className="social-link d-block" href="https://github.com/Astalsi401" target="_blank" title="My GitHub" style={{ mask: `url(${import.meta.env.BASE_URL}/assets/images/github-mark.svg)`, maskSize: "cover" }}></a>
+        <a className="social-link d-block bg-main-text" href="https://github.com/Astalsi401" target="_blank" title="My GitHub" style={{ mask: `url(${import.meta.env.BASE_URL}/assets/images/github-mark.svg)`, maskSize: "cover" }}></a>
       </div>
       <h2 className="px-2">
         <Link to={`${import.meta.env.BASE_URL}${index.href}`} id={sidebarAnchorID} className="text-decoration-none" onClick={handleLinkClick}>

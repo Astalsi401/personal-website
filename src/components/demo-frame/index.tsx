@@ -24,11 +24,11 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, li
     return () => controller.abort();
   }, []);
   return (
-    <div className="demo-frame my-2 p-2 pt-0 position-relative">
-      <a href="#" className={clsx("full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary", isActive(fullPage))} onClick={handleClick}>
+    <div className="demo-frame my-2 p-2 pt-0 position-relative rounded-1 border-solid border-1 bd-primary-300">
+      <a href="#" className={clsx("full-page mb-1 ps-2 pe-4 d-block position-relative float-end text-small text-primary text-decoration-none w-max", isActive(fullPage))} onClick={handleClick}>
         {fullPage ? "Close" : "Full Page"}
       </a>
-      <iframe className={clsx("w-100 border-0", isActive(fullPage))} style={{ height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index-${lib ? lib : ""}.html`} ref={iframeRef} loading="lazy" />
+      <iframe className={clsx("w-100 border-0 bg-code-text", isActive(fullPage))} style={{ height }} src={src ? src : `${import.meta.env.BASE_URL}/assets/demo-files/index-${lib ? lib : ""}.html`} ref={iframeRef} loading="lazy" />
     </div>
   );
 };
