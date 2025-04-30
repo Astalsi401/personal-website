@@ -31,9 +31,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
           const relativePath = isMyPage(p.href);
           const showChildren = isCurrent && currentPostTitles.length > 0;
           return (
-            <li key={i} className={clsx(showChildren && "has-children")} onClick={click}>
-              <Link to={relativePath ? `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}` : p.href} target={relativePath ? "_self" : "_blank"} className={clsx("px-3 py-2 d-block text-decoration-none text-bold", isCurrent && "current")} onClick={handleLinkClick}>
-                <span>{p.page}</span>
+            <li key={i} className={clsx(showChildren && "has-children", "position-relative")} onClick={click}>
+              <Link to={relativePath ? `${import.meta.env.BASE_URL}${index.href === "/" ? "" : index.href}${p.href}` : p.href} target={relativePath ? "_self" : "_blank"} className={clsx("px-3 py-2 d-block text-decoration-none text-bold position-relative", isCurrent && "current")} onClick={handleLinkClick}>
+                <span className="position-relative">{p.page}</span>
               </Link>
               {showChildren && <SidebarChild currentPostTitles={currentPostTitles} childrenActive={childrenActive} />}
             </li>

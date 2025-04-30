@@ -23,9 +23,7 @@
     --current-px: 4px;
     list-style-type: none;
     margin-left: var(--unit-0);
-    position: relative;
     a {
-      position: relative;
       transition: color var(--time);
       &::before {
         content: "";
@@ -48,7 +46,6 @@
         color: var(--main-bg);
       }
       span {
-        position: relative;
         z-index: 1;
       }
     }
