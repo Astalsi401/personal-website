@@ -1,4 +1,4 @@
-import { ZoomImage } from "@components";
+import { ZoomImage } from "@/components";
 import { Calculator } from "./calculator";
 import type { SectionsProps } from "@types";
 import data from "./data.json";

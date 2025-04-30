@@ -1,4 +1,4 @@
-import { CodeChunk, ZoomImage } from "@components";
+import { CodeChunk, ZoomImage } from "@/components";
 import type { SectionsProps } from "@types";
 
 const Sections: SectionsProps = ({ demoPath, imagePath }) => [

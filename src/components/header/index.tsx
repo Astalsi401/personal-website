@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { updateStore, useAppDispatch, useAppSelector } from "@store";
-import { Sidebar, SearchBar } from "@components";
+import { Sidebar, SearchBar } from "@/components";
 import { HomePageLink } from "@ui/button";
 import { SearchBtn } from "./search-btn";
 import { Accessibility } from "./accessibility";

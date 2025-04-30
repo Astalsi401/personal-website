@@ -1,4 +1,4 @@
-import { ZoomImage } from "@components";
+import { ZoomImage } from "@/components";
 import type { SectionsProps } from "@types";
 
 const Sections: SectionsProps = ({ imagePath }) => [

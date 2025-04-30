@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Label } from "@components";
+import { Label } from "@/components";
 
 type CalculatorStatus = {
   bh: string;

@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { updateStore, useAppDispatch } from "@store";
 import { isMyPage } from "@functions";
+import { Project } from "@/components";
 import type { Categories } from "@types";
-import { Project } from "@/components/project";
 
 export const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();

@@ -7,5 +7,6 @@ import { SearchBar, Tags } from "./searchbar";
 import { Sidebar } from "./sidebar";
 import { ZoomImage } from "./zoom-image";
 import { ImageGallary } from "./image-gallary";
+import { Project } from "./project";
 
-export { Block, CodeChunk, DemoFrame, Header, Label, SearchBar, Tags, Sidebar, ZoomImage, ImageGallary };
+export { Block, CodeChunk, DemoFrame, Header, Label, SearchBar, Tags, Sidebar, ZoomImage, ImageGallary, Project };

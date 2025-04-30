@@ -1,4 +1,4 @@
-import { DemoFrame } from "@components";
+import { DemoFrame } from "@/components";
 import type { SectionsProps } from "@types";
 
 const Sections: SectionsProps = ({ demoPath }) => [

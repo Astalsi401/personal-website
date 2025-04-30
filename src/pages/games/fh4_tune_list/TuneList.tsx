@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Block, ZoomImage } from "@components";
+import { Block, ZoomImage } from "@/components";
 import { LoadingAnimation } from "@ui/loading";
 import { clsx, isActive } from "@functions";
 

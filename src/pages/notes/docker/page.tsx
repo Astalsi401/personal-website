@@ -1,4 +1,4 @@
-import { CodeChunk } from "@components";
+import { CodeChunk } from "@/components";
 import type { SectionsProps } from "@types";
 import { Link } from "react-router-dom";
 

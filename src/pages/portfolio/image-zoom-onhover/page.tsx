@@ -1,4 +1,4 @@
-import { CodeChunk, DemoFrame } from "@components";
+import { CodeChunk, DemoFrame } from "@/components";
 
 const Sections: SectionsProps = ({ demoPath }) => [
   {

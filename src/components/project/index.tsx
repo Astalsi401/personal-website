@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Tags } from "@components";
+import { Tags } from "@/components";
 import { clsx } from "@functions";
 
 export const Project: React.FC<{ page: string; path: string; href: string; myPage: boolean; thumbnail?: string; tags?: string[] }> = ({ page, path, href, thumbnail, tags, myPage }) => (

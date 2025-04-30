@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
-import { Block, ImageGallary } from "@components";
+import { Block, ImageGallary } from "@/components";
 import { clsx, isActive, titleToHash } from "@functions";
 import type { SectionsProps } from "@types";
 
