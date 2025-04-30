@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { updateStore, useAppDispatch } from "@store";
-import { Tags } from "@components";
-import { clsx, isMyPage } from "@functions";
+import { isMyPage } from "@functions";
 import type { Categories } from "@types";
+import { Project } from "@/components/project";
 
 export const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -35,34 +35,10 @@ const Normal: React.FC<{ index: Categories }> = ({ index }) => (
   </div>
 );
 
-const Portfolio: React.FC<{ index: Categories }> = ({ index }) => {
-  const logo: (logoPath: string) => string = (logoPath: string) => {
-    switch (logoPath) {
-      case "python":
-        return "/assets/images/python-logo.svg";
-      case "css":
-        return "/assets/images/CSS3-logo.svg";
-      case "js":
-        return "/assets/images/js-logo.svg";
-      default:
-        return logoPath;
-    }
-  };
-  return (
-    <div className="row">
-      {index.pages.map(({ page, href, thumbnail, tags }) => {
-        const myPage = isMyPage(href);
-        return (
-          <div className="col-sm-6 col-md-4 col-lg-3 p-2" key={page}>
-            <Link to={myPage ? `${import.meta.env.BASE_URL}${index.href}${href}` : href} target={myPage ? "_self" : "_blank"} className="d-block bg-white shadow-sm w-100 h-100 text-center text-decoration-none portfolio">
-              <div className={clsx("portfolio-thumb w-100 ratio-16by9 position-relative overflow-hidden", thumbnail && thumbnail === logo(thumbnail) ? "page-view" : "page-logo")} style={{ backgroundImage: thumbnail && `url(${import.meta.env.BASE_URL}${logo(thumbnail)})` }}>
-                {tags && <Tags className="position-absolute" tags={tags} />}
-              </div>
-              <div className="py-2">{page}</div>
-            </Link>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+const Portfolio: React.FC<{ index: Categories }> = ({ index }) => (
+  <div className="row">
+    {index.pages.map(({ page, href, thumbnail, tags }) => (
+      <Project key={page} page={page} path={index.href} href={href} myPage={isMyPage(href)} thumbnail={thumbnail} tags={tags} />
+    ))}
+  </div>
+);
