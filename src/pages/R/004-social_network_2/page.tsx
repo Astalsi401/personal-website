@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -13,8 +14,8 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <p>
             資料分為兩個部分：
             <br />
-            <code>data.fauxhigh.csvs</code>為Homophily（類聚），代表actors的性質，例如種族、性別、年齡等，載入後命名為<code>fauxhs</code>。<br />
-            <code>matrix.fauxhigh.csvs</code>為矩陣格式的網絡關係，載入後命名為<code>fauxhs.mat</code>。<br />
+            <InlineCode>data.fauxhigh.csvs</InlineCode>為Homophily（類聚），代表actors的性質，例如種族、性別、年齡等，載入後命名為<InlineCode>fauxhs</InlineCode>。<br />
+            <InlineCode>matrix.fauxhigh.csvs</InlineCode>為矩陣格式的網絡關係，載入後命名為<InlineCode>fauxhs.mat</InlineCode>。<br />
           </p>
           <CodeChunk code={`library(asnipe)\nlibrary(igraph)`} lang="r" />
           <CodeChunk code={`## \n## 載入套件：'igraph'`} lang="output" />
@@ -31,7 +32,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             lang="output"
           />
           <p>
-            將網絡資料命名為<code>fauxhs.net</code>，
+            將網絡資料命名為<InlineCode>fauxhs.net</InlineCode>，
           </p>
           <CodeChunk code={`fauxhs.net <- graph_from_adjacency_matrix(fauxhs.mat, mode = "direct", weighted = NULL)\nfauxhs.net`} lang="r" />
           <CodeChunk code={`## IGRAPH fa10430 DN-- 120 370 -- \n## + attr: name (v/c)\n## + edges from fa10430 (vertex names):\n##  [1] 1 ->14  1 ->26  1 ->31  1 ->39  1 ->50  1 ->53  1 ->54  1 ->56  1 ->63 \n## [10] 1 ->71  1 ->86  1 ->92  1 ->98  2 ->26  2 ->56  2 ->74  2 ->108 3 ->119\n## [19] 4 ->16  4 ->59  4 ->91  5 ->11  5 ->28  5 ->66  5 ->120 6 ->23  6 ->41 \n## [28] 7 ->34  7 ->87  8 ->13  8 ->29  8 ->43  8 ->107 9 ->21  9 ->79  10->35 \n## [37] 10->72  10->90  10->112 11->5   12->32  12->58  12->79  13->8   13->29 \n## [46] 13->36  13->43  13->68  13->107 14->1   14->22  14->33  14->44  14->50 \n## [55] 14->53  14->82  15->25  15->29  16->4   16->28  16->59  16->91  17->65 \n## [64] 17->104 18->100 19->79  20->106 20->116 21->9   22->14  22->33  22->44 \n## + ... omitted several edges`} lang="output" />
@@ -55,7 +56,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <p>
             兩種方式的結果是完全相同的，電腦在計算後會隨機繪製出網絡圖形。
             <br />
-            若想繪製出同樣的圖形，可利用<code>set.seed()</code>來固定每次node位置的參數；或是以<code>layout.fruchterman.reingold()</code>儲存node的值，以便下次使用。
+            若想繪製出同樣的圖形，可利用<InlineCode>set.seed()</InlineCode>來固定每次node位置的參數；或是以<InlineCode>layout.fruchterman.reingold()</InlineCode>儲存node的值，以便下次使用。
             <br />
           </p>
         </div>

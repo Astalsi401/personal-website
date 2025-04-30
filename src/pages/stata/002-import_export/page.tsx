@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -9,27 +10,27 @@ export const Sections: SectionsProps = ({ imagePath }) => [
       <>
         <p>匯入資料前最好先確認STATA的工作目錄，這樣可以減少需要輸入的路徑的長度。</p>
         <p>
-          <code>cd "路徑"</code>：直接指定工作目錄
+          <InlineCode>cd "路徑"</InlineCode>：直接指定工作目錄
         </p>
         <CodeChunk code={`cd "C:\\Users\\misti\\Documents\\Stata\\unify"`} lang="stata" />
         <CodeChunk code={`. cd "C:\\Users\\misti\\Documents\\Stata\\unify"\nC:\\Users\\misti\\Documents\\Stata\\unify`} lang="output" />
         <p>
-          <code>pwd</code>：確認當前目錄
+          <InlineCode>pwd</InlineCode>：確認當前目錄
         </p>
         <CodeChunk code={`pwd`} lang="stata" />
         <CodeChunk code={`. pwd\nC:\\Users\\misti\\Documents\\Stata\\unify`} lang="output" />
         <p>
-          <code>cd ..</code>：回到上一層目錄
+          <InlineCode>cd ..</InlineCode>：回到上一層目錄
         </p>
         <CodeChunk code={`cd ..`} lang="stata" />
         <CodeChunk code={`. cd ..\nC:\\Users\\misti\\Documents\\Stata`} lang="output" />
         <p>
-          <code>ls</code>：確認目前工作目錄中有哪些檔案及資料夾
+          <InlineCode>ls</InlineCode>：確認目前工作目錄中有哪些檔案及資料夾
         </p>
         <CodeChunk code={`ls`} lang="stata" />
         <CodeChunk code={`. ls\n<dir>  11/18/20 13:42  .                 \n<dir>  11/18/20 13:42  ..                \n<dir>   6/10/20 14:20  data              \n1929.2k  11/18/20 20:40  stata-1.html      \n2.4k  11/17/20 21:32  stata.html        \n314.7k  11/14/19 13:03  stata快捷.png   \n1908.7k  11/17/20 20:13  test.html         \n<dir>   6/09/20 11:40  thesis            \n<dir>  11/19/20 19:42  unify             \n0.2k   4/19/18 12:41  中文編碼轉換.do\n<dir>   6/03/20 12:53  天下雜誌-選舉\n<dir>  10/29/20 21:31  教學文件      \n<dir>   9/23/20 15:36  社會一         \n<dir>  10/29/20 21:31  社會三         \n<dir>   9/23/20 15:37  社會二         \n<dir>   9/23/20 15:50  社會四     `} lang="output" />
         <p>
-          <code>cd 資料夾名稱</code>：進入當前目錄中的資料夾，如此處為unify。
+          <InlineCode>cd 資料夾名稱</InlineCode>：進入當前目錄中的資料夾，如此處為unify。
         </p>
         <CodeChunk code={`cd unify`} lang="stata" />
         <CodeChunk code={`. cd unify\nC:\\Users\\misti\\Documents\\Stata\\unify`} lang="output" />
@@ -43,7 +44,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
       <>
         <div className="my-2">
           <div className="text-bold text-large">
-            Txt匯入：<code>insheet</code>
+            Txt匯入：<InlineCode>insheet</InlineCode>
           </div>
           <p>直接從指定的目錄匯入，無須變更工作目錄。</p>
           <CodeChunk code={`insheet using "C:\\Users\\misti\\Documents\\Stata\\社會一\\社會統計\\統計1-06\\grade.txt", clear\nta v1`} lang="stata" />
@@ -51,14 +52,14 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         </div>
         <div className="my-2">
           <div className="text-bold text-large">
-            Csv匯入：<code>insheet</code>
+            Csv匯入：<InlineCode>insheet</InlineCode>
           </div>
           <CodeChunk code={`cd data\ninsheet using data1b.csv, c n clear  /*c 導入逗點分隔值檔案*/\nsort id /*以id排序*/\nlist in 1/10 /*列出這份資料的前10筆*/`} lang="stata" />
           <CodeChunk code={`. cd data\nC:\\Users\\misti\\Documents\\Stata\\unify\\data\n\n. insheet using data1b.csv, c n clear  /*c 導入逗點分隔值檔案*/\n(3 vars, 30 obs)\n\n. sort id /*以id排序*/\n\n. list in 1/10 /*列出這份資料的前10筆*/\n\n     +--------------------+\n     | id   male   score1 |\n     |--------------------|\n  1. | 31      0       64 |\n  2. | 32      0       70 |\n  3. | 33      0       61 |\n  4. | 34      0       67 |\n  5. | 35      0       84 |\n     |--------------------|\n  6. | 36      0       67 |\n  7. | 37      0       63 |\n  8. | 38      0       80 |\n  9. | 39      0       71 |\n 10. | 40      0       52 |\n     +--------------------+`} lang="output" />
         </div>
         <div className="my-2">
           <div className="text-bold text-large">
-            Excel檔匯入（.Xlsx）：<code>import</code>
+            Excel檔匯入（.Xlsx）：<InlineCode>import</InlineCode>
           </div>
           <CodeChunk code={`import exc data2b.xlsx, first clear\n/*import exc option\nfirst: first row as var name\nsheet("sheetname")*/\nsort id\nlist in 1/10`} lang="stata" />
           <CodeChunk code={`. import exc data2b.xlsx, first clear\n. /*import exc option\n. first: first row as var name\n. sheet("sheetname")*/\n\n. sort id\n\n. list in 1/10\n\n     +----------------------------+\n     | id   score2   class   dist |\n     |----------------------------|\n  1. |  1       56       3      3 |\n  2. |  2       63       2      3 |\n  3. |  3       52       3      5 |\n  4. |  4       59       1      4 |\n  5. |  5       78       2      1 |\n     |----------------------------|\n  6. |  6       59       3      5 |\n  7. |  7       55       3      5 |\n  8. |  8       74       3      5 |\n  9. |  9       64       3      4 |\n 10. | 10       43       1      1 |\n     +----------------------------+`} lang="output" />
@@ -66,13 +67,13 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         <div className="my-2">
           <div className="text-bold text-large">匯入有多個分頁的Excel</div>
           <p>
-            <code>cellra(A2)</code>: 從A2開始讀取資料
+            <InlineCode>cellra(A2)</InlineCode>: 從A2開始讀取資料
           </p>
           <CodeChunk code={`import exc using data2b.xlsx, sh("sheetname") cellra(A2) first clear`} lang="stata" />
         </div>
         <div className="my-2">
           <div className="text-bold text-large">
-            STATA資料檔匯入（.dta）：<code>use</code>
+            STATA資料檔匯入（.dta）：<InlineCode>use</InlineCode>
           </div>
           <CodeChunk code={`use data1a, clear\nlist in 1/5\ncd ..`} lang="stata" />
           <CodeChunk code={`. use data1a, clear\n. list in 1/5\n     +--------------------+\n     | id   male   score1 |\n     |--------------------|\n  1. |  1      1       58 |\n  2. |  2      1       65 |\n  3. |  3      1       55 |\n  4. |  4      1       62 |\n  5. |  5      1       78 |\n     +--------------------+\n. cd ..\nC:\\Users\\misti\\Documents\\Stata\\unify`} lang="output" />
@@ -86,7 +87,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
     content: (
       <>
         <p>
-          <code>sysuse auto, clear</code>清除上一筆資料，使用stata內建，名為auto的資料
+          <InlineCode>sysuse auto, clear</InlineCode>清除上一筆資料，使用stata內建，名為auto的資料
         </p>
         <p>查看資料中的變項。</p>
         <CodeChunk code={`sysuse auto, clear\ndes\ncd data`} lang="stata" />
@@ -94,7 +95,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         <div className="my-2">
           <div className="text-bold text-large">匯出Csv</div>
           <p>
-            <code>outfile</code>匯出
+            <InlineCode>outfile</InlineCode>匯出
           </p>
           <CodeChunk code={`outfile make price rep78 weight length using "1978 Automobile_part.csv", comma replace`} lang="stata" />
           <CodeChunk code={`. outfile make price rep78 weight length using "1978 Automobile_part.csv", comma replace\n(note: file 1978 Automobile_part.csv not found)`} lang="output" />
@@ -102,7 +103,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <CodeChunk code={`outfile using "1978 Automobile.csv", comma replace`} lang="stata" />
           <CodeChunk code={`. outfile using "1978 Automobile.csv", comma replace\n(note: file 1978 Automobile.csv not found)`} lang="output" />
           <p>
-            <code>outsheet</code>匯出
+            <InlineCode>outsheet</InlineCode>匯出
           </p>
           <CodeChunk code={`outsheet using "1978 Automobile.csv", c n replace`} lang="stata" />
         </div>
@@ -137,7 +138,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         <div className="my-2">
           <div className="text-bold text-large">匯出png至excel</div>
           <p>
-            <code>A1</code>= excel表格位置
+            <InlineCode>A1</InlineCode>= excel表格位置
           </p>
           <CodeChunk code={`putexcel set pathToXlsxFile.xlsx, sheet("xlsxSheetName") modify\nputexcel A1 = picture(pathToPngFile.png)`} lang="stata" />
         </div>
@@ -152,10 +153,10 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         <p>以下將介紹兩種資料合併的方法：</p>
         <div className="my-2">
           <div className="text-bold text-large">
-            方法一：<code>append</code>
+            方法一：<InlineCode>append</InlineCode>
           </div>
           <p>
-            <code>append</code>是將資料b直接添加在資料a的後方，此時兩份資料必須擁有完全相同的變項才能成功合併。
+            <InlineCode>append</InlineCode>是將資料b直接添加在資料a的後方，此時兩份資料必須擁有完全相同的變項才能成功合併。
           </p>
           <p>首先匯入資料a（data1a）觀察後可發現，這份資料有3個變項（id、male、score1），樣本數（obs）為30。</p>
           <CodeChunk code={`cd data\nuse data1a, clear\nd /*簡單列出資料檔的資訊*/`} lang="stata" />
@@ -164,7 +165,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <CodeChunk code={`use data1b, clear\nd`} lang="stata" />
           <CodeChunk code={`. use data1b, clear\n\n. d\n\nContains data from data1b.dta\n  obs:            30                          \n vars:             3                          26 Nov 2020 19:06\n size:            90                          \n---------------------------------------------------------------------------------------------------------------\n              storage   display    value\nvariable name   type    format     label      variable label\n---------------------------------------------------------------------------------------------------------------\nid              byte    %8.0g                 \nmale            byte    %8.0g                 \nscore1          byte    %8.0g                 \n---------------------------------------------------------------------------------------------------------------\nSorted by: id`} lang="output" />
           <p>
-            現在利用<code>append</code>將data1a與data1b合併，然後存檔為data1_all。
+            現在利用<InlineCode>append</InlineCode>將data1a與data1b合併，然後存檔為data1_all。
           </p>
           <p>
             像這樣直接使用<span className="code">save 檔名</span>存檔，檔案格式為STATA專用的.dta，存檔位置為當前的工作目錄。
@@ -177,10 +178,10 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         </div>
         <div className="my-2">
           <div className="text-bold text-large">
-            方法二：<code>merge</code>
+            方法二：<InlineCode>merge</InlineCode>
           </div>
           <p>
-            <code>merge</code>是將資料2中的變項新增到資料1中，不過這種合併依然要求兩份資料至少有一個變項相同，且該變項的性質必須類似身分證號碼，每個樣本都有其自身的編號，這樣才能成功配對。
+            <InlineCode>merge</InlineCode>是將資料2中的變項新增到資料1中，不過這種合併依然要求兩份資料至少有一個變項相同，且該變項的性質必須類似身分證號碼，每個樣本都有其自身的編號，這樣才能成功配對。
           </p>
           <p>匯入data2b，觀察後可發現這份資料中同樣有id這個變項，以及另外3個新變項（score2、class、dist）。</p>
           <CodeChunk code={`use data2b, clear\nd`} lang="stata" />

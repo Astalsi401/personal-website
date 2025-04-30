@@ -1,4 +1,5 @@
 import { ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import { Calculator } from "./calculator";
 import type { SectionsProps } from "@/types";
 import data from "./data.json";
@@ -136,7 +137,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             <li>彈簧</li>
           </h4>
           <p>
-            使用公式：<code>(最大值-最小值)×重量比</code>
+            使用公式：<InlineCode>(最大值-最小值)×重量比</InlineCode>
           </p>
           <p>注意彈簧公式並未加上最小值。</p>
           <h4>
@@ -340,20 +341,20 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             <li>防傾桿、阻尼：</li>
           </h4>
           <p>
-            <code>(最大值-最小值)×重量比+最小值</code>
+            <InlineCode>(最大值-最小值)×重量比+最小值</InlineCode>
           </p>
           <p>以防傾桿為例，賽車防傾桿最大值為65，最小值為1，若車輛前端重量比為45%，則：</p>
           <p>
-            前防傾桿：<code>(65-1)*0.45+1=29.8</code>
+            前防傾桿：<InlineCode>(65-1)*0.45+1=29.8</InlineCode>
           </p>
           <p>
-            後防傾桿：<code>(65-1)*(1-0.45)+1=36.2</code>
+            後防傾桿：<InlineCode>(65-1)*(1-0.45)+1=36.2</InlineCode>
           </p>
           <h4>
             <li>彈簧：</li>
           </h4>
           <p>
-            <code>(最大值-最小值)×重量比</code>
+            <InlineCode>(最大值-最小值)×重量比</InlineCode>
           </p>
         </ol>
       </>

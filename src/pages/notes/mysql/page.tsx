@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -42,7 +43,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ol>
           <li>
-            mysql啟動時使用系統指令需加上<code>system</code>，例如：
+            mysql啟動時使用系統指令需加上<InlineCode>system</InlineCode>，例如：
             <CodeChunk code="system pwd" />
           </li>
         </ol>

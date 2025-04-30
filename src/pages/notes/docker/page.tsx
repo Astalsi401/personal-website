@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 import { Link } from "react-router-dom";
 
@@ -50,7 +51,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ul>
           <li>
-            如果安裝新的packages需要使用<code>--build</code>，在後台運行使用<code>-d</code>
+            如果安裝新的packages需要使用<InlineCode>--build</InlineCode>，在後台運行使用<InlineCode>-d</InlineCode>
             <CodeChunk code={`docker-compose up --build -d`} lang="bash" />
           </li>
           <li>
@@ -82,10 +83,10 @@ export const Sections: SectionsProps = ({ demoPath }) => [
             ，解壓縮並重新命名資料夾，資料夾名稱會作為container名稱
           </li>
           <li>
-            將<code>env.example</code>重新命名為<code>.env</code>
+            將<InlineCode>env.example</InlineCode>重新命名為<InlineCode>.env</InlineCode>
           </li>
           <li>
-            修改<code>.env</code>的<code>DB_ROOT_PASSWORD</code>
+            修改<InlineCode>.env</InlineCode>的<InlineCode>DB_ROOT_PASSWORD</InlineCode>
           </li>
           <li>
             運行container
@@ -101,11 +102,11 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ol>
           <li>
-            建立任意名稱的資料夾，以下使用<code>wordpress-local-test</code>，為例
+            建立任意名稱的資料夾，以下使用<InlineCode>wordpress-local-test</InlineCode>，為例
             <CodeChunk code={`mkdir wordpress-local-test && cd wordpress-local-test`} lang="bash" />
           </li>
           <li>
-            將以下檔案複製到<code>wordpress-local-test/docker-compose.yml</code>
+            將以下檔案複製到<InlineCode>wordpress-local-test/docker-compose.yml</InlineCode>
             <CodeChunk path={`${demoPath}/docker-compose.wordpress.example.yml`} lang="yml" />
           </li>
           <li>
@@ -138,7 +139,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
             <CodeChunk code={`apt-get update && apt-get install apt-file && apt-file update && apt-get install vim`} lang="bash" />
           </li>
           <li>
-            添加以下設定至<code>.htaccess</code>
+            添加以下設定至<InlineCode>.htaccess</InlineCode>
             <CodeChunk code={`php_value upload_max_filesize 256M\nphp_value post_max_size 256M`} />
           </li>
         </ol>
@@ -151,42 +152,42 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ol>
           <li>
-            建立專案資料夾<code>./my-repo</code>
+            建立專案資料夾<InlineCode>./my-repo</InlineCode>
             <CodeChunk code={`mkdir my-repo && cd my-repo`} lang="bash" />
           </li>
           <li>
-            在<code>./my-repo/client</code>建立vite前端，依據需要選擇專案類型，此處以react+ts為例
+            在<InlineCode>./my-repo/client</InlineCode>建立vite前端，依據需要選擇專案類型，此處以react+ts為例
             <CodeChunk code={`npm create-vite@latest`} lang="bash" />
-            修改<code>vite.config.ts</code>
+            修改<InlineCode>vite.config.ts</InlineCode>
             <CodeChunk path={`${demoPath}/vite.config.example.ts`} lang="ts" />
           </li>
           <li>
-            在<code>./my-repo/server</code>建立express後端，後端儲存於<code>./my-repo/server</code>
+            在<InlineCode>./my-repo/server</InlineCode>建立express後端，後端儲存於<InlineCode>./my-repo/server</InlineCode>
             <CodeChunk code={`mkdir server && cd server && npm init -y`} lang="bash" />
-            修改<code>package.json</code>的<code>scripts</code>、<code>type</code>、<code>dependencies</code>、<code>devDependencies</code>
+            修改<InlineCode>package.json</InlineCode>的<InlineCode>scripts</InlineCode>、<InlineCode>type</InlineCode>、<InlineCode>dependencies</InlineCode>、<InlineCode>devDependencies</InlineCode>
             <CodeChunk path={`${demoPath}/package.example.json`} lang="json" />
-            安裝<code>package.json</code>中的packages
+            安裝<InlineCode>package.json</InlineCode>中的packages
             <CodeChunk code={`npm i`} lang="bash" />
-            建立<code>index.js</code>
+            建立<InlineCode>index.js</InlineCode>
             <CodeChunk path={`${demoPath}/index.example.js`} lang="js" />
           </li>
           <li>
-            在<code>./my-repo/client</code>、<code>./my-repo/server</code>建立<code>Dockerfile</code>，自行修改<code>WORKDIR</code>為對應資料夾
+            在<InlineCode>./my-repo/client</InlineCode>、<InlineCode>./my-repo/server</InlineCode>建立<InlineCode>Dockerfile</InlineCode>，自行修改<InlineCode>WORKDIR</InlineCode>為對應資料夾
             <CodeChunk path={`${demoPath}/Dockerfile.example`} lang="docker" />
           </li>
           <li>
-            在<code>./my-repo/client</code>、<code>./my-repo/server</code>建立<code>.dockerignore</code>
+            在<InlineCode>./my-repo/client</InlineCode>、<InlineCode>./my-repo/server</InlineCode>建立<InlineCode>.dockerignore</InlineCode>
             <CodeChunk path={`${demoPath}/.dockerignore.example`} lang="docker" />
           </li>
           <li>
-            在<code>./my-repo</code>建立<code>docker-compose.yml</code>，如果路徑或ports不同記得修改
+            在<InlineCode>./my-repo</InlineCode>建立<InlineCode>docker-compose.yml</InlineCode>，如果路徑或ports不同記得修改
             <CodeChunk path={`${demoPath}/docker-compose.vite.example.yml`} lang="yml" />
           </li>
           <li>
             運行docker
             <CodeChunk code={`docker-compose up`} lang="bash" />
             如果出現以下錯誤
-            <CodeChunk code="sh: 1: vite: Permission denied" lang="bash" />在<code>./my-repo</code>中修改權限
+            <CodeChunk code="sh: 1: vite: Permission denied" lang="bash" />在<InlineCode>./my-repo</InlineCode>中修改權限
             <CodeChunk code={`sudo chown -R $(whoami)`} lang="bash" />
           </li>
         </ol>
@@ -211,7 +212,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
             <CodeChunk path={`${demoPath}/mongo-init.example.js`} lang="js" />
           </li>
           <li>
-            <code>docker-compose.yml</code>範例：
+            <InlineCode>docker-compose.yml</InlineCode>範例：
             <CodeChunk path={`${demoPath}/docker-compose.mongodb.example.yml`} lang="yml" />
           </li>
           <li>

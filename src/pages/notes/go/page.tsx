@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -10,7 +11,7 @@ export const Sections: SectionsProps = () => [
           <li>
             enable dependency tracking
             <br />
-            <code>example/hello</code>可在<code>import</code>時使用
+            <InlineCode>example/hello</InlineCode>可在<InlineCode>import</InlineCode>時使用
             <CodeChunk code="go mod init example/hello" lang="bash" />
           </li>
           <li>
@@ -18,7 +19,7 @@ export const Sections: SectionsProps = () => [
             <CodeChunk code="go mod edit -replace example/hello=../hello" lang="bash" />
           </li>
           <li>
-            安裝<code>import</code>的modules
+            安裝<InlineCode>import</InlineCode>的modules
             <CodeChunk code="go mod tidy" lang="bash" />
           </li>
           <li>
@@ -35,10 +36,10 @@ export const Sections: SectionsProps = () => [
       <>
         <ul>
           <li>
-            <code>:=</code>：賦值同時定義type
+            <InlineCode>:=</InlineCode>：賦值同時定義type
           </li>
           <li>
-            每個go檔案總是以<code>package</code>開頭，<code>package main</code>代表App，<code>package module_name</code>代表module
+            每個go檔案總是以<InlineCode>package</InlineCode>開頭，<InlineCode>package main</InlineCode>代表App，<InlineCode>package module_name</InlineCode>代表module
           </li>
         </ul>
       </>
@@ -50,10 +51,10 @@ export const Sections: SectionsProps = () => [
       <>
         <ul>
           <li>
-            <code>fmt</code>：格式化輸出
+            <InlineCode>fmt</InlineCode>：格式化輸出
           </li>
           <li>
-            <code>errors</code>：error處理
+            <InlineCode>errors</InlineCode>：error處理
           </li>
         </ul>
       </>
@@ -92,7 +93,7 @@ export const Sections: SectionsProps = () => [
       <>
         <ul>
           <li>
-            修改vscode <code>settings.json</code>，避免存檔時刪除未使用的<code>import</code>，導致無法使用<code>go mod tidy</code>安裝modules
+            修改vscode <InlineCode>settings.json</InlineCode>，避免存檔時刪除未使用的<InlineCode>import</InlineCode>，導致無法使用<InlineCode>go mod tidy</InlineCode>安裝modules
             <CodeChunk code={`"[go]": {\n  "editor.codeActionsOnSave": {\n    "source.organizeImports": "never"\n  }\n}`} lang="json" />
           </li>
         </ul>

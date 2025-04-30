@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -24,21 +25,21 @@ export const Sections: SectionsProps = ({ demoPath }) => [
           </a>
         </div>
         <div>
-          修改<code>vite.config.js</code>中的<code>base</code>為github專案名稱
+          修改<InlineCode>vite.config.js</InlineCode>中的<InlineCode>base</InlineCode>為github專案名稱
           <CodeChunk path={`${demoPath}/vite.config.example.js`} lang="js" />
         </div>
         <div>
-          在<code>package.json</code>中新增<code>homepage</code>
+          在<InlineCode>package.json</InlineCode>中新增<InlineCode>homepage</InlineCode>
           <CodeChunk code={`{\n  "homepage": "https://<username>.github.io/<project-name>",\n  ...\n}\n`} lang="json" />
         </div>
         <div>
-          新增以下內容至<code>./.github/workflows/deploy.yml</code>
+          新增以下內容至<InlineCode>./.github/workflows/deploy.yml</InlineCode>
           <CodeChunk path={`${demoPath}/deploy.yml`} lang="yml" />
         </div>
         <div>
-          建立<code>.env</code>並新增以下內容
+          建立<InlineCode>.env</InlineCode>並新增以下內容
           <CodeChunk code={"BASE_URL=."} />
-          在components中可用以下方式使用<code>BASE_URL</code>修正圖片連結在local的預覽問題(圖片放置於public)
+          在components中可用以下方式使用<InlineCode>BASE_URL</InlineCode>修正圖片連結在local的預覽問題(圖片放置於public)
           <CodeChunk code={"<img src={`${import.meta.env.BASE_URL}${image-path}`} />"} lang="jsx" />
         </div>
         <div>將專案推送至github</div>
@@ -46,10 +47,10 @@ export const Sections: SectionsProps = ({ demoPath }) => [
           進入github專案
           <ul>
             <li>
-              <code>Settings&gt;Actions&gt;General&gt;Workflow permissions</code>，勾選<code>Read and write permissions</code>
+              <InlineCode>Settings&gt;Actions&gt;General&gt;Workflow permissions</InlineCode>，勾選<InlineCode>Read and write permissions</InlineCode>
             </li>
             <li>
-              <code>Settings&gt;Pages&gt;Build and deployment&gt;Branch</code>，選取<code>Github Actions</code>
+              <InlineCode>Settings&gt;Pages&gt;Build and deployment&gt;Branch</InlineCode>，選取<InlineCode>Github Actions</InlineCode>
             </li>
           </ul>
         </div>
@@ -61,15 +62,15 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     content: (
       <>
         <div>
-          安裝<code>path</code>、<code>@types/node</code>
+          安裝<InlineCode>path</InlineCode>、<InlineCode>@types/node</InlineCode>
           <CodeChunk code={"npm i -D path @types/node"} />
         </div>
         <div>
-          新增以下內容至<code>tsconfig.json</code>
+          新增以下內容至<InlineCode>tsconfig.json</InlineCode>
           <CodeChunk path={`${demoPath}/tsconfig.example.json`} lang="json" />
         </div>
         <div>
-          將<code>vite.config.ts</code>修改如下
+          將<InlineCode>vite.config.ts</InlineCode>修改如下
           <CodeChunk path={`${demoPath}/vite.config.alias.example.ts`} lang="ts" />
         </div>
       </>

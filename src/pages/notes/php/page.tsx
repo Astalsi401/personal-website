@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -30,10 +31,10 @@ export const Sections: SectionsProps = ({ demoPath }) => [
         <ol>
           <li>php與apache必須為相同位元，如X64。</li>
           <li>
-            php8以上，<code>php8apache2_4.dll</code>已經自帶在安裝包中，無須額外下載。
+            php8以上，<InlineCode>php8apache2_4.dll</InlineCode>已經自帶在安裝包中，無須額外下載。
           </li>
           <li>
-            php8以上，<code>httpd.conf</code>載入php的代碼須改為
+            php8以上，<InlineCode>httpd.conf</InlineCode>載入php的代碼須改為
             <CodeChunk path={`${demoPath}/httpd.conf`} />
           </li>
           <li>
@@ -43,7 +44,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
             存取被拒時請重新開機。
           </li>
           <li>
-            連接mysql出現<code>Call to undefined function mysqli_connect()</code>，請參考
+            連接mysql出現<InlineCode>Call to undefined function mysqli_connect()</InlineCode>，請參考
             <a href="https://blog.csdn.net/www121104115/article/details/75006164" target="_blank">
               PHP中出现Call to undefined function mysqli_connect()
             </a>

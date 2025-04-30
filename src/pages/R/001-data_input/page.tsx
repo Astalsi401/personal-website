@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -26,17 +27,17 @@ export const Sections: SectionsProps = () => [
         <ul>
           <li>
             <p>
-              <code>&lt;-</code>：賦值符號
+              <InlineCode>&lt;-</InlineCode>：賦值符號
             </p>
           </li>
           <li>
             <p>
-              <code>==</code>：等於
+              <InlineCode>==</InlineCode>：等於
             </p>
           </li>
           <li>
             <p>
-              <code>#</code>：加上註解
+              <InlineCode>#</InlineCode>：加上註解
             </p>
           </li>
         </ul>

@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -35,12 +36,12 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <div className="text-bold text-large">計算機率</div>
           <ol type="i">
             <li>
-              在執行<code>logit</code>分析後輸入<code>predict prob, pr</code>
+              在執行<InlineCode>logit</InlineCode>分析後輸入<InlineCode>predict prob, pr</InlineCode>
               <CodeChunk code={`logit college atrack\npredict prob, pr\nta prob`} lang="stata" />
               <CodeChunk code={`. logit college atrack\n\nIteration 0:   log likelihood =  -20.59173  \nIteration 1:   log likelihood = -17.721515  \nIteration 2:   log likelihood = -17.670932  \nIteration 3:   log likelihood = -17.670815  \nIteration 4:   log likelihood = -17.670815  \n\nLogistic regression                             Number of obs     =         32\n                                                LR chi2(1)        =       5.84\n                                                Prob > chi2       =     0.0156\nLog likelihood = -17.670815                     Pseudo R2         =     0.1418\n\n------------------------------------------------------------------------------\n     college |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]\n-------------+----------------------------------------------------------------\n      atrack |    1.89712    .831665     2.28   0.023     .2670865    3.527153\n       _cons |  -1.609438   .6324555    -2.54   0.011    -2.849028   -.3698478\n------------------------------------------------------------------------------\n\n. predict prob, pr\n\n. ta prob\n\nPr(college) |      Freq.     Percent        Cum.\n------------+-----------------------------------\n   .1666667 |         18       56.25       56.25\n   .5714286 |         14       43.75      100.00\n------------+-----------------------------------\n      Total |         32      100.00`} lang="output" />
             </li>
             <li>
-              <code>margins</code>
+              <InlineCode>margins</InlineCode>
               <p>也適用於ordinal logistic</p>
               <CodeChunk code={`margins, at(atrack=(0 1))`} lang="stata" />
               <CodeChunk code={`. margins, at(atrack=(0 1))\n\nAdjusted predictions                            Number of obs     =         32\nModel VCE    : OIM\n\nExpression   : Pr(college), predict()\n\n1._at        : atrack          =           0\n\n2._at        : atrack          =           1\n\n------------------------------------------------------------------------------\n             |            Delta-method\n             |     Margin   Std. Err.      z    P>|z|     [95% Conf. Interval]\n-------------+----------------------------------------------------------------\n         _at |\n          1  |   .1666667    .087841     1.90   0.058    -.0054986     .338832\n          2  |   .5714286     .13226     4.32   0.000     .3122037    .8306534\n------------------------------------------------------------------------------`} lang="output" />
@@ -78,16 +79,16 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         />
         <p>繪圖</p>
         <p>
-          <code>forvalue i=1/4</code>：healthre有四個選項，需要分別計算
+          <InlineCode>forvalue i=1/4</InlineCode>：healthre有四個選項，需要分別計算
         </p>
         <p>
-          <code>age=(20(5)60)</code>：x軸為年齡，從20開始，5歲為一單位，到60歲為止
+          <InlineCode>age=(20(5)60)</InlineCode>：x軸為年齡，從20開始，5歲為一單位，到60歲為止
         </p>
         <p>
-          <code>educ=(6)</code>：這張圖中只包含educ=6的樣本
+          <InlineCode>educ=(6)</InlineCode>：這張圖中只包含educ=6的樣本
         </p>
         <p>
-          <code>predict</code>：計算應變項（healthre）
+          <InlineCode>predict</InlineCode>：計算應變項（healthre）
         </p>
         <CodeChunk code={`forvalue i=1/4{\n    margins, at(age=(20(5)60) educ=(6)) atmeans predict(outcome(\`i'))\n    matrix b\`i'=r(b)'  /*建立名為b1~b4的矩陣以儲存healthre中的資料*/\n}\nmat eastA=b1, b2, b3, b4   /*將b1~b4合併為一個矩陣，命名為eastA*/\ncap drop eastA1 eastA2 eastA3 eastA4 xlab\nsvmat eastA, name(eastA)\nlist eastA1 eastA2 eastA3 eastA4 in 1/9 , noobs clean\ngen xlab=_n\ntwoway (sca eastA1 xlab if xlab<10, c(l) lpattern(dash)) ///\n       (sca eastA2 xlab if xlab<10, c(l) msymbol(+)) ///\n       (sca eastA3 xlab if xlab<10, c(l) msymbol(-)) ///\n       (sca eastA4 xlab if xlab<10, c(l)), ///\n       legend(label(1 "Poor") label(2 "Fair") label(3 "Good") label(4 "Excellent")) ///\n       ylabel(0(.1).5, angle(0)) xtitle("年齡") ///\n       xlabel(0(1)10 0 " " 1 "20" 2 "25" 3 "30" 4 "35" 5 "40" 6 "45" 7 "50" 8 "55" 9 "60" 10 " ") ///\n       saving(logit02.png, replace)`} lang="stata" />
         <CodeChunk
@@ -104,7 +105,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
       <>
         <p>可用於Nominal Scale</p>
         <p>
-          <b>注意：</b>在<code>mlogit</code>中須使用relative-risk ratio，代碼為<code>rrr</code>，而非odds ratio的<code>or</code>
+          <b>注意：</b>在<InlineCode>mlogit</InlineCode>中須使用relative-risk ratio，代碼為<InlineCode>rrr</InlineCode>，而非odds ratio的<InlineCode>or</InlineCode>
         </p>
         <CodeChunk code={`cd data\nuse "nomocc2.dta", clear\ncd ..\nnumlabel _all, add\nta occ\n\nmlogit occ white ed exper, base(5) nolog rrr /*以occ的第五項（Prof）作為比較對項*/`} lang="stata" />
         <CodeChunk
@@ -131,7 +132,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           lang="output"
         />
         <p>
-          將以上表格輸出為<code>mlogit01.rtf</code>，可用word開啟
+          將以上表格輸出為<InlineCode>mlogit01.rtf</InlineCode>，可用word開啟
         </p>
         <CodeChunk code={`esttab M1 M2 using mlogit01.rtf, eform se mtitles legend style(fixed) ///\n        varwidth(35) modelwidth(10)  ///\n        starlevels(* .05 ** .01 *** 0.001) replace`} lang="stata" />
         <CodeChunk code={`. esttab M1 M2 using mlogit01.rtf, eform se mtitles legend style(fixed) ///\n>         varwidth(35) modelwidth(10)  ///\n>         starlevels(* .05 ** .01 *** 0.001) replace(output written to mlogit01.rtf)`} lang="output" />

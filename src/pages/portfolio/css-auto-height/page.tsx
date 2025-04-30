@@ -1,4 +1,5 @@
 import { CodeChunk, DemoFrame } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -13,7 +14,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
           </a>
         </div>
         <div className="my-2">
-          <code>height: auto;</code>無法使用transition製作動畫效果，然而可以將<code>grid-template-rows</code>修改為<code>0fr</code>、<code>1fr</code>來達成auto hight transition
+          <InlineCode>height: auto;</InlineCode>無法使用transition製作動畫效果，然而可以將<InlineCode>grid-template-rows</InlineCode>修改為<InlineCode>0fr</InlineCode>、<InlineCode>1fr</InlineCode>來達成auto hight transition
         </div>
         <DemoFrame html={`${demoPath}/frame1/css-auto-height.html`} cssHref={`${demoPath}/frame1/css-auto-height.min.css`} />
         <CodeChunk path={`${demoPath}/frame1/css-auto-height.scss`} lang="scss" />

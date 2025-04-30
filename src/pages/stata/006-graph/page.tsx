@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -75,17 +76,17 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <li>
             添加更多座標軸
             <br />
-            <code>twoway (,yaxis(2))</code>：為該圖形應用第二條座標軸，一張圖最多可有9條座標軸。
+            <InlineCode>twoway (,yaxis(2))</InlineCode>：為該圖形應用第二條座標軸，一張圖最多可有9條座標軸。
           </li>
           <li>
             設定圖的尺寸
             <br />
-            <code>xsize(10)</code>、<code>ysize(5)</code>：寬度為10英吋，高度為5英吋。
+            <InlineCode>xsize(10)</InlineCode>、<InlineCode>ysize(5)</InlineCode>：寬度為10英吋，高度為5英吋。
           </li>
           <li>
             添加文字
             <br />
-            <code>text(1 3 "abc", place(w) color(red))</code>：在y=1,x=3的地方加入文字「abc」，<code>place(w)</code>代表文字靠左，靠右為<code>e</code>，詳細可至此
+            <InlineCode>text(1 3 "abc", place(w) color(red))</InlineCode>：在y=1,x=3的地方加入文字「abc」，<InlineCode>place(w)</InlineCode>代表文字靠左，靠右為<InlineCode>e</InlineCode>，詳細可至此
             <a href="https://www.stata.com/manuals/g-3added_text_options.pdf" target="_blank">
               此處（<i>added_text_options</i>）
             </a>
@@ -95,30 +96,30 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             標題
             <ul>
               <li>
-                <code>title("")</code>：表格主標題
+                <InlineCode>title("")</InlineCode>：表格主標題
                 <br />
               </li>
               <li>
-                <code>subtitle("")</code>：副標題
+                <InlineCode>subtitle("")</InlineCode>：副標題
               </li>
               <li>
-                <code>xtitle("")</code>：X軸標題
+                <InlineCode>xtitle("")</InlineCode>：X軸標題
                 <br />
               </li>
               <li>
-                <code>ytitle("")</code>：Y軸標題
+                <InlineCode>ytitle("")</InlineCode>：Y軸標題
                 <br />
               </li>
               <li>
-                <code>ytitle("", orientation(horizontal))</code>：橫向標題
+                <InlineCode>ytitle("", orientation(horizontal))</InlineCode>：橫向標題
                 <br />
               </li>
               <li>
-                <code>ytitle("", height(-60))</code>：Y軸標題區塊高度-60，區塊變短，文字會向上移動
+                <InlineCode>ytitle("", height(-60))</InlineCode>：Y軸標題區塊高度-60，區塊變短，文字會向上移動
                 <br />
               </li>
               <li>
-                <code>ytitle("", placement(nw))</code>：移動標題位置，<code>nw</code>代表左上角(north, west)，詳細位置看
+                <InlineCode>ytitle("", placement(nw))</InlineCode>：移動標題位置，<InlineCode>nw</InlineCode>代表左上角(north, west)，詳細位置看
                 <a href="https://www.stata.com/manuals/g-3added_text_options.pdf#g-3added_text_optionsOptions" target="_blank">
                   Options for adding text to twoway graphs
                 </a>
@@ -129,17 +130,17 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             設定刻度
             <ul>
               <li>
-                <code>xlabel(0(1)10)</code>、<code>ylabel(0(1)10)</code>：X或Y軸由0~10，每隔1畫一個刻度。
+                <InlineCode>xlabel(0(1)10)</InlineCode>、<InlineCode>ylabel(0(1)10)</InlineCode>：X或Y軸由0~10，每隔1畫一個刻度。
                 <br />
               </li>
               <li>
-                <code>xlabel(1 "a" 2 "b")</code>：定義刻度名稱，在X=1的地方加上刻度，刻度名稱為a，在X=2加上刻度，刻度名稱為b。Y軸設定方法同上。
+                <InlineCode>xlabel(1 "a" 2 "b")</InlineCode>：定義刻度名稱，在X=1的地方加上刻度，刻度名稱為a，在X=2加上刻度，刻度名稱為b。Y軸設定方法同上。
               </li>
               <li>
-                <code>xlabel(, angle(45))</code>：旋轉刻度值45度，用於Y軸只須改為<code>ylable</code>。<br />
+                <InlineCode>xlabel(, angle(45))</InlineCode>：旋轉刻度值45度，用於Y軸只須改為<InlineCode>ylable</InlineCode>。<br />
               </li>
               <li>
-                <code>ylabel(, axis(2))</code>：表示第二條座標軸適用這些設定。
+                <InlineCode>ylabel(, axis(2))</InlineCode>：表示第二條座標軸適用這些設定。
               </li>
             </ul>
           </li>
@@ -147,19 +148,19 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             設定圖例
             <ul>
               <li>
-                <code>legend(off)</code>：隱藏圖例
+                <InlineCode>legend(off)</InlineCode>：隱藏圖例
               </li>
               <li>
-                <code>legend(label(1 "分類1") label(2 "分類2"))</code>：設定圖例名稱，Y變項有多個分類時可用，此處的1並非資料檔中的分類編碼，而是製作圖表時畫上去的順序。
+                <InlineCode>legend(label(1 "分類1") label(2 "分類2"))</InlineCode>：設定圖例名稱，Y變項有多個分類時可用，此處的1並非資料檔中的分類編碼，而是製作圖表時畫上去的順序。
               </li>
               <li>
-                <code>legend(c(2))</code>：圖例內容兩兩並排(column = 2)，也可使用<code>r(#)</code># = 正整數
+                <InlineCode>legend(c(2))</InlineCode>：圖例內容兩兩並排(column = 2)，也可使用<InlineCode>r(#)</InlineCode># = 正整數
               </li>
               <li>
-                <code>legend(pos(6))</code>：代表圖例出現的位置，以時鐘上的數字為方向。
+                <InlineCode>legend(pos(6))</InlineCode>：代表圖例出現的位置，以時鐘上的數字為方向。
               </li>
               <li>
-                <code>legend(symx(*0.25))</code>：圖例尺寸，<code>*0.25</code>代表0.25倍。
+                <InlineCode>legend(symx(*0.25))</InlineCode>：圖例尺寸，<InlineCode>*0.25</InlineCode>代表0.25倍。
               </li>
             </ul>
           </li>
@@ -167,16 +168,16 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             繪圖區域(bar)
             <ul>
               <li>
-                <code>blabel()</code>：添加bar標籤
+                <InlineCode>blabel()</InlineCode>：添加bar標籤
               </li>
               <li>
-                <code>bar(#, bfcolor(navy))</code>：變更x軸第#種類別的顏色
+                <InlineCode>bar(#, bfcolor(navy))</InlineCode>：變更x軸第#種類別的顏色
               </li>
               <li>
-                <code>over(var1, sort(var2) descending)</code>：依據var1分類，依據var2遞減排序
+                <InlineCode>over(var1, sort(var2) descending)</InlineCode>：依據var1分類，依據var2遞減排序
               </li>
               <li>
-                <code>graphregion(fcolor(white))</code>：圖表區域背景色白色
+                <InlineCode>graphregion(fcolor(white))</InlineCode>：圖表區域背景色白色
               </li>
             </ul>
           </li>
@@ -184,10 +185,10 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             其他
             <ul>
               <li>
-                <code>separate var1, by(var2 == 1)</code>：依據條件分割var1
+                <InlineCode>separate var1, by(var2 == 1)</InlineCode>：依據條件分割var1
               </li>
               <li>
-                <code>scale(*.8)</code>：字體大小
+                <InlineCode>scale(*.8)</InlineCode>：字體大小
               </li>
             </ul>
           </li>

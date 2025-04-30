@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -6,7 +7,7 @@ export const Sections: SectionsProps = () => [
     title: "package.json",
     content: (
       <>
-        Add <code>"type": "module"</code> in <code>package.json</code>
+        Add <InlineCode>"type": "module"</InlineCode> in <InlineCode>package.json</InlineCode>
         <CodeChunk code={`{\n  ...\n  "type": "module"\n  ...\n}`} lang="json" />
       </>
     ),
@@ -36,7 +37,7 @@ export const Sections: SectionsProps = () => [
     content: (
       <>
         Node 20.11 or higher
-        <code>__dirname</code> to <code>import.meta.dirname</code>
+        <InlineCode>__dirname</InlineCode> to <InlineCode>import.meta.dirname</InlineCode>
       </>
     ),
   },

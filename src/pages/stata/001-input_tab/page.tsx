@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -10,27 +11,27 @@ export const Sections: SectionsProps = () => [
         <ul>
           <li>
             <p>
-              <code>==</code>：等號，以連續兩個等號代表數值的相等。
+              <InlineCode>==</InlineCode>：等號，以連續兩個等號代表數值的相等。
             </p>
           </li>
           <li>
             <p>
-              <code>=</code>：賦值符號，以一個等號為一批資料或某個數值賦予名稱。
+              <InlineCode>=</InlineCode>：賦值符號，以一個等號為一批資料或某個數值賦予名稱。
             </p>
           </li>
           <li>
             <p>
-              <code>&</code>：與、和，同時滿足提到條件的含意。
+              <InlineCode>&</InlineCode>：與、和，同時滿足提到條件的含意。
             </p>
           </li>
           <li>
             <p>
-              <code>|</code>：或，只要滿足其中一個條件。
+              <InlineCode>|</InlineCode>：或，只要滿足其中一個條件。
             </p>
           </li>
           <li>
             <p>
-              <code>/* some text... */</code>：加入註解
+              <InlineCode>/* some text... */</InlineCode>：加入註解
             </p>
           </li>
         </ul>
@@ -42,26 +43,26 @@ export const Sections: SectionsProps = () => [
     content: (
       <>
         <p>
-          輸入<code>case</code>、<code>response</code>、<code>freq</code>三個變項。
+          輸入<InlineCode>case</InlineCode>、<InlineCode>response</InlineCode>、<InlineCode>freq</InlineCode>三個變項。
         </p>
         <CodeChunk code={`clear\ninput case response freq\n1 1 9\n1 2 18\n1 3 42\n1 4 51\n1 5 30\n2 1 6\n2 2 12\n2 3 28\n2 4 34\n2 5 20\nend`} lang="stata" />
         <p>
-          利用<code>describe</code>查看變項資訊。
+          利用<InlineCode>describe</InlineCode>查看變項資訊。
         </p>
         <CodeChunk code={`describe`} lang="stata" />
         <CodeChunk code={`Contains data\nobs: 10 \nvars: 3 \nsize: 120 \n---------------------------------------------------------------------------------------------\nstorage display value\nvariable name type format label variable label\n---------------------------------------------------------------------------------------------\ncase  float %9.0g\nresponse  float %9.0g\nfreq  float %9.0g\n---------------------------------------------------------------------------------------------\nSorted by:\n Note: Dataset has changed since last saved.`} lang="output" />
         <p>
-          定義名為<code>react</code>的<code>value label</code>，並為1~5加上標籤。
+          定義名為<InlineCode>react</InlineCode>的<InlineCode>value label</InlineCode>，並為1~5加上標籤。
         </p>
         <p>
-          將<code>react</code>與<code>response</code>連結。
+          將<InlineCode>react</InlineCode>與<InlineCode>response</InlineCode>連結。
         </p>
         <p>
-          將<code>response</code>的<code>variable label</code>命名為<code>"Agr of Onset"</code>
+          將<InlineCode>response</InlineCode>的<InlineCode>variable label</InlineCode>命名為<InlineCode>"Agr of Onset"</InlineCode>
         </p>
         <CodeChunk code={`label def react 1 "70-79" 2 "60-69" 3 "50-59" 4 "40-49" 5 "30-39"\nlab val response react\nlab var response "Agr of Onset"`} lang="stata" />
         <p>
-          再次利用<code>describe</code>查看變項資訊，可發現<code>response</code>的欄位已發生變化。
+          再次利用<InlineCode>describe</InlineCode>查看變項資訊，可發現<InlineCode>response</InlineCode>的欄位已發生變化。
         </p>
         <CodeChunk code={`describe`} lang="stata" />
         <CodeChunk code={`Contains data\nobs: 10 \nvars: 3 \nsize: 120 \n---------------------------------------------------------------------------------------------\nstorage display value\nvariable name type format label variable label\n---------------------------------------------------------------------------------------------\ncase  float %9.0g\nresponse  float %9.0g react Agr of Onset\nfreq  float %9.0g\n---------------------------------------------------------------------------------------------\nSorted by:\n Note: Dataset has changed since last saved.`} lang="output" />
@@ -75,7 +76,7 @@ export const Sections: SectionsProps = () => [
     content: (
       <>
         <p>
-          <b>第一種方法:</b> 將加權變項中的數值視為"個案數"，然後增加"n-1"個案數。以此資料為例，第一列為一個個案，但由於freq＝9，因此當執行完<code>expandfreq</code>後，這資料會增加9-1＝8列的"1 1 9"的個案
+          <b>第一種方法:</b> 將加權變項中的數值視為"個案數"，然後增加"n-1"個案數。以此資料為例，第一列為一個個案，但由於freq＝9，因此當執行完<InlineCode>expandfreq</InlineCode>後，這資料會增加9-1＝8列的"1 1 9"的個案
         </p>
         <CodeChunk code={`preserve\nexpand freq\ntab response case, freq\nrestore`} lang="stata" />
         <CodeChunk code={`. preserve\n. expand freq\n(240 observations created)\n. tab response case, freq\n\nAgr of     | case\nOnset      | f  %                 | Total\n-----------+----------------------+----------\n70-79      | 9  6                 | 15 \n60-69      | 18 12                | 30 \n50-59      | 42 28                | 70 \n40-49      | 51 34                | 85 \n30-39      | 30 20                | 50 \n-----------+----------------------+----------\nTotal      | 150 100              | 250 \n. restore`} lang="output" />
@@ -103,34 +104,34 @@ export const Sections: SectionsProps = () => [
         <p>各種建立亂數的指令</p>
         <ul>
           <li>
-            <code>runiform():</code> generates rectangularly (uniformly) distributed random number over [0,1].
+            <InlineCode>runiform():</InlineCode> generates rectangularly (uniformly) distributed random number over [0,1].
           </li>
           <li>
-            <code>rbeta(a,b):</code> generates beta-distribution beta(a, b) random numbers.
+            <InlineCode>rbeta(a,b):</InlineCode> generates beta-distribution beta(a, b) random numbers.
           </li>
           <li>
-            <code>rbinomial(n,p):</code> generates binomial(n, p) random numbers, where n is the number of trials and p the probability of a success.
+            <InlineCode>rbinomial(n,p):</InlineCode> generates binomial(n, p) random numbers, where n is the number of trials and p the probability of a success.
           </li>
           <li>
-            <code>rchi2(df):</code> generates χ2 with df degrees of freedom random numbers.
+            <InlineCode>rchi2(df):</InlineCode> generates χ2 with df degrees of freedom random numbers.
           </li>
           <li>
-            <code>rgamma(a,b):</code> generates Γ(a, b) random numbers, where a is the shape parameter and b, the scale parameter.
+            <InlineCode>rgamma(a,b):</InlineCode> generates Γ(a, b) random numbers, where a is the shape parameter and b, the scale parameter.
           </li>
           <li>
-            <code>rhypergeometric(N,K,n):</code> generates hypergeometric random numbers, where N is the population size, K is the number of in the population having the attribute of interest, and n is the sample size.
+            <InlineCode>rhypergeometric(N,K,n):</InlineCode> generates hypergeometric random numbers, where N is the population size, K is the number of in the population having the attribute of interest, and n is the sample size.
           </li>
           <li>
-            <code>rnbinomial(n,p):</code> generates negative binomial — the number of failures before the nth success — random numbers, where p is the probability of a success. (n can also be noninteger.)
+            <InlineCode>rnbinomial(n,p):</InlineCode> generates negative binomial — the number of failures before the nth success — random numbers, where p is the probability of a success. (n can also be noninteger.)
           </li>
           <li>
-            <code>rnormal(μ,σ):</code> generates Gaussian normal random numbers.
+            <InlineCode>rnormal(μ,σ):</InlineCode> generates Gaussian normal random numbers.
           </li>
           <li>
-            <code>rpoisson(m):</code> generates Poisson(m) random numbers.
+            <InlineCode>rpoisson(m):</InlineCode> generates Poisson(m) random numbers.
           </li>
           <li>
-            <code>rt(df):</code> generates Student’s t(df) random numbers.
+            <InlineCode>rt(df):</InlineCode> generates Student’s t(df) random numbers.
           </li>
         </ul>
         <CodeChunk code={`clear\nset obs 100000\nset seed 123456789\ng x = int(floor((101)*runiform()+0))\n* 100-0+1 a\n* b -a a\n* max min\n*int=整數\n*0~100有101個整數\n*runiform=平均分布\n\nsu x, d\nsort x`} lang="stata" />

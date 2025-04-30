@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 const data = {
@@ -94,7 +95,7 @@ export const Sections: SectionsProps = () => [
         <ul>
           {data.format.map((d) => (
             <li key={d.fm}>
-              <code>{d.fm}</code>：{d.des}
+              <InlineCode>{d.fm}</InlineCode>：{d.des}
             </li>
           ))}
         </ul>

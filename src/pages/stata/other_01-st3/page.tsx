@@ -1,4 +1,5 @@
 import { ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -18,7 +19,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
                 快捷鍵<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>
               </li>
               <li>
-                輸入<code>install package contorl</code>
+                輸入<InlineCode>install package contorl</InlineCode>
               </li>
               <li>重新開啟Sublime</li>
             </ol>
@@ -30,10 +31,10 @@ export const Sections: SectionsProps = ({ imagePath }) => [
                 快捷鍵<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>
               </li>
               <li>
-                輸入<code>install package</code>，可能要稍微等待幾秒鐘，之後會跳出搜索框
+                輸入<InlineCode>install package</InlineCode>，可能要稍微等待幾秒鐘，之後會跳出搜索框
               </li>
               <li>
-                輸入<code>stata editor</code>，按<kbd>enter</kbd>安裝
+                輸入<InlineCode>stata editor</InlineCode>，按<kbd>enter</kbd>安裝
               </li>
             </ol>
           </li>
@@ -51,17 +52,17 @@ export const Sections: SectionsProps = ({ imagePath }) => [
               </li>
               <li>將預設檔全選並複製到自訂檔</li>
               <li>
-                更改<code>stata_path</code>為自己的Stata安裝路徑
+                更改<InlineCode>stata_path</InlineCode>為自己的Stata安裝路徑
               </li>
               <li>
-                更改<code>stata_version</code>為自己的版本，存檔。
+                更改<InlineCode>stata_version</InlineCode>為自己的版本，存檔。
                 <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/step5-5.png`} />
               </li>
             </ol>
           </li>
           <li>在Stata安裝目錄中為stata建立捷徑</li>
           <li>
-            右鍵點選捷徑→內容，將目標中的路徑用英文的引號<code> " </code>括起來，後方隔一個空格輸入<code>/Register</code>，套用
+            右鍵點選捷徑→內容，將目標中的路徑用英文的引號<InlineCode> " </InlineCode>括起來，後方隔一個空格輸入<InlineCode>/Register</InlineCode>，套用
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/step7.png`} />
           </li>
           <li>

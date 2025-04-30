@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -18,7 +19,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             </a>
           </li>
           <li>
-            將下載的SDK Tools解壓至資料夾android-sdk，此處安裝於<code>D:\Tools\android-sdk</code>
+            將下載的SDK Tools解壓至資料夾android-sdk，此處安裝於<InlineCode>D:\Tools\android-sdk</InlineCode>
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto" src={`${imagePath}/sdk-tools-install.png`} />
           </li>
           <li>
@@ -80,7 +81,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
             <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/wireless-debug-info2.png`} />
           </li>
           <li>
-            開啟firefox，在搜尋列輸入<code>about:debugging</code>，可以看到已成功連線至手機
+            開啟firefox，在搜尋列輸入<InlineCode>about:debugging</InlineCode>，可以看到已成功連線至手機
             <ZoomImage className="w-lg-25 w-sm-50 mx-auto" src={`${imagePath}/firefox-debug-page.png`} />
           </li>
         </ol>

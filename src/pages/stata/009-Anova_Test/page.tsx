@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -14,10 +15,10 @@ export const Sections: SectionsProps = ({ imagePath }) => [
           <li>當只有兩組時，t 分配與Anova的結果是一樣的。即F test比T test更容易拒絕虛無假設，因為t test虛無假設之條件只有兩個，而f test的虛無假設之條件有多個。</li>
         </ol>
         <p>
-          <code>di invFtail(組間df, 組內df, CI)</code>
+          <InlineCode>di invFtail(組間df, 組內df, CI)</InlineCode>
         </p>
         <p>
-          <code>di Ftail(組間df, 組內df, F值)</code>
+          <InlineCode>di Ftail(組間df, 組內df, F值)</InlineCode>
         </p>
         <div className="my-2">
           <div className="text-bold text-large">範例1：不同班級的成績是否有影響</div>

@@ -1,4 +1,5 @@
 import { CodeChunk, DemoFrame } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -7,7 +8,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     content: (
       <>
         <p>
-          有趣的<code>box-shadow</code>用法
+          有趣的<InlineCode>box-shadow</InlineCode>用法
         </p>
         <DemoFrame html={`${demoPath}/frame1/hover-arrows.html`} cssHref={`${demoPath}/frame1/hover-arrows.min.css`} />
         <CodeChunk path={`${demoPath}/frame1/hover-arrows.scss`} lang="scss" />
@@ -20,7 +21,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     content: (
       <>
         <p>
-          <code>transition-delay</code>的應用
+          <InlineCode>transition-delay</InlineCode>的應用
         </p>
         <DemoFrame html={`${demoPath}/frame2/flexible-button.html`} cssHref={`${demoPath}/frame2/flexible-button.min.css`} />
         <CodeChunk path={`${demoPath}/frame2/flexible-button.scss`} lang="scss" />
@@ -33,7 +34,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     content: (
       <>
         <p>
-          <code>rotate</code>的應用
+          <InlineCode>rotate</InlineCode>的應用
         </p>
         <DemoFrame html={`${demoPath}/frame3/neon-btn.html`} cssHref={`${demoPath}/frame3/neon-btn.min.css`} />
         <CodeChunk path={`${demoPath}/frame3/neon-btn.scss`} lang="scss" />

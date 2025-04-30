@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
@@ -15,10 +16,10 @@ export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
           <li>
             設定ssh key
             <CodeChunk code='ssh-keygen -t rsa -C "misting401@gmail.com"' lang="bash" />
-            ssh key會被儲存於<code>C:\Users\user\.ssh\id_rsa.pub</code>
+            ssh key會被儲存於<InlineCode>C:\Users\user\.ssh\id_rsa.pub</InlineCode>
           </li>
           <li>
-            將<code>id_rsa.pub</code>中的內容全選並直接複製到<a href="https://github.com/settings/ssh/new">Key欄位</a>。
+            將<InlineCode>id_rsa.pub</InlineCode>中的內容全選並直接複製到<a href="https://github.com/settings/ssh/new">Key欄位</a>。
           </li>
           <li>
             確認是否成功
@@ -27,7 +28,7 @@ export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
         </ol>
         <ul>
           <li>
-            更改github密碼後，遠端倉庫網址會變更為https，並在每次進行<code>push</code>、<code>pull</code>等指令時要求輸入user.name、password，然而在今年（2021）git已經取消使用密碼進行推送的途徑，在密碼欄位須改為使用<a href="https://github.com/settings/tokens">Personal access token</a>作為密碼。此時使用以下指令即可改回SSH網址，不需再輸入用戶名與密碼。
+            更改github密碼後，遠端倉庫網址會變更為https，並在每次進行<InlineCode>push</InlineCode>、<InlineCode>pull</InlineCode>等指令時要求輸入user.name、password，然而在今年（2021）git已經取消使用密碼進行推送的途徑，在密碼欄位須改為使用<a href="https://github.com/settings/tokens">Personal access token</a>作為密碼。此時使用以下指令即可改回SSH網址，不需再輸入用戶名與密碼。
             <CodeChunk code="git remote set-url origin git@github.com:username/repository.git" lang="bash" />
             確認遠端倉庫網址
             <CodeChunk code="git remote -v" lang="bash" />
@@ -43,7 +44,7 @@ export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
         <ol>
           <li>創建新的ssh key</li>
           <li>
-            前往 <code>C:\Users\user\.ssh\config</code>，添加新的設定
+            前往 <InlineCode>C:\Users\user\.ssh\config</InlineCode>，添加新的設定
             <CodeChunk path={`${demoPath}/config.example`} />
           </li>
           <li>
@@ -68,17 +69,17 @@ export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
       <>
         <ul>
           <li>
-            <code>subtree</code>
+            <InlineCode>subtree</InlineCode>
             <CodeChunk code="git subtree add <prefix> <repo> <rev>" lang="bash" />
             <ul>
               <li>
-                <code>prefix</code>：要加入的子目錄
+                <InlineCode>prefix</InlineCode>：要加入的子目錄
               </li>
               <li>
-                <code>repo</code>：要加入的repo clone url
+                <InlineCode>repo</InlineCode>：要加入的repo clone url
               </li>
               <li>
-                <code>rev</code>：要加入的revision
+                <InlineCode>rev</InlineCode>：要加入的revision
               </li>
             </ul>
             example:
@@ -97,7 +98,7 @@ export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
           <CodeChunk code="D:\Tools\Git\bin\bash.exe" lang="bash" />
         </li>
         <li>
-          列出pack包裏最大的5個文件(自行替換<code>.idx</code>檔名)
+          列出pack包裏最大的5個文件(自行替換<InlineCode>.idx</InlineCode>檔名)
           <CodeChunk code="git verify-pack -v .git/objects/pack/pack-a2ac68d28ef70a111b4db707db5c7a6b77275871.idx | sort -k 3 -n | tail -5" lang="bash" />
           <ZoomImage className="col-xs-8 mx-auto" src={`${imagePath}/cmder-git-clean1.png`} />
         </li>

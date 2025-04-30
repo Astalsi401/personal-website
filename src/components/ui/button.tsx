@@ -13,7 +13,7 @@ export const CopyCode: React.FC<CopyCodeProps> = ({ action }) => {
     setTimeout(() => setActive(false), 2000);
   };
   return (
-    <a href="#" className={clsx("copy-btn d-block position-absolute text-code-text", isActive(active))} onClick={onClick}>
+    <a href="#" className={clsx("copy-btn pointer d-block position-absolute text-code-text", isActive(active))} onClick={onClick}>
       <Copy />
     </a>
   );

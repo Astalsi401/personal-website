@@ -1,4 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -45,7 +46,7 @@ export const Sections: SectionsProps = ({ imagePath }) => [
         <CodeChunk code={`. clear\n\n. set obs 100000\nnumber of observations (_N) was 0, now 100,000\n\n. set seed 1 \n\n. g grade = int(floor((101)*runiform()+0))\n\n. su grade, d\n\n                            grade\n-------------------------------------------------------------\n      Percentiles      Smallest\n 1%            0              0\n 5%            5              0\n10%           10              0       Obs             100,000\n25%           25              0       Sum of Wgt.     100,000\n\n50%           50                      Mean           50.10906\n                        Largest       Std. Dev.      29.11979\n75%           75            100\n90%           90            100       Variance       847.9622\n95%           95            100       Skewness      -.0053086\n99%           99            100       Kurtosis        1.80178`} lang="output" />
         <p>
           <b>
-            求70分者高於多少人?<code>zcalc X mean sd</code>
+            求70分者高於多少人?<InlineCode>zcalc X mean sd</InlineCode>
           </b>
         </p>
         <CodeChunk code={`zcalc 70 50.10906 29.11979\ndi 100000*(1-normal(.68))\n/*\ndi normal(.68) = .75174777  求出由-∞ 到Z=0.68的累積面積（機率）=75.17\ndi invnormal(.75174777) = .68  求出累積機率為0.75174777時的Z分數\n*/`} lang="stata" />

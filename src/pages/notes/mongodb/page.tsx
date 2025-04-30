@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -6,10 +7,10 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "Install (Ubuntu)",
     content: (
       <>
-        安裝<code>gnupg</code>、<code>curl</code>
+        安裝<InlineCode>gnupg</InlineCode>、<InlineCode>curl</InlineCode>
         <CodeChunk code="sudo apt-get install gnupg curl" lang="bash" />
         導入公鑰
-        <CodeChunk code={`curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \\\n   sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg \\\n   --dearmor`} lang="bash" />於<code>/etc/apt/sources.list.d/mongodb-org-8.0.list</code>創建列表文件
+        <CodeChunk code={`curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \\\n   sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg \\\n   --dearmor`} lang="bash" />於<InlineCode>/etc/apt/sources.list.d/mongodb-org-8.0.list</InlineCode>創建列表文件
         <ul>
           <li>
             Ubuntu 24.04 (Noble)
@@ -83,33 +84,33 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ul>
           <li>
-            <code>-h</code>：host，表示資料庫主機的IP位置或是電腦名稱
+            <InlineCode>-h</InlineCode>：host，表示資料庫主機的IP位置或是電腦名稱
           </li>
           <li>
-            <code>-u</code>：user，登入的帳號
+            <InlineCode>-u</InlineCode>：user，登入的帳號
           </li>
           <li>
-            <code>-p</code>：password，登入的密碼
+            <InlineCode>-p</InlineCode>：password，登入的密碼
           </li>
           <li>
-            <code>--port</code>：指定port號
+            <InlineCode>--port</InlineCode>：指定port號
           </li>
           <li>
-            <code>-d</code>：database，備份資料庫的名稱
+            <InlineCode>-d</InlineCode>：database，備份資料庫的名稱
           </li>
           <li>
-            <code>-c</code>：collection，指定備份某一個Collection
+            <InlineCode>-c</InlineCode>：collection，指定備份某一個Collection
           </li>
           <li>
-            <code>-o</code>：output備份輸出的磁碟位置(Folder Path)
+            <InlineCode>-o</InlineCode>：output備份輸出的磁碟位置(Folder Path)
           </li>
           <li>
-            <code>-q</code>：query，備份的過濾條件
+            <InlineCode>-q</InlineCode>：query，備份的過濾條件
           </li>
         </ul>
         範例：
         <CodeChunk code={"mongodump -h 127.0.0.1:27017 -d mydb -o ./backup"} lang="bash" />
-        <code>--authenticationDatabase admin</code>：身分驗證，添加用於驗證密碼的<code>admin</code>資料庫
+        <InlineCode>--authenticationDatabase admin</InlineCode>：身分驗證，添加用於驗證密碼的<InlineCode>admin</InlineCode>資料庫
         <CodeChunk code={"mongodump -u {user} -p {password} --authenticationDatabase admin -h 127.0.0.1:27017 -d mydb -o ./backup"} lang="bash" />
       </>
     ),
@@ -120,19 +121,19 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ul>
           <li>
-            <code>-h</code>：host，表示資料庫主機的IP位置或是電腦名稱
+            <InlineCode>-h</InlineCode>：host，表示資料庫主機的IP位置或是電腦名稱
           </li>
           <li>
-            <code>-u</code>：user，登入的帳號
+            <InlineCode>-u</InlineCode>：user，登入的帳號
           </li>
           <li>
-            <code>-p</code>：password，登入的密碼
+            <InlineCode>-p</InlineCode>：password，登入的密碼
           </li>
           <li>
-            <code>-d</code>：database
+            <InlineCode>-d</InlineCode>：database
           </li>
           <li>
-            <code>-c</code>：collection
+            <InlineCode>-c</InlineCode>：collection
           </li>
         </ul>
         範例：
@@ -161,7 +162,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
       <>
         <ul>
           <li>
-            根據同一個欄位(<code>_id</code>)的多個條件篩選資料，<code>array</code>可從其他<code>collections</code>抓取
+            根據同一個欄位(<InlineCode>_id</InlineCode>)的多個條件篩選資料，<InlineCode>array</InlineCode>可從其他<InlineCode>collections</InlineCode>抓取
             <CodeChunk code={`await model.find({ _id: { '$in': [ObjectId(1), ObjectId(2)] } })`} lang="js" />
           </li>
         </ul>

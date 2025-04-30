@@ -1,3 +1,4 @@
+import { InlineCode } from "@ui/InlineCode";
 import type { SectionsProps } from "@/types";
 
 const data = {
@@ -33,11 +34,11 @@ export const Sections: SectionsProps = () => [
       <>
         {data.css.map((d) => (
           <div key={d.prop} className="my-2">
-            <code>{d.prop}</code>
+            <InlineCode>{d.prop}</InlineCode>
             <ul>
               {d.values.map((v) => (
                 <li key={v.val}>
-                  <code>{v.val}</code>
+                  <InlineCode>{v.val}</InlineCode>
                   {v.des === "" ? "" : `：${v.des}`}
                 </li>
               ))}
