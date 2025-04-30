@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import store, { updateStore, RootState, useAppDispatch } from "@store";
+import { clsx } from "@functions";
 import type { BlockProps } from "@/types";
-import { clsx } from "../functions";
 
 export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, children }) => {
   const dispatch = useAppDispatch();
