@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Label } from "@/components";
+import { Label } from "@ui/label";
 
 export const Calculator: React.FC = () => {
   const [status, setStatus] = useState({ ratio: "", max: "", min: "", type: 0 });
