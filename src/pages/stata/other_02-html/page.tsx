@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "",
     content: <p>本頁將介紹兩種能將Stata執行結果加上文字說明輸出為html檔的方法。</p>,
@@ -54,5 +54,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-
-export default Sections;

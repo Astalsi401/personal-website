@@ -1,4 +1,4 @@
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 const data = {
   css: [
@@ -26,7 +26,7 @@ const data = {
   ],
 };
 
-const Sections: SectionsProps = () => [
+export const Sections: SectionsProps = () => [
   {
     title: "css",
     content: (
@@ -48,5 +48,3 @@ const Sections: SectionsProps = () => [
     ),
   },
 ];
-
-export default Sections;

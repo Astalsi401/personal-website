@@ -1,7 +1,7 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "專案架構",
     content: <CodeChunk path={`${demoPath}/py/readme.md`} lang="md" />,
@@ -39,4 +39,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     content: <CodeChunk path={`${demoPath}/py/ga4Api_main.py`} lang="py" />,
   },
 ];
-export default Sections;

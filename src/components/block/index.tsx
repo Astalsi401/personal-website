@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import store, { updateStore, RootState, useAppDispatch } from "@store";
-import type { BlockProps } from "@types";
+import type { BlockProps } from "@/types";
 import { clsx } from "../functions";
 
 export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, children }) => {

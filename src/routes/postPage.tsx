@@ -3,7 +3,7 @@ import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block, ImageGallary } from "@/components";
 import { clsx, isActive, titleToHash } from "@functions";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 export const PostPage: React.FC = () => {
   const dispatch = useAppDispatch();

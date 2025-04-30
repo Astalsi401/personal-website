@@ -1,7 +1,7 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "fetch獲取儲存於github的檔案",
     content: (
@@ -15,5 +15,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-
-export default Sections;

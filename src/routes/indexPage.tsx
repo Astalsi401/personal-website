@@ -3,7 +3,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import { updateStore, useAppDispatch } from "@store";
 import { isMyPage } from "@functions";
 import { Project } from "@/components";
-import type { Categories } from "@types";
+import type { Categories } from "@/types";
 
 export const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();

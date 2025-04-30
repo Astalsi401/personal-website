@@ -3,7 +3,7 @@ export type PostSection = {
   content: JSX.Element;
 };
 export type SectionsProps = (props: { imagePath: string; demoPath: string }) => PostSection[];
-export type Post = { default: SectionsProps };
+export type Post = { Sections: SectionsProps };
 export type Page = { page: string; href: string; thumbnail?: string; tags?: string[]; icon?: string };
 export type Categories = {
   category: string;

@@ -1,9 +1,9 @@
 import { ZoomImage } from "@/components";
 import { Calculator } from "./calculator";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 import data from "./data.json";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+export const Sections: SectionsProps = ({ imagePath }) => [
   {
     title: "",
     content: (
@@ -377,5 +377,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

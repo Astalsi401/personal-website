@@ -1,7 +1,7 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = () => [
+export const Sections: SectionsProps = () => [
   {
     title: "",
     content: <p>大多數剛匯入的資料並不適合直接分析，為了讓資料更符合符合我們的需求，需要對資料進行整理，以下介紹幾個整理資料經常用到的指令。</p>,
@@ -218,5 +218,3 @@ const Sections: SectionsProps = () => [
     ),
   },
 ];
-
-export default Sections;

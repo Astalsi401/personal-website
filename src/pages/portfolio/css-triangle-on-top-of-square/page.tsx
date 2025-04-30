@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "How to create a triangle on the top of a square?",
     content: (
@@ -24,4 +24,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-export default Sections;

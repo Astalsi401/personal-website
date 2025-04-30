@@ -1,5 +1,5 @@
 import { updateStore, useAppDispatch } from "@store";
-import type { HamburgerProps } from "@types";
+import type { HamburgerProps } from "@/types";
 import { clsx, isActive } from "@functions";
 
 export const Hamburger: React.FC<HamburgerProps> = ({ sidebarActive, btnRef }) => {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector } from "@store";
 import { clsx, getIndex, isActive, isMyPage } from "@functions";
 import { Search } from "@icons";
-import type { Page } from "@types";
+import type { Page } from "@/types";
 
 export const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();

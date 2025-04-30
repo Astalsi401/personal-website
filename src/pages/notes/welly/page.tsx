@@ -1,7 +1,7 @@
 import { CodeChunk, DemoFrame } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "1. JavaScript: 字串反轉",
     content: <CodeChunk path={`${demoPath}/question/01.js`} lang="js" />,
@@ -48,5 +48,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-
-export default Sections;

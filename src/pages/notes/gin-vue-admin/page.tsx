@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath, imagePath }) => [
+export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
   {
     title: "Gin Vue Admin 介紹",
     content: (
@@ -117,5 +117,3 @@ const Sections: SectionsProps = ({ demoPath, imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

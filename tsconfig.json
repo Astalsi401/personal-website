@@ -29,12 +29,12 @@
     "paths": {
       "@/*": ["./src/*"],
       "@store": ["./src/assets/store"],
-      "@types": ["./src/assets/types"],
       "@styles": ["./src/assets/styles"],
       "@icons": ["./src/components/icons"],
       "@ui/*": ["./src/components/ui/*"],
       "@functions": ["./src/components/functions"],
-      "@routes": ["./src/routes/routes"]
+      "@routes": ["./src/routes/routes"],
+      "@pages/*": ["./src/pages/*"]
     }
   }
 }

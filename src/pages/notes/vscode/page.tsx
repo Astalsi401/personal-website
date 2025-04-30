@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 const keys = {
   ctrl: "Ctrl",
@@ -188,7 +188,7 @@ const shortcuts = [
   },
 ];
 
-const Sections: SectionsProps = () =>
+export const Sections: SectionsProps = () =>
   shortcuts.map(({ title, shortcut }) => ({
     title,
     content: (
@@ -210,5 +210,3 @@ const Sections: SectionsProps = () =>
       </ul>
     ),
   }));
-
-export default Sections;

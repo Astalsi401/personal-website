@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { updateStore, useAppDispatch, useAppSelector, CurrentPostTitleType } from "@store";
 import { clsx, isActive, isMyPage, titleToHash } from "@functions";
-import { Categories, SidebarProps } from "@types";
+import { Categories, SidebarProps } from "@/types";
 
 export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
   const dispatch = useAppDispatch();

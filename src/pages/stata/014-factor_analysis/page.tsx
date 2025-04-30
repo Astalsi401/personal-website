@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+export const Sections: SectionsProps = ({ imagePath }) => [
   {
     title: "步驟",
     content: (
@@ -183,5 +183,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

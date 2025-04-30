@@ -1,7 +1,7 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = () => [
+export const Sections: SectionsProps = () => [
   {
     title: "packages management",
     content: (
@@ -24,5 +24,3 @@ const Sections: SectionsProps = () => [
     ),
   },
 ];
-
-export default Sections;

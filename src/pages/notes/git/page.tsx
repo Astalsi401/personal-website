@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ demoPath, imagePath }) => [
+export const Sections: SectionsProps = ({ demoPath, imagePath }) => [
   {
     title: "Git 基礎設定",
     content: (
@@ -126,5 +126,3 @@ const Sections: SectionsProps = ({ demoPath, imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

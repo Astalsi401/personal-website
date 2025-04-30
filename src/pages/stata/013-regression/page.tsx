@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+export const Sections: SectionsProps = ({ imagePath }) => [
   {
     title: "迴歸分析的意義",
     content: (
@@ -228,5 +228,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

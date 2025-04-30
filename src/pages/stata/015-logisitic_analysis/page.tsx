@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+export const Sections: SectionsProps = ({ imagePath }) => [
   {
     title: "Odds Ratio",
     content: (
@@ -142,5 +142,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
 ];
-
-export default Sections;

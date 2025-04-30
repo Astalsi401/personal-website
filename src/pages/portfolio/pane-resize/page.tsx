@@ -1,5 +1,5 @@
 import { CodeChunk, DemoFrame } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 const OPLink: React.FC<{ href: string }> = ({ href }) => (
   <>
@@ -9,7 +9,7 @@ const OPLink: React.FC<{ href: string }> = ({ href }) => (
     </a>
   </>
 );
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "How to add a panel, in Javascript, that resize vertically inside another panel?",
     content: (
@@ -33,5 +33,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-
-export default Sections;

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { clsx, isActive } from "@functions";
 import { imgGallaryHeight, updateStore, useAppDispatch, useAppSelector } from "@store";
-import type { ZoomImageProps } from "@types";
+import type { ZoomImageProps } from "@/types";
 
 export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt }) => {
   const dispatch = useAppDispatch();

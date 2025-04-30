@@ -1,6 +1,6 @@
 import { CodeChunk, DemoFrame } from "@/components";
 
-const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ demoPath }) => [
   {
     title: "",
     content: (
@@ -13,4 +13,3 @@ const Sections: SectionsProps = ({ demoPath }) => [
     ),
   },
 ];
-export default Sections;

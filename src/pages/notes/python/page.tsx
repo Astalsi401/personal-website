@@ -1,5 +1,5 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 const data = {
   table: [
@@ -38,7 +38,7 @@ const data = {
   ],
 };
 
-const Sections: SectionsProps = () => [
+export const Sections: SectionsProps = () => [
   {
     title: "pip",
     content: (
@@ -102,5 +102,3 @@ const Sections: SectionsProps = () => [
     ),
   },
 ];
-
-export default Sections;

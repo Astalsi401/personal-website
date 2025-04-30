@@ -1,7 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
-const Sections: SectionsProps = ({ imagePath }) => [
+export const Sections: SectionsProps = ({ imagePath }) => [
   {
     title: "安裝SDK Tools",
     content: (
@@ -99,4 +99,3 @@ const Sections: SectionsProps = ({ imagePath }) => [
     ),
   },
 ];
-export default Sections;

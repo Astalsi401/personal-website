@@ -1,5 +1,5 @@
 import { CodeChunk } from "@/components";
-import type { SectionsProps } from "@types";
+import type { SectionsProps } from "@/types";
 
 const shortCutTable = [
   { shortCut: "Ctrl+T", des: "新頁面" },
@@ -13,7 +13,7 @@ const shortCutTable = [
   { shortCut: "Win+Alt+P", des: "開啟設定視窗" },
 ];
 
-const Sections: SectionsProps = () => [
+export const Sections: SectionsProps = () => [
   {
     title: "安裝",
     content: (
@@ -101,5 +101,3 @@ const Sections: SectionsProps = () => [
     ),
   },
 ];
-
-export default Sections;
