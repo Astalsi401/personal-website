@@ -28,7 +28,7 @@
     },
     {
       "category": "R",
-      "href": "/R",
+      "href": "/r",
       "icon": "/assets/images/R.png",
       "pages": [
         { "page": "基礎操作與資料輸入", "href": "/001-data_input" },

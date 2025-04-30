@@ -12,7 +12,6 @@
 ::before,
 ::after {
   font-family: Microsoft JhengHei, sans-serif;
-  transition: background var(--time);
   line-height: 1.5em;
   &::-webkit-scrollbar {
     width: 5px;
