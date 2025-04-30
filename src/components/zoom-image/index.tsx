@@ -39,7 +39,7 @@ export const ZoomImage: React.FC<ZoomImageProps> = ({ id, className, src, alt })
   return (
     <>
       <div id={id && id} className={clsx("img-block", className ? className : "my-2", isActive(active))} onClick={zoom}>
-        <img ref={ref} className={clsx("w-100 position-relative", isActive((imgGalarySrc.match(src) || []).length > 0))} loading="lazy" src={src} alt={alt} style={imgSty} />
+        <img ref={ref} className={clsx("w-100 position-relative shadow-sm", isActive((imgGalarySrc.match(src) || []).length > 0))} loading="lazy" src={src} alt={alt} style={imgSty} />
       </div>
       {active && <div className="modal-bg position-fixed bg-white-600" style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties} onClick={zoom} />}
     </>

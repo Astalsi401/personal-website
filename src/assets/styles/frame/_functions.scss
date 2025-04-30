@@ -1,4 +1,4 @@
-@mixin builder($props, $style, $class-s, $class-e: "", $screen: "", $imp: true) {
+@mixin builder($props, $style, $class-s, $class-e: "", $screen: "", $imp: false) {
   $screen: if($screen == "", $screen, -$screen);
   .#{$class-s}#{$screen}#{$class-e} {
     @each $prop in $props {

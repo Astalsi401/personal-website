@@ -22,10 +22,6 @@ pre {
     }
   }
 }
-pre,
-code {
-  background: var(--code-bg);
-}
 code[class*="language-"],
 pre[class*="language-"] {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -40,6 +36,7 @@ pre,
 code {
   &.language-output {
     background: var(--gray-0) !important;
+    color: var(--main-text) !important;
   }
 }
 .copy-btn {

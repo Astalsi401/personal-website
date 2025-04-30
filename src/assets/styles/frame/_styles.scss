@@ -2,7 +2,7 @@
 /* color */
 @each $elem, $elem-value in $elements {
   @each $color, $color-value in map-get($theme-colors, light) {
-    @include builder($elem-value, var(--#{$color}), #{$elem}-#{$color});
+    @include builder($elem-value, var(--#{$color}), #{$elem}-#{$color}, $imp: false);
     @each $a, $a-value in $alpha {
       @include builder($elem-value, var(--#{$color}-#{$a}), #{$elem}-#{$color}-#{$a});
     }

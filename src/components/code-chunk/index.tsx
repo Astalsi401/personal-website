@@ -41,10 +41,10 @@ export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   }, []);
   useEffect(() => Prism.highlightAll(), [codeTxt]);
   return (
-    <pre className="my-2 p-2 pt-4 position-relative text-small">
+    <pre className="my-2 p-2 pt-4 position-relative text-small bg-code-bg">
       {fileName.length > 0 && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
       <CopyCode action={() => navigator.clipboard.writeText(codeTxt || "")} />
-      {loading ? <LoadingComponent /> : <code children={codeTxt} className={`lang-${lang} d-block overflow-auto py-0 px-1`} />}
+      {loading ? <LoadingComponent /> : <code children={codeTxt} className={`lang-${lang} d-block overflow-auto py-0 px-1 bg-code-bg`} />}
     </pre>
   );
 };

@@ -15,13 +15,13 @@ export const ImageGallary: React.FC = () => {
     <>
       {imgGalaryActive && (
         <div className="img-galary-show position-fixed" style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties}>
-          <img className="d-block w-100 h-100 object-fit-contain" src={imgGalarySrc} alt="" />
+          <img className="d-block w-100 h-100 object-fit-contain shadow bg-white" src={imgGalarySrc} alt="" />
         </div>
       )}
       <div className={clsx("img-galary position-fixed bg-white-600 d-flex flex-nowrap g-2 align-items-center overflow-auto", !imgGalaryActive && "d-none")} style={{ "--img-galary-height": `${imgGallaryHeight}px` } as React.CSSProperties}>
         {imgs.map((src) => (
           <div key={src} className="pointer ratio-16by9 flex-shrink-0" style={{ width: 150 }}>
-            <img className="d-block w-100 h-100 object-fit-contain" src={src} loading="lazy" onClick={() => handleClick(src)} />
+            <img className="d-block w-100 h-100 object-fit-contain shadow bg-white" src={src} loading="lazy" onClick={() => handleClick(src)} />
           </div>
         ))}
       </div>

@@ -46,7 +46,7 @@ code,
 kbd,
 pre,
 samp {
-  font-size: map-get($text-size, small);
+  font-size: map-get($text-size, small) !important;
 }
 :not(pre) > code {
   color: var(--code-text);

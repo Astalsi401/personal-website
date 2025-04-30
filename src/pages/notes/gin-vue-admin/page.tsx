@@ -1,5 +1,5 @@
 import { CodeChunk, ZoomImage } from "@/components";
-import { InlineCode } from "@ui/InlineCode";
+import { InlineCode } from "@ui/inline-code";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath, imagePath }) => [

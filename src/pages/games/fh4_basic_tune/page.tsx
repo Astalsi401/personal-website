@@ -1,5 +1,5 @@
 import { ZoomImage } from "@/components";
-import { InlineCode } from "@ui/InlineCode";
+import { InlineCode } from "@ui/inline-code";
 import { Calculator } from "./calculator";
 import type { SectionsProps } from "@/types";
 import data from "./data.json";
