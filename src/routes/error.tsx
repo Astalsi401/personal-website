@@ -5,7 +5,7 @@ export const ErrorPage: React.FC = () => {
   console.error(error);
   return (
     <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-      <div className="text-center">
+      <div className="text-center d-flex flex-column g-3">
         <div>
           <h1>Oops!</h1>
         </div>
