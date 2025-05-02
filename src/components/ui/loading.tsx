@@ -5,13 +5,11 @@ export const Loading: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return state === "loading" ? <LoadingAnimation /> : children;
 };
 
-export const LoadingComponent: React.FC<{ height?: number }> = ({ height = 50 }) => {
-  return (
-    <div className="position-relative" style={{ height, "--size": height * 0.4 } as React.CSSProperties}>
-      <LoadingAnimation />
-    </div>
-  );
-};
+export const LoadingComponent: React.FC<{ size?: number }> = ({ size = 50 }) => (
+  <div className="position-relative" style={{ height: size, "--size": size * 0.4, minWidth: size } as React.CSSProperties}>
+    <LoadingAnimation />
+  </div>
+);
 
 export const LoadingAnimation: React.FC = () => (
   <div className="loading position-absolute">

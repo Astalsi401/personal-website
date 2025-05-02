@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { getIndex, isMyPage } from "@functions";
 import { updateStore, useAppDispatch } from "@store";
 import { Tags } from "@ui/tags";
+import { LoadingComponent } from "@ui/loading";
 import type { Page } from "@/types";
 
 export const SearchResults: React.FC<{ searchString: string }> = ({ searchString }) => {
   const [re, setRe] = useState<RegExp>(new RegExp("", "i"));
-  const [inputTimer, setInputTimer] = useState<null | NodeJS.Timeout>(null);
   const [pages, setPages] = useState<Page[]>([]);
+  const [inputTimer, setInputTimer] = useState<null | NodeJS.Timeout>(null);
   const handleRegexp = () => {
     setInputTimer(null);
     setRe(
@@ -24,6 +25,7 @@ export const SearchResults: React.FC<{ searchString: string }> = ({ searchString
     );
   };
   const checkText = (elems: string[]) => re.test(elems.join(" ").replace(/\r|\n/g, ""));
+  const results = useMemo(() => pages.filter(({ page, tags }) => checkText([page, ...(tags || [])])), [re, pages]);
   useEffect(() => {
     (async () => setPages(await getIndex().then(({ index }) => index.map(({ pages, href, category }) => pages.map((page) => ({ ...page, href: isMyPage(page.href) ? `${import.meta.env.BASE_URL}${href}${page.href}` : page.href, tags: page.tags ? [category, ...page.tags] : [category] }))).flat())))();
   }, []);
@@ -31,7 +33,7 @@ export const SearchResults: React.FC<{ searchString: string }> = ({ searchString
     inputTimer && clearTimeout(inputTimer);
     setInputTimer(setTimeout(handleRegexp, 500));
   }, [searchString]);
-  return <div className="search-results w-100 w-lg-75 p-2 pt-0 mx-auto mt-4 overflow-auto">{re.source !== "(?:)" && pages.filter(({ page, tags }) => checkText(tags ? [page, ...tags] : [page])).map((page) => <SingleResult key={page.href} {...page} />)}</div>;
+  return <div className="search-results w-100 w-lg-75 p-2 pt-0 mx-auto mt-4 overflow-auto">{inputTimer ? <LoadingComponent size={80} /> : re.source !== "(?:)" && results.map((page) => <SingleResult key={page.href} {...page} />)}</div>;
 };
 
 const SingleResult: React.FC<Page> = ({ page, href, tags }) => {
