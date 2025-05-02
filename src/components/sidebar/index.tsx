@@ -48,8 +48,8 @@ const SidebarChild: React.FC<{ currentPostTitles: CurrentPostTitleType[]; childr
   <ul className={clsx("children", isActive(childrenActive))}>
     {currentPostTitles.map(({ title }) => (
       <li key={title}>
-        <a className="ps-4 py-2 d-block text-decoration-none" href={`#${titleToHash(title)}`}>
-          <span>{title}</span>
+        <a className="ps-4 py-2 d-block text-decoration-none position-relative" href={`#${titleToHash(title)}`}>
+          <span className="position-relative">{title}</span>
         </a>
       </li>
     ))}

@@ -22,7 +22,7 @@ export const Block: React.FC<BlockProps> = ({ className, title, titleClass, id, 
   return (
     <section className={clsx("my-4", className)}>
       {title && (
-        <h3 ref={ref} id={id} className={clsx("mt-3", titleClass)}>
+        <h3 ref={ref} id={id} className={clsx("mt-3 mb-1", titleClass)}>
           {title}
         </h3>
       )}
