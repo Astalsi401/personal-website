@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import store, { updateStore, useAppDispatch } from "@store";
 import { Search } from "@icons";
+import { Kbd } from "@ui/kbd";
 
 export const SearchBtn: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -28,8 +29,8 @@ export const SearchBtn: React.FC = () => {
       <div className="search-btn-container p-1 d-flex align-items-center w-100 rounded-1 bg-white text-primary-600 shadow-1">
         <Search width={15} height={15} />
         <div className="flex-grow-1 d-flex justify-content-center align-items-center">
-          <kbd className="my-0 text-x-small">Ctrl</kbd>
-          <kbd className="my-0 text-x-small">K</kbd>
+          <Kbd>Ctrl</Kbd>
+          <Kbd>K</Kbd>
         </div>
       </div>
     </div>
