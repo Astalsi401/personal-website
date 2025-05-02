@@ -51,7 +51,7 @@ samp {
   color: var(--code-text);
 }
 kbd {
-  box-shadow: 1px 1px 1px var(--main-text);
+  box-shadow: 1px 1px 3px var(--main-text);
 }
 ul,
 ol {
@@ -59,8 +59,7 @@ ol {
 }
 li {
   list-style-position: outside;
-  margin-top: var(--unit-1);
-  margin-bottom: var(--unit-1);
+  margin-block: var(--unit-1);
 }
 table {
   border-collapse: collapse;
