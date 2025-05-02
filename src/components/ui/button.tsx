@@ -24,3 +24,5 @@ export const HomePageLink: React.FC = () => (
     <Home />
   </Link>
 );
+
+export const Button: React.FC<{ children: React.ReactNode; className?: string; onClick?: () => void }> = ({ children, className }) => <button className={clsx("", className)}>{children}</button>;
