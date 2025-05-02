@@ -93,6 +93,10 @@ const shortcuts = [
         keys: [[keys.shift, keys.alt, "C"]],
       },
       {
+        name: "在檔案總管中開啟",
+        keys: [[keys.shift, keys.alt, "Q"]],
+      },
+      {
         name: "跳至工作區",
         keys: [[keys.ctrl, keys.shift, "E"]],
       },
