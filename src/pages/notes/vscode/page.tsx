@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Kbd } from "@ui/kbd";
+import { Li, Ul } from "@ui/list";
 import { shortcuts } from "./shortcuts";
 import type { SectionsProps } from "@/types";
 
@@ -7,9 +8,9 @@ export const Sections: SectionsProps = () =>
   shortcuts.map(({ title, shortcut }) => ({
     title,
     content: (
-      <ul>
+      <Ul>
         {shortcut.map((li) => (
-          <li key={li.name}>
+          <Li key={li.name}>
             {li.name}：
             {li.keys.map((keys) =>
               keys
@@ -20,8 +21,8 @@ export const Sections: SectionsProps = () =>
                   </Fragment>
                 ))
             )}
-          </li>
+          </Li>
         ))}
-      </ul>
+      </Ul>
     ),
   }));

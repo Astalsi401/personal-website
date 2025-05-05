@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Label } from "@ui/label";
+import { Label } from "@ui/form";
 
 type CalculatorStatus = {
   bh: string;
@@ -49,7 +49,7 @@ const InputLabel: React.FC<InputLabelProps> = ({ name, status, whp }) => (
   <>
     {/b\w$/.test(name) && <div className="col-2 p-1 d-flex align-items-center text-bold">{/\ww$/.test(name) ? "重量" : "馬力"}</div>}
     <div key={name} className="col-5 p-1 d-flex align-items-center">
-      <Label name={name} type="number" placeholder={/\ww$/.test(name) ? "kg" : "hp"} value={status[name]} fuc={whp} />
+      <Label name={name} type="number" placeholder={/\ww$/.test(name) ? "kg" : "hp"} value={status[name]} onChange={whp} />
     </div>
   </>
 );

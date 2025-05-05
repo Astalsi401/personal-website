@@ -38,17 +38,6 @@ export type HamburgerProps = {
   sidebarActive: boolean;
   btnRef: React.RefObject<HTMLAnchorElement>;
 };
-export type LabelProps = {
-  label?: string;
-  name?: string;
-  type?: string;
-  step?: string;
-  min?: string;
-  max?: string;
-  placeholder?: string;
-  value?: string;
-  fuc?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
 export type SidebarProps = { wrapperRef: React.RefObject<HTMLElement> };
 export type ZoomImageProps = {
   id?: string;

@@ -27,14 +27,14 @@
 
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
       "@store": ["./src/assets/store"],
       "@styles": ["./src/assets/styles"],
       "@icons": ["./src/components/icons"],
-      "@ui/*": ["./src/components/ui/*"],
       "@functions": ["./src/components/functions"],
       "@routes": ["./src/routes/routes"],
-      "@pages/*": ["./src/pages/*"]
+      "@ui/*": ["./src/components/ui/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@/*": ["./src/*"]
     }
   }
 }

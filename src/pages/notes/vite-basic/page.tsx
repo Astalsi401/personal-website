@@ -1,5 +1,7 @@
 import { CodeChunk } from "@/components";
 import { InlineCode } from "@ui/inline-code";
+import { Subsection, SubsectionTitle } from "@ui/subsection";
+import { Li, Ul } from "@ui/list";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
@@ -18,42 +20,42 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "Git Page",
     content: (
       <>
-        <div>
+        <Subsection>
           vite官方文件：
           <a href="https://vitejs.dev/guide/static-deploy.html#github-pages" target="_blank">
             https://vitejs.dev/guide/static-deploy.html#github-pages
           </a>
-        </div>
-        <div>
+        </Subsection>
+        <Subsection>
           修改<InlineCode>vite.config.js</InlineCode>中的<InlineCode>base</InlineCode>為github專案名稱
           <CodeChunk path={`${demoPath}/vite.config.example.js`} lang="js" />
-        </div>
-        <div>
+        </Subsection>
+        <Subsection>
           在<InlineCode>package.json</InlineCode>中新增<InlineCode>homepage</InlineCode>
           <CodeChunk code={`{\n  "homepage": "https://<username>.github.io/<project-name>",\n  ...\n}\n`} lang="json" />
-        </div>
-        <div>
+        </Subsection>
+        <Subsection>
           新增以下內容至<InlineCode>./.github/workflows/deploy.yml</InlineCode>
           <CodeChunk path={`${demoPath}/deploy.yml`} lang="yml" />
-        </div>
-        <div>
+        </Subsection>
+        <Subsection>
           建立<InlineCode>.env</InlineCode>並新增以下內容
           <CodeChunk code={"BASE_URL=."} />
           在components中可用以下方式使用<InlineCode>BASE_URL</InlineCode>修正圖片連結在local的預覽問題(圖片放置於public)
           <CodeChunk code={"<img src={`${import.meta.env.BASE_URL}${image-path}`} />"} lang="jsx" />
-        </div>
-        <div>將專案推送至github</div>
-        <div>
+        </Subsection>
+        <Subsection>
+          <SubsectionTitle>將專案推送至github</SubsectionTitle>
           進入github專案
-          <ul>
-            <li>
+          <Ul>
+            <Li>
               <InlineCode>Settings&gt;Actions&gt;General&gt;Workflow permissions</InlineCode>，勾選<InlineCode>Read and write permissions</InlineCode>
-            </li>
-            <li>
+            </Li>
+            <Li>
               <InlineCode>Settings&gt;Pages&gt;Build and deployment&gt;Branch</InlineCode>，選取<InlineCode>Github Actions</InlineCode>
-            </li>
-          </ul>
-        </div>
+            </Li>
+          </Ul>
+        </Subsection>
       </>
     ),
   },
@@ -61,18 +63,18 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "typescript path alias",
     content: (
       <>
-        <div>
+        <Subsection>
           安裝<InlineCode>path</InlineCode>、<InlineCode>@types/node</InlineCode>
           <CodeChunk code={"npm i -D path @types/node"} />
-        </div>
-        <div>
-          新增以下內容至<InlineCode>tsconfig.json</InlineCode>
+        </Subsection>
+        <Subsection>
+          新增以下內容至<InlineCode>tsconfig.json</InlineCode>，實際路徑請依需求更改
           <CodeChunk path={`${demoPath}/tsconfig.example.json`} lang="json" />
-        </div>
-        <div>
-          將<InlineCode>vite.config.ts</InlineCode>修改如下
+        </Subsection>
+        <Subsection>
+          依據<InlineCode>tsconfig.json</InlineCode>中的路徑修改<InlineCode>vite.config.ts</InlineCode>
           <CodeChunk path={`${demoPath}/vite.config.alias.example.ts`} lang="ts" />
-        </div>
+        </Subsection>
       </>
     ),
   },
