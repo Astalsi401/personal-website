@@ -1,5 +1,7 @@
 import { CodeChunk } from "@/components";
 import { InlineCode } from "@ui/inline-code";
+import { P } from "@ui/paragraph";
+import { Li, Ul } from "@ui/list";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -7,15 +9,15 @@ export const Sections: SectionsProps = () => [
     title: "",
     content: (
       <>
-        <p>更改工作資料夾</p>
+        <P>更改工作資料夾</P>
         <CodeChunk code={`setwd("D:/Documents/R/sna/week02")`} lang="r" />
-        <p>確認工作資料夾</p>
+        <P>確認工作資料夾</P>
         <CodeChunk code={`getwd()`} lang="r" />
         <CodeChunk code={`## [1] "D:/Documents/R/site"`} lang="output" />
-        <p>列出工作資料夾內的檔案</p>
+        <P>列出工作資料夾內的檔案</P>
         <CodeChunk code={`list.files()`} lang="r" />
         <CodeChunk code={`## [1] "01.Rmd"`} lang="output" />
-        <p>清空記憶體</p>
+        <P>清空記憶體</P>
         <CodeChunk code={`rm(list = ls())`} lang="r" />
       </>
     ),
@@ -24,23 +26,23 @@ export const Sections: SectionsProps = () => [
     title: "R的符號",
     content: (
       <>
-        <ul>
-          <li>
-            <p>
+        <Ul>
+          <Li>
+            <P>
               <InlineCode>&lt;-</InlineCode>：賦值符號
-            </p>
-          </li>
-          <li>
-            <p>
+            </P>
+          </Li>
+          <Li>
+            <P>
               <InlineCode>==</InlineCode>：等於
-            </p>
-          </li>
-          <li>
-            <p>
+            </P>
+          </Li>
+          <Li>
+            <P>
               <InlineCode>#</InlineCode>：加上註解
-            </p>
-          </li>
-        </ul>
+            </P>
+          </Li>
+        </Ul>
       </>
     ),
   },
@@ -48,10 +50,10 @@ export const Sections: SectionsProps = () => [
     title: "資料輸入",
     content: (
       <>
-        <p>建立變項a=30</p>
+        <P>建立變項a=30</P>
         <CodeChunk code={`a <- 30\na`} lang="r" />
         <CodeChunk code={`## [1] 30`} lang="output" />
-        <p>變項計算</p>
+        <P>變項計算</P>
         <CodeChunk code={`a+10`} lang="r" />
         <CodeChunk code={`## [1] 40`} lang="output" />
         <CodeChunk code={`a/10`} lang="r" />
@@ -62,7 +64,7 @@ export const Sections: SectionsProps = () => [
         <CodeChunk code={`## [1] 5.477226`} lang="output" />
         <CodeChunk code={`d <- sqrt(a);d  #也可以寫在同一行`} lang="r" />
         <CodeChunk code={`## [1] 5.477226`} lang="output" />
-        <p>讓R進行判斷</p>
+        <P>讓R進行判斷</P>
         <CodeChunk code={`d==a`} lang="r" />
         <CodeChunk code={`## [1] FALSE`} lang="output" />
         <CodeChunk code={`d!=a`} lang="r" />
@@ -71,7 +73,7 @@ export const Sections: SectionsProps = () => [
         <CodeChunk code={`## [1] TRUE`} lang="output" />
         <CodeChunk code={`d>a`} lang="r" />
         <CodeChunk code={`## [1] FALSE`} lang="output" />
-        <p>列出變項與移除物件</p>
+        <P>列出變項與移除物件</P>
         <CodeChunk code={`ls()   #列出當前的變項`} lang="r" />
         <CodeChunk code={`## [1] "a" "d"`} lang="output" />
         <CodeChunk code={`rm(d);ls()   #移除變項d, 並列出剩餘變項`} lang="r" />
@@ -85,10 +87,10 @@ export const Sections: SectionsProps = () => [
     title: "矩陣",
     content: (
       <>
-        <p>建立名為mat的矩陣，內容物為1~36，row=6，column=6</p>
+        <P>建立名為mat的矩陣，內容物為1~36，row=6，column=6</P>
         <CodeChunk code={`mat <- matrix(1:36, nr=6, ncol=6); mat`} lang="r" />
         <CodeChunk code={`##      [,1] [,2] [,3] [,4] [,5] [,6]\n## [1,]    1    7   13   19   25   31\n## [2,]    2    8   14   20   26   32\n## [3,]    3    9   15   21   27   33\n## [4,]    4   10   16   22   28   34\n## [5,]    5   11   17   23   29   35\n## [6,]    6   12   18   24   30   36`} lang="output" />
-        <p>分別列出矩陣中的數字</p>
+        <P>分別列出矩陣中的數字</P>
         <CodeChunk code={`mat[1,]  #row=1`} lang="r" />
         <CodeChunk code={`## [1]  1  7 13 19 25 31`} lang="output" />
         <CodeChunk code={`mat[,1]  #column=1`} lang="r" />
@@ -99,10 +101,10 @@ export const Sections: SectionsProps = () => [
         <CodeChunk code={`##      [,1] [,2] [,3] [,4] [,5] [,6]\n## [1,]    1    7   13   19   25   31\n## [2,]    2    8   14   20   26   32\n## [3,]    3    9   15   21   27   33`} lang="output" />
         <CodeChunk code={`mat[1:3,1:3]  #row=1~3, column=1~3`} lang="r" />
         <CodeChunk code={`##      [,1] [,2] [,3]\n## [1,]    1    7   13\n## [2,]    2    8   14\n## [3,]    3    9   15`} lang="output" />
-        <p>矩陣轉置</p>
+        <P>矩陣轉置</P>
         <CodeChunk code={`t(mat)`} lang="r" />
         <CodeChunk code={`##      [,1] [,2] [,3] [,4] [,5] [,6]\n## [1,]    1    2    3    4    5    6\n## [2,]    7    8    9   10   11   12\n## [3,]   13   14   15   16   17   18\n## [4,]   19   20   21   22   23   24\n## [5,]   25   26   27   28   29   30\n## [6,]   31   32   33   34   35   36`} lang="output" />
-        <p>其他矩陣功能</p>
+        <P>其他矩陣功能</P>
         <CodeChunk code={`mat2 <- cbind(1:10,21:30); mat2  #以column排序(預設)`} lang="r" />
         <CodeChunk code={`##       [,1] [,2]\n##  [1,]    1   21\n##  [2,]    2   22\n##  [3,]    3   23\n##  [4,]    4   24\n##  [5,]    5   25\n##  [6,]    6   26\n##  [7,]    7   27\n##  [8,]    8   28\n##  [9,]    9   29\n## [10,]   10   30`} lang="output" />
         <CodeChunk code={`mat3 <- rbind(1:10,21:30); mat3  #以row排序`} lang="r" />

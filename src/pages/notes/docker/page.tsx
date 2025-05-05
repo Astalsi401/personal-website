@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import { CodeChunk } from "@/components";
 import { InlineCode } from "@ui/inline-code";
 import type { SectionsProps } from "@/types";
-import { Link } from "react-router-dom";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
   {

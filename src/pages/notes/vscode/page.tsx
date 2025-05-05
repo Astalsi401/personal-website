@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import type { SectionsProps } from "@/types";
 import { Kbd } from "@ui/kbd";
 import { shortcuts } from "./shortcuts";
+import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () =>
   shortcuts.map(({ title, shortcut }) => ({

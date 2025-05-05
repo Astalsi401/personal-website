@@ -1,4 +1,7 @@
 import { CodeChunk, ZoomImage } from "@/components";
+import { Li, Ul } from "@ui/list";
+import { P } from "@ui/paragraph";
+import { Table, Td, Th } from "@ui/table";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
@@ -6,325 +9,325 @@ export const Sections: SectionsProps = ({ imagePath }) => [
     title: "網絡資料的格式",
     content: (
       <>
-        <p>
+        <P>
           <b>無方向性（Undirected, Binary）</b>
-        </p>
+        </P>
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_1.png`} />
-        <table className="mx-auto">
+        <Table>
           <caption>Adjacency List</caption>
           <thead>
             <tr>
-              <th>ego</th>
-              <th>alter1</th>
-              <th>alter2</th>
-              <th>alter3</th>
+              <Th>ego</Th>
+              <Th>alter1</Th>
+              <Th>alter2</Th>
+              <Th>alter3</Th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>a</td>
-              <td>b</td>
-              <td>.</td>
-              <td>.</td>
+              <Td>a</Td>
+              <Td>b</Td>
+              <Td>.</Td>
+              <Td>.</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>a</td>
-              <td>c</td>
-              <td>.</td>
+              <Td>b</Td>
+              <Td>a</Td>
+              <Td>c</Td>
+              <Td>.</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>b</td>
-              <td>d</td>
-              <td>e</td>
+              <Td>c</Td>
+              <Td>b</Td>
+              <Td>d</Td>
+              <Td>e</Td>
             </tr>
             <tr>
-              <td>d</td>
-              <td>c</td>
-              <td>e</td>
-              <td>.</td>
+              <Td>d</Td>
+              <Td>c</Td>
+              <Td>e</Td>
+              <Td>.</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>c</td>
-              <td>d</td>
-              <td>.</td>
+              <Td>e</Td>
+              <Td>c</Td>
+              <Td>d</Td>
+              <Td>.</Td>
             </tr>
           </tbody>
-        </table>
-        <table className="mx-auto">
+        </Table>
+        <Table>
           <caption>Matrices</caption>
           <tbody>
             <tr>
-              <th>.</th>
-              <th>a</th>
-              <th>b</th>
-              <th>c</th>
-              <th>d</th>
-              <th>e</th>
+              <Th>.</Th>
+              <Th>a</Th>
+              <Th>b</Th>
+              <Th>c</Th>
+              <Th>d</Th>
+              <Th>e</Th>
             </tr>
             <tr>
-              <th>a</th>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <Th>a</Th>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
             </tr>
             <tr>
-              <th>b</th>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
+              <Th>b</Th>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>0</Td>
             </tr>
             <tr>
-              <th>c</th>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
+              <Th>c</Th>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <th>d</th>
-              <td>0</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
+              <Th>d</Th>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <th>e</th>
-              <td>0</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
+              <Th>e</Th>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>1</Td>
+              <Td>0</Td>
             </tr>
           </tbody>
-        </table>
-        <table className="mx-auto">
+        </Table>
+        <Table>
           <caption>Arc List</caption>
           <tbody>
             <tr>
-              <th>vertex</th>
-              <th>vertex</th>
+              <Th>vertex</Th>
+              <Th>vertex</Th>
             </tr>
             <tr>
-              <td>a</td>
-              <td>b</td>
+              <Td>a</Td>
+              <Td>b</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>a</td>
+              <Td>b</Td>
+              <Td>a</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>c</td>
+              <Td>b</Td>
+              <Td>c</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>b</td>
+              <Td>c</Td>
+              <Td>b</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>d</td>
+              <Td>c</Td>
+              <Td>d</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>e</td>
+              <Td>c</Td>
+              <Td>e</Td>
             </tr>
             <tr>
-              <td>d</td>
-              <td>c</td>
+              <Td>d</Td>
+              <Td>c</Td>
             </tr>
             <tr>
-              <td>d</td>
-              <td>e</td>
+              <Td>d</Td>
+              <Td>e</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>c</td>
+              <Td>e</Td>
+              <Td>c</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>d</td>
+              <Td>e</Td>
+              <Td>d</Td>
             </tr>
           </tbody>
-        </table>
-        <p>
+        </Table>
+        <P>
           <b>有方向性（Directed, Binary）</b>
-        </p>
+        </P>
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_2.png`} />
-        <table className="mx-auto">
+        <Table>
           <caption>Matrices</caption>
           <tbody>
             <tr>
-              <th>.</th>
-              <th>a</th>
-              <th>b</th>
-              <th>c</th>
-              <th>d</th>
-              <th>e</th>
+              <Th>.</Th>
+              <Th>a</Th>
+              <Th>b</Th>
+              <Th>c</Th>
+              <Th>d</Th>
+              <Th>e</Th>
             </tr>
             <tr>
-              <th>a</th>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <Th>a</Th>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
             </tr>
             <tr>
-              <th>b</th>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <Th>b</Th>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
             </tr>
             <tr>
-              <th>c</th>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
+              <Th>c</Th>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <th>d</th>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <Th>d</Th>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>0</Td>
             </tr>
             <tr>
-              <th>e</th>
-              <td>0</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
+              <Th>e</Th>
+              <Td>0</Td>
+              <Td>0</Td>
+              <Td>1</Td>
+              <Td>1</Td>
+              <Td>0</Td>
             </tr>
           </tbody>
-        </table>
-        <p>
+        </Table>
+        <P>
           <b>無方向性，有強弱差異（Undirected, Valued）</b>
-        </p>
+        </P>
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_3.png`} />
-        <table className="mx-auto">
+        <Table>
           <caption>Edgelist</caption>
           <tbody>
             <tr>
-              <th>ego</th>
-              <th>alter</th>
-              <th>relation</th>
+              <Th>ego</Th>
+              <Th>alter</Th>
+              <Th>relation</Th>
             </tr>
             <tr>
-              <td>a</td>
-              <td>b</td>
-              <td>1</td>
+              <Td>a</Td>
+              <Td>b</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>a</td>
-              <td>1</td>
+              <Td>b</Td>
+              <Td>a</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>c</td>
-              <td>3</td>
+              <Td>b</Td>
+              <Td>c</Td>
+              <Td>3</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>b</td>
-              <td>3</td>
+              <Td>c</Td>
+              <Td>b</Td>
+              <Td>3</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>d</td>
-              <td>1</td>
+              <Td>c</Td>
+              <Td>d</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>e</td>
-              <td>4</td>
+              <Td>c</Td>
+              <Td>e</Td>
+              <Td>4</Td>
             </tr>
             <tr>
-              <td>d</td>
-              <td>c</td>
-              <td>1</td>
+              <Td>d</Td>
+              <Td>c</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>d</td>
-              <td>e</td>
-              <td>2</td>
+              <Td>d</Td>
+              <Td>e</Td>
+              <Td>2</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>c</td>
-              <td>4</td>
+              <Td>e</Td>
+              <Td>c</Td>
+              <Td>4</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>d</td>
-              <td>2</td>
+              <Td>e</Td>
+              <Td>d</Td>
+              <Td>2</Td>
             </tr>
           </tbody>
-        </table>
-        <p>
+        </Table>
+        <P>
           <b>有方向性，有強弱差異（Directed, Valued）</b>
-        </p>
+        </P>
         <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_4.png`} />
-        <table className="mx-auto">
+        <Table>
           <caption>Edgelist</caption>
           <tbody>
             <tr>
-              <th>ego</th>
-              <th>alter</th>
-              <th>relation</th>
+              <Th>ego</Th>
+              <Th>alter</Th>
+              <Th>relation</Th>
             </tr>
             <tr>
-              <td>a</td>
-              <td>b</td>
-              <td>2</td>
+              <Td>a</Td>
+              <Td>b</Td>
+              <Td>2</Td>
             </tr>
             <tr>
-              <td>b</td>
-              <td>a</td>
-              <td>1</td>
+              <Td>b</Td>
+              <Td>a</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>b</td>
-              <td>1</td>
+              <Td>c</Td>
+              <Td>b</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>d</td>
-              <td>1</td>
+              <Td>c</Td>
+              <Td>d</Td>
+              <Td>1</Td>
             </tr>
             <tr>
-              <td>c</td>
-              <td>e</td>
-              <td>3</td>
+              <Td>c</Td>
+              <Td>e</Td>
+              <Td>3</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>d</td>
-              <td>3</td>
+              <Td>e</Td>
+              <Td>d</Td>
+              <Td>3</Td>
             </tr>
             <tr>
-              <td>e</td>
-              <td>c</td>
-              <td>2</td>
+              <Td>e</Td>
+              <Td>c</Td>
+              <Td>2</Td>
             </tr>
           </tbody>
-        </table>
+        </Table>
       </>
     ),
   },
@@ -332,142 +335,142 @@ export const Sections: SectionsProps = ({ imagePath }) => [
     title: "網絡分析基本概念",
     content: (
       <>
-        <ul>
-          <li>
+        <Ul>
+          <Li>
             相通性（Reachability）：
             <ZoomImage className="w-lg-25 w-sm-50 mx-auto img-invert" src={`${imagePath}/r003_5.png`} />
-            <p>
+            <P>
               X<sup>n</sup>=在n步之內，有多少條路徑可連回actors
               <br />
               可利用矩陣次方進行計算
               <br />
-            </p>
+            </P>
             <CodeChunk code={`X <- matrix(c(0,1,0,0,0,1,\n  1,0,1,0,0,0,\n  0,1,0,1,1,1,\n  0,0,1,0,1,0,\n  0,0,1,1,0,0,\n  1,0,1,0,0,0), 6, byrow = T)\nX`} lang="r" />
             <CodeChunk code={`##      [,1] [,2] [,3] [,4] [,5] [,6]\n## [1,]    0    1    0    0    0    1\n## [2,]    1    0    1    0    0    0\n## [3,]    0    1    0    1    1    1\n## [4,]    0    0    1    0    1    0\n## [5,]    0    0    1    1    0    0\n## [6,]    1    0    1    0    0    0`} lang="output" />
             <CodeChunk code={`X2 <- X %^% 2\n# 例：在兩步之內能連結到a的有\n# a-b-a\n# a-f-a\n# c-b-a\n# c-f-a\n# 因此[a,a]=2 [a,c]=2\nX2`} lang="r" />
             <CodeChunk code={`##      [,1] [,2] [,3] [,4] [,5] [,6]\n## [1,]    2    0    2    0    0    0\n## [2,]    0    2    0    1    1    2\n## [3,]    2    0    4    1    1    0\n## [4,]    0    1    1    2    1    1\n## [5,]    0    1    1    1    2    1\n## [6,]    0    2    0    1    1    2`} lang="output" />
-          </li>
-          <li>Degree：與其他actors的直接連結數目</li>
-          <li>In-degree：從其他actors接收的連結</li>
-          <li>
+          </Li>
+          <Li>Degree：與其他actors的直接連結數目</Li>
+          <Li>In-degree：從其他actors接收的連結</Li>
+          <Li>
             Out-degree：發送給其他actors的連結
             <ZoomImage className="w-lg-50 w-sm-75 mx-auto img-invert" src={`${imagePath}/r003_6.png`} />
-            <table className="mx-auto">
+            <Table>
               <tbody>
                 <tr>
-                  <th>.</th>
-                  <th>a</th>
-                  <th>b</th>
-                  <th>c</th>
-                  <th>d</th>
-                  <th>e</th>
+                  <Th>.</Th>
+                  <Th>a</Th>
+                  <Th>b</Th>
+                  <Th>c</Th>
+                  <Th>d</Th>
+                  <Th>e</Th>
                 </tr>
                 <tr>
-                  <th>a</th>
-                  <td>0</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <Th>a</Th>
+                  <Td>0</Td>
+                  <Td>1</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
                 </tr>
                 <tr>
-                  <th>b</th>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <Th>b</Th>
+                  <Td>1</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
                 </tr>
                 <tr>
-                  <th>c</th>
-                  <td>0</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <Th>c</Th>
+                  <Td>0</Td>
+                  <Td>1</Td>
+                  <Td>0</Td>
+                  <Td>1</Td>
+                  <Td>1</Td>
                 </tr>
                 <tr>
-                  <th>d</th>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <Th>d</Th>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>0</Td>
                 </tr>
                 <tr>
-                  <th>e</th>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>0</td>
+                  <Th>e</Th>
+                  <Td>0</Td>
+                  <Td>0</Td>
+                  <Td>1</Td>
+                  <Td>1</Td>
+                  <Td>0</Td>
                 </tr>
               </tbody>
-            </table>
-            <table className="mx-auto">
+            </Table>
+            <Table>
               <tbody>
                 <tr>
-                  <th>Node</th>
-                  <th>In-Degree</th>
-                  <th>Out-Degree</th>
+                  <Th>Node</Th>
+                  <Th>In-Degree</Th>
+                  <Th>Out-Degree</Th>
                 </tr>
                 <tr>
-                  <td>a</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <Td>a</Td>
+                  <Td>1</Td>
+                  <Td>1</Td>
                 </tr>
                 <tr>
-                  <td>b</td>
-                  <td>2</td>
-                  <td>1</td>
+                  <Td>b</Td>
+                  <Td>2</Td>
+                  <Td>1</Td>
                 </tr>
                 <tr>
-                  <td>c</td>
-                  <td>1</td>
-                  <td>3</td>
+                  <Td>c</Td>
+                  <Td>1</Td>
+                  <Td>3</Td>
                 </tr>
                 <tr>
-                  <td>d</td>
-                  <td>2</td>
-                  <td>0</td>
+                  <Td>d</Td>
+                  <Td>2</Td>
+                  <Td>0</Td>
                 </tr>
                 <tr>
-                  <td>e</td>
-                  <td>1</td>
-                  <td>2</td>
+                  <Td>e</Td>
+                  <Td>1</Td>
+                  <Td>2</Td>
                 </tr>
                 <tr>
-                  <td>Mean</td>
-                  <td>7/5</td>
-                  <td>7/5</td>
+                  <Td>Mean</Td>
+                  <Td>7/5</Td>
+                  <Td>7/5</Td>
                 </tr>
               </tbody>
-            </table>
-          </li>
-          <li>
+            </Table>
+          </Li>
+          <Li>
             度中心性（Degree Centrality）：能連結到的數量 / 總數-1
             <img className="d-block mx-auto img-invert" src={`${imagePath}/degree_centrality.svg`} alt="degree_centrality" />
-            <p>
+            <P>
               <i>
                 A<sub>ij</sub>
               </i>{" "}
               = socio-matrix
-            </p>
-          </li>
-          <li>
+            </P>
+          </Li>
+          <Li>
             接近中心性（Closeness Centrality）：與其他actors的鄰近程度
             <img className="d-block mx-auto img-invert" src={`${imagePath}/closeness_centrality.svg`} alt="closeness_centrality" />
-            <p>
+            <P>
               <i>
                 d<sub>ij</sub>
               </i>{" "}
               = 到每個actors的距離
-            </p>
-          </li>
-          <li>
+            </P>
+          </Li>
+          <Li>
             界數中心性（Betweenness Centrality）：兩actors經過第三actor的最短路徑數
             <img className="d-block mx-auto img-invert" src={`${imagePath}/betweenness_centrality.svg`} alt="betweenness_centrality" />
-            <p>
+            <P>
               <i>
                 G<sub>jk</sub>
               </i>{" "}
@@ -478,19 +481,19 @@ export const Sections: SectionsProps = ({ imagePath }) => [
               </i>{" "}
               = jk之間，經過i的最短路徑
               <br />
-            </p>
-          </li>
-          <li>
+            </P>
+          </Li>
+          <Li>
             網絡密度（Density）：
             <img className="d-block mx-auto img-invert" src={`${imagePath}/density.svg`} alt="density" />
-            <p>
+            <P>
               實際存在的路徑數/最多可能路徑數
               <br />
               <i>N</i> = actors數量
               <br />
-            </p>
-          </li>
-        </ul>
+            </P>
+          </Li>
+        </Ul>
       </>
     ),
   },

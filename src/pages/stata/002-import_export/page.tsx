@@ -88,12 +88,14 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
     title: "資料檔匯出",
     content: (
       <>
-        <P>
-          <InlineCode>sysuse auto, clear</InlineCode>清除上一筆資料，使用stata內建，名為auto的資料
-        </P>
-        <P>查看資料中的變項。</P>
-        <CodeChunk code={`sysuse auto, clear\ndes\ncd data`} lang="stata" />
-        <CodeChunk path={`${demoPath}/des.result`} lang="output" />
+        <Subsection>
+          <P>
+            <InlineCode>sysuse auto, clear</InlineCode>清除上一筆資料，使用stata內建，名為auto的資料
+          </P>
+          <P>查看資料中的變項。</P>
+          <CodeChunk code={`sysuse auto, clear\ndes\ncd data`} lang="stata" />
+          <CodeChunk path={`${demoPath}/des.result`} lang="output" />
+        </Subsection>
         <Subsection>
           <SubsectionTitle>匯出csv</SubsectionTitle>
           <P>
@@ -152,7 +154,9 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
     title: "資料檔合併",
     content: (
       <>
-        <P>以下將介紹兩種資料合併的方法：</P>
+        <Subsection>
+          <P>以下將介紹兩種資料合併的方法：</P>
+        </Subsection>
         <Subsection>
           <SubsectionTitle>
             方法一：<InlineCode>append</InlineCode>
@@ -170,7 +174,7 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
             現在利用<InlineCode>append</InlineCode>將data1a與data1b合併，然後存檔為data1_all。
           </P>
           <P>
-            像這樣直接使用<span className="code">save 檔名</span>存檔，檔案格式為STATA專用的.dta，存檔位置為當前的工作目錄。
+            像這樣直接使用<InlineCode>save 檔名</InlineCode>存檔，檔案格式為STATA專用的.dta，存檔位置為當前的工作目錄。
           </P>
           <CodeChunk code={`append using data1a\nsort id  /*以變項id來為合併後的資料排序*/\nsave data1_all, replace  /*replace: 如果存檔位置已存在同名的檔案，則取代它*/`} lang="stata" />
           <CodeChunk code={`. append using data1a\n(note: variable id was byte, now float to accommodate using data's values)\n(note: variable male was byte, now float to accommodate using data's values)\n(note: variable score1 was byte, now float to accommodate using data's values)\n\n. sort id  /*以變項id來為合併後的資料排序*/\n\n. save data1_all, replace  /*replace: 如果存檔位置已存在同名的檔案，則取代它*/\nfile data1_all.dta saved`} lang="output" />

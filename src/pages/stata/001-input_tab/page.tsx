@@ -1,7 +1,7 @@
 import { CodeChunk } from "@/components";
 import { InlineCode } from "@ui/inline-code";
 import { P } from "@ui/paragraph";
-import { List, Li } from "@ui/list";
+import { Li, Ul } from "@ui/list";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -10,7 +10,7 @@ export const Sections: SectionsProps = () => [
     content: (
       <>
         <P>以下簡單介紹Stata中常用的符號：</P>
-        <List>
+        <Ul>
           <Li>
             <P>
               <InlineCode>==</InlineCode>：等號，以連續兩個等號代表數值的相等。
@@ -36,7 +36,7 @@ export const Sections: SectionsProps = () => [
               <InlineCode>/* some text... */</InlineCode>：加入註解
             </P>
           </Li>
-        </List>
+        </Ul>
       </>
     ),
   },
@@ -104,7 +104,7 @@ export const Sections: SectionsProps = () => [
     content: (
       <>
         <P>各種建立亂數的指令</P>
-        <List>
+        <Ul>
           <Li>
             <InlineCode>runiform():</InlineCode> generates rectangularly (uniformly) distributed random number over [0,1].
           </Li>
@@ -135,7 +135,7 @@ export const Sections: SectionsProps = () => [
           <Li>
             <InlineCode>rt(df):</InlineCode> generates Student’s t(df) random numbers.
           </Li>
-        </List>
+        </Ul>
         <CodeChunk code={`clear\nset obs 100000\nset seed 123456789\ng x = int(floor((101)*runiform()+0))\n* 100-0+1 a\n* b -a a\n* max min\n*int=整數\n*0~100有101個整數\n*runiform=平均分布\n\nsu x, d\nsort x`} lang="stata" />
         <CodeChunk code={`. clear\n. set obs 100000\nnumber of observations (_N) was 0, now 100,000\n. set seed 123456789 \n. g x = int(floor((101)*runiform()+0))\n. * 100-0+1 a\n. * b -a a\n. * max min \n. *int=整數\n. *0~100有101個整數\n. *runiform=平均分布\n. su x, d\n                              x\n-------------------------------------------------------------\n      Percentiles      Smallest\n  1%           0              0\n  5%           4              0\n 10%          10              0      Obs              100,000\n 25%          25              0      Sum of Wgt.      100,000\n 50%          50                     Mean            50.00145\n                        Largest      Std. Dev.       29.18721\n 75%          75            100\n 90%          90            100      Variance         851.893\n 95%          95            100      Skewness       -.0033492\n 99%          99            100      Kurtosis         1.79898\n. sort x`} lang="output" />
       </>

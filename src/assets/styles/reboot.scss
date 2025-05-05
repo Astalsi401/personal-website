@@ -53,24 +53,11 @@ samp {
 kbd {
   box-shadow: 1px 1px 3px var(--main-text);
 }
-ul,
-ol {
-  margin-left: var(--unit-3);
-}
 li {
   list-style-position: outside;
-  margin-block: var(--unit-1);
 }
 table {
   border-collapse: collapse;
-  th {
-    font-weight: bold;
-  }
-  th,
-  td {
-    padding: var(--unit-2);
-    border: 1px solid var(--black-80);
-  }
 }
 a {
   color: var(--link);

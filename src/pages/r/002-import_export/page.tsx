@@ -1,4 +1,5 @@
 import { CodeChunk } from "@/components";
+import { P } from "@ui/paragraph";
 import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = () => [
@@ -21,7 +22,7 @@ export const Sections: SectionsProps = () => [
     title: ".Rdata",
     content: (
       <>
-        <p>用以儲存多個變項組成的資料</p>
+        <P>用以儲存多個變項組成的資料</P>
         <CodeChunk code={`setwd("D:/Documents/R/site/data")\n\n# 匯出\nsave(fauxhs, file = "export03.rdata")\nlist.files()`} lang="r" />
         <CodeChunk code={`## [1] "data.fauxhigh.csv"   "edges.fauxhigh.csv"  "export01.csv"       \n## [4] "export02.csv"        "export03.rdata"      "export04_ids.rds"   \n## [7] "export05.dta"        "matrix.fauxhigh.csv"`} lang="output" />
         <CodeChunk code={`# 匯入\nload("export03.rdata")`} lang="r" />
@@ -32,7 +33,7 @@ export const Sections: SectionsProps = () => [
     title: ".rds",
     content: (
       <>
-        <p>用來儲存單一變項</p>
+        <P>用來儲存單一變項</P>
         <CodeChunk code={`setwd("D:/Documents/R/site/data")\n\n# 例如：只儲存fauxhs中的ids變項\nhead(fauxhs)`} lang="r" />
         <CodeChunk code={`##   ids grade gender  race      gpa\n## 1   1     7      F  Hisp 3.074965\n## 2   2     7      F  Hisp 1.826402\n## 3   3    10      F White 2.521067\n## 4   4    11      M NatAm 1.976382\n## 5   5     9      M White 1.599860\n## 6   6     9      M  Hisp 1.288948`} lang="output" />
         <CodeChunk code={`saveRDS(fauxhs$ids, file = "export04_ids.rds")\nlist.files()`} lang="r" />

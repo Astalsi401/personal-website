@@ -1,4 +1,5 @@
 import { CodeChunk, DemoFrame } from "@/components";
+import type { SectionsProps } from "@/types";
 
 export const Sections: SectionsProps = ({ demoPath }) => [
   {
