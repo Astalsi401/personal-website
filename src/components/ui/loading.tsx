@@ -5,8 +5,8 @@ export const Loading: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return state === "loading" ? <LoadingAnimation /> : children;
 };
 
-export const LoadingComponent: React.FC<{ size?: number }> = ({ size = 50 }) => (
-  <div className="position-relative" style={{ height: size, "--size": size * 0.4, minWidth: size } as React.CSSProperties}>
+export const LoadingComponent: React.FC<{ className?: string; size?: number }> = ({ className = "position-relative", size = 50 }) => (
+  <div className={className} style={{ height: size, "--size": size * 0.4, minWidth: size } as React.CSSProperties}>
     <LoadingAnimation />
   </div>
 );

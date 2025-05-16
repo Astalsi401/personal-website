@@ -7,6 +7,6 @@ const resizeObserver = new ResizeObserver((entries) => {
       paddingMargin += parseInt(computedStyle[`${space}-${side}`]);
     }
   }
-  for (let entry of entries) parent.postMessage({ height: entry.contentRect.height + paddingMargin });
+  entries.forEach((entry) => entry.target.innerHTML !== "\n" && parent.postMessage({ rendered: true, height: entry.contentRect.height + paddingMargin }));
 });
 resizeObserver.observe(document.body);

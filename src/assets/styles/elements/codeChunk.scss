@@ -76,7 +76,6 @@ code {
 .demo-frame {
   iframe {
     max-height: 60dvh;
-    min-height: 200px;
     &.active {
       position: fixed !important;
       z-index: index($z-index, model);
