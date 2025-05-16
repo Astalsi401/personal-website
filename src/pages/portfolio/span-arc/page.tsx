@@ -18,7 +18,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame html={`${demoPath}/frame1/arc.html`} cssHref={`${demoPath}/frame1/arc.css`} />
+        <DemoFrame html={`${demoPath}/frame1/arc.html`} scssHref={`${demoPath}/frame1/arc.css`} />
         <CodeChunk path={`${demoPath}/frame1/arc.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/arc.html`} lang="html" />
       </>
@@ -28,7 +28,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "Another solution using trigonometric functions",
     content: (
       <>
-        <DemoFrame html={`${demoPath}/frame2/arc.html`} cssHref={`${demoPath}/frame2/arc.min.css`} />
+        <DemoFrame html={`${demoPath}/frame2/arc.html`} scssHref={`${demoPath}/frame2/arc.scss`} />
         <CodeChunk path={`${demoPath}/frame2/arc.scss`} lang="scss" />
         <CodeChunk path={`${demoPath}/frame2/arc.html`} lang="html" />
       </>

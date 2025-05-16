@@ -6,7 +6,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "",
     content: (
       <>
-        <DemoFrame html={`${demoPath}/frame1/image-scroll-onhover.html`} cssHref={`${demoPath}/frame1/image-scroll-onhover.css`} />
+        <DemoFrame html={`${demoPath}/frame1/image-scroll-onhover.html`} scssHref={`${demoPath}/frame1/image-scroll-onhover.css`} />
         <CodeChunk path={`${demoPath}/frame1/image-scroll-onhover.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/image-scroll-onhover.html`} lang="html" />
       </>

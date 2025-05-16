@@ -28,7 +28,7 @@ export type CodeChunkProps = {
   lang?: string;
   path?: string;
 };
-export type DemoFrameProps = { src?: string; html?: string; cssHref?: string; js?: string[]; lib?: "react" | "d3js" | "jquery" | "leaflet" | undefined };
+export type DemoFrameProps = { src?: string; html?: string; scssHref?: string; js?: string[]; lib?: "react" | "d3js" | "jquery" | "leaflet" | undefined };
 export type CodeInfo = {
   code: string | undefined;
   loading: boolean;

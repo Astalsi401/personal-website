@@ -17,7 +17,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "My solution",
     content: (
       <>
-        <DemoFrame html={`${demoPath}/frame1/triangle-on-top-of-square.html`} cssHref={`${demoPath}/frame1/triangle-on-top-of-square.css`} />
+        <DemoFrame html={`${demoPath}/frame1/triangle-on-top-of-square.html`} scssHref={`${demoPath}/frame1/triangle-on-top-of-square.css`} />
         <CodeChunk path={`${demoPath}/frame1/triangle-on-top-of-square.css`} lang="css" />
         <CodeChunk path={`${demoPath}/frame1/triangle-on-top-of-square.html`} lang="html" />
       </>

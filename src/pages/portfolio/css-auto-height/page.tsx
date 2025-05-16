@@ -18,7 +18,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
           <InlineCode>height: auto;</InlineCode>無法使用transition製作動畫效果，然而可以將<InlineCode>grid-template-rows</InlineCode>修改為<InlineCode>0fr</InlineCode>、<InlineCode>1fr</InlineCode>來達成auto hight transition
         </Subsection>
         <Subsection>
-          <DemoFrame html={`${demoPath}/frame1/css-auto-height.html`} cssHref={`${demoPath}/frame1/css-auto-height.min.css`} />
+          <DemoFrame html={`${demoPath}/frame1/css-auto-height.html`} scssHref={`${demoPath}/frame1/css-auto-height.scss`} />
           <CodeChunk path={`${demoPath}/frame1/css-auto-height.scss`} lang="scss" />
           <CodeChunk path={`${demoPath}/frame1/css-auto-height.html`} lang="html" />
         </Subsection>

@@ -1,11 +1,18 @@
-const demoContent = async ({ html, cssHref, js }) => {
+const demoContent = async ({ html, scssHref, js }) => {
   try {
-    html &&
-      (document.body.innerHTML = await fetch(html)
+    const sass = await import("https://jspm.dev/sass");
+    if (html) {
+      const htmlContent = await fetch(html)
         .then((res) => (res.ok ? res.text() : ""))
-        .catch((err) => err.message.includes("404") && ""));
-    cssHref && document.head.querySelector(`link[data-demo="style"]`)?.remove();
-    cssHref && (document.head.innerHTML += `<link data-demo="style" rel="stylesheet" href="${cssHref}">`);
+        .catch((err) => err.message.includes("404") && "");
+      document.body.innerHTML = htmlContent;
+    }
+    if (scssHref) {
+      const scss = await fetch(scssHref).then((res) => res.text());
+      const { css } = await sass.compileString(scss);
+      document.head.querySelector(`style[data-demo="style"]`)?.remove();
+      document.head.innerHTML += `<style data-demo="style">${css}</style>`;
+    }
     js && (await Promise.all(js.map((lib) => import(lib))));
   } catch (error) {
     console.error(error);

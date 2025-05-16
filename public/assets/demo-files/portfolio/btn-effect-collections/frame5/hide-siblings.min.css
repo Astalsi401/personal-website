@@ -1,1 +1,0 @@
-body{display:flex;justify-content:center;align-items:center;padding-top:50px;padding-bottom:50px}.hide-siblings{width:100%;display:flex;gap:20px}.hide-siblings>div{cursor:pointer;flex-grow:1;height:50px;background-color:navy;transition:opacity .3s}.hide-siblings:has(:hover)>div:not(:hover){opacity:.2}/*# sourceMappingURL=index.min.css.map */

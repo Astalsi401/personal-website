@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { clsx, isActive } from "@functions";
 import type { DemoFrameProps } from "@/types";
 
-export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, cssHref, js, lib }) => {
+export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, scssHref, js, lib }) => {
   const iframeRef = useRef<null | HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(0);
   const [fullPage, setFullPage] = useState<boolean>(false);
   const handleMessage = ({ data, source }: MessageEvent) => {
     if (source !== iframeRef.current?.contentWindow) return;
     data.height && setHeight(data.height);
-    !src && data.load && iframeRef.current.contentWindow?.postMessage({ html, cssHref, js });
+    !src && data.load && iframeRef.current.contentWindow?.postMessage({ html, scssHref, js });
   };
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
