@@ -1,3 +1,4 @@
+import * as sass from "sass";
 import { useState, useEffect, useRef } from "react";
 import { clsx, isActive } from "@functions";
 import type { DemoFrameProps } from "@/types";
@@ -6,10 +7,11 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, scssHref, js, l
   const iframeRef = useRef<null | HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(0);
   const [fullPage, setFullPage] = useState<boolean>(false);
-  const handleMessage = ({ data, source }: MessageEvent) => {
+  const handleMessage = async ({ data, source }: MessageEvent) => {
     if (source !== iframeRef.current?.contentWindow) return;
     data.height && setHeight(data.height);
-    !src && data.load && iframeRef.current.contentWindow?.postMessage({ html, scssHref, js });
+    const { css } = scssHref ? await sass.compileStringAsync(await fetch(scssHref).then((res) => res.text())) : { css: "" };
+    !src && data.load && iframeRef.current.contentWindow?.postMessage({ html, css, js });
   };
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
