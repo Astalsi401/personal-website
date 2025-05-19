@@ -1,0 +1,42 @@
+:root {
+  --body-bg: #213547;
+}
+
+.gradient-bolrder {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-inline: auto;
+  overflow: hidden;
+  span {
+    position: absolute;
+    inset: 0;
+    rotate: calc(var(--i) * 90deg);
+    border-image: linear-gradient(90deg, var(--body-bg), white) 1;
+    border-top: 4px solid var(--body-bg);
+    transform: translateX(-100%);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.gradient-bolrder {
+  span {
+    --duration: 4s;
+    animation-name: gradient-bolrder;
+    animation-delay: calc(var(--duration) / 4 * var(--i));
+  }
+}
+
+@keyframes gradient-bolrder {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

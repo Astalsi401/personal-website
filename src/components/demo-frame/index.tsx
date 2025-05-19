@@ -1,19 +1,21 @@
 import * as sass from "sass";
 import { useState, useEffect, useRef } from "react";
 import { clsx, isActive } from "@functions";
-import type { DemoFrameProps } from "@/types";
 import { LoadingComponent } from "@ui/loading";
 
-export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, scssHref, js, lib }) => {
+export type DemoFrameProps = { src?: string; html?: string; scssHref?: string; js?: string[]; lib?: "react" | "d3js" | "jquery" | "leaflet"; template?: "grid-center" | "flex-center"; bgColor?: string };
+
+export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, scssHref, js, lib, template, bgColor = "none" }) => {
   const iframeRef = useRef<null | HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(0);
   const [rendered, setRendered] = useState<boolean>(false);
   const [fullPage, setFullPage] = useState<boolean>(false);
   const handleMessage = async ({ data, source }: MessageEvent) => {
-    if (source !== iframeRef.current?.contentWindow) return;
+    if (source !== iframeRef.current?.contentWindow || src) return;
     if (data.load) {
       const { css } = scssHref ? await sass.compileStringAsync(await fetch(scssHref).then((res) => res.text())) : { css: "" };
-      !src && iframeRef.current.contentWindow?.postMessage({ html, css, js });
+      const templateCss = template ? await fetch(`${import.meta.env.BASE_URL}/assets/demo-files/templates/${template}.css`).then((res) => res.text()) : null;
+      iframeRef.current.contentWindow?.postMessage({ html, css, js, templateCss, bgColor });
     } else if (data.rendered) {
       setRendered(data.rendered);
       setHeight(data.height);

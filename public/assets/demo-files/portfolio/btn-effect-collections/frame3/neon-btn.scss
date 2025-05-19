@@ -1,14 +1,5 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-body:has(.btn2) {
-  --bg: #242424;
-  background-color: var(--bg);
+:root {
+  --body-bg: #242424;
 }
 
 .btn2 {
@@ -19,7 +10,7 @@ body:has(.btn2) {
   cursor: pointer;
   color: var(--text);
   position: relative;
-  width: min(100%, 120px);
+  width: clamp(120px, 20vw, 280px);
   text-align: center;
   padding: 2px;
   &,
@@ -31,7 +22,7 @@ body:has(.btn2) {
   .text {
     position: relative;
     padding: 10px;
-    background: var(--bg);
+    background: var(--body-bg);
     z-index: 1;
   }
   .blur {
