@@ -1,0 +1,17 @@
+:root {
+  --clrA: #6a8d89;
+  --clrB: #487c57;
+  /* prettier-ignore */
+  --bg: 
+    radial-gradient(ellipse min(666px, 50vw) min(666px, 50vw) at 0 200px, var(--clrA), transparent),
+    radial-gradient(ellipse min(666px, 50vw) min(666px, 50vw) at 100% 600px, var(--clrB), transparent),
+    radial-gradient(ellipse 90% 500px at bottom, var(--clrB), transparent);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 300vh;
+  background-color: black;
+  background-image: var(--bg);
+}

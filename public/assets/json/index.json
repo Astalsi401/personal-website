@@ -42,6 +42,8 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
+        { "page": "Css Radial Gradient", "href": "/css-radial-gradient", "thumbnail": "css", "tags": ["css", "html"] },
+        { "page": "Css Neon Arc", "href": "/css-neon-arc", "thumbnail": "/assets/images/neon-arc.png", "tags": ["css", "html"] },
         { "page": "2024 Medtex 商洽表單", "href": "https://astalsi401.github.io/medtex-form/", "thumbnail": "/assets/images/medtex-form.png", "tags": ["react", "typescript", "scss"] },
         { "page": "2024 Medtex 新創團隊介紹", "href": "https://astalsi401.github.io/medtex-team/", "thumbnail": "/assets/images/medtex-team.png", "tags": ["react", "typescript", "scss"] },
         { "page": "Nest Animate", "href": "/nest-animate", "thumbnail": "/assets/images/nest-animate.png", "tags": ["js", "javascript"] },
