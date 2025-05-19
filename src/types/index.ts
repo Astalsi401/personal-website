@@ -16,31 +16,3 @@ export type IndexJson = {
   href: string;
   index: Categories[];
 };
-export type BlockProps = {
-  className?: string;
-  title?: string;
-  titleClass?: string;
-  id?: string;
-  children: React.ReactNode;
-};
-export type CodeChunkProps = {
-  code?: string;
-  lang?: string;
-  path?: string;
-};
-export type CodeInfo = {
-  code: string | undefined;
-  loading: boolean;
-  fileName: string;
-};
-export type HamburgerProps = {
-  sidebarActive: boolean;
-  btnRef: React.RefObject<HTMLAnchorElement>;
-};
-export type SidebarProps = { wrapperRef: React.RefObject<HTMLElement> };
-export type ZoomImageProps = {
-  id?: string;
-  className?: string;
-  src: string;
-  alt?: string;
-};

@@ -21,7 +21,9 @@ import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { CopyCode } from "@ui/button";
 import { LoadingComponent } from "@ui/loading";
-import type { CodeChunkProps, CodeInfo } from "@/types";
+
+type CodeInfo = { code: string | undefined; loading: boolean; fileName: string };
+type CodeChunkProps = { code?: string; lang?: string; path?: string };
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [{ code: codeTxt, fileName, loading }, setCodeInfo] = useState<CodeInfo>({ code, loading: false, fileName: "" });
