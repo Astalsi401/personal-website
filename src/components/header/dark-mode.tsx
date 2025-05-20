@@ -1,20 +1,17 @@
 import { useEffect } from "react";
-import { updateStore, useAppDispatch, useAppSelector } from "@store";
+import { useLocal } from "@/hooks/use-local";
 
 export const DarkMode: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const isDark = useAppSelector((state) => state.isDark);
+  const [isDark, setIsDark] = useLocal("isDark");
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    localStorage.setItem("isDark", String(!isDark));
+    setIsDark(!isDark);
     document.body.setAttribute("data-theme", !isDark ? "dark" : "light");
-    dispatch(updateStore({ isDark: !isDark }));
   };
   useEffect(() => {
-    const userIsDark = localStorage.getItem("isDark") ? localStorage.getItem("isDark") === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-    localStorage.setItem("isDark", String(userIsDark));
+    const userIsDark = isDark === null ? window.matchMedia("(prefers-color-scheme: dark)").matches : isDark;
+    setIsDark(userIsDark);
     document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
-    dispatch(updateStore({ isDark: userIsDark }));
   }, []);
   return (
     <a href="#" className="dark-mode d-flex justify-content-center align-items-center position-absolute" onClick={handleClick}>
