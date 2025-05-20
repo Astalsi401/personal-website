@@ -21,6 +21,10 @@ const logo: (logoPath: string) => string = (logoPath: string) => {
       return "/assets/images/CSS3-logo.svg";
     case "js":
       return "/assets/images/js-logo.svg";
+    case "ts":
+      return "/assets/images/ts-logo.svg";
+    case "react":
+      return "/assets/images/react-logo.svg";
     default:
       return logoPath;
   }
