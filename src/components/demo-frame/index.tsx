@@ -28,9 +28,16 @@ export const DemoFrame: React.FC<DemoFrameProps> = ({ src, html, scssHref, js, l
       return !prev;
     });
   };
+  const handleSrcIframe = () => {
+    if (!src) return;
+    setRendered(true);
+    setHeight(200);
+  };
   useEffect(() => {
     const controller = new AbortController();
-    window.addEventListener("message", handleMessage, { signal: controller.signal });
+    const { signal } = controller;
+    iframeRef.current?.addEventListener("load", handleSrcIframe, { once: true, signal });
+    window.addEventListener("message", handleMessage, { signal });
     return () => controller.abort();
   }, []);
   return (
