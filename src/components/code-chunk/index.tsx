@@ -21,20 +21,38 @@ import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { CopyCode } from "@ui/button";
 import { LoadingComponent } from "@ui/loading";
+import { useLocal } from "@/hooks/use-local";
 
 type CodeInfo = { code: string | undefined; loading: boolean; fileName: string };
 type CodeChunkProps = { code?: string; lang?: string; path?: string };
 
+const isGitHubPath = (path: string) => path.startsWith("https://github.com/");
+const gitApi = async (url: string, signal: AbortSignal) => {
+  const info = url.split("/");
+  const [owner, repo] = info.slice(3, 5);
+  const path = info.slice(7, info.length).join("/");
+  const { sha } = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, { signal }).then((res) => res.json());
+  const { content } = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${sha}`, { signal }).then((blob) => blob.json());
+  return atob(content);
+};
+const normalFetch = async (path: string, signal: AbortSignal) =>
+  await fetch(path, { signal })
+    .then((res) => res.text())
+    .catch(() => "Request Aborted!");
+
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [{ code: codeTxt, fileName, loading }, setCodeInfo] = useState<CodeInfo>({ code, loading: false, fileName: "" });
+  const [cachedCode, setCachedCode] = useLocal(path || "");
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
+    let res = cachedCode;
     setCodeInfo((prev) => ({ ...prev, loading: true }));
     const fileName = path.split("/").pop() as string;
-    const code = await fetch(path, { signal })
-      .then((res) => res.text())
-      .catch(() => "Request Aborted!");
-    setCodeInfo({ code, fileName, loading: false });
+    if (!res) {
+      res = isGitHubPath(path) ? await gitApi(path, signal) : await normalFetch(path, signal);
+      setCachedCode(res, { expired: 12 * 60 * 60 });
+    }
+    setCodeInfo({ code: res, fileName, loading: false });
   };
   useEffect(() => {
     const abortItem = new AbortController();
