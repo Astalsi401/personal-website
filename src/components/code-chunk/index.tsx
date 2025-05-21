@@ -50,7 +50,6 @@ export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
     let res = cachedCode;
-    console.log(cachedCode);
     setCodeInfo((prev) => ({ ...prev, loading: true }));
     const fileName = path.split("/").pop() as string;
     if (res === null) {
