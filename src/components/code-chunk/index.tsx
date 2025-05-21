@@ -46,7 +46,7 @@ const normalFetch = async (path: string, signal: AbortSignal) =>
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [{ code: codeTxt, fileName, loading }, setCodeInfo] = useState<CodeInfo>({ code, loading: false, fileName: "" });
-  const [cachedCode, setCachedCode] = useLocalStorage<string | null>(path || "", null, { expired: 5 });
+  const [cachedCode, setCachedCode] = useLocalStorage<string | null>(path || "", null, { expired: 12 * 60 * 60 });
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
     let res = cachedCode;
