@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 
 export const DarkMode: React.FC = () => {
-  const [isDark, setIsDark] = useLocalStorage<boolean | null>("isDark", null);
+  const [isDark, setIsDark] = useLocalStorage<boolean | null>("isDark", window.matchMedia("(prefers-color-scheme: dark)").matches);
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsDark((prev) => {
@@ -11,9 +11,7 @@ export const DarkMode: React.FC = () => {
     });
   };
   useEffect(() => {
-    const userIsDark = isDark === null ? window.matchMedia("(prefers-color-scheme: dark)").matches : isDark;
-    setIsDark(userIsDark);
-    document.body.setAttribute("data-theme", userIsDark ? "dark" : "light");
+    document.body.setAttribute("data-theme", isDark ? "dark" : "light");
   }, []);
   return (
     <a href="#" className="dark-mode d-flex justify-content-center align-items-center position-absolute" onClick={handleClick}>
