@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { useLocal } from "@/hooks/use-local";
+import { useLocalStorage } from "@/hooks/use-local-storage";
 
 export const DarkMode: React.FC = () => {
-  const [isDark, setIsDark] = useLocal("isDark");
+  const [isDark, setIsDark] = useLocalStorage<boolean | null>("isDark", null);
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsDark(!isDark);
-    document.body.setAttribute("data-theme", !isDark ? "dark" : "light");
+    setIsDark((prev) => {
+      document.body.setAttribute("data-theme", !prev ? "dark" : "light");
+      return !prev;
+    });
   };
   useEffect(() => {
     const userIsDark = isDark === null ? window.matchMedia("(prefers-color-scheme: dark)").matches : isDark;

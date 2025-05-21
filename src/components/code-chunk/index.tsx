@@ -21,19 +21,23 @@ import "prismjs/themes/prism-okaidia.min.css";
 import { useState, useEffect } from "react";
 import { CopyCode } from "@ui/button";
 import { LoadingComponent } from "@ui/loading";
-import { useLocal } from "@/hooks/use-local";
+import { useLocalStorage } from "@/hooks/use-local-storage";
 
 type CodeInfo = { code: string | undefined; loading: boolean; fileName: string };
 type CodeChunkProps = { code?: string; lang?: string; path?: string };
 
 const isGitHubPath = (path: string) => path.startsWith("https://github.com/");
 const gitApi = async (url: string, signal: AbortSignal) => {
-  const [, , , owner, repo, , , ...pathStr] = url.split("/");
-  const path = pathStr.join("/");
-  const repoUrl = `https://api.github.com/repos/${owner}/${repo}`;
-  const { sha } = await fetch(`${repoUrl}/contents/${path}`, { signal }).then((res) => res.json());
-  const { content } = await fetch(`${repoUrl}/git/blobs/${sha}`, { signal }).then((blob) => blob.json());
-  return atob(content);
+  try {
+    const [, , , owner, repo, , , ...pathStr] = url.split("/");
+    const path = pathStr.join("/");
+    const repoUrl = `https://api.github.com/repos/${owner}/${repo}`;
+    const { sha } = await fetch(`${repoUrl}/contents/${path}`, { signal }).then((res) => res.json());
+    const { content } = await fetch(`${repoUrl}/git/blobs/${sha}`, { signal }).then((blob) => blob.json());
+    return atob(content);
+  } catch (error) {
+    return "Request Aborted!";
+  }
 };
 const normalFetch = async (path: string, signal: AbortSignal) =>
   await fetch(path, { signal })
@@ -42,15 +46,16 @@ const normalFetch = async (path: string, signal: AbortSignal) =>
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [{ code: codeTxt, fileName, loading }, setCodeInfo] = useState<CodeInfo>({ code, loading: false, fileName: "" });
-  const [cachedCode, setCachedCode] = useLocal(path || "");
+  const [cachedCode, setCachedCode] = useLocalStorage<string | null>(path || "", null, { expired: 5 });
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
     let res = cachedCode;
+    console.log(cachedCode);
     setCodeInfo((prev) => ({ ...prev, loading: true }));
     const fileName = path.split("/").pop() as string;
-    if (!res) {
+    if (res === null) {
       res = isGitHubPath(path) ? await gitApi(path, signal) : await normalFetch(path, signal);
-      setCachedCode(res, { expired: 12 * 60 * 60 });
+      setCachedCode(res);
     }
     setCodeInfo({ code: res, fileName, loading: false });
   };
