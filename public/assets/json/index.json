@@ -42,6 +42,7 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
+        { "page": "React Local Storage", "href": "/react-custom-hook-localstorage", "thumbnail": "react", "tags": ["react", "typescript"] },
         { "page": "Github API", "href": "/github-api", "thumbnail": "ts", "tags": ["typescript"] },
         { "page": "HeadlessUI Nested Menu", "href": "/headlessui-nested-menu", "thumbnail": "/assets/images/headlessui-nested-menu.png", "tags": ["react", "headlessui", "tailwind", "typescript"] },
         { "page": "Css Radial Gradient", "href": "/css-radial-gradient", "thumbnail": "css", "tags": ["css", "html"] },
