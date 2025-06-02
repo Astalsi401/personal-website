@@ -4,7 +4,7 @@ import { updateStore, useAppDispatch, useAppSelector, CurrentPostTitleType } fro
 import { clsx, isActive, isMyPage, titleToHash } from "@functions";
 import type { Categories } from "@/types";
 
-type SidebarProps = { wrapperRef: React.RefObject<HTMLElement> };
+type SidebarProps = { wrapperRef: React.RefObject<HTMLElement | null> };
 
 export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ wrapperRef }) => {
   const sidebarAnchorID = useAppSelector((state) => state.sidebarAnchorID);
   const sidebarActive = useAppSelector((state) => state.sidebarActive);
   const currentPostTitles = useAppSelector((state) => state.currentPostTitles);
-  const [childrenActive, setChildrenActive] = useState(false);
+  const [childrenActive, setChildrenActive] = useState<boolean>(false);
   const { page, href } = useParams();
   const click = () => setChildrenActive((prev) => !prev);
   const handleLinkClick = () => dispatch(updateStore({ sidebarActive: false }));

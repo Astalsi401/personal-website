@@ -18,12 +18,12 @@ import "prismjs/components/prism-go-module.min";
 import "prismjs/components/prism-json.min";
 import "prismjs/components/prism-docker.min";
 import "prismjs/themes/prism-okaidia.min.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { CopyCode } from "@ui/button";
 import { LoadingComponent } from "@ui/loading";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 
-type CodeInfo = { code: string | undefined; loading: boolean; fileName: string };
+type CodeInfo = { code: string | undefined; fileName: string };
 type CodeChunkProps = { code?: string; lang?: string; path?: string };
 
 const isGitHubPath = (path: string) => path.startsWith("https://github.com/");
@@ -45,30 +45,32 @@ const normalFetch = async (path: string, signal: AbortSignal) =>
     .catch(() => "Request Aborted!");
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
-  const [{ code: codeTxt, fileName, loading }, setCodeInfo] = useState<CodeInfo>({ code, loading: false, fileName: "" });
+  const [isPending, startTransition] = useTransition();
+  const [{ code: codeTxt, fileName }, setCodeInfo] = useState<CodeInfo>({ code, fileName: "" });
   const [cachedCode, setCachedCode] = useLocalStorage<string | null>(path || "", null, { expired: 12 * 60 * 60 });
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
     let res = cachedCode;
-    setCodeInfo((prev) => ({ ...prev, loading: true }));
     const fileName = path.split("/").pop() as string;
     if (res === null) {
       res = isGitHubPath(path) ? await gitApi(path, signal) : await normalFetch(path, signal);
       setCachedCode(res);
     }
-    setCodeInfo({ code: res, fileName, loading: false });
+    setCodeInfo({ code: res, fileName });
   };
   useEffect(() => {
     const abortItem = new AbortController();
-    fetchCode(abortItem);
+    startTransition(async () => await fetchCode(abortItem));
     return () => abortItem.abort();
   }, []);
-  useEffect(() => Prism.highlightAll(), [codeTxt]);
+  useEffect(() => {
+    codeTxt && Prism.highlightAll();
+  }, [codeTxt]);
   return (
     <pre className="my-2 p-2 pt-4 position-relative text-small bg-code-bg">
       {fileName.length > 0 && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}
       <CopyCode action={() => navigator.clipboard.writeText(codeTxt || "")} />
-      {loading ? <LoadingComponent /> : <code children={codeTxt} className={`lang-${lang} d-block overflow-auto py-0 px-1 bg-code-bg`} />}
+      {isPending ? <LoadingComponent /> : <code children={codeTxt} className={`lang-${lang} d-block overflow-auto py-0 px-1 bg-code-bg`} />}
     </pre>
   );
 };

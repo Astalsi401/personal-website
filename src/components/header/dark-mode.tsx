@@ -3,16 +3,15 @@ import { useLocalStorage } from "@/hooks/use-local-storage";
 
 export const DarkMode: React.FC = () => {
   const [isDark, setIsDark] = useLocalStorage<boolean | null>("isDark", window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const setTheme = (theme: string) => document.body.setAttribute("data-theme", theme);
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsDark((prev) => {
-      document.body.setAttribute("data-theme", !prev ? "dark" : "light");
+      setTheme(!prev ? "dark" : "light");
       return !prev;
     });
   };
-  useEffect(() => {
-    document.body.setAttribute("data-theme", isDark ? "dark" : "light");
-  }, []);
+  useEffect(() => setTheme(isDark ? "dark" : "light"), []);
   return (
     <a href="#" className="dark-mode d-flex justify-content-center align-items-center position-absolute" onClick={handleClick}>
       <svg viewBox="0 0 24 24" width="24" height="24">
