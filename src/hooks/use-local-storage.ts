@@ -20,6 +20,6 @@ export const useLocalStorage = <T>(key: string, initialValue: T, options?: UseLo
     localStorage.setItem(key, JSON.stringify({ value, expired: options?.expired && new Date().getTime() + options.expired * 1000 }));
     setCurrent(value);
   };
-  const [current, setCurrent] = useState<T>(getLocal());
+  const [current, setCurrent] = useState<T>(getLocal);
   return [current, setLocal];
 };
