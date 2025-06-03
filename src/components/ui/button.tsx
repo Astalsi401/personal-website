@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { clsx, isActive } from "@functions";
 import { Copy, Home } from "@icons";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 type CopyCodeProps = { action?: () => void };
 export const CopyCode: React.FC<CopyCodeProps> = ({ action }) => {

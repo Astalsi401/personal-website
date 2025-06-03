@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link } from "react-router";
 import { updateStore, useAppDispatch } from "@store";
 import { isMyPage } from "@functions";
 import { Project } from "@/components";
@@ -7,7 +7,7 @@ import type { Categories } from "@/types";
 
 export const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const index = useLoaderData() as Categories;
+  const index = useLoaderData<Categories>();
   const isPortfolio = index.category === "Portfolio";
   useEffect(() => {
     document.title = index.category;

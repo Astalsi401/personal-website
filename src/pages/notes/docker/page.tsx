@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { CodeChunk } from "@/components";
 import { InlineCode } from "@ui/inline-code";
 import { Li, Ol, Ul } from "@ui/list";

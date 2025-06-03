@@ -26,6 +26,8 @@ import { useLocalStorage } from "@/hooks/use-local-storage";
 type CodeInfo = { code: string | undefined; fileName: string };
 type CodeChunkProps = { code?: string; lang?: string; path?: string };
 
+const abortedMessage = "Request Aborted!";
+
 const isGitHubPath = (path: string) => path.startsWith("https://github.com/");
 const gitApi = async (url: string, signal: AbortSignal) => {
   try {
@@ -36,13 +38,13 @@ const gitApi = async (url: string, signal: AbortSignal) => {
     const { content } = await fetch(`${repoUrl}/git/blobs/${sha}`, { signal }).then((blob) => blob.json());
     return atob(content);
   } catch (error) {
-    return "Request Aborted!";
+    return abortedMessage;
   }
 };
 const normalFetch = async (path: string, signal: AbortSignal) =>
   await fetch(path, { signal })
     .then((res) => res.text())
-    .catch(() => "Request Aborted!");
+    .catch(() => abortedMessage);
 
 export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const [isPending, startTransition] = useTransition();
@@ -51,7 +53,7 @@ export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
   const fetchCode = async ({ signal }: AbortController) => {
     if (!path) return;
     let res = cachedCode;
-    const fileName = path.split("/").pop() as string;
+    const fileName = path.split("/").pop() || "";
     if (res === null) {
       res = isGitHubPath(path) ? await gitApi(path, signal) : await normalFetch(path, signal);
       setCachedCode(res);
@@ -64,8 +66,8 @@ export const CodeChunk: React.FC<CodeChunkProps> = ({ code, lang, path }) => {
     return () => abortItem.abort();
   }, []);
   useEffect(() => {
-    codeTxt && Prism.highlightAll();
-  }, [codeTxt]);
+    codeTxt && codeTxt !== abortedMessage && !isPending && Prism.highlightAll();
+  }, [codeTxt, isPending]);
   return (
     <pre className="my-2 p-2 pt-4 position-relative text-small bg-code-bg">
       {fileName.length > 0 && <span className="position-absolute ps-1 top-0 start-0 text-small text-gray">{fileName}</span>}

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoaderData, useLocation, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useParams } from "react-router";
 import { CurrentPostTitleType, updateStore, useAppDispatch, useAppSelector } from "@store";
 import { Block, ImageGallary } from "@/components";
 import { clsx, titleToHash } from "@functions";
@@ -7,7 +7,7 @@ import type { SectionsProps } from "@/types";
 
 export const PostPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { title, Sections } = useLoaderData() as { title: string | undefined; Sections: SectionsProps };
+  const { title, Sections } = useLoaderData<{ title: string | undefined; Sections: SectionsProps }>();
   const { href, page } = useParams();
   const { hash } = useLocation();
   const currentPostTitles = useAppSelector((state) => state.currentPostTitles);

@@ -1,4 +1,4 @@
-import { useNavigation } from "react-router-dom";
+import { useNavigation } from "react-router";
 
 export const Loading: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { state } = useNavigation();

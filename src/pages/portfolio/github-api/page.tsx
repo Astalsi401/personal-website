@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { CodeChunk } from "@/components";
 import { P } from "@ui/paragraph";
 import { Li, Ul } from "@ui/list";

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Tags } from "@ui/tags";
 import { clsx } from "@functions";
 

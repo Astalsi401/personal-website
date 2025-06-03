@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { getIndex, isMyPage } from "@functions";
+import { Link, useLoaderData } from "react-router";
+import { isMyPage } from "@functions";
 import { updateStore, useAppDispatch } from "@store";
 import { Tags } from "@ui/tags";
 import { LoadingComponent } from "@ui/loading";
-import type { Page } from "@/types";
+import type { Categories, Page } from "@/types";
 
 export const SearchResults: React.FC<{ searchString: string }> = ({ searchString }) => {
+  const index = useLoaderData<Categories>();
   const [re, setRe] = useState<RegExp>(new RegExp("", "i"));
   const [pages, setPages] = useState<Page[]>([]);
   const [inputTimer, setInputTimer] = useState<null | NodeJS.Timeout>(null);
@@ -27,7 +28,8 @@ export const SearchResults: React.FC<{ searchString: string }> = ({ searchString
   const checkText = (elems: string[]) => re.test(elems.join(" ").replace(/\r|\n/g, ""));
   const results = useMemo(() => pages.filter(({ page, tags }) => checkText([page, ...(tags || [])])), [re, pages]);
   useEffect(() => {
-    (async () => setPages(await getIndex().then(({ index }) => index.map(({ pages, href, category }) => pages.map((page) => ({ ...page, href: isMyPage(page.href) ? `${import.meta.env.BASE_URL}${href}${page.href}` : page.href, tags: page.tags ? [category, ...page.tags] : [category] }))).flat())))();
+    const allPages = index.pages.map((category) => category.pages?.map((page) => ({ ...page, href: isMyPage(page.href) ? `${import.meta.env.BASE_URL}${category.href}${page.href}` : page.href, tags: page.tags ? [category.page, ...page.tags] : [category.page] }))).flat();
+    allPages.every((page) => page !== undefined) && setPages(allPages);
   }, []);
   useEffect(() => {
     inputTimer && clearTimeout(inputTimer);
