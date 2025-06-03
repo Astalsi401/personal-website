@@ -35,6 +35,10 @@
   z-index: 2;
 }
 
+#progress::after {
+  content: "%";
+}
+
 #scroll-line {
   --scrollPercent: 0;
   --deg: calc(var(--scrollPercent) * 360deg);
