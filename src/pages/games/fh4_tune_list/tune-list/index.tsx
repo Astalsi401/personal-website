@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Block } from "@/components";
 import { LoadingAnimation } from "@ui/loading";
 import { Table, Th } from "@ui/table";
+import { Input } from "@ui/form";
 import { clsx, isActive } from "@functions";
 import { type TuneData, TuneListRow } from "./row";
-import { Input } from "@ui/form";
 
 const keys = [
   { key: "tunner", type: "調教者" },

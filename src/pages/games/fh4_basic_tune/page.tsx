@@ -1,10 +1,10 @@
 import { ZoomImage } from "@/components";
 import { InlineCode } from "@ui/inline-code";
-import { Calculator } from "./calculator";
-import type { SectionsProps } from "@/types";
-import data from "./data.json";
 import { Li, Ol, Ul } from "@ui/list";
 import { P } from "@ui/paragraph";
+import type { SectionsProps } from "@/types";
+import { Calculator } from "./calculator";
+import data from "./data.json";
 
 export const Sections: SectionsProps = ({ imagePath }) => [
   {
