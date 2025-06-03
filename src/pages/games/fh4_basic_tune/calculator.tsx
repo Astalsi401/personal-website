@@ -25,10 +25,10 @@ export const Calculator: React.FC = () => {
   return (
     <form className="my-3 mx-auto calculator">
       <fieldset className="border-0">
-        <Label label="重量比" name="ratio" type="number" step="0.01" placeholder="0~1間的小數" value={status.ratio} fuc={tuneformula} />
+        <Label label="重量比" name="ratio" type="number" step="0.01" placeholder="0~1間的小數" value={status.ratio} onChange={tuneformula} />
         {ratio > 1 || ratio < 0 ? <div className="text-warn">請輸入0~1間的小數</div> : null}
-        <Label label="最大值" name="max" type="number" value={status.max} fuc={tuneformula} />
-        <Label label="最小值" name="min" type="number" value={status.min} fuc={tuneformula} />
+        <Label label="最大值" name="max" type="number" value={status.max} onChange={tuneformula} />
+        <Label label="最小值" name="min" type="number" value={status.min} onChange={tuneformula} />
         <label className="my-2 w-100">
           <div>驅動方式：</div>
           <select className="p-1 shadow-1 border-0" name="type" value={status.type} onChange={tuneformula}>
