@@ -21,7 +21,10 @@
         { "page": "相關係數", "href": "/012-correlation" },
         { "page": "迴歸分析", "href": "/013-regression" },
         { "page": "因素分析", "href": "/014-factor_analysis" },
-        { "page": "邏輯分析（Logistic Analysis）", "href": "/015-logisitic_analysis" },
+        {
+          "page": "邏輯分析（Logistic Analysis）",
+          "href": "/015-logisitic_analysis"
+        },
         { "page": "Sublime Text 3 & Stata", "href": "/other_01-st3" },
         { "page": "Html & Stata", "href": "/other_02-html" }
       ]
@@ -42,40 +45,218 @@
       "href": "/portfolio",
       "icon": "/assets/images/portfolio.svg",
       "pages": [
-        { "page": "React Local Storage", "href": "/react-custom-hook-localstorage", "thumbnail": "react", "tags": ["react", "typescript"] },
-        { "page": "Github API", "href": "/github-api", "thumbnail": "ts", "tags": ["typescript"] },
-        { "page": "HeadlessUI Nested Menu", "href": "/headlessui-nested-menu", "thumbnail": "/assets/images/headlessui-nested-menu.png", "tags": ["react", "headlessui", "tailwind", "typescript"] },
-        { "page": "Css Radial Gradient", "href": "/css-radial-gradient", "thumbnail": "css", "tags": ["css", "html"] },
-        { "page": "Css Neon Arc", "href": "/css-neon-arc", "thumbnail": "/assets/images/neon-arc.png", "tags": ["css", "html"] },
-        { "page": "2024 Medtex 商洽表單", "href": "https://astalsi401.github.io/medtex-form/", "thumbnail": "/assets/images/medtex-form.png", "tags": ["react", "typescript", "scss"] },
-        { "page": "2024 Medtex 新創團隊介紹", "href": "https://astalsi401.github.io/medtex-team/", "thumbnail": "/assets/images/medtex-team.png", "tags": ["react", "typescript", "scss"] },
-        { "page": "Nest Animate", "href": "/nest-animate", "thumbnail": "/assets/images/nest-animate.png", "tags": ["js", "javascript"] },
-        { "page": "StackOverflow create a triangle on the top of a square", "href": "/css-triangle-on-top-of-square", "thumbnail": "/assets/images/css-triangle-on-top-of-square.png", "tags": ["css"] },
-        { "page": "Gradient Generator", "href": "https://astalsi401.github.io/gradient-creator/", "thumbnail": "/assets/images/gradient-creator.png", "tags": ["react", "js", "javascript", "scss", "html"] },
-        { "page": "Donut wheel arrow", "href": "/donut-wheel-arrow", "thumbnail": "/assets/images/donut-wheel-arrow.png", "tags": ["css", "html"] },
-        { "page": "Css clip-path Image Slider", "href": "/css-clip-path-image-slider", "thumbnail": "/assets/images/css-clip-path-image-slider.png", "tags": ["js", "css", "html"] },
-        { "page": "Progress Ring", "href": "/progress-ring", "thumbnail": "/assets/images/progress-ring.png", "tags": ["js", "css", "html"] },
-        { "page": "Css Auto Height Transition", "href": "/css-auto-height", "thumbnail": "css", "tags": ["css", "html"] },
-        { "page": "醫療科技展電子地圖", "href": "https://astalsi401.github.io/floormap/tai-nex/2024/booths", "thumbnail": "/assets/images/2023floormap.png", "tags": ["html", "css", "javascript", "js", "react", "react-dom", "redux"] },
-        { "page": "StackOverflow Panel Resize", "href": "/pane-resize", "thumbnail": "js", "tags": ["css", "html", "js", "stackOverflow"] },
-        { "page": "StackOverflow Span Arc", "href": "/span-arc", "thumbnail": "/assets/images/span-arc.png", "tags": ["css", "html", "stackOverflow"] },
-        { "page": "臺灣醫療科技展專題(首頁+文章頁)", "href": "https://expo.taiwan-healthcare.org/zh/news/0s0xfq88o2cu9gb1", "thumbnail": "/assets/images/expoNews.png", "tags": ["html", "css", "javascript", "js", "bootstrap"] },
-        { "page": "Btn effects", "href": "/btn-effect-collections", "thumbnail": "/assets/images/css-animation1.png", "tags": ["css", "html"] },
-        { "page": "FreeCodeCamp D3.js Heatmap", "href": "/d3js-heatmap", "thumbnail": "/assets/images/heatmap.png", "tags": ["d3js", "javascript", "js", "svg"] },
-        { "page": "FreeCodeCamp D3.js Choropleth Map", "href": "/d3js-choropleth-map", "thumbnail": "/assets/images/choropleth-map.png", "tags": ["d3js", "javascript", "js", "svg"] },
-        { "page": "FreeCodeCamp D3.js Treemap", "href": "/d3js-treemap", "thumbnail": "/assets/images/treemap.png", "tags": ["d3js", "javascript", "js", "svg"] },
-        { "page": "D3.js Basic Chart", "href": "/d3js-basic-chart", "thumbnail": "/assets/images/d3js-basic-chart.png", "tags": ["d3js", "javascript", "js", "svg"] },
-        { "page": "Leaflet SNQ Map", "href": "/leaflet-snq-map", "thumbnail": "/assets/images/snqMap.png", "tags": ["leaflet", "javascript", "js"] },
-        { "page": "2023臺灣醫療科技展參展辦法頁", "href": "https://expo.taiwan-healthcare.org/zh/exhibit.php", "thumbnail": "/assets/images/expoPage1.png", "tags": ["html", "css", "javascript", "js"] },
-        { "page": "2022臺灣醫療科技展 醫師聊健康活動頁", "href": "/expo-visit-page-2022", "thumbnail": "/assets/images/visitPage1.png", "tags": ["html", "css", "javascript", "js"] },
-        { "page": "Healthcare B2B 申請進駐頁面", "href": "https://www.taiwan-healthcare.org/zh/b2b-intro", "thumbnail": "/assets/images/HealthcareB2B-page1.png", "tags": ["html", "css", "javascript", "js"] },
-        { "page": "Python GA4 API 串接", "href": "/python-ga4-api", "thumbnail": "/assets/images/GA4_Logo.png", "tags": ["python", "ga4", "google analytics"] },
-        { "page": "Loading Animation", "href": "/css-loading-animation", "thumbnail": "/assets/images/css-loading1.png", "tags": ["css", "html"] },
-        { "page": "Fun Js Hover Effect", "href": "/fun-hover-effect", "thumbnail": "/assets/images/js-hover-effect1.png", "tags": ["css", "html", "js", "hover animation"] },
-        { "page": "JS圖片輪播", "href": "/javascript-image-switch", "thumbnail": "/assets/images/js-image-switch2.png", "tags": ["css", "html", "js", "javascript"] },
-        { "page": "JS Image Zoom On Click", "href": "/image-zoom-onclick", "thumbnail": "js", "tags": ["css", "html", "js", "javascript"] },
-        { "page": "JS Image Zoom On Hover", "href": "/image-zoom-onhover", "thumbnail": "js", "tags": ["css", "html", "js", "javascript"] },
-        { "page": "Image Scroll On Hover", "href": "/image-scroll-onhover", "thumbnail": "css", "tags": ["css", "html"] }
+        {
+          "page": "React Local Storage",
+          "href": "/react-custom-hook-localstorage",
+          "thumbnail": "react",
+          "tags": ["react", "typescript"]
+        },
+        {
+          "page": "Github API",
+          "href": "/github-api",
+          "thumbnail": "ts",
+          "tags": ["typescript"]
+        },
+        {
+          "page": "HeadlessUI Nested Menu",
+          "href": "/headlessui-nested-menu",
+          "thumbnail": "/assets/images/headlessui-nested-menu.png",
+          "tags": ["react", "headlessui", "tailwind", "typescript"]
+        },
+        {
+          "page": "Css Radial Gradient",
+          "href": "/css-radial-gradient",
+          "thumbnail": "css",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "Css Neon Arc",
+          "href": "/css-neon-arc",
+          "thumbnail": "/assets/images/neon-arc.png",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "2024 Medtex 商洽表單",
+          "href": "https://astalsi401.github.io/medtex-form/",
+          "thumbnail": "/assets/images/medtex-form.png",
+          "tags": ["react", "typescript", "scss"]
+        },
+        {
+          "page": "2024 Medtex 新創團隊介紹",
+          "href": "https://astalsi401.github.io/medtex-team/",
+          "thumbnail": "/assets/images/medtex-team.png",
+          "tags": ["react", "typescript", "scss"]
+        },
+        {
+          "page": "Nest Animate",
+          "href": "/nest-animate",
+          "thumbnail": "/assets/images/nest-animate.png",
+          "tags": ["js", "javascript"]
+        },
+        {
+          "page": "StackOverflow create a triangle on the top of a square",
+          "href": "/css-triangle-on-top-of-square",
+          "thumbnail": "/assets/images/css-triangle-on-top-of-square.png",
+          "tags": ["css"]
+        },
+        {
+          "page": "Gradient Generator",
+          "href": "https://astalsi401.github.io/gradient-creator/",
+          "thumbnail": "/assets/images/gradient-creator.png",
+          "tags": ["react", "js", "javascript", "scss", "html"]
+        },
+        {
+          "page": "Donut wheel arrow",
+          "href": "/donut-wheel-arrow",
+          "thumbnail": "/assets/images/donut-wheel-arrow.png",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "Css clip-path Image Slider",
+          "href": "/css-clip-path-image-slider",
+          "thumbnail": "/assets/images/css-clip-path-image-slider.png",
+          "tags": ["js", "css", "html"]
+        },
+        {
+          "page": "Progress Ring",
+          "href": "/progress-ring",
+          "thumbnail": "/assets/images/progress-ring.png",
+          "tags": ["js", "css", "html"]
+        },
+        {
+          "page": "Css Auto Height Transition",
+          "href": "/css-auto-height",
+          "thumbnail": "css",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "醫療科技展電子地圖",
+          "href": "https://astalsi401.github.io/floormap/tai-nex/2024/booths",
+          "thumbnail": "/assets/images/2023floormap.png",
+          "tags": [
+            "html",
+            "css",
+            "javascript",
+            "js",
+            "react",
+            "react-dom",
+            "redux"
+          ]
+        },
+        {
+          "page": "StackOverflow Panel Resize",
+          "href": "/pane-resize",
+          "thumbnail": "js",
+          "tags": ["css", "html", "js", "stackOverflow"]
+        },
+        {
+          "page": "StackOverflow Span Arc",
+          "href": "/span-arc",
+          "thumbnail": "/assets/images/span-arc.png",
+          "tags": ["css", "html", "stackOverflow"]
+        },
+        {
+          "page": "臺灣醫療科技展專題(首頁+文章頁)",
+          "href": "https://expo.taiwan-healthcare.org/zh/news/0s0xfq88o2cu9gb1",
+          "thumbnail": "/assets/images/expoNews.png",
+          "tags": ["html", "css", "javascript", "js", "bootstrap"]
+        },
+        {
+          "page": "Btn effects",
+          "href": "/btn-effect-collections",
+          "thumbnail": "/assets/images/css-animation1.png",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "FreeCodeCamp D3.js Heatmap",
+          "href": "/d3js-heatmap",
+          "thumbnail": "/assets/images/heatmap.png",
+          "tags": ["d3js", "javascript", "js", "svg"]
+        },
+        {
+          "page": "FreeCodeCamp D3.js Choropleth Map",
+          "href": "/d3js-choropleth-map",
+          "thumbnail": "/assets/images/choropleth-map.png",
+          "tags": ["d3js", "javascript", "js", "svg"]
+        },
+        {
+          "page": "FreeCodeCamp D3.js Treemap",
+          "href": "/d3js-treemap",
+          "thumbnail": "/assets/images/treemap.png",
+          "tags": ["d3js", "javascript", "js", "svg"]
+        },
+        {
+          "page": "D3.js Basic Chart",
+          "href": "/d3js-basic-chart",
+          "thumbnail": "/assets/images/d3js-basic-chart.png",
+          "tags": ["d3js", "javascript", "js", "svg"]
+        },
+        {
+          "page": "Leaflet SNQ Map",
+          "href": "/leaflet-snq-map",
+          "thumbnail": "/assets/images/snqMap.png",
+          "tags": ["leaflet", "javascript", "js"]
+        },
+        {
+          "page": "2023臺灣醫療科技展參展辦法頁",
+          "href": "https://expo.taiwan-healthcare.org/zh/exhibit.php",
+          "thumbnail": "/assets/images/expoPage1.png",
+          "tags": ["html", "css", "javascript", "js"]
+        },
+        {
+          "page": "2022臺灣醫療科技展 醫師聊健康活動頁",
+          "href": "/expo-visit-page-2022",
+          "thumbnail": "/assets/images/visitPage1.png",
+          "tags": ["html", "css", "javascript", "js"]
+        },
+        {
+          "page": "Healthcare B2B 申請進駐頁面",
+          "href": "https://www.taiwan-healthcare.org/zh/b2b-intro",
+          "thumbnail": "/assets/images/HealthcareB2B-page1.png",
+          "tags": ["html", "css", "javascript", "js"]
+        },
+        {
+          "page": "Python GA4 API 串接",
+          "href": "/python-ga4-api",
+          "thumbnail": "/assets/images/GA4_Logo.png",
+          "tags": ["python", "ga4", "google analytics"]
+        },
+        {
+          "page": "Loading Animation",
+          "href": "/css-loading-animation",
+          "thumbnail": "/assets/images/css-loading1.png",
+          "tags": ["css", "html"]
+        },
+        {
+          "page": "Fun Js Hover Effect",
+          "href": "/fun-hover-effect",
+          "thumbnail": "/assets/images/js-hover-effect1.png",
+          "tags": ["css", "html", "js", "hover animation"]
+        },
+        {
+          "page": "JS圖片輪播",
+          "href": "/javascript-image-switch",
+          "thumbnail": "/assets/images/js-image-switch2.png",
+          "tags": ["css", "html", "js", "javascript"]
+        },
+        {
+          "page": "JS Image Zoom On Click",
+          "href": "/image-zoom-onclick",
+          "thumbnail": "js",
+          "tags": ["css", "html", "js", "javascript"]
+        },
+        {
+          "page": "JS Image Zoom On Hover",
+          "href": "/image-zoom-onhover",
+          "thumbnail": "js",
+          "tags": ["css", "html", "js", "javascript"]
+        },
+        {
+          "page": "Image Scroll On Hover",
+          "href": "/image-scroll-onhover",
+          "thumbnail": "css",
+          "tags": ["css", "html"]
+        }
       ]
     },
     {
@@ -99,7 +280,10 @@
         { "page": "Html & Css", "href": "/html&css" },
         { "page": "Vite筆記", "href": "/vite-basic" },
         { "page": "Vscode(自用)", "href": "/vscode" },
-        { "page": "Use ES6 in freeCodeCamp Express Courses", "href": "/freeCodeCamp_express_es6" }
+        {
+          "page": "Use ES6 in freeCodeCamp Express Courses",
+          "href": "/freeCodeCamp_express_es6"
+        }
       ]
     },
     {
@@ -109,7 +293,8 @@
       "pages": [
         { "page": "FH4 車輛升級", "href": "/fh4_upgrade" },
         { "page": "FH4 基礎調教", "href": "/fh4_basic_tune" },
-        { "page": "FH4 調教分享", "href": "/fh4_tune_list" }
+        { "page": "FH4 調教分享", "href": "/fh4_tune_list" },
+        { "page": "Dol Mod Realistic Pain", "href": "/dol-mod-realistic-pain" }
       ]
     }
   ]
