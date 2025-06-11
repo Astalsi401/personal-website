@@ -1,10 +1,10 @@
 import { P } from "@ui/paragraph";
 import { Li, Ol } from "@ui/list";
-import { CodeChunk, DemoFrame } from "@/components";
+import { CodeChunk, DemoFrame, ZoomImage } from "@/components";
 import type { SectionsProps } from "@/types";
 import { InlineCode } from "@ui/inline-code";
 
-export const Sections: SectionsProps = ({ demoPath }) => [
+export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
   {
     title: "",
     content: (
@@ -13,6 +13,7 @@ export const Sections: SectionsProps = ({ demoPath }) => [
           A mod for the game "Degree of lewdity" that enhances the realism of
           pain effects, making the gameplay more and challenging.
         </P>
+        <P>The mod can be add middle of a game.</P>
       </>
     ),
   },
@@ -101,9 +102,48 @@ export const Sections: SectionsProps = ({ demoPath }) => [
     title: "Installation",
     content: (
       <>
+        <Ol>
+          <Li>
+            Download the game which has{" "}
+            <a
+              href="https://github.com/Lyoko-Jeremie/DoLModLoaderBuild"
+              target="_blank"
+            >
+              DolModLoader
+            </a>
+          </Li>
+          <Li>
+            Download{" "}
+            <a
+              href="https://github.com/Astalsi401/dol-realistic-pain/releases/tag/dol"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              realistic-pain.mod.zip
+            </a>
+          </Li>
+          <Li>
+            Then follow the steps in the image below:
+            <Ol type="i">
+              <Li>Open ModLoader Panel</Li>
+              <Li>Choose the mod zip file</Li>
+              <Li>Add the mod</Li>
+              <Li>Restart the game</Li>
+              <Li>Enjoy!</Li>
+            </Ol>
+            <ZoomImage src={`${imagePath}/dol-mod-install.png`} />
+          </Li>
+        </Ol>
         <P>
-          To install the mod, download it from the provided link and follow the
-          instructions in the README file.
+          Feel free to use the{" "}
+          <a
+            href="https://github.com/Astalsi401/dol-realistic-pain"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            source code
+          </a>{" "}
+          in your game if you don't want to use ModLoader.
         </P>
       </>
     ),
