@@ -82,7 +82,8 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
             />
           </Li>
           <Li>
-            Penetrate will increase pain no matter how "experienced" pc is.
+            Been Penetrated will increase pain no matter how "experienced" pc
+            is.
             <CodeChunk path={`${demoPath}/penetratedPain.js`} lang="js" />
             I don't know where to put this code to make sure it only run once
             every turn.
