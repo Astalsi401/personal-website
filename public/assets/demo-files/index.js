@@ -7,11 +7,26 @@ const insertCss = async (css, value) => {
   document.head.querySelector(`style[data-demo="${value}"]`)?.remove();
   document.head.innerHTML += `<style data-demo="${value}">${css}</style>`;
 };
+const insertScript = (src) =>
+  new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
 const demoContent = async ({ html, css, js, templateCss, bgColor }) => {
   try {
     html && (await insertHtml(html));
-    js && (await Promise.all(js.map((lib) => import(lib))));
-    await insertCss(`:root{--body-bg:${bgColor};}*{box-sizing:border-box;}body{min-height:200px;background-color: var(--body-bg);}`, "default");
+    js &&
+      js.forEach(async (lib) => {
+        await insertScript(lib);
+        js.length > 1 && (await new Promise(() => setTimeout(() => {}, 500)));
+      });
+    await insertCss(
+      `:root{--body-bg:${bgColor};}*{box-sizing:border-box;}body{min-height:200px;background-color: var(--body-bg);}`,
+      "default"
+    );
     templateCss && (await insertCss(templateCss, "template"));
     css && (await insertCss(css, "main"));
   } catch (error) {
@@ -19,4 +34,7 @@ const demoContent = async ({ html, css, js, templateCss, bgColor }) => {
   }
 };
 window.addEventListener("load", () => parent.postMessage({ load: true }));
-window.addEventListener("message", ({ data, origin }) => location.origin === origin && demoContent(data));
+window.addEventListener(
+  "message",
+  ({ data, origin }) => location.origin === origin && demoContent(data)
+);
