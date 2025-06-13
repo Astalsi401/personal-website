@@ -24,6 +24,8 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
         <Ol>
           <Li>
             Decrease the amount of pain change over time.
+            <br />
+            Default is -1, the smaller the value, the faster to recover.
             <CodeChunk path={`${demoPath}/painChangeByTime.js`} lang="js" />
             In dol source code <InlineCode>time.js</InlineCode>:
             <CodeChunk
@@ -44,6 +46,9 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
           </Li>
           <Li>
             Tiredness will increase more depend on pain.
+            <br />
+            Default is 1, the larger the value, the more tiredness will
+            increase.
             <CodeChunk
               path={`${demoPath}/tirednessChangeByPain.js`}
               lang="js"
@@ -68,6 +73,8 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
           <Li>
             In Mines, Livestock and Underground Brothel, the efficiency of
             digging a hole to escape can be affected by pain and tiredness.
+            <br />
+            Default is 1, the larger the value, the faster to escape.
             <CodeChunk path={`${demoPath}/escapeAmount.js`} lang="js" />
             <DemoFrame
               html={`${demoPath}/escapeAmount/graph.html`}
