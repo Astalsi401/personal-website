@@ -123,7 +123,7 @@ export const Sections: SectionsProps = ({ imagePath, demoPath }) => [
           <Li>
             Download{" "}
             <a
-              href="https://github.com/Astalsi401/dol-realistic-pain/releases/tag/dol"
+              href="https://github.com/Astalsi401/dol-realistic-pain/releases"
               target="_blank"
               rel="noopener noreferrer"
             >
