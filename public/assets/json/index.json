@@ -264,6 +264,10 @@
       "href": "/notes",
       "icon": "/assets/images/notes.svg",
       "pages": [
+        {
+          "page": "Keycloak Custom User Profile",
+          "href": "/keycloak-custom-profile"
+        },
         { "page": "Gin-Vue-Admin", "href": "/gin-vue-admin" },
         { "page": "Golang", "href": "/go" },
         { "page": "docker", "href": "/docker" },
