@@ -130,17 +130,17 @@
           "tags": ["css", "html"]
         },
         {
-          "page": "醫療科技展電子地圖",
-          "href": "https://astalsi401.github.io/floormap/tai-nex/2024/booths",
-          "thumbnail": "/assets/images/2023floormap.png",
+          "page": "展場選位系統(開發中)",
+          "href": "https://floormap.vercel.app/zh/floormap/tai-nex/2024",
+          "thumbnail": "/assets/images/floormap.png",
           "tags": [
-            "html",
-            "css",
-            "javascript",
-            "js",
             "react",
-            "react-dom",
-            "redux"
+            "nextjs",
+            "redux",
+            "typescript",
+            "ts",
+            "html",
+            "css"
           ]
         },
         {
