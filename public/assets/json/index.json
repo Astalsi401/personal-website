@@ -46,6 +46,12 @@
       "icon": "/assets/images/portfolio.svg",
       "pages": [
         {
+          "page": "Css Noise",
+          "href": "/css-noise",
+          "thumbnail": "/assets/images/css-noise.png",
+          "tags": ["css", "html"]
+        },
+        {
           "page": "React Local Storage",
           "href": "/react-custom-hook-localstorage",
           "thumbnail": "react",
@@ -133,15 +139,7 @@
           "page": "展場選位系統(開發中)",
           "href": "https://floormap.vercel.app/zh/floormap/tai-nex/2024",
           "thumbnail": "/assets/images/floormap.png",
-          "tags": [
-            "react",
-            "nextjs",
-            "redux",
-            "typescript",
-            "ts",
-            "html",
-            "css"
-          ]
+          "tags": ["react", "nextjs", "redux", "typescript", "ts", "html", "css"]
         },
         {
           "page": "StackOverflow Panel Resize",

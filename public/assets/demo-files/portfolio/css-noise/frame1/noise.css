@@ -1,0 +1,7 @@
+.noise {
+  width: min(500px, 100%);
+  aspect-ratio: 16 / 9;
+  background: repeating-radial-gradient(black 0 0.0001%, white 0 0.0002%),
+    repeating-conic-gradient(black 0 0.0001%, white 0 0.0002%);
+  background-blend-mode: difference;
+}
